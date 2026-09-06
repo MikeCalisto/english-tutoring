@@ -38,7 +38,7 @@
 
 - Репозиторий `MikeCalisto/english-tutoring`, ветка `main`, деплой Vercel через GitHub.
 - Сделано: каркас Next.js 16, дизайн «Дошка», рендереры карточек и таймлайнов из JSON, вкладки, режим проектора. Вкладки «Завдання» и «Тести» пока заглушки.
-- Vercel-проект `english-tutoring`, прод: https://english-tutoring-wheat.vercel.app. База Neon через Vercel Marketplace, схема в `src/db/schema.ts`, `drizzle-kit push`.
+- Vercel-проект `english-tutoring`, прод: https://english-tutors.vercel.app. База Neon через Vercel Marketplace, схема в `src/db/schema.ts`, `drizzle-kit push`.
 - Авторизация: Telegram Login Widget (учитель), одноразовый код (ученик), одна сессия на аккаунт, лог входов. Первый вошедший через Telegram становится админом и активирует остальных учителей в кабинете.
 - Ждём от заказчика: TELEGRAM_BOT_TOKEN и NEXT_PUBLIC_TELEGRAM_BOT_USERNAME в env Vercel, домен виджета в BotFather, тесты, остальные ссылки Wordwall, 7 тем контента.
 
