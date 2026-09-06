@@ -139,3 +139,16 @@ export const payments = pgTable("payments", {
   at: timestamp("at", { withTimezone: true }).notNull().defaultNow(),
   note: text("note"),
 });
+
+/* ---------- вход через бота: одноразовые токены deep link ---------- */
+
+export const loginTokens = pgTable("login_tokens", {
+  id: text("id").primaryKey(),
+  telegramId: text("telegram_id"),
+  firstName: text("first_name"),
+  lastName: text("last_name"),
+  username: text("username"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  confirmedAt: timestamp("confirmed_at", { withTimezone: true }),
+  consumedAt: timestamp("consumed_at", { withTimezone: true }),
+});

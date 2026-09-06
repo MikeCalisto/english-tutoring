@@ -1,5 +1,5 @@
 import "server-only";
-import { createHash, createHmac, randomBytes } from "node:crypto";
+import { randomBytes } from "node:crypto";
 import { cookies, headers } from "next/headers";
 import { eq, ne, and } from "drizzle-orm";
 import { db, schema } from "@/db";
@@ -16,36 +16,6 @@ export function newCode() {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   const b = randomBytes(8);
   return Array.from(b, (x) => alphabet[x % alphabet.length]).join("");
-}
-
-/* ---------- Telegram Login Widget ---------- */
-
-export interface TelegramAuth {
-  id: string;
-  first_name?: string;
-  last_name?: string;
-  username?: string;
-  photo_url?: string;
-  auth_date: string;
-  hash: string;
-}
-
-/** Проверка подписи данных виджета: HMAC-SHA256(data_check_string, sha256(bot_token)). */
-export function verifyTelegram(q: Record<string, string>): TelegramAuth | null {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  if (!token) return null;
-  const { hash, ...rest } = q;
-  if (!hash || !rest.id || !rest.auth_date) return null;
-  const check = Object.keys(rest)
-    .sort()
-    .map((k) => `${k}=${rest[k]}`)
-    .join("\n");
-  const secret = createHash("sha256").update(token).digest();
-  const hmac = createHmac("sha256", secret).update(check).digest("hex");
-  if (hmac !== hash) return null;
-  const age = Date.now() / 1000 - Number(rest.auth_date);
-  if (!Number.isFinite(age) || age > 600) return null;
-  return { ...(rest as unknown as TelegramAuth), hash };
 }
 
 /* ---------- sessions ---------- */

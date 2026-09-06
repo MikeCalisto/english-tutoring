@@ -28,7 +28,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         <section>
           <h2>Для вчителя</h2>
           {bot ? (
-            <TelegramLogin bot={bot} authUrl="/api/auth/telegram" />
+            <TelegramLogin bot={bot} />
           ) : (
             <div className="notice">Вхід через Telegram ще не налаштовано: не задано ім&apos;я бота.</div>
           )}
