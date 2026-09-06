@@ -1,0 +1,169 @@
+{
+  "topic": "Past Simple",
+  "group": "past",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Past Simple Form",
+      "subtitle": "regular verbs",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["stay<b>ed</b> …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>did not</b> stay …", "<b>didn't</b> stay …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Did</b>"], "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["stay …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            { "word": "Yes,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>did</b>." }] },
+            { "word": "No,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>didn't</b>." }] }
+          ],
+          "examples": [
+            "I <b>stayed</b> at home. — I <b>didn't stay</b> at home.",
+            "— <b>Did</b> you <b>go</b> to the party? — Yes, I <b>did</b>.",
+            "— <b>Did</b> she <b>stay</b>? — No, she <b>didn't</b>."
+          ]
+        },
+        {
+          "role": "careful",
+          "columns": [
+            { "heading": "QUESTION", "wrong": "Did she stay<b>ed</b> at home?", "right": "Did she stay at home?" },
+            { "heading": "NEGATIVE", "wrong": "He didn't <b>went</b>.", "right": "He didn't go." }
+          ],
+          "note": "After <b>did</b> and <b>didn't</b> the verb goes back to the infinitive."
+        }
+      ]
+    },
+    {
+      "type": "form",
+      "title": "Past Simple — to be",
+      "subtitle": "long and short forms",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "he", "she", "it"], "forms": ["<b>was</b> …"] },
+            { "pronouns": ["you", "we", "they"], "forms": ["<b>were</b> …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "he", "she", "it"], "forms": ["<b>was not</b> …", "<b>wasn't</b> …"] },
+            { "pronouns": ["you", "we", "they"], "forms": ["<b>were not</b> …", "<b>weren't</b> …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Was</b>"], "pronouns": ["I", "he", "she", "it"], "forms": ["at home?"] },
+            { "prefix": ["<b>Were</b>"], "pronouns": ["you", "we", "they"], "forms": ["at home?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I", "he", "she", "it"], "form": "<b>was</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>were</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I", "he", "she", "it"], "form": "<b>wasn't</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>weren't</b>." }
+              ]
+            }
+          ],
+          "examples": [
+            "I <b>was</b> at home. — She <b>was</b> very tired.",
+            "They <b>were not</b> at home. — They <b>weren't</b> at home.",
+            "— <b>Was</b> he at home? — Yes, he <b>was</b>.",
+            "— <b>Were</b> they at home? — No, they <b>weren't</b>."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Past Simple Spelling",
+      "subtitle": "-ed endings and irregular verbs",
+      "layout": "two",
+      "blocks": [
+        {
+          "kind": "spelling",
+          "heading": "SPELLING",
+          "items": [
+            { "from": "like, hate", "to": "liked, hated", "rule": "-e: add -d only" },
+            { "from": "prefer, stop", "to": "preferred, stopped", "rule": "one stressed vowel + consonant: double the consonant and add -ed" },
+            { "from": "carry, study", "to": "carried, studied", "rule": "consonant + y: change y to i and add -ied" },
+            { "from": "play, enjoy", "to": "played, enjoyed", "rule": "vowel + y: simply add -ed" }
+          ]
+        },
+        {
+          "kind": "pairs",
+          "heading": "IRREGULAR VERBS",
+          "note": "Irregular verbs have a special past form. It cannot be built by a rule and has to be learned.",
+          "items": [
+            { "left": "go → <b>went</b>", "right": "I went home." },
+            { "left": "drink → <b>drank</b>", "right": "I drank some water." },
+            { "left": "be → <b>was / were</b>", "right": "I was at home. They were at home." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Past Simple is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "📆",
+              "case": "for actions which happened at a stated time in the past",
+              "examples": ["He <b>sold</b> his car two weeks ago.", "She <b>called</b> an hour ago."],
+              "hint": "When? Two weeks ago."
+            },
+            {
+              "emoji": "🏠",
+              "case": "to express a past state or habit",
+              "examples": ["When he <b>was</b> young, he <b>lived</b> in a small flat.", "He <b>used to go</b> / <b>went</b> to school on foot."]
+            },
+            {
+              "emoji": "🔗",
+              "case": "for past actions which happened one after the other",
+              "examples": ["She <b>put on</b> her coat, <b>took</b> her bag and <b>left</b> the house.", "She <b>sealed</b> the letter, <b>put</b> a stamp on it and <b>posted</b> it."]
+            },
+            {
+              "emoji": "🔒",
+              "case": "for an action which happened in the past and cannot be repeated",
+              "examples": ["I once <b>spoke</b> to Princess Diana.", "Shakespeare <b>wrote</b> a lot of plays."],
+              "hint": "The action was completed in the past."
+            }
+          ]
+        },
+        {
+          "kind": "chips",
+          "heading": "TIME EXPRESSIONS",
+          "items": ["yesterday", "last week / month / year", "last Monday", "two weeks ago", "how long ago", "just now", "then", "when", "in 2000"]
+        }
+      ]
+    }
+  ]
+}

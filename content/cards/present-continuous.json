@@ -1,0 +1,123 @@
+{
+  "topic": "Present Continuous",
+  "group": "present",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Present Continuous Form",
+      "subtitle": "be + verb -ing",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I"], "forms": ["<b>am</b> work<b>ing</b> …", "<b>'m</b> work<b>ing</b> …"] },
+            { "pronouns": ["he", "she", "it"], "forms": ["<b>is</b> work<b>ing</b> …", "<b>'s</b> work<b>ing</b> …"] },
+            { "pronouns": ["you", "we", "they"], "forms": ["<b>are</b> work<b>ing</b> …", "<b>'re</b> work<b>ing</b> …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I"], "forms": ["<b>am not</b> working …", "<b>'m not</b> working …"] },
+            { "pronouns": ["he", "she", "it"], "forms": ["<b>is not</b> working …", "<b>isn't</b> working …"] },
+            { "pronouns": ["you", "we", "they"], "forms": ["<b>are not</b> working …", "<b>aren't</b> working …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Am</b>"], "pronouns": ["I"], "forms": ["working …?"] },
+            { "prefix": ["<b>Is</b>"], "pronouns": ["he", "she", "it"], "forms": ["working …?"] },
+            { "prefix": ["<b>Are</b>"], "pronouns": ["you", "we", "they"], "forms": ["working …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I"], "form": "<b>am</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>is</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>are</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I"], "form": "<b>'m not</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>isn't</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>aren't</b>." }
+              ]
+            }
+          ],
+          "examples": [
+            "I <b>am working</b> now. — I<b>'m working</b> now.",
+            "He <b>is not working</b> today. — He <b>isn't working</b> today.",
+            "— <b>Are</b> they <b>listening</b>? — Yes, they <b>are</b>.",
+            "— <b>Is</b> he <b>listening</b>? — No, he <b>isn't</b>."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Present Continuous Spelling",
+      "subtitle": "-ing endings",
+      "blocks": [
+        {
+          "kind": "spelling",
+          "heading": "SPELLING",
+          "items": [
+            { "from": "work, study", "to": "working, studying", "rule": "general rule: add -ing" },
+            { "from": "live, make", "to": "living, making", "rule": "consonant + -e: delete -e and add -ing" },
+            { "from": "run, swim", "to": "running, swimming", "rule": "one stressed vowel between two consonants: double the consonant and add -ing" },
+            { "from": "walk, wait", "to": "walking, waiting", "rule": "two vowels: we do not double the consonant" },
+            { "from": "lie", "to": "lying", "rule": "-ie changes to -y" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Present Continuous is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "🧳",
+              "case": "temporary situations",
+              "examples": ["He's <b>looking</b> for a new job these days.", "They<b>'re staying</b> at the Park Hotel at present."]
+            },
+            {
+              "emoji": "👀",
+              "case": "actions happening at or around the time of speaking",
+              "examples": ["Chris <b>is painting</b> the garage at the moment.", "She <b>is looking</b> for a better job."]
+            },
+            {
+              "emoji": "😤",
+              "case": "with always to express annoyance or criticism",
+              "examples": ["He's always <b>telling</b> lies!", "She's always <b>interrupting</b> me!"]
+            },
+            {
+              "emoji": "📅",
+              "case": "fixed arrangements in the near future",
+              "examples": ["I'm <b>flying</b> to London tomorrow.", "The Browns <b>are visiting</b> us tonight."],
+              "hint": "It's all arranged. The time of the action is always stated or understood."
+            },
+            {
+              "emoji": "📈",
+              "case": "changing or developing situations",
+              "examples": ["His English <b>is getting</b> better."]
+            }
+          ]
+        },
+        {
+          "kind": "chips",
+          "heading": "TIME EXPRESSIONS",
+          "items": ["now", "at the moment", "at present", "this week", "this month", "these days", "today", "tonight", "tomorrow", "next week"]
+        }
+      ]
+    }
+  ]
+}
