@@ -1,0 +1,190 @@
+{
+  "topic": "Present Perfect",
+  "group": "present",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Present Perfect Form",
+      "subtitle": "have / has + past participle",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "we", "they"],
+              "forms": ["have walked", "'ve walked"],
+              "examples": ["I <b>have walked</b> home.", "I<b>'ve walked</b> home."]
+            },
+            {
+              "pronouns": ["he", "she", "it"],
+              "forms": ["has walked", "'s walked"],
+              "examples": ["He <b>has walked</b> home.", "He<b>'s walked</b> home."]
+            }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "we", "they"],
+              "forms": ["have not walked", "haven't walked"],
+              "examples": ["I <b>have not walked</b> home.", "I <b>haven't walked</b> home."]
+            },
+            {
+              "pronouns": ["he", "she", "it"],
+              "forms": ["has not walked", "hasn't walked"],
+              "examples": ["He <b>has not walked</b> home.", "He <b>hasn't walked</b> home."]
+            }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            {
+              "prefix": ["Have"],
+              "pronouns": ["I", "you", "we", "they"],
+              "forms": ["finished?"],
+              "examples": ["<b>Have</b> you <b>finished</b>?"]
+            },
+            {
+              "prefix": ["Has"],
+              "pronouns": ["he", "she", "it"],
+              "forms": ["finished?"],
+              "examples": ["<b>Has</b> he <b>finished</b>?"]
+            }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I", "we", "you", "they"], "form": "<b>have</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>has</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I", "we", "you", "they"], "form": "<b>haven't</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>hasn't</b>." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Present Perfect Spelling",
+      "subtitle": "regular and irregular past participles",
+      "layout": "two",
+      "blocks": [
+        {
+          "heading": "SPELLING",
+          "kind": "spelling",
+          "items": [
+            { "from": "type, move", "to": "typed, moved", "rule": "e &rarr; add -d" },
+            { "from": "stop, prefer", "to": "stopped, preferred", "rule": "one stressed vowel between two consonants: double the final consonant and add -ed" },
+            { "from": "study, carry", "to": "studied, carried", "rule": "consonant + y: change y to i and add -ied" }
+          ]
+        },
+        {
+          "heading": "IRREGULAR VERBS",
+          "kind": "pairs",
+          "note": "Irregular verbs have their own past participle. Look at the back of the book for the past participles of irregular verbs.",
+          "items": [
+            { "left": "eat &rarr; <em>eaten</em>", "right": "I have eaten. / I've eaten." },
+            { "left": "go &rarr; <em>gone</em>", "right": "He has gone. / He's gone." },
+            { "left": "see &rarr; <em>seen</em>", "right": "We have seen. / We've seen." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Present Perfect is used",
+      "subtitle": "all cases",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "\ud83d\udd0d",
+              "case": "for actions which happened at an unstated time in the past",
+              "examples": ["He <b>has sold</b> his car. (When? We don't know.)", "James <b>has bought</b> a new car.", "He <b>has lost</b> his keys. (He is still looking for them.)"]
+            },
+            {
+              "emoji": "\ud83c\udfa8",
+              "case": "to express actions which have finished so recently that there's evidence in the present",
+              "examples": ["He <b>has just painted</b> the room. (The paint is wet.)", "She <b>has tidied</b> her room.", "They <b>have made</b> a lot of biscuits."],
+              "hint": "The biscuits are on the plate, so the action has finished."
+            },
+            {
+              "emoji": "\ud83e\ude82",
+              "case": "to talk about experiences",
+              "examples": ["He <b>has tried</b> skydiving.", "I<b>'ve met</b> Leona Lewis.", "I<b>'ve lost</b> a lot of weight."],
+              "hint": "I may meet her again; she's still alive."
+            },
+            {
+              "emoji": "\ud83c\udfe0",
+              "case": "for actions which started in the past and continue up to the present",
+              "examples": ["She <b>has lived</b> in this house for two years.", "BUT He <b>lived</b> in Australia for one year."],
+              "hint": "She still lives in this house. He doesn't live in Australia now."
+            },
+            {
+              "emoji": "\ud83d\udd22",
+              "case": "to put emphasis on number",
+              "examples": ["I<b>'ve</b> only <b>typed</b> three letters since 9 o'clock.", "She<b>'s written</b> three letters since this morning.", "She <b>has spoken</b> to two clients since 12 o'clock."],
+              "wide": true
+            }
+          ]
+        },
+        {
+          "heading": "NOTE",
+          "kind": "text",
+          "items": ["Non-continuous verbs are not used in Present Perfect Continuous (know, believe, see, like, love, taste, understand, want, etc.). I<b>'ve known</b> her since 2002. (NOT: I've been knowing her since 2002.)"]
+        }
+      ]
+    },
+    {
+      "title": "Present Perfect — time expressions",
+      "subtitle": "how each word is used",
+      "blocks": [
+        {
+          "heading": "TIME ADVERBS AND EXPRESSIONS",
+          "kind": "chips",
+          "items": ["just", "ever", "never", "always", "already", "yet", "for", "since", "so far", "how long", "lately", "recently", "today", "this week / month / year", "once", "several times"]
+        },
+        {
+          "kind": "uses",
+          "items": [
+            { "emoji": "\u2705", "case": "already \u2014 in statements and questions, before the main verb", "examples": ["I have <b>already</b> cooked dinner.", "Have you <b>already</b> eaten?", "I've <b>already</b> posted the letters."] },
+            { "emoji": "\u2753", "case": "yet \u2014 in questions and negations, at the end of the sentence", "examples": ["Have you spoken to him <b>yet</b>?", "I haven't spoken to him <b>yet</b>."] },
+            { "emoji": "\u26a1", "case": "just \u2014 in statements, before the main verb", "examples": ["I have <b>just</b> finished my homework.", "I've <b>just</b> called the doctor."], "hint": "just now + past simple: He left just now." },
+            { "emoji": "\u23f3", "case": "how long \u2014 in questions", "examples": ["<b>How long</b> have you known Jim?"] },
+            { "emoji": "\ud83c\udf0d", "case": "ever \u2014 in statements and questions", "examples": ["Have you <b>ever</b> visited Paris?", "It's the most beautiful city I have <b>ever</b> visited."] },
+            { "emoji": "\ud83d\udd52", "case": "recently \u2014 mainly in statements, before the main verb", "examples": ["He has <b>recently</b> bought a new car."] },
+            { "emoji": "\ud83d\udcc8", "case": "so far \u2014 mainly in statements, at the end of the sentence", "examples": ["I've typed ten letters <b>so far</b>."] },
+            { "emoji": "\ud83d\udeab", "case": "never \u2014 in statements, but with a negative meaning", "examples": ["I have <b>never</b> seen a lion."] },
+            { "emoji": "\ud83d\udccd", "case": "since \u2014 a starting point in the past", "examples": ["She's been ill <b>since</b> Monday.", "I've known Ann <b>since</b> October."] },
+            { "emoji": "\ud83d\udcc5", "case": "for \u2014 a period of time", "examples": ["She's been ill <b>for</b> two days.", "I've known Mary <b>for</b> two months."] }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Have gone to / Have been to / Have been in",
+      "subtitle": "three meanings that look alike",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            { "emoji": "\u2708\ufe0f", "case": "have gone to", "examples": ["He <b>has gone to</b> Brussels.", "He<b>'s gone to</b> London."], "hint": "He's there or on his way. He hasn't come back yet." },
+            { "emoji": "\ud83d\udd19", "case": "have been to", "examples": ["He <b>has been to</b> Brussels once.", "He<b>'s been to</b> Paris once."], "hint": "He's visited it but he's back now. Present Perfect of the verb 'to go'." },
+            { "emoji": "\ud83d\udccc", "case": "have been in", "examples": ["He <b>has been in</b> Brussels for two months.", "I<b>'ve been in</b> Athens for a month."], "hint": "He's there now. Present Perfect of the verb 'to be'.", "wide": true }
+          ]
+        }
+      ]
+    }
+  ]
+}

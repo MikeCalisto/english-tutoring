@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Onest:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <style>
+
+    *{box-sizing:border-box}
+    body{margin:0}
+    a{color:var(--ink)} a:hover{color:var(--muted)}
+    .root{width:1440px;padding:48px 56px 64px;display:flex;flex-direction:column;gap:32px;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+    .mono{font-family:var(--mono);font-size:12px}
+    .grow{flex-grow:1}
+    .k{font-weight:700;color:var(--c,var(--frame))}
+    .dhead{display:flex;gap:20px;align-items:flex-start}
+    .dname{font-family:var(--display);font-size:64px;line-height:1;font-weight:800;color:var(--frame-present)}
+    .dt1{font-family:var(--display);font-size:32px;font-weight:700;line-height:1.1}
+    .dt2{font-size:16px;color:var(--ink);margin-top:6px;max-width:900px}
+    .dt3{font-size:14px;color:var(--muted);margin-top:4px}
+    .sheet,.chrome,.subnav{--frame:var(--frame-present);--c:var(--frame-present)}
+    .sheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .col{background:var(--surface);border:var(--bw) solid var(--line);border-radius:var(--r);padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+    .colh{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    .ty-display{font-family:var(--display);font-size:48px;line-height:1.05;font-weight:800;color:var(--frame-present)}
+    .ty-body{font-size:18px;line-height:1.5}
+    .ty-mono{font-family:var(--mono);font-size:14px;color:var(--ink)}
+    .ty-sub{font-size:12px;color:var(--muted);margin-top:-6px}
+    .scale{display:flex;align-items:baseline;gap:14px;font-family:var(--display);font-weight:700;color:var(--muted)}
+    .s1{font-size:48px}.s2{font-size:32px}.s3{font-size:22px}.s4{font-size:18px}.s5{font-size:15px}.s6{font-size:12px}
+    .swg{display:flex;flex-direction:column;gap:6px}
+    .swt{font-size:12px;color:var(--muted)}
+    .swr{display:flex;gap:8px;flex-wrap:wrap}
+    .sw{display:flex;flex-direction:column;gap:4px;width:72px}
+    .swc{height:34px;border-radius:calc(var(--r) / 2);border:1px solid rgba(127,127,127,.25)}
+    .swl{display:flex;flex-direction:column;font-size:10.5px;line-height:1.2;color:var(--muted)}
+    .swl span:first-child{color:var(--ink)}
+    .cmp-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .tokens{display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid var(--line);padding-top:10px}
+    .tokens div{display:flex;justify-content:space-between;gap:12px}
+    .tokens .mono{color:var(--muted)}
+    .btn-p,.btn-s{font-family:var(--body);font-size:14px;font-weight:600;padding:10px 16px;border-radius:var(--rb);border:var(--bw) solid var(--ink);cursor:default}
+    .btn-p{background:var(--ink);color:var(--bg)}
+    .btn-s{background:transparent;color:var(--ink)}
+    .btn-s.small{padding:6px 12px;font-size:13px}
+    .tabs{display:flex;gap:4px}
+    .tab{padding:8px 14px;border-radius:var(--rb);font-weight:600;font-size:14px;color:var(--muted)}
+    .tab.on{background:var(--ink);color:var(--bg)}
+    .chip{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border-radius:999px;background:var(--frame-soft);color:var(--ink)}
+    .grp{font-family:var(--display);font-size:11px;letter-spacing:.12em;font-weight:700;padding:4px 9px;border-radius:calc(var(--rb) / 1.5);color:#fff}
+    .g-present{--frame:var(--frame-present);--frame-soft:var(--soft-present)}
+    .g-past{--frame:var(--frame-past);--frame-soft:var(--soft-past)}
+    .g-future{--frame:var(--frame-future);--frame-soft:var(--soft-future)}
+    .grp{background:var(--frame)}
+    .lbl-demo{font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--pos);text-transform:uppercase}
+    .brace-demo{width:10px;height:22px;border:2px solid var(--pos);border-left:none;border-radius:0 8px 8px 0;display:inline-block}
+    .chrome{display:flex;align-items:center;gap:22px;padding:12px 20px;background:var(--surface);border:var(--bw) solid var(--line);border-radius:var(--r)}
+    .brand{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.06em;padding:6px 12px;border:1.5px dashed var(--muted);border-radius:var(--rb);color:var(--muted)}
+    .subnav{display:flex;align-items:center;gap:6px;padding:0 6px;margin-top:-16px}
+    .crumb{font-size:14px;padding:6px 10px;border-radius:var(--rb);color:var(--muted)}
+    .crumb.on{color:var(--ink);font-weight:700}
+    .crumb2{font-size:13px;padding:5px 10px;border-radius:999px;color:var(--muted);border:1px solid var(--line)}
+    .crumb2.on{background:var(--frame-present);border-color:var(--frame-present);color:#fff;font-weight:600}
+    /* card */
+    .card{border-radius:var(--r);overflow:hidden;background:var(--surface);border:var(--bw) solid var(--frame);box-shadow:var(--shadow)}
+    .card-hd{display:flex;align-items:center;justify-content:space-between;padding:18px 28px}
+    .card-t{display:flex;align-items:baseline;gap:16px}
+    .card-h{font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.01em;color:var(--frame);line-height:1.1}
+    .card-sub{font-size:15px;color:var(--muted)}
+    .card-bd{padding:18px 28px 24px;display:flex;flex-direction:column;gap:14px}
+    .card-ft{display:flex;justify-content:space-between;padding:9px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line)}
+    .panels{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.15fr) minmax(0,1.75fr);gap:14px;align-items:stretch}
+    .pn{--c:var(--pos);border-radius:var(--rp);padding:14px 16px 12px;display:flex;flex-direction:column;justify-content:flex-start;gap:12px;background:var(--panel-bg);border:var(--pbw) solid var(--c)}
+    .p-pos{--c:var(--pos)}.p-neg{--c:var(--neg)}.p-que{--c:var(--que)}.p-ans{--c:var(--ans)}.p-warn{--c:var(--warn)}
+    .pn-lb{font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--c)}
+    .r{display:flex;align-items:center;gap:10px}
+    .prons{display:flex;flex-direction:column;gap:4px}
+    .pr{border:1.5px solid var(--pill-line);border-radius:var(--rb);padding:1px 10px;font-size:14px;color:var(--ink);text-align:center;background:var(--pill-bg);white-space:nowrap}
+    .brace{width:10px;align-self:stretch;border:2px solid var(--c);border-left:none;border-radius:0 9px 9px 0}
+    .forms,.pre{display:flex;flex-direction:column;gap:4px}
+    .fm{border:1.5px solid var(--c);border-radius:var(--rb);padding:3px 12px;font-size:15px;color:var(--ink);background:color-mix(in srgb,var(--c) var(--fm-mix),var(--surface));white-space:nowrap}
+    .sa-wrap{display:flex;flex-direction:row;flex-wrap:wrap;gap:12px 18px}
+    .sa-unit{display:flex;align-items:center;gap:10px}
+    .sa-word{font-size:15px;font-weight:700}
+    .sagrp{display:flex;flex-direction:column;gap:6px}
+    .sa-line{display:flex;align-items:center;gap:8px}
+    .bottom{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:stretch}
+    .warn-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+    .warn-h{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--c);font-weight:700;margin-bottom:4px}
+    .warnrow{display:flex;align-items:center;gap:8px;font-size:15px;padding:2px 0}
+    .warnrow.x .ic{color:var(--warn)}.warnrow.v .ic{color:var(--pos)}
+    .warn-note{grid-column:1 / -1;font-size:13.5px;color:var(--muted);margin-top:4px}
+    .exs{border-radius:var(--rp);padding:14px 18px;background:var(--exs-bg);border:var(--pbw) solid var(--line);display:flex;flex-direction:column;gap:6px;--c:var(--frame)}
+    .exs-h{font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+    .ex{font-size:16px}
+    /* timeline */
+    .tl-bd{gap:10px}
+    .tlsvg{width:100%;height:auto;display:block}
+    .tl-axis{font-family:var(--body);font-size:13px;fill:var(--muted)}
+    .tl-line{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .tl-span{fill:var(--span-bg);stroke:var(--span);stroke-width:2}
+    .tl-point{stroke:var(--point);stroke-width:7;stroke-linecap:round}
+    .tl-now-line{stroke:var(--frame);stroke-width:2;stroke-dasharray:5 6}
+    .tl-now{fill:var(--frame)}
+    .tl-now-t{font-family:var(--display);font-size:11px;font-weight:700;fill:#fff;letter-spacing:.1em}
+    .tl-tick{font-family:var(--mono);font-size:13px;fill:var(--muted)}
+    .tl-tick-p{fill:var(--point);font-weight:700}
+    .tl-time{font-family:var(--body);font-size:14px;fill:var(--timeword);font-weight:600}
+    .sentence{font-size:26px;text-align:center;line-height:1.4}
+    .w-span{background:var(--span-bg);color:var(--span);font-weight:700;padding:1px 8px;border-radius:calc(var(--rb) / 1.2)}
+    .w-point{color:var(--point);font-weight:700}
+    .w-time{color:var(--timeword);font-weight:700;border-bottom:2.5px solid var(--timeword)}
+    .tl-note{text-align:center;color:var(--muted);font-size:15px}
+    .tl-lg{display:flex;justify-content:center;gap:28px;font-size:13px;color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}
+    .tl-lg div{display:flex;align-items:center;gap:8px}
+    .lg-span{width:24px;height:12px;border-radius:3px;background:var(--span-bg);border:1.5px solid var(--span)}
+    .lg-point{color:var(--point)}
+    .lg-time{width:24px;height:3px;background:var(--timeword)}
+
+:root{}
+    .root{--bg:#16191D;--surface:#1F2429;--surface2:#272D33;--ink:#F3EFE4;--muted:#A5ADB5;--line:#343B42;
+      --pos:#7ED99A;--neg:#F58BA0;--que:#B9A8FF;--ans:#F6C76A;--warn:#FF7B72;
+      --frame-present:#4DD6B8;--frame-past:#82A7FF;--frame-future:#F5A95B;
+      --soft-present:#1F3A38;--soft-past:#232E48;--soft-future:#3A2E1F;
+      --span:#82A7FF;--span-bg:#2A3A5E;--point:#FF8A65;--timeword:#B9A8FF;--t1:#82A7FF;--t2:#FF8A65;
+      --display:"Bricolage Grotesque","Arial Black",sans-serif;--body:"Onest","Helvetica Neue",Arial,sans-serif;--mono:"JetBrains Mono","Menlo",monospace;
+      --r:16px;--rp:12px;--rb:8px;--bw:1px;--pbw:1px;--shadow:none;
+      --panel-bg:var(--surface2);--pill-line:#4A525B;--pill-bg:transparent;--fm-mix:16%;--exs-bg:var(--surface2)}
+    .card{border-width:1px;border-color:var(--line);border-top:4px solid var(--frame)}
+    .card-hd{background:var(--surface);border-bottom:1px solid var(--line)}
+    .card-ft{background:#14171B}
+    .pn{border-color:var(--line);border-top:2px solid var(--c)}
+    .grp{color:#16191D}
+    .tl-now-t{fill:#16191D}
+    .swc{border-color:rgba(255,255,255,.12)}
+    .btn-p{background:var(--ink);color:#16191D}
+    .tab.on{background:var(--ink);color:#16191D}
+    .crumb2.on{color:#16191D}
+
+
+    .root{gap:28px}
+    .tchips{display:flex;gap:8px}
+    .tchip{font-family:var(--display);font-size:12px;letter-spacing:.06em;font-weight:700;padding:5px 11px;border-radius:8px;color:#16191D}
+    .tchip.t1{background:var(--t1)}.tchip.t2{background:var(--t2)}
+    .lane{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+    .lane:last-of-type{border-bottom:none}
+    .lane-txt{display:flex;flex-direction:column;gap:14px}
+    .sent{display:flex;flex-direction:column;gap:6px}
+    .sentence{font-size:23px;line-height:1.45;text-align:left}
+    .tl-note{text-align:left;font-size:14.5px}
+    .w-v1{background:color-mix(in srgb,var(--t1) 28%,transparent);color:var(--t1);font-weight:700;padding:1px 7px;border-radius:7px;box-decoration-break:clone}
+    .w-v2{background:color-mix(in srgb,var(--t2) 28%,transparent);color:var(--t2);font-weight:700;padding:1px 7px;border-radius:7px;box-decoration-break:clone}
+    .tl-span.t1{fill:color-mix(in srgb,var(--t1) 28%,transparent);stroke:var(--t1);stroke-width:2}
+    .tl-span.t2{fill:color-mix(in srgb,var(--t2) 28%,transparent);stroke:var(--t2);stroke-width:2}
+    .tl-point.t1{stroke:var(--t1);stroke-linecap:round}
+    .tl-point.t2{stroke:var(--t2);stroke-linecap:round}
+    .tl-lbl{font-family:var(--display);font-size:13px;font-weight:700}
+    .tl-lbl.t1{fill:var(--t1)}.tl-lbl.t2{fill:var(--t2)}
+    .tl-tm{stroke:var(--timeword);stroke-width:1.5}
+    .tl-line{stroke:var(--ink);stroke-width:2.5}
+    .tl-lg{gap:24px;flex-wrap:wrap}
+    .lg-sq{width:22px;height:12px;border-radius:3px}
+    .lg-sq.t1{background:var(--t1)}.lg-sq.t2{background:var(--t2)}
+    .lg-x{color:var(--muted)}
+    .lg-block{width:22px;height:12px;border-radius:3px;border:1.5px solid var(--muted);background:color-mix(in srgb,var(--muted) 25%,transparent)}
+    .intro{display:flex;flex-direction:column;gap:6px}
+    .intro .dt1{font-family:var(--display);font-size:30px;font-weight:700}
+    .intro .dt2{font-size:15px;color:var(--muted);max-width:980px}
+
+  </style>
+</helmet>
+<div class="root">
+  <div class="intro">
+    <div class="dt1">Таймлайни · напрям «Дошка»</div>
+    <div class="dt2">Один рендерер, дані в JSON. Хрестик = одна дія в точці, блок = дія з тривалістю, пунктир = NOW. Дієслово підсвічене кольором своєї мітки на шкалі, вираз часу завжди фіолетовий. Час на шкалі умовний.</div>
+  </div>
+  <div class="card g-present tl"><div class="card-hd"><div class="card-t"><span class="card-h">Present Simple</span><span class="card-sub">repeated and habitual actions</span></div><div class="tchips"><span class="tchip t1">Present Simple</span></div></div><div class="card-bd tl-bd"><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="397.0" y1="36" x2="397.0" y2="128" class="tl-now-line"/><rect x="367.0" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="397.0" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><path d="M252.9 70l24 24M276.9 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M296.9 70l24 24M320.9 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M341.0 70l24 24M365.0 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M385.0 70l24 24M409.0 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M429.0 70l24 24M453.0 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M473.1 70l24 24M497.1 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M264.9 130v6H485.1v-6" fill="none" class="tl-tm"/><text x="375.0" y="148" text-anchor="middle" class="tl-time">every weekday</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">I <span class="w-v1">go</span> to work <span class="w-time">every weekday</span>.</div><div class="tl-note">repeated action</div></div></div></div><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="397.0" y1="36" x2="397.0" y2="128" class="tl-now-line"/><rect x="367.0" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="397.0" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><path d="M223.5 70l24 24M247.5 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M304.3 70l24 24M328.3 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M385.0 70l24 24M409.0 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M465.7 70l24 24M489.7 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M546.5 70l24 24M570.5 70l-24 24" class="tl-point t1" style="stroke-width:6"/><text x="235.5" y="126" text-anchor="middle" class="tl-tick">Mon</text><text x="316.3" y="126" text-anchor="middle" class="tl-tick">Thu</text><text x="397.0" y="126" text-anchor="middle" class="tl-tick">Mon</text><text x="477.7" y="126" text-anchor="middle" class="tl-tick">Thu</text><text x="558.5" y="126" text-anchor="middle" class="tl-tick">Mon</text><path d="M235.5 130v6H558.5v-6" fill="none" class="tl-tm"/><text x="397.0" y="148" text-anchor="middle" class="tl-time">on Mondays and Thursdays</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">I <span class="w-v1">go</span> to the gym <span class="w-time">on Mondays and Thursdays</span>.</div><div class="tl-note">habitual action</div></div></div></div><div class="tl-lg"><div><span class="lg-sq t1"></span> Present Simple</div><div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-x"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> one action at a point</div><div><span class="lg-block"></span> action with duration</div><div><span class="lg-time"></span> time expression</div></div></div><div class="card-ft"><span>[НАЗВА]</span><span>Timelines · 1 / 7</span></div></div><div class="card g-present tl"><div class="card-hd"><div class="card-t"><span class="card-h">Present Continuous</span><span class="card-sub">action now and action around now</span></div><div class="tchips"><span class="tchip t1">Present Continuous</span></div></div><div class="card-bd tl-bd"><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="397.0" y1="36" x2="397.0" y2="128" class="tl-now-line"/><rect x="367.0" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="397.0" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><path d="M385.0 70l24 24M409.0 70l-24 24" class="tl-point t1" style="stroke-width:6"/><line x1="397.0" y1="130" x2="397.0" y2="136" class="tl-tm"/><text x="397.0" y="148" text-anchor="middle" class="tl-time">now</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">I <span class="w-v1">am doing</span> homework <span class="w-time">now</span>.</div><div class="tl-note">action happening at this moment</div></div></div></div><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><rect x="308.9" y="58" width="176.2" height="48" rx="10" class="tl-span t1"/><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="397.0" y1="36" x2="397.0" y2="128" class="tl-now-line"/><rect x="367.0" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="397.0" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><text x="308.9" y="126" text-anchor="middle" class="tl-tick">Mon</text><text x="485.1" y="126" text-anchor="middle" class="tl-tick">Sun</text><path d="M308.9 130v6H485.1v-6" fill="none" class="tl-tm"/><text x="397.0" y="148" text-anchor="middle" class="tl-time">this week</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">He <span class="w-v1">is preparing</span> for an exam <span class="w-time">this week</span>.</div><div class="tl-note">action around now, not necessarily at this very moment</div></div></div></div><div class="tl-lg"><div><span class="lg-sq t1"></span> Present Continuous</div><div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-x"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> one action at a point</div><div><span class="lg-block"></span> action with duration</div><div><span class="lg-time"></span> time expression</div></div></div><div class="card-ft"><span>[НАЗВА]</span><span>Timelines · 2 / 7</span></div></div><div class="card g-present tl"><div class="card-hd"><div class="card-t"><span class="card-h">Present Perfect</span><span class="card-sub">experience · up to now · unstated time</span></div><div class="tchips"><span class="tchip t1">Present Perfect</span></div></div><div class="card-bd tl-bd"><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><defs><linearGradient id="fade1-present-perfect-0" x1="0" x2="1"><stop offset="0" stop-color="var(--t1)" stop-opacity="0"/><stop offset=".35" stop-color="var(--t1)" stop-opacity=".28"/><stop offset="1" stop-color="var(--t1)" stop-opacity=".28"/></linearGradient><linearGradient id="fadeS1-present-perfect-0" x1="0" x2="1"><stop offset="0" stop-color="var(--t1)" stop-opacity="0"/><stop offset=".4" stop-color="var(--t1)" stop-opacity="1"/></linearGradient></defs><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><rect x="59.4" y="58" width="425.7" height="48" rx="10" fill="url(#fade1-present-perfect-0)"/><path d="M59.4 58H485.1V106H59.4" fill="none" stroke="url(#fadeS1-present-perfect-0)" stroke-width="2"/><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="485.1" y1="36" x2="485.1" y2="128" class="tl-now-line"/><rect x="455.1" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="485.1" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">Ann <span class="w-v1">has been</span> to Scotland <span class="w-time">five times</span>.</div><div class="tl-note">general experience: it happened in her life, when is not important</div></div></div></div><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><rect x="250.2" y="58" width="234.9" height="48" rx="10" class="tl-span t1"/><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="485.1" y1="36" x2="485.1" y2="128" class="tl-now-line"/><rect x="455.1" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="485.1" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><text x="250.2" y="126" text-anchor="middle" class="tl-tick">2019</text><text x="485.1" y="126" text-anchor="middle" class="tl-tick">2026</text><path d="M250.2 130v6H485.1v-6" fill="none" class="tl-tm"/><text x="367.6" y="148" text-anchor="middle" class="tl-time">for 7 years</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">Rob and Helen <span class="w-v1">have been</span> married <span class="w-time">for 7 years</span>.</div><div class="tl-note">action that started in the past and continues up to now</div></div></div></div><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="485.1" y1="36" x2="485.1" y2="128" class="tl-now-line"/><rect x="455.1" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="485.1" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><path d="M385.0 70l24 24M409.0 70l-24 24" class="tl-point t1" style="stroke-width:6"/><text x="397.0" y="126" text-anchor="middle" class="tl-tick">?</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">Mary <span class="w-v1">has sold</span> her old car.</div><div class="tl-note">action that happened in the past at an unstated time; the result matters now</div></div></div></div><div class="tl-lg"><div><span class="lg-sq t1"></span> Present Perfect</div><div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-x"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> one action at a point</div><div><span class="lg-block"></span> action with duration</div><div><span class="lg-time"></span> time expression</div></div></div><div class="card-ft"><span>[НАЗВА]</span><span>Timelines · 3 / 7</span></div></div><div class="card g-present tl"><div class="card-hd"><div class="card-t"><span class="card-h">Present Perfect Continuous + Present Simple</span><span class="card-sub">an action up to now and its visible result</span></div><div class="tchips"><span class="tchip t1">Present Perfect Continuous</span><span class="tchip t2">Present Simple</span></div></div><div class="card-bd tl-bd"><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><rect x="294.2" y="58" width="190.8" height="48" rx="10" class="tl-span t1"/><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="485.1" y1="36" x2="485.1" y2="128" class="tl-now-line"/><rect x="455.1" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="485.1" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><path d="M473.1 70l24 24M497.1 70l-24 24" class="tl-point t2" style="stroke-width:6"/><text x="294.2" y="126" text-anchor="middle" class="tl-tick">23:00</text><text x="485.1" y="126" text-anchor="middle" class="tl-tick">7:00</text><path d="M294.2 130v6H485.1v-6" fill="none" class="tl-tm"/><text x="389.7" y="148" text-anchor="middle" class="tl-time">all night</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">Bob <span class="w-v1">has been working</span> <span class="w-time">all night</span>, and now he <span class="w-v2">is</span> very tired.</div><div class="tl-note">the action continued up to now and has a visible result</div></div></div></div><div class="tl-lg"><div><span class="lg-sq t1"></span> Present Perfect Continuous</div><div><span class="lg-sq t2"></span> Present Simple</div><div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-x"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> one action at a point</div><div><span class="lg-block"></span> action with duration</div><div><span class="lg-time"></span> time expression</div></div></div><div class="card-ft"><span>[НАЗВА]</span><span>Timelines · 4 / 7</span></div></div><div class="card g-past tl"><div class="card-hd"><div class="card-t"><span class="card-h">Past Continuous vs Past Simple</span><span class="card-sub">a long action interrupted by a short one</span></div><div class="tchips"><span class="tchip t1">Past Continuous</span><span class="tchip t2">Past Simple</span></div></div><div class="card-bd tl-bd"><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><rect x="235.5" y="58" width="205.5" height="48" rx="10" class="tl-span t1"/><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="617.2" y1="36" x2="617.2" y2="128" class="tl-now-line"/><rect x="587.2" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="617.2" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><path d="M341.0 70l24 24M365.0 70l-24 24" class="tl-point t2" style="stroke-width:6"/><text x="235.5" y="126" text-anchor="middle" class="tl-tick">6:00</text><text x="353.0" y="126" text-anchor="middle" class="tl-tick">6:40</text><text x="441.0" y="126" text-anchor="middle" class="tl-tick">7:00</text></svg><div class="lane-txt"><div class="sent"><div class="sentence">I <span class="w-v1">was cooking</span> dinner <span class="w-time">when</span> my husband <span class="w-v2">came</span> home.</div><div class="tl-note">I started at 6 and finished at 7. When he came home, I was in the middle of it.</div></div></div></div><div class="tl-lg"><div><span class="lg-sq t1"></span> Past Continuous</div><div><span class="lg-sq t2"></span> Past Simple</div><div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-x"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> one action at a point</div><div><span class="lg-block"></span> action with duration</div><div><span class="lg-time"></span> time expression</div></div></div><div class="card-ft"><span>[НАЗВА]</span><span>Timelines · 5 / 7</span></div></div><div class="card g-past tl"><div class="card-hd"><div class="card-t"><span class="card-h">Past Perfect vs Past Simple</span><span class="card-sub">which of two past actions happened first</span></div><div class="tchips"><span class="tchip t1">Past Perfect</span><span class="tchip t2">Past Simple</span></div></div><div class="card-bd tl-bd"><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><rect x="118.1" y="58" width="88.1" height="48" rx="10" class="tl-span t1"/><text x="162.1" y="50" text-anchor="middle" class="tl-lbl t1">1</text><rect x="264.9" y="58" width="102.8" height="48" rx="10" class="tl-span t2"/><text x="316.3" y="50" text-anchor="middle" class="tl-lbl t2">2</text><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="617.2" y1="36" x2="617.2" y2="128" class="tl-now-line"/><rect x="587.2" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="617.2" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><text x="162.1" y="126" text-anchor="middle" class="tl-tick">21:00</text><text x="316.3" y="126" text-anchor="middle" class="tl-tick">22:00</text></svg><div class="lane-txt"><div class="sent"><div class="sentence"><span class="w-time">When</span> I <span class="w-v2">came</span> to the party, Adam and Mary <span class="w-v1">had already gone</span> home.</div><div class="tl-note">First they went home (1), then I came to the party (2).</div></div></div></div><div class="tl-lg"><div><span class="lg-sq t1"></span> Past Perfect</div><div><span class="lg-sq t2"></span> Past Simple</div><div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-x"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> one action at a point</div><div><span class="lg-block"></span> action with duration</div><div><span class="lg-time"></span> time expression</div></div></div><div class="card-ft"><span>[НАЗВА]</span><span>Timelines · 6 / 7</span></div></div><div class="card g-past tl"><div class="card-hd"><div class="card-t"><span class="card-h">Past Simple vs Present Simple</span><span class="card-sub">past habits and present habits</span></div><div class="tchips"><span class="tchip t1">Past Simple</span><span class="tchip t2">Present Simple</span></div></div><div class="card-bd tl-bd"><div class="lane"><svg viewBox="0 0 800 158" class="tlsvg"><text x="30" y="24" class="tl-axis">past</text><text x="770" y="24" text-anchor="end" class="tl-axis">future</text><line x1="30" y1="82" x2="764" y2="82" class="tl-line"/><path d="M760 71l16 11-16 11" class="tl-line" fill="none"/><line x1="558.5" y1="36" x2="558.5" y2="128" class="tl-now-line"/><rect x="528.5" y="6" width="60" height="24" rx="12" class="tl-now"/><text x="558.5" y="22.5" text-anchor="middle" class="tl-now-t">NOW</text><path d="M106.1 70l24 24M130.1 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M157.5 70l24 24M181.5 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M208.8 70l24 24M232.8 70l-24 24" class="tl-point t1" style="stroke-width:6"/><path d="M487.8 70l24 24M511.8 70l-24 24" class="tl-point t2" style="stroke-width:6"/><path d="M546.5 70l24 24M570.5 70l-24 24" class="tl-point t2" style="stroke-width:6"/><path d="M605.2 70l24 24M629.2 70l-24 24" class="tl-point t2" style="stroke-width:6"/><text x="169.5" y="126" text-anchor="middle" class="tl-tick">in Lviv</text><text x="558.5" y="126" text-anchor="middle" class="tl-tick">in Kyiv</text></svg><div class="lane-txt"><div class="sent"><div class="sentence"><span class="w-time">When</span> Adam <span class="w-v1">lived</span> in Lviv, he <span class="w-v1">woke up</span> early, <span class="w-v1">had</span> breakfast and <span class="w-v1">went</span> to the gym.</div><div class="tl-note">habitual actions in the past: he did it, but he doesn't do it anymore</div></div><div class="sent"><div class="sentence">Adam <span class="w-v2">lives</span> in Kyiv, he <span class="w-v2">wakes up</span> late, <span class="w-v2">skips</span> breakfast and <span class="w-v2">runs</span> to work in a hurry.</div><div class="tl-note">present habits</div></div></div></div><div class="tl-lg"><div><span class="lg-sq t1"></span> Past Simple</div><div><span class="lg-sq t2"></span> Present Simple</div><div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-x"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> one action at a point</div><div><span class="lg-block"></span> action with duration</div><div><span class="lg-time"></span> time expression</div></div></div><div class="card-ft"><span>[НАЗВА]</span><span>Timelines · 7 / 7</span></div></div>
+</div>
+</x-dc>
+</body>
+</html>

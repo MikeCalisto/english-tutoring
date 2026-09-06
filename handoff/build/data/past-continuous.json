@@ -1,0 +1,135 @@
+{
+  "topic": "Past Continuous",
+  "group": "past",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Past Continuous Form",
+      "subtitle": "was / were + verb -ing",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            {
+              "pronouns": ["I", "he", "she", "it"],
+              "forms": ["was walking"],
+              "examples": ["I <b>was walking</b> home.", "She <b>was walking</b> home."]
+            },
+            {
+              "pronouns": ["you", "we", "they"],
+              "forms": ["were walking"],
+              "examples": ["You <b>were walking</b> home.", "They <b>were walking</b> home."]
+            }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            {
+              "pronouns": ["I", "he", "she", "it"],
+              "forms": ["was not walking", "wasn't walking"],
+              "examples": ["I <b>was not walking</b> home.", "I <b>wasn't walking</b> home."]
+            },
+            {
+              "pronouns": ["you", "we", "they"],
+              "forms": ["were not walking", "weren't walking"],
+              "examples": ["They <b>were not walking</b> home.", "They <b>weren't walking</b> home."]
+            }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            {
+              "prefix": ["Was"],
+              "pronouns": ["I", "he", "she", "it"],
+              "forms": ["walking?"],
+              "examples": ["<b>Was</b> she <b>walking</b>?"]
+            },
+            {
+              "prefix": ["Were"],
+              "pronouns": ["you", "we", "they"],
+              "forms": ["walking?"],
+              "examples": ["<b>Were</b> they <b>walking</b>?"]
+            }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I", "he", "she", "it"], "form": "<b>was</b>." },
+                { "pronouns": ["we", "you", "they"], "form": "<b>were</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I", "he", "she", "it"], "form": "<b>wasn't</b>." },
+                { "pronouns": ["we", "you", "they"], "form": "<b>weren't</b>." }
+              ]
+            }
+          ],
+          "examples": ["Negative-Interrogative: <b>Wasn't</b> I <b>helping</b>? <b>Weren't</b> you <b>helping</b>?"]
+        }
+      ]
+    },
+    {
+      "title": "Past Continuous is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "\ud83d\udd52",
+              "case": "for an action that was in the middle of happening at a stated time in the past",
+              "examples": ["At 8 o'clock last night she <b>was watching</b> TV.", "He <b>was playing</b> tennis at 4:30 pm yesterday.", "He <b>was studying</b> for his Maths test at 9 o'clock last night."]
+            },
+            {
+              "emoji": "\ud83d\udc65",
+              "case": "for two or more actions which were happening at the same time in the past (simultaneous actions)",
+              "examples": ["At 5 o'clock yesterday afternoon Ben <b>was doing</b> his homework while his dad <b>was cooking</b> dinner.", "Mum <b>was reading</b> a book while Dad <b>was watching</b> TV.", "While I <b>was sunbathing</b>, Tim <b>was swimming</b>."]
+            },
+            {
+              "emoji": "\ud83d\udcde",
+              "case": "for a past action which was in progress when another action interrupted it",
+              "examples": ["Linda <b>was watching</b> TV when the phone <b>rang</b>.", "While I <b>was getting dressed</b> the bell <b>rang</b>.", "Kate <b>was sunbathing</b> when it <b>started</b> to rain."],
+              "hint": "The longer action is in the Past Continuous, the shorter action is in the Past Simple."
+            },
+            {
+              "emoji": "\ud83c\udf32",
+              "case": "to describe the background to the events in a story",
+              "examples": ["We <b>were walking</b> in the woods. It <b>was raining</b> hard ...", "She <b>was flying</b> to Paris. The sun <b>was shining</b>..."]
+            }
+          ]
+        },
+        {
+          "heading": "TIME EXPRESSIONS",
+          "kind": "chips",
+          "items": ["while", "when", "as", "all day", "all night", "all morning", "all day yesterday"]
+        }
+      ]
+    },
+    {
+      "title": "Was / Were going to",
+      "subtitle": "plans in the past that did not happen",
+      "blocks": [
+        {
+          "kind": "text",
+          "items": ["<b>Was going to</b> is used to express fixed arrangements in the past, unfulfilled plans or an action which someone intended to do in the past but didn't do."]
+        },
+        {
+          "kind": "uses",
+          "items": [
+            { "emoji": "\ud83d\ude82", "case": "fixed arrangement in the past", "examples": ["He got up early. He <b>was going to</b> catch the 6 o'clock train."] },
+            { "emoji": "\ud83e\udd12", "case": "unfulfilled plan", "examples": ["She <b>was going to</b> travel around Europe but she didn't because she fell ill."] },
+            { "emoji": "\ud83d\ude97", "case": "intention that was not carried out", "examples": ["She <b>was going to</b> buy a new car but in the end she repaired her old one."], "hint": "She intended to buy a car but she didn't.", "wide": true }
+          ]
+        }
+      ]
+    }
+  ]
+}

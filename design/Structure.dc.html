@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Nunito:wght@400;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #FFFFFF; color: #222; font-family: "Nunito", "Trebuchet MS", sans-serif; }
+    a { color: #2b2b2b; } a:hover { color: #000; }
+    .h { font-family: "Caveat", "Comic Sans MS", cursive; font-weight: 700; }
+    .box { border: 1.5px solid #2b2b2b; border-radius: 6px; background: #fff; }
+    .gray { background: #F1F1EE; }
+    .v2 { border: 1.5px dashed #9a9a9a; color: #7a7a7a; background: #fff; }
+    .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+    .t-teacher { background: #DCE8FF; color: #1F3F8F; }
+    .t-student { background: #FFE6CC; color: #8F4A00; }
+    .t-bot { background: #E6E6E6; color: #444; }
+    .arrow { display: flex; align-items: center; justify-content: center; }
+    .pill { display: inline-block; border: 1.5px solid #2b2b2b; border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+    .hatch { background: repeating-linear-gradient(135deg, #f4f4f2 0 6px, #e6e6e2 6px 7px); }
+  </style>
+</helmet>
+
+<div style="width: 1440px; min-height: 1560px; padding: 48px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 36px; background: #FFFFFF;">
+
+  <div style="display: flex; flex-direction: column; gap: 6px;">
+    <div class="h" style="font-size: 44px; line-height: 1;">Структура платформи</div>
+    <div style="font-size: 15px; color: #555;">Як я зрозумів бриф. Суцільна рамка = MVP, пунктир = друга версія. Кольори тут умовні, дизайн вибираємо окремо.</div>
+  </div>
+
+  <!-- 1. Access and roles -->
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div class="h" style="font-size: 26px;">1. Доступ і ролі</div>
+    <div style="display: grid; grid-template-columns: 250px 60px 300px 60px 300px 60px 300px; align-items: stretch;">
+      <div class="box gray" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+        <span class="tag t-bot" style="align-self: flex-start;">Zenedu бот</span>
+        <div style="font-weight: 700;">Продаж</div>
+        <div style="font-size: 13px; color: #444;">Видає доступ до платформи і PDF-файли</div>
+      </div>
+      <div class="arrow"><svg width="40" height="16" viewBox="0 0 40 16" fill="none" stroke="#2b2b2b" stroke-width="1.5"><path d="M2 8h34M30 2l6 6-6 6"/></svg></div>
+      <div class="box" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+        <span class="tag t-teacher" style="align-self: flex-start;">Учитель</span>
+        <div style="font-weight: 700;">Вхід через Telegram</div>
+        <div style="font-size: 13px; color: #444;">Одна активна сесія на акаунт, лог входів. Бачить усе: 4 вкладки, PDF, кабінет.</div>
+      </div>
+      <div class="arrow"><svg width="40" height="16" viewBox="0 0 40 16" fill="none" stroke="#2b2b2b" stroke-width="1.5"><path d="M2 8h34M30 2l6 6-6 6"/></svg></div>
+      <div class="box" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+        <span class="tag t-teacher" style="align-self: flex-start;">Кабінет</span>
+        <div style="font-weight: 700;">Запрошення учнів</div>
+        <div style="font-size: 13px; color: #444;">Одноразовий код або посилання, прив'язане до вчителя. Ліміт на кількість учнів.</div>
+      </div>
+      <div class="arrow"><svg width="40" height="16" viewBox="0 0 40 16" fill="none" stroke="#2b2b2b" stroke-width="1.5"><path d="M2 8h34M30 2l6 6-6 6"/></svg></div>
+      <div class="box" style="padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;">
+        <span class="tag t-student" style="align-self: flex-start;">Учень</span>
+        <div style="font-weight: 700;">Вхід за кодом, без Telegram</div>
+        <div style="font-size: 13px; color: #444;">Бачить тільки таймлайни і тести. Ні карток, ні Wordwall, ні PDF.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Screen skeleton -->
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div class="h" style="font-size: 26px;">2. Каркас екрана вчителя</div>
+    <div class="box" style="padding: 0; overflow: hidden;">
+      <div style="display: flex; align-items: center; gap: 24px; padding: 12px 20px; border-bottom: 1.5px solid #2b2b2b;">
+        <div class="hatch" style="width: 130px; height: 28px; border: 1.5px solid #2b2b2b; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;">[НАЗВА]</div>
+        <div style="display: flex; gap: 6px;">
+          <div class="pill" style="background: #2b2b2b; color: #fff;">Картки</div>
+          <div class="pill">Таймлайни</div>
+          <div class="pill">Завдання</div>
+          <div class="pill">Тести</div>
+        </div>
+        <div style="flex-grow: 1;"></div>
+        <div class="pill">PDF</div>
+        <div class="pill">Кабінет</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 380px;">
+        <div style="border-right: 1.5px solid #2b2b2b; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+          <div style="font-weight: 700; font-size: 11px; letter-spacing: .08em; color: #777;">PRESENT</div>
+          <div style="font-weight: 700;">Present Simple</div>
+          <div>Present Continuous</div>
+          <div>Present Perfect</div>
+          <div>Present Perfect Cont.</div>
+          <div style="font-weight: 700; font-size: 11px; letter-spacing: .08em; color: #777; margin-top: 6px;">PAST</div>
+          <div>Past Simple</div>
+          <div>Past Continuous</div>
+          <div>Past Perfect</div>
+          <div>Past Perfect Cont.</div>
+          <div style="font-weight: 700; font-size: 11px; letter-spacing: .08em; color: #777; margin-top: 6px;">FUTURE</div>
+          <div>Future Simple</div>
+          <div>Future Continuous</div>
+          <div>Future Perfect</div>
+          <div>Future Perfect Cont.</div>
+          <div style="font-weight: 700; font-size: 11px; letter-spacing: .08em; color: #777; margin-top: 6px;">ІНШЕ</div>
+          <div>To be going to</div>
+          <div>Stative verbs</div>
+          <div>Used to</div>
+          <div>Irregular verbs</div>
+          <div>Сполучення часів</div>
+        </div>
+        <div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 6px; align-items: center; font-size: 13px;">
+            <div class="pill" style="background: #2b2b2b; color: #fff;">Form</div>
+            <div class="pill">to be</div>
+            <div class="pill">Spelling</div>
+            <div class="pill">is used</div>
+            <div style="flex-grow: 1;"></div>
+            <div style="color: #777;">на весь екран для проєктора</div>
+            <div class="box" style="width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#2b2b2b" stroke-width="1.5"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9"/></svg></div>
+          </div>
+          <div class="box hatch" style="height: 290px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px;">
+            <div class="h" style="font-size: 30px;">Картка</div>
+            <div style="font-size: 13px; color: #555;">горизонтальна, на всю ширину контентної зони, читається з відстані</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Four tabs -->
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div class="h" style="font-size: 26px;">3. Що всередині вкладок</div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+      <div class="box" style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="h" style="font-size: 24px;">Картки</div>
+        <div style="font-size: 13px; color: #444;">15 тем, до 4 карток на час:</div>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px;">
+          <div class="box gray" style="padding: 4px 8px;">Form (панелі +, −, ?, short answer, careful)</div>
+          <div class="box gray" style="padding: 4px 8px;">to be (якщо є окрема форма)</div>
+          <div class="box gray" style="padding: 4px 8px;">Spelling</div>
+          <div class="box gray" style="padding: 4px 8px;">is used (усі випадки + time expressions)</div>
+        </div>
+        <div style="font-size: 13px; color: #444;">+ Irregular verbs, + картки порівняння часів. Разом близько 50.</div>
+        <div style="font-size: 12px; color: #777;">Джерело: JSON, один рендерер.</div>
+      </div>
+      <div class="box" style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="h" style="font-size: 24px;">Таймлайни</div>
+        <div style="font-size: 13px; color: #444;">Одна шкала на кожен час і на кожен конфлікт двох часів:</div>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px;">
+          <div class="box gray" style="padding: 4px 8px;">12 часів + going to, used to</div>
+          <div class="box gray" style="padding: 4px 8px;">Past Cont. vs Past Simple</div>
+          <div class="box gray" style="padding: 4px 8px;">Present Perfect vs Past Simple</div>
+          <div class="box gray" style="padding: 4px 8px;">Past Perfect vs Past Simple, і далі</div>
+        </div>
+        <div style="font-size: 13px; color: #444;">Під шкалою речення, дієслова підсвічені кольором своєї мітки. Близько 20.</div>
+        <div style="font-size: 12px; color: #777;">Джерело: JSON, один SVG-рендерер.</div>
+      </div>
+      <div class="box" style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="h" style="font-size: 24px;">Завдання</div>
+        <div style="font-size: 13px; color: #444;">Каталог посилань Wordwall, згрупованих за часами. Близько 20.</div>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px;">
+          <div class="box gray" style="padding: 4px 8px; display: flex; justify-content: space-between;"><span>Present Simple: quiz</span><span>відкрити</span></div>
+          <div class="box gray" style="padding: 4px 8px; display: flex; justify-content: space-between;"><span>Present Simple: match up</span><span>відкрити</span></div>
+          <div class="box gray" style="padding: 4px 8px; display: flex; justify-content: space-between;"><span>Past Simple: gap fill</span><span>відкрити</span></div>
+        </div>
+        <div style="font-size: 12px; color: #777;">Завдання живуть на Wordwall, платформа лише відкриває.</div>
+      </div>
+      <div class="box" style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="h" style="font-size: 24px;">Тести</div>
+        <div style="font-size: 13px; color: #444;">Перенесені тести з автоперевіркою:</div>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px;">
+          <div class="box gray" style="padding: 4px 8px;">питання → відповідь → перевірка</div>
+          <div class="box gray" style="padding: 4px 8px;">результат: учень, тест, бали, дата</div>
+          <div class="box gray" style="padding: 4px 8px;">зберігається в базу, не зникає</div>
+        </div>
+        <div style="font-size: 13px; color: #444;">Учень бачить свій результат. Учитель у v2 бачить роботи учнів.</div>
+        <div style="font-size: 12px; color: #777;">Джерело: сайт замовника, чекаємо посилання.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Cabinet + v2 -->
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="h" style="font-size: 26px;">4. Кабінет учителя (MVP)</div>
+      <div class="box" style="padding: 16px; display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+        <div class="box gray" style="padding: 6px 10px; display: flex; justify-content: space-between;"><span>Мої учні</span><span>7 / 10</span></div>
+        <div class="box gray" style="padding: 6px 10px; display: flex; justify-content: space-between;"><span>Створити код доступу</span><span>одноразовий</span></div>
+        <div class="box gray" style="padding: 6px 10px; display: flex; justify-content: space-between;"><span>Результати тестів учнів</span><span>таблиця</span></div>
+        <div class="box gray" style="padding: 6px 10px; display: flex; justify-content: space-between;"><span>PDF-збірник</span><span>завантажити</span></div>
+        <div class="box gray" style="padding: 6px 10px; display: flex; justify-content: space-between;"><span>Сесії</span><span>одна активна</span></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="h" style="font-size: 26px; color: #7a7a7a;">Друга версія (не в MVP)</div>
+      <div class="v2" style="padding: 16px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; border-radius: 6px;">
+        <div class="v2" style="padding: 6px 10px;">Перевірка робіт: учитель бачить і перевіряє тести своїх учнів</div>
+        <div class="v2" style="padding: 6px 10px;">Заняття: відмітив проведене, баланс учня зменшився</div>
+        <div class="v2" style="padding: 6px 10px;">Фінанси по учню: ставка, оплати, на скільки вистачить, наступна оплата, борг</div>
+        <div class="v2" style="padding: 6px 10px;">Мобільна верстка кабінету, окремого застосунку нема</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Data and pipeline -->
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div class="h" style="font-size: 26px;">5. Дані і конвеєр контенту</div>
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); gap: 0; align-items: start;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <div class="pill">users</div>
+        <div class="pill">teacher_student</div>
+        <div class="pill">invites</div>
+        <div class="pill">sessions</div>
+        <div class="pill">tests</div>
+        <div class="pill">test_attempts</div>
+        <div class="pill">test_answers</div>
+        <div class="pill" style="border-style: dashed; color: #7a7a7a;">lessons</div>
+        <div class="pill" style="border-style: dashed; color: #7a7a7a;">payments</div>
+        <div class="pill" style="border-style: dashed; color: #7a7a7a;">rates</div>
+        <div style="width: 100%; font-size: 13px; color: #444;">Зв'язок учитель–учень закладено як повноцінне відношення з першого дня: на ньому будується v2.</div>
+      </div>
+      <div></div>
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 13px;">
+        <div class="box gray" style="padding: 8px 12px;">JSON<br><span style="color:#777;">картки, таймлайни, тести</span></div>
+        <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="#2b2b2b" stroke-width="1.5"><path d="M2 8h22M18 2l6 6-6 6"/></svg>
+        <div class="box" style="padding: 8px 12px;">Один рендерер</div>
+        <svg width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="#2b2b2b" stroke-width="1.5"><path d="M2 8h22M18 2l6 6-6 6"/></svg>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div class="box" style="padding: 6px 12px;">Веб-платформа</div>
+          <div class="box" style="padding: 6px 12px;">PDF (друк тих самих сторінок)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+  "topic": "Past Perfect Continuous",
+  "group": "past",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Past Perfect Continuous Form",
+      "subtitle": "had been + verb -ing",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "he", "she", "it", "we", "they"],
+              "forms": ["had been crying", "'d been crying"],
+              "examples": ["He <b>had been crying</b>.", "He<b>'d been crying</b>.", "She <b>had been working</b> as a clerk for 10 years."]
+            }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "he", "she", "it", "we", "they"],
+              "forms": ["had not been crying", "hadn't been crying"],
+              "examples": ["He <b>had not been crying</b>.", "He <b>hadn't been crying</b>."]
+            }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            {
+              "prefix": ["Had"],
+              "pronouns": ["I", "you", "he", "she", "it", "we", "they"],
+              "forms": ["been crying?"],
+              "examples": ["<b>Had</b> he <b>been crying</b>?"]
+            }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>had</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>hadn't</b>." }
+              ]
+            }
+          ],
+          "examples": ["Had he been crying? — Yes, he <b>had</b>. / No, he <b>hadn't</b>."]
+        }
+      ]
+    },
+    {
+      "title": "Past Perfect Continuous is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "\u23f3",
+              "case": "emphasis on the duration of an action which started and finished in the past before another past action or a stated time in the past",
+              "examples": ["She <b>had been working</b> as a clerk <b>for 10 years</b> before she resigned."]
+            },
+            {
+              "emoji": "\ud83c\udf27\ufe0f",
+              "case": "past action of certain duration which had visible results in the past",
+              "examples": ["They were wet because they <b>had been walking</b> in the rain."]
+            },
+            {
+              "emoji": "\ud83d\udd01",
+              "case": "the Past Perfect Continuous is the past equivalent of the Present Perfect Continuous",
+              "examples": ["She is going to the doctor. Her leg <b>has been aching</b> for two days.", "She went to the doctor. Her leg <b>had been aching</b> for two days."],
+              "wide": true
+            }
+          ]
+        },
+        {
+          "heading": "TIME EXPRESSIONS",
+          "kind": "chips",
+          "items": ["for", "since"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Commissioner:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+
+    *{box-sizing:border-box}
+    body{margin:0}
+    a{color:var(--ink)} a:hover{color:var(--muted)}
+    .root{width:1440px;padding:48px 56px 64px;display:flex;flex-direction:column;gap:32px;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+    .mono{font-family:var(--mono);font-size:12px}
+    .grow{flex-grow:1}
+    .k{font-weight:700;color:var(--c,var(--frame))}
+    .dhead{display:flex;gap:20px;align-items:flex-start}
+    .dname{font-family:var(--display);font-size:64px;line-height:1;font-weight:800;color:var(--frame-present)}
+    .dt1{font-family:var(--display);font-size:32px;font-weight:700;line-height:1.1}
+    .dt2{font-size:16px;color:var(--ink);margin-top:6px;max-width:900px}
+    .dt3{font-size:14px;color:var(--muted);margin-top:4px}
+    .sheet,.chrome,.subnav{--frame:var(--frame-present);--c:var(--frame-present)}
+    .sheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .col{background:var(--surface);border:var(--bw) solid var(--line);border-radius:var(--r);padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+    .colh{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    .ty-display{font-family:var(--display);font-size:48px;line-height:1.05;font-weight:800;color:var(--frame-present)}
+    .ty-body{font-size:18px;line-height:1.5}
+    .ty-mono{font-family:var(--mono);font-size:14px;color:var(--ink)}
+    .ty-sub{font-size:12px;color:var(--muted);margin-top:-6px}
+    .scale{display:flex;align-items:baseline;gap:14px;font-family:var(--display);font-weight:700;color:var(--muted)}
+    .s1{font-size:48px}.s2{font-size:32px}.s3{font-size:22px}.s4{font-size:18px}.s5{font-size:15px}.s6{font-size:12px}
+    .swg{display:flex;flex-direction:column;gap:6px}
+    .swt{font-size:12px;color:var(--muted)}
+    .swr{display:flex;gap:8px;flex-wrap:wrap}
+    .sw{display:flex;flex-direction:column;gap:4px;width:72px}
+    .swc{height:34px;border-radius:calc(var(--r) / 2);border:1px solid rgba(127,127,127,.25)}
+    .swl{display:flex;flex-direction:column;font-size:10.5px;line-height:1.2;color:var(--muted)}
+    .swl span:first-child{color:var(--ink)}
+    .cmp-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .tokens{display:flex;flex-direction:column;gap:4px;font-size:13px;border-top:1px solid var(--line);padding-top:10px}
+    .tokens div{display:flex;justify-content:space-between;gap:12px}
+    .tokens .mono{color:var(--muted)}
+    .btn-p,.btn-s{font-family:var(--body);font-size:14px;font-weight:600;padding:10px 16px;border-radius:var(--rb);border:var(--bw) solid var(--ink);cursor:default}
+    .btn-p{background:var(--ink);color:var(--bg)}
+    .btn-s{background:transparent;color:var(--ink)}
+    .btn-s.small{padding:6px 12px;font-size:13px}
+    .tabs{display:flex;gap:4px}
+    .tab{padding:8px 14px;border-radius:var(--rb);font-weight:600;font-size:14px;color:var(--muted)}
+    .tab.on{background:var(--ink);color:var(--bg)}
+    .chip{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border-radius:999px;background:var(--frame-soft);color:var(--ink)}
+    .grp{font-family:var(--display);font-size:11px;letter-spacing:.12em;font-weight:700;padding:4px 9px;border-radius:calc(var(--rb) / 1.5);color:#fff}
+    .g-present{--frame:var(--frame-present);--frame-soft:var(--soft-present)}
+    .g-past{--frame:var(--frame-past);--frame-soft:var(--soft-past)}
+    .g-future{--frame:var(--frame-future);--frame-soft:var(--soft-future)}
+    .grp{background:var(--frame)}
+    .lbl-demo{font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--pos);text-transform:uppercase}
+    .brace-demo{width:10px;height:22px;border:2px solid var(--pos);border-left:none;border-radius:0 8px 8px 0;display:inline-block}
+    .chrome{display:flex;align-items:center;gap:22px;padding:12px 20px;background:var(--surface);border:var(--bw) solid var(--line);border-radius:var(--r)}
+    .brand{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.06em;padding:6px 12px;border:1.5px dashed var(--muted);border-radius:var(--rb);color:var(--muted)}
+    .subnav{display:flex;align-items:center;gap:6px;padding:0 6px;margin-top:-16px}
+    .crumb{font-size:14px;padding:6px 10px;border-radius:var(--rb);color:var(--muted)}
+    .crumb.on{color:var(--ink);font-weight:700}
+    .crumb2{font-size:13px;padding:5px 10px;border-radius:999px;color:var(--muted);border:1px solid var(--line)}
+    .crumb2.on{background:var(--frame-present);border-color:var(--frame-present);color:#fff;font-weight:600}
+    /* card */
+    .card{border-radius:var(--r);overflow:hidden;background:var(--surface);border:var(--bw) solid var(--frame);box-shadow:var(--shadow)}
+    .card-hd{display:flex;align-items:center;justify-content:space-between;padding:18px 28px}
+    .card-t{display:flex;align-items:baseline;gap:16px}
+    .card-h{font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.01em;color:var(--frame);line-height:1.1}
+    .card-sub{font-size:15px;color:var(--muted)}
+    .card-bd{padding:18px 28px 24px;display:flex;flex-direction:column;gap:14px}
+    .card-ft{display:flex;justify-content:space-between;padding:9px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line)}
+    .panels{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.15fr) minmax(0,1.75fr);gap:14px;align-items:stretch}
+    .pn{--c:var(--pos);border-radius:var(--rp);padding:14px 16px 12px;display:flex;flex-direction:column;justify-content:flex-start;gap:12px;background:var(--panel-bg);border:var(--pbw) solid var(--c)}
+    .p-pos{--c:var(--pos)}.p-neg{--c:var(--neg)}.p-que{--c:var(--que)}.p-ans{--c:var(--ans)}.p-warn{--c:var(--warn)}
+    .pn-lb{font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--c)}
+    .r{display:flex;align-items:center;gap:10px}
+    .prons{display:flex;flex-direction:column;gap:4px}
+    .pr{border:1.5px solid var(--pill-line);border-radius:var(--rb);padding:1px 10px;font-size:14px;color:var(--ink);text-align:center;background:var(--pill-bg);white-space:nowrap}
+    .brace{width:10px;align-self:stretch;border:2px solid var(--c);border-left:none;border-radius:0 9px 9px 0}
+    .forms,.pre{display:flex;flex-direction:column;gap:4px}
+    .fm{border:1.5px solid var(--c);border-radius:var(--rb);padding:3px 12px;font-size:15px;color:var(--ink);background:color-mix(in srgb,var(--c) var(--fm-mix),var(--surface));white-space:nowrap}
+    .sa-wrap{display:flex;flex-direction:row;flex-wrap:wrap;gap:12px 18px}
+    .sa-unit{display:flex;align-items:center;gap:10px}
+    .sa-word{font-size:15px;font-weight:700}
+    .sagrp{display:flex;flex-direction:column;gap:6px}
+    .sa-line{display:flex;align-items:center;gap:8px}
+    .bottom{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:stretch}
+    .warn-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+    .warn-h{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--c);font-weight:700;margin-bottom:4px}
+    .warnrow{display:flex;align-items:center;gap:8px;font-size:15px;padding:2px 0}
+    .warnrow.x .ic{color:var(--warn)}.warnrow.v .ic{color:var(--pos)}
+    .warn-note{grid-column:1 / -1;font-size:13.5px;color:var(--muted);margin-top:4px}
+    .exs{border-radius:var(--rp);padding:14px 18px;background:var(--exs-bg);border:var(--pbw) solid var(--line);display:flex;flex-direction:column;gap:6px;--c:var(--frame)}
+    .exs-h{font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+    .ex{font-size:16px}
+    /* timeline */
+    .tl-bd{gap:10px}
+    .tlsvg{width:100%;height:auto;display:block}
+    .tl-axis{font-family:var(--body);font-size:13px;fill:var(--muted)}
+    .tl-line{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .tl-span{fill:var(--span-bg);stroke:var(--span);stroke-width:2}
+    .tl-point{stroke:var(--point);stroke-width:7;stroke-linecap:round}
+    .tl-now-line{stroke:var(--frame);stroke-width:2;stroke-dasharray:5 6}
+    .tl-now{fill:var(--frame)}
+    .tl-now-t{font-family:var(--display);font-size:11px;font-weight:700;fill:#fff;letter-spacing:.1em}
+    .tl-tick{font-family:var(--mono);font-size:13px;fill:var(--muted)}
+    .tl-tick-p{fill:var(--point);font-weight:700}
+    .tl-time{font-family:var(--body);font-size:14px;fill:var(--timeword);font-weight:600}
+    .sentence{font-size:26px;text-align:center;line-height:1.4}
+    .w-span{background:var(--span-bg);color:var(--span);font-weight:700;padding:1px 8px;border-radius:calc(var(--rb) / 1.2)}
+    .w-point{color:var(--point);font-weight:700}
+    .w-time{color:var(--timeword);font-weight:700;border-bottom:2.5px solid var(--timeword)}
+    .tl-note{text-align:center;color:var(--muted);font-size:15px}
+    .tl-lg{display:flex;justify-content:center;gap:28px;font-size:13px;color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}
+    .tl-lg div{display:flex;align-items:center;gap:8px}
+    .lg-span{width:24px;height:12px;border-radius:3px;background:var(--span-bg);border:1.5px solid var(--span)}
+    .lg-point{color:var(--point)}
+    .lg-time{width:24px;height:3px;background:var(--timeword)}
+
+:root{}
+    .root{--bg:#F6F2EA;--surface:#FFFDF9;--surface2:#FAF7F0;--ink:#1E1B16;--muted:#6F675A;--line:#DDD5C4;
+      --pos:#1E6B3C;--neg:#A12A4E;--que:#4A3B9C;--ans:#9C5A0C;--warn:#B3261E;
+      --frame-present:#0B6B5A;--frame-past:#24406E;--frame-future:#7B4B00;
+      --soft-present:#E3EFEA;--soft-past:#E4E9F2;--soft-future:#F1E8D8;
+      --span:#24406E;--span-bg:#DCE3F0;--point:#C2410C;--timeword:#4A3B9C;
+      --display:"Playfair Display","Georgia",serif;--body:"Commissioner","Helvetica Neue",Arial,sans-serif;--mono:"IBM Plex Mono","Courier New",monospace;
+      --r:6px;--rp:4px;--rb:3px;--bw:1px;--pbw:0px;--shadow:none;
+      --panel-bg:transparent;--pill-line:var(--ink);--pill-bg:transparent;--fm-mix:0%;--exs-bg:var(--surface2)}
+    .card{border:1px solid var(--ink)}
+    .card-h{font-weight:700;letter-spacing:0}
+    .card-sub{font-family:var(--display);font-style:italic;font-size:17px}
+    .card-hd{border-bottom:1px solid var(--ink)}
+    .panels{gap:0}
+    .pn{border:none;border-left:1px solid var(--line);padding:6px 18px 6px 18px}
+    .pn:first-child{border-left:none;padding-left:0}
+    .pn-lb{font-family:var(--mono);letter-spacing:.16em;font-size:11px}
+    .pr{border:none;border-bottom:1px solid var(--line);border-radius:0;padding:1px 6px;text-align:left}
+    .fm{border:none;background:transparent;padding:2px 0;font-size:16px}
+    .exs{border:none;border-top:1px solid var(--line);border-radius:0;background:transparent;padding-left:0}
+    .bottom{border-top:1px solid var(--line);padding-top:12px}
+    .p-warn.wide{border-left:none;padding-left:0;border-right:1px solid var(--line)}
+    .card-ft{background:var(--surface2);font-family:var(--mono)}
+    .col{border:1px solid var(--ink)}
+    .chrome{border:1px solid var(--ink)}
+    .grp{border-radius:2px;font-family:var(--mono);letter-spacing:.14em}
+    .tab{border-radius:0;border-bottom:2px solid transparent;padding:8px 6px;margin-right:8px}
+    .tab.on{background:transparent;color:var(--ink);border-bottom-color:var(--ink)}
+    .btn-p,.btn-s{border-radius:3px}
+    .chip{border-radius:2px;border:1px solid var(--line);background:transparent}
+    .tl-line{stroke-width:2}
+    .w-span{border-radius:2px}
+
+  </style>
+</helmet>
+
+<div class="root">
+
+  <div class="dhead">
+    <div class="dname">B</div>
+    <div class="dtitle">
+      <div class="dt1">Підручник</div>
+      <div class="dt2">Светлая бумага, антиква в заголовках, тонкие линейки вместо цветных рамок. Выглядит как разворот хорошего учебника: спокойно, дорого, идеально печатается в PDF без переделки.</div>
+      <div class="dt3">Компроміс: меньше «вау» на экране, цвет только там, где он несёт смысл.</div>
+    </div>
+  </div>
+
+  <!-- design system sheet -->
+  <div class="sheet">
+    <div class="col">
+      <div class="colh">Типографіка</div>
+      <div class="ty-display">Present Perfect</div>
+      <div class="ty-sub">Playfair Display 700 · заголовки карток, читаються з проєктора</div>
+      <div class="ty-body">She <b class="k">has lived</b> here <span class="tw">since 2010</span>. Ann <b class="k">has never been</b> to Rome.</div>
+      <div class="ty-sub">Commissioner 400 / 600 · приклади, пояснення, інтерфейс</div>
+      <div class="ty-mono">have / has + V3 &nbsp;&nbsp; -ed &nbsp;&nbsp; consonant + y → -ies</div>
+      <div class="ty-sub">IBM Plex Mono · формули, закінчення, вирази часу</div>
+      <div class="scale">
+        <span class="s1">48</span><span class="s2">32</span><span class="s3">22</span><span class="s4">18</span><span class="s5">15</span><span class="s6">12</span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="colh">Кольори</div>
+      <div class="swg"><div class="swt">Нейтральні</div><div class="swr"><div class="sw"><div class="swc" style="background:#F6F2EA"></div><div class="swl"><span>папір</span><span class="mono">#F6F2EA</span></div></div><div class="sw"><div class="swc" style="background:#FFFDF9"></div><div class="swl"><span>аркуш</span><span class="mono">#FFFDF9</span></div></div><div class="sw"><div class="swc" style="background:#1E1B16"></div><div class="swl"><span>чорнило</span><span class="mono">#1E1B16</span></div></div><div class="sw"><div class="swc" style="background:#6F675A"></div><div class="swl"><span>другорядний</span><span class="mono">#6F675A</span></div></div><div class="sw"><div class="swc" style="background:#DDD5C4"></div><div class="swl"><span>лінія</span><span class="mono">#DDD5C4</span></div></div></div></div>
+      <div class="swg"><div class="swt">Ролі в панелях форми</div><div class="swr"><div class="sw"><div class="swc" style="background:#1E6B3C"></div><div class="swl"><span>positive</span><span class="mono">#1E6B3C</span></div></div><div class="sw"><div class="swc" style="background:#A12A4E"></div><div class="swl"><span>negative</span><span class="mono">#A12A4E</span></div></div><div class="sw"><div class="swc" style="background:#4A3B9C"></div><div class="swl"><span>question</span><span class="mono">#4A3B9C</span></div></div><div class="sw"><div class="swc" style="background:#9C5A0C"></div><div class="swl"><span>short answer</span><span class="mono">#9C5A0C</span></div></div><div class="sw"><div class="swc" style="background:#B3261E"></div><div class="swl"><span>careful</span><span class="mono">#B3261E</span></div></div></div></div>
+      <div class="swg"><div class="swt">Групи часів</div><div class="swr"><div class="sw"><div class="swc" style="background:#0B6B5A"></div><div class="swl"><span>present</span><span class="mono">#0B6B5A</span></div></div><div class="sw"><div class="swc" style="background:#24406E"></div><div class="swl"><span>past</span><span class="mono">#24406E</span></div></div><div class="sw"><div class="swc" style="background:#7B4B00"></div><div class="swl"><span>future</span><span class="mono">#7B4B00</span></div></div></div></div>
+      <div class="swg"><div class="swt">Таймлайн</div><div class="swr"><div class="sw"><div class="swc" style="background:#24406E"></div><div class="swl"><span>відрізок</span><span class="mono">#24406E</span></div></div><div class="sw"><div class="swc" style="background:#C2410C"></div><div class="swl"><span>точка</span><span class="mono">#C2410C</span></div></div><div class="sw"><div class="swc" style="background:#4A3B9C"></div><div class="swl"><span>вираз часу</span><span class="mono">#4A3B9C</span></div></div></div></div>
+    </div>
+    <div class="col">
+      <div class="colh">Компоненти і токени</div>
+      <div class="cmp-row"><button class="btn-p">Відкрити картку</button><button class="btn-s">Завантажити PDF</button></div>
+      <div class="cmp-row tabs"><span class="tab on">Картки</span><span class="tab">Таймлайни</span><span class="tab">Завдання</span><span class="tab">Тести</span></div>
+      <div class="cmp-row"><span class="pr">she</span><span class="brace-demo"></span><span class="fm">work<b class="k">s</b> …</span><span class="chip">since 2010</span><span class="chip">just</span></div>
+      <div class="cmp-row"><span class="grp g-present">PRESENT</span><span class="grp g-past">PAST</span><span class="grp g-future">FUTURE</span><span class="lbl-demo">POSITIVE</span></div>
+      <div class="tokens">
+        <div><span>Радіус</span><span class="mono">6 / 4 / 3 px</span></div>
+        <div><span>Рамка</span><span class="mono">1 px чорнильна, волосяні лінії між панелями</span></div>
+        <div><span>Крок відступів</span><span class="mono">4 · 8 · 12 · 16 · 24 · 40</span></div>
+        <div><span>Ширина картки</span><span class="mono">100% контенту, 16:7 на проєкторі</span></div>
+        <div><span>Тінь</span><span class="mono">немає, папір</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- platform chrome -->
+  <div class="chrome">
+    <div class="brand">[НАЗВА]</div>
+    <div class="tabs"><span class="tab on">Картки</span><span class="tab">Таймлайни</span><span class="tab">Завдання</span><span class="tab">Тести</span></div>
+    <div class="grow"></div>
+    <span class="btn-s small">PDF</span>
+    <span class="btn-s small">Кабінет</span>
+  </div>
+  <div class="subnav">
+    <span class="grp g-present">PRESENT</span>
+    <span class="crumb on">Present Simple</span><span class="crumb">Present Continuous</span><span class="crumb">Present Perfect</span><span class="crumb">Present Perfect Continuous</span>
+    <div class="grow"></div>
+    <span class="crumb2 on">Form</span><span class="crumb2">to be</span><span class="crumb2">Spelling</span><span class="crumb2">is used</span>
+  </div>
+
+  <!-- card: Present Simple Form, horizontal -->
+  <div class="card g-present">
+    <div class="card-hd">
+      <div class="card-t"><span class="card-h">Present Simple Form</span><span class="card-sub">main verbs</span></div>
+      <span class="grp g-present">PRESENT</span>
+    </div>
+    <div class="card-bd">
+      <div class="panels">
+        <div class="pn p-pos"><div class="pn-lb">Positive</div>
+          <div class="r"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm">work …</span></div></div>
+          <div class="r"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm">work<b class="k">s</b> …</span></div></div>
+        </div>
+        <div class="pn p-neg"><div class="pn-lb">Negative</div>
+          <div class="r"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b class="k">do not</b> work …</span><span class="fm"><b class="k">don't</b> work …</span></div></div>
+          <div class="r"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b class="k">does not</b> work …</span><span class="fm"><b class="k">doesn't</b> work …</span></div></div>
+        </div>
+        <div class="pn p-que"><div class="pn-lb">Question</div>
+          <div class="r"><div class="pre"><span class="fm"><b class="k">Do</b></span></div><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm">work …?</span></div></div>
+          <div class="r"><div class="pre"><span class="fm"><b class="k">Does</b></span></div><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm">work …?</span></div></div>
+        </div>
+        <div class="pn p-ans"><div class="pn-lb">Short answer</div>
+          <div class="sa-wrap">
+            <div class="sa-unit"><span class="sa-word">Yes,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b class="k">do</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b class="k">does</b>.</span></div></div></div></div>
+            <div class="sa-unit"><span class="sa-word">No,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b class="k">don't</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b class="k">doesn't</b>.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="pn p-warn wide"><div class="pn-lb">Careful</div>
+          <div class="warn-cols">
+            <div><div class="warn-h">Negative</div>
+              <div class="warnrow x"><svg class="ic" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg><span>He doesn't work<b class="k">s</b>.</span></div>
+              <div class="warnrow v"><svg class="ic" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5l3.5 3.5L12 4"/></svg><span>He doesn't work.</span></div></div>
+            <div><div class="warn-h">Question</div>
+              <div class="warnrow x"><svg class="ic" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg><span>Does she work<b class="k">s</b>?</span></div>
+              <div class="warnrow v"><svg class="ic" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5l3.5 3.5L12 4"/></svg><span>Does she work?</span></div></div>
+            <div class="warn-note">Use <b class="k">does</b> or <b class="k">doesn't</b> + infinitive with no -s in questions and negatives.</div>
+          </div>
+        </div>
+        <div class="exs">
+          <div class="exs-h">Examples</div>
+          <div class="ex">— <b class="k">Do</b> you <b class="k">work</b> here? — Yes, I <b class="k">do</b>.</div>
+          <div class="ex">— <b class="k">Does</b> she <b class="k">work</b> here? — Yes, she <b class="k">does</b>.</div>
+          <div class="ex">— <b class="k">Do</b> they <b class="k">work</b> together? — No, they <b class="k">don't</b>.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ft"><span>[НАЗВА]</span><span>Present Simple · 1 / 4</span></div>
+  </div>
+
+  <!-- timeline: conflict of two tenses -->
+  <div class="card g-past tl">
+    <div class="card-hd">
+      <div class="card-t"><span class="card-h">Past Continuous vs Past Simple</span><span class="card-sub">a long action interrupted by a short one</span></div>
+      <span class="grp g-past">PAST</span>
+    </div>
+    <div class="card-bd tl-bd">
+      <svg viewBox="0 0 1300 170" class="tlsvg">
+        <text x="20" y="28" class="tl-axis">past</text>
+        <text x="1280" y="28" text-anchor="end" class="tl-axis">future</text>
+        <rect x="260" y="72" width="500" height="52" rx="4" class="tl-span"/>
+        <line x1="20" y1="98" x2="1250" y2="98" class="tl-line"/>
+        <path d="M1248 86l22 12-22 12" class="tl-line" fill="none"/>
+        <line x1="1050" y1="46" x2="1050" y2="140" class="tl-now-line"/>
+        <rect x="1016" y="26" width="68" height="26" rx="13" class="tl-now"/>
+        <text x="1050" y="44" text-anchor="middle" class="tl-now-t">NOW</text>
+        <path d="M546 84l28 28M574 84l-28 28" class="tl-point"/>
+        <text x="260" y="146" text-anchor="middle" class="tl-tick">8:00</text>
+        <text x="560" y="146" text-anchor="middle" class="tl-tick tl-tick-p">8:30</text>
+        <text x="760" y="146" text-anchor="middle" class="tl-tick">9:00</text>
+        <text x="1050" y="146" text-anchor="middle" class="tl-tick">today</text>
+        <text x="560" y="166" text-anchor="middle" class="tl-time">when</text>
+      </svg>
+      <div class="sentence">I <span class="w-span">was watching</span> TV <span class="w-time">when</span> the phone <span class="w-point">rang</span>.</div>
+      <div class="tl-note">The long action was in progress. The short action happened at one point inside it and interrupted it.</div>
+      <div class="tl-lg">
+        <div><span class="lg-span"></span> Past Continuous · action in progress</div>
+        <div><svg width="18" height="14" viewBox="0 0 18 14" fill="none" class="lg-point"><path d="M3 1l12 12M15 1L3 13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg> Past Simple · one finished action</div>
+        <div><span class="lg-time"></span> time expression</div>
+      </div>
+    </div>
+    <div class="card-ft"><span>[НАЗВА]</span><span>Timelines · conflicts · 3 / 8</span></div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

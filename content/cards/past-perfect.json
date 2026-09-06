@@ -1,0 +1,95 @@
+{
+  "topic": "Past Perfect",
+  "group": "past",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Past Perfect Form",
+      "subtitle": "had + past participle",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "he", "she", "it", "we", "they"],
+              "forms": ["had waited", "'d waited"],
+              "examples": ["I <b>had waited</b> for an hour.", "I<b>'d waited</b> for an hour.", "She <b>had arrived</b> by 8 o'clock."]
+            }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "he", "she", "it", "we", "they"],
+              "forms": ["had not waited", "hadn't waited"],
+              "examples": ["I <b>had not waited</b>.", "I <b>hadn't waited</b>.", "She <b>had not</b> (<b>hadn't</b>) <b>arrived</b>."]
+            }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            {
+              "prefix": ["Had"],
+              "pronouns": ["I", "you", "he", "she", "it", "we", "they"],
+              "forms": ["waited?"],
+              "examples": ["<b>Had</b> I <b>waited</b>?", "<b>Had</b> she <b>arrived</b>?", "<b>Had</b> you <b>eaten</b> lunch?"]
+            }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>had</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>hadn't</b>." }
+              ]
+            }
+          ],
+          "examples": ["Had she arrived? — Yes, she <b>had</b>. / No, she <b>hadn't</b>."]
+        }
+      ]
+    },
+    {
+      "title": "Past Perfect is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "\u23ea",
+              "case": "for a past action which happened before another past action or before a stated past time",
+              "examples": ["She <b>had already left</b> when I got home.", "She <b>had arrived</b> by 8 o'clock.", "He <b>had left</b> by the time I got there. (or by 8:15 pm)"]
+            },
+            {
+              "emoji": "\ud83c\udfc6",
+              "case": "for an action which finished in the past and whose result was visible in the past",
+              "examples": ["He was happy. He <b>had won</b> the race.", "She was sad because she <b>had failed</b> the test."]
+            },
+            {
+              "emoji": "\ud83d\udd01",
+              "case": "as the past equivalent of Present Perfect",
+              "examples": ["She isn't in her office. She <b>has already left</b>.", "She wasn't in her office. She <b>had already left</b>.", "He can't find his watch. He <b>has lost</b> it.", "He couldn't find his watch. He <b>had lost</b> it."],
+              "hint": "The first sentence points before a present time, the second before a past time.",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "heading": "TIME EXPRESSIONS",
+          "kind": "chips",
+          "items": ["before", "after", "just", "yet", "already", "for", "since", "ever", "never", "till / until", "when", "by", "by the time"]
+        }
+      ]
+    }
+  ]
+}

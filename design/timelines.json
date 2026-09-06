@@ -1,0 +1,718 @@
+[
+  {
+    "id": "present-simple",
+    "title": "Present Simple",
+    "subtitle": "repeated and habitual actions",
+    "group": "present",
+    "tenses": [
+      "Present Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.5,
+        "points": [
+          {
+            "at": 0.32,
+            "t": 1
+          },
+          {
+            "at": 0.38,
+            "t": 1
+          },
+          {
+            "at": 0.44,
+            "t": 1
+          },
+          {
+            "at": 0.5,
+            "t": 1
+          },
+          {
+            "at": 0.56,
+            "t": 1
+          },
+          {
+            "at": 0.62,
+            "t": 1
+          }
+        ],
+        "ticks": [],
+        "timeMark": {
+          "from": 0.32,
+          "to": 0.62,
+          "text": "every weekday"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "I "
+              },
+              {
+                "text": "go",
+                "mark": "v1"
+              },
+              {
+                "text": " to work "
+              },
+              {
+                "text": "every weekday",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "repeated action"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.5,
+        "points": [
+          {
+            "at": 0.28,
+            "t": 1
+          },
+          {
+            "at": 0.39,
+            "t": 1
+          },
+          {
+            "at": 0.5,
+            "t": 1
+          },
+          {
+            "at": 0.61,
+            "t": 1
+          },
+          {
+            "at": 0.72,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "Mon"
+          },
+          {
+            "at": 0.39,
+            "text": "Thu"
+          },
+          {
+            "at": 0.5,
+            "text": "Mon"
+          },
+          {
+            "at": 0.61,
+            "text": "Thu"
+          },
+          {
+            "at": 0.72,
+            "text": "Mon"
+          }
+        ],
+        "timeMark": {
+          "from": 0.28,
+          "to": 0.72,
+          "text": "on Mondays and Thursdays"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "I "
+              },
+              {
+                "text": "go",
+                "mark": "v1"
+              },
+              {
+                "text": " to the gym "
+              },
+              {
+                "text": "on Mondays and Thursdays",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "habitual action"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "present-continuous",
+    "title": "Present Continuous",
+    "subtitle": "action now and action around now",
+    "group": "present",
+    "tenses": [
+      "Present Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.5,
+        "points": [
+          {
+            "at": 0.5,
+            "t": 1
+          }
+        ],
+        "ticks": [],
+        "timeMark": {
+          "from": 0.5,
+          "to": 0.5,
+          "text": "now"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "I "
+              },
+              {
+                "text": "am doing",
+                "mark": "v1"
+              },
+              {
+                "text": " homework "
+              },
+              {
+                "text": "now",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "action happening at this moment"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.5,
+        "spans": [
+          {
+            "from": 0.38,
+            "to": 0.62,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.38,
+            "text": "Mon"
+          },
+          {
+            "at": 0.62,
+            "text": "Sun"
+          }
+        ],
+        "timeMark": {
+          "from": 0.38,
+          "to": 0.62,
+          "text": "this week"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "He "
+              },
+              {
+                "text": "is preparing",
+                "mark": "v1"
+              },
+              {
+                "text": " for an exam "
+              },
+              {
+                "text": "this week",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "action around now, not necessarily at this very moment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "present-perfect",
+    "title": "Present Perfect",
+    "subtitle": "experience · up to now · unstated time",
+    "group": "present",
+    "tenses": [
+      "Present Perfect"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.62,
+        "spans": [
+          {
+            "from": 0.04,
+            "to": 0.62,
+            "t": 1,
+            "openStart": true
+          }
+        ],
+        "ticks": [],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Ann "
+              },
+              {
+                "text": "has been",
+                "mark": "v1"
+              },
+              {
+                "text": " to Scotland "
+              },
+              {
+                "text": "five times",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "general experience: it happened in her life, when is not important"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.62,
+        "spans": [
+          {
+            "from": 0.3,
+            "to": 0.62,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.3,
+            "text": "2019"
+          },
+          {
+            "at": 0.62,
+            "text": "2026"
+          }
+        ],
+        "timeMark": {
+          "from": 0.3,
+          "to": 0.62,
+          "text": "for 7 years"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Rob and Helen "
+              },
+              {
+                "text": "have been",
+                "mark": "v1"
+              },
+              {
+                "text": " married "
+              },
+              {
+                "text": "for 7 years",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "action that started in the past and continues up to now"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.62,
+        "points": [
+          {
+            "at": 0.5,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.5,
+            "text": "?"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Mary "
+              },
+              {
+                "text": "has sold",
+                "mark": "v1"
+              },
+              {
+                "text": " her old car."
+              }
+            ],
+            "note": "action that happened in the past at an unstated time; the result matters now"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "present-perfect-continuous-present-simple",
+    "title": "Present Perfect Continuous + Present Simple",
+    "subtitle": "an action up to now and its visible result",
+    "group": "present",
+    "tenses": [
+      "Present Perfect Continuous",
+      "Present Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.62,
+        "spans": [
+          {
+            "from": 0.36,
+            "to": 0.62,
+            "t": 1
+          }
+        ],
+        "points": [
+          {
+            "at": 0.62,
+            "t": 2
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.36,
+            "text": "23:00"
+          },
+          {
+            "at": 0.62,
+            "text": "7:00"
+          }
+        ],
+        "timeMark": {
+          "from": 0.36,
+          "to": 0.62,
+          "text": "all night"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Bob "
+              },
+              {
+                "text": "has been working",
+                "mark": "v1"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "all night",
+                "mark": "time"
+              },
+              {
+                "text": ", and now he "
+              },
+              {
+                "text": "is",
+                "mark": "v2"
+              },
+              {
+                "text": " very tired."
+              }
+            ],
+            "note": "the action continued up to now and has a visible result"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "past-continuous-past-simple",
+    "title": "Past Continuous vs Past Simple",
+    "subtitle": "a long action interrupted by a short one",
+    "group": "past",
+    "tenses": [
+      "Past Continuous",
+      "Past Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.8,
+        "spans": [
+          {
+            "from": 0.28,
+            "to": 0.56,
+            "t": 1
+          }
+        ],
+        "points": [
+          {
+            "at": 0.44,
+            "t": 2
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "6:00"
+          },
+          {
+            "at": 0.44,
+            "text": "6:40"
+          },
+          {
+            "at": 0.56,
+            "text": "7:00"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "I "
+              },
+              {
+                "text": "was cooking",
+                "mark": "v1"
+              },
+              {
+                "text": " dinner "
+              },
+              {
+                "text": "when",
+                "mark": "time"
+              },
+              {
+                "text": " my husband "
+              },
+              {
+                "text": "came",
+                "mark": "v2"
+              },
+              {
+                "text": " home."
+              }
+            ],
+            "note": "I started at 6 and finished at 7. When he came home, I was in the middle of it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "past-perfect-past-simple",
+    "title": "Past Perfect vs Past Simple",
+    "subtitle": "which of two past actions happened first",
+    "group": "past",
+    "tenses": [
+      "Past Perfect",
+      "Past Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.8,
+        "spans": [
+          {
+            "from": 0.12,
+            "to": 0.24,
+            "t": 1,
+            "label": "1"
+          },
+          {
+            "from": 0.32,
+            "to": 0.46,
+            "t": 2,
+            "label": "2"
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.18,
+            "text": "21:00"
+          },
+          {
+            "at": 0.39,
+            "text": "22:00"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "When",
+                "mark": "time"
+              },
+              {
+                "text": " I "
+              },
+              {
+                "text": "came",
+                "mark": "v2"
+              },
+              {
+                "text": " to the party, Adam and Mary "
+              },
+              {
+                "text": "had already gone",
+                "mark": "v1"
+              },
+              {
+                "text": " home."
+              }
+            ],
+            "note": "First they went home (1), then I came to the party (2)."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "past-simple-present-simple",
+    "title": "Past Simple vs Present Simple",
+    "subtitle": "past habits and present habits",
+    "group": "past",
+    "tenses": [
+      "Past Simple",
+      "Present Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.72,
+        "points": [
+          {
+            "at": 0.12,
+            "t": 1
+          },
+          {
+            "at": 0.19,
+            "t": 1
+          },
+          {
+            "at": 0.26,
+            "t": 1
+          },
+          {
+            "at": 0.64,
+            "t": 2
+          },
+          {
+            "at": 0.72,
+            "t": 2
+          },
+          {
+            "at": 0.8,
+            "t": 2
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.19,
+            "text": "in Lviv"
+          },
+          {
+            "at": 0.72,
+            "text": "in Kyiv"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "When",
+                "mark": "time"
+              },
+              {
+                "text": " Adam "
+              },
+              {
+                "text": "lived",
+                "mark": "v1"
+              },
+              {
+                "text": " in Lviv, he "
+              },
+              {
+                "text": "woke up",
+                "mark": "v1"
+              },
+              {
+                "text": " early, "
+              },
+              {
+                "text": "had",
+                "mark": "v1"
+              },
+              {
+                "text": " breakfast and "
+              },
+              {
+                "text": "went",
+                "mark": "v1"
+              },
+              {
+                "text": " to the gym."
+              }
+            ],
+            "note": "habitual actions in the past: he did it, but he doesn't do it anymore"
+          },
+          {
+            "tokens": [
+              {
+                "text": "Adam "
+              },
+              {
+                "text": "lives",
+                "mark": "v2"
+              },
+              {
+                "text": " in Kyiv, he "
+              },
+              {
+                "text": "wakes up",
+                "mark": "v2"
+              },
+              {
+                "text": " late, "
+              },
+              {
+                "text": "skips",
+                "mark": "v2"
+              },
+              {
+                "text": " breakfast and "
+              },
+              {
+                "text": "runs",
+                "mark": "v2"
+              },
+              {
+                "text": " to work in a hurry."
+              }
+            ],
+            "note": "present habits"
+          }
+        ]
+      }
+    ]
+  }
+]

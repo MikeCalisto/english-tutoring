@@ -1,0 +1,174 @@
+{
+  "topic": "Tense combinations — group overviews",
+  "group": "present",
+  "cards": [
+    {
+      "type": "compare",
+      "title": "The four present tenses",
+      "subtitle": "side by side",
+      "columns": [
+        {
+          "tense": "Present Simple",
+          "items": [
+            { "case": "permanent situations or states", "examples": ["She <b>works</b> as a nurse.", "She <b>owns</b> a large shop."] },
+            { "case": "repeated / habitual actions (especially with frequency adverbs: often, usually, etc.)", "examples": ["I usually <b>get up</b> at 7:30 am."] },
+            { "case": "permanent truths or laws of nature", "examples": ["Money <b>doesn't buy</b> happiness.", "Water <b>freezes</b> at 0\u00b0C."] },
+            { "case": "timetables / programmes (future meaning)", "examples": ["The match <b>finishes</b> at 7:45 pm.", "The plane <b>leaves</b> at 6:05 am."] },
+            { "case": "reviews / sports commentaries / dramatic narratives", "examples": ["Angelina Jolie <b>acts</b> brilliantly in this film."] }
+          ]
+        },
+        {
+          "tense": "Present Continuous",
+          "items": [
+            { "case": "temporary situations", "examples": ["They<b>'re staying</b> at the Park Hotel at present."] },
+            { "case": "actions happening at or around the moment of speaking", "examples": ["She <b>is looking</b> for a better job."] },
+            { "case": "repeated actions with always, expressing annoyance or criticism", "examples": ["She<b>'s</b> always <b>interrupting</b> me!"] },
+            { "case": "fixed arrangements in the near future", "examples": ["The Browns <b>are visiting</b> us tonight."], "hint": "It's all arranged." },
+            { "case": "changing or developing situations", "examples": ["His English <b>is getting</b> better."] }
+          ]
+        },
+        {
+          "tense": "Present Perfect",
+          "items": [
+            { "case": "recently completed actions", "examples": ["She <b>has tidied</b> her room."], "hint": "She has finished tidying her room. You can see it is tidy now — evidence in the present." },
+            { "case": "actions which happened at an unstated time in the past and are connected with the present", "examples": ["He <b>has lost</b> his keys."], "hint": "He is still looking for them." },
+            { "case": "personal experiences / change that has happened over a period of time", "examples": ["I<b>'ve lost</b> weight."] },
+            { "case": "emphasis on number", "examples": ["She<b>'s written</b> three letters since this morning.", "She <b>has spoken</b> to two clients since 12 o'clock."] }
+          ]
+        },
+        {
+          "tense": "Present Perfect Continuous",
+          "items": [
+            { "case": "actions started in the past and continuing up to the present", "examples": ["He<b>'s been writing</b> a letter for two hours."], "hint": "He started two hours ago and he's still writing." },
+            { "case": "past actions of certain duration having visible results or effects in the present", "examples": ["She<b>'s been crying</b>."], "hint": "Her eyes are red." },
+            { "case": "actions expressing anger, irritation, annoyance, explanation or criticism", "examples": ["Who <b>has been using</b> my hairbrush?"], "hint": "annoyance" },
+            { "case": "emphasis on duration (usually with for, since or how long)", "examples": ["They <b>have been speaking</b> in his office for the last hour."] }
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "NOTE",
+          "kind": "text",
+          "items": ["<b>live</b>, <b>feel</b> and <b>work</b> can be used either in the present perfect or the present perfect continuous with no difference in meaning. I<b>'ve been living</b> / I<b>'ve lived</b> in Rome for a year."]
+        },
+        {
+          "heading": "TIME EXPRESSIONS",
+          "kind": "table",
+          "items": [
+            { "k": "Present Simple", "v": "every day / week / month / year, usually, often, always, rarely, never, sometimes, in the morning / evening / afternoon, at night, on Mondays" },
+            { "k": "Present Continuous", "v": "now, at the moment, at present, nowadays, today, tonight, always, still" },
+            { "k": "Present Perfect", "v": "just, ever, never, already, yet (negations and questions), always, how long, so far, recently, since (= from a starting point in the past), for (= over a period of time), today, this week / month" },
+            { "k": "Present Perfect Continuous", "v": "how long, for, since" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "The four past tenses",
+      "subtitle": "side by side",
+      "group": "past",
+      "columns": [
+        {
+          "tense": "Past Simple",
+          "items": [
+            { "case": "past actions which happened immediately one after the other", "examples": ["She <b>sealed</b> the letter, <b>put</b> a stamp on it and <b>posted</b> it."] },
+            { "case": "action or event which happened at a stated past time", "examples": ["She <b>called</b> an hour ago."], "hint": "When? An hour ago." },
+            { "case": "action which happened at a definite past time. The action was completed in the past", "examples": ["Shakespeare <b>wrote</b> a lot of plays."], "hint": "Shakespeare is now dead; he won't write again." },
+            { "case": "past habit or state", "examples": ["He <b>used to go</b> / <b>went</b> to school on foot."] }
+          ]
+        },
+        {
+          "tense": "Past Continuous",
+          "items": [
+            { "case": "two or more simultaneous past actions", "examples": ["While I <b>was sunbathing</b>, Tim <b>was swimming</b>."] },
+            { "case": "action in progress at a stated time in the past", "examples": ["He <b>was playing</b> tennis at 4:30 pm yesterday."] },
+            { "case": "past action in progress interrupted by another past action", "examples": ["While I <b>was getting dressed</b> the bell <b>rang</b>."], "hint": "The longer action is in the Past Continuous, the shorter action is in the Past Simple." },
+            { "case": "background description to events in a story", "examples": ["She <b>was flying</b> to Paris. The sun <b>was shining</b>..."] }
+          ]
+        },
+        {
+          "tense": "Past Perfect",
+          "items": [
+            { "case": "past action which occurred before another past action or before a specific time in the past", "examples": ["He <b>had left</b> by the time I got there."], "hint": "or by 8:15 pm" },
+            { "case": "complete past action which had visible results in the past", "examples": ["She was sad because she <b>had failed</b> the test."] },
+            { "case": "the Past Perfect is the past equivalent of the Present Perfect", "examples": ["He can't find his watch. He <b>has lost</b> it.", "He couldn't find his watch. He <b>had lost</b> it."] }
+          ]
+        },
+        {
+          "tense": "Past Perfect Continuous",
+          "items": [
+            { "case": "emphasis on the duration of an action which started and finished in the past before another past action or a stated time in the past", "examples": ["She <b>had been working</b> as a clerk for 10 years before she resigned."] },
+            { "case": "past action of certain duration which had visible results in the past", "examples": ["They were wet because they <b>had been walking</b> in the rain."] },
+            { "case": "the Past Perfect Continuous is the past equivalent of the Present Perfect Continuous", "examples": ["She is going to the doctor. Her leg <b>has been aching</b> for two days.", "She went to the doctor. Her leg <b>had been aching</b> for two days."] }
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "TIME EXPRESSIONS",
+          "kind": "table",
+          "items": [
+            { "k": "Past Simple", "v": "yesterday, last week, etc., (how long) ago, then, just now, when, in 1967" },
+            { "k": "Past Continuous", "v": "while, when, as" },
+            { "k": "Past Perfect", "v": "for, since, already, after, just, never, yet, before, by, by the time" },
+            { "k": "Past Perfect Continuous", "v": "for, since" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "The future forms",
+      "subtitle": "side by side",
+      "group": "future",
+      "columns": [
+        {
+          "tense": "Future Simple (Will)",
+          "items": [
+            { "case": "decisions taken at the moment of speaking (on-the-spot decisions)", "examples": ["It's getting dark, I<b>'ll turn on</b> the light."] },
+            { "case": "hopes, fears, threats, offers, promises, warnings, predictions, requests, comments, especially with expect, hope, believe, I'm sure, I'm afraid, probably", "examples": ["I'm afraid I<b>'ll be</b> a little late."] },
+            { "case": "future predictions based on what we think or imagine will happen", "examples": ["They<b>'ll</b> probably <b>go</b> shopping on Tuesday."] },
+            { "case": "facts in the future", "examples": ["He <b>will be</b> ten next year."] },
+            { "case": "things we are not sure about or haven't decided to do yet", "examples": ["She<b>'ll</b> probably <b>pass</b> the test."], "hint": "not sure yet" }
+          ]
+        },
+        {
+          "tense": "Be going to",
+          "items": [
+            { "case": "future plans and intentions", "examples": ["Now that they've settled in their new house, they<b>'re going to have</b> a party."] },
+            { "case": "predictions based on what we can see or what we know, especially when there is evidence", "examples": ["Ann <b>is going to have</b> a baby.", "Look at the dark clouds in the sky! It<b>'s going to rain</b>."] },
+            { "case": "things we are sure about or we have already decided to do in the near future", "examples": ["Max <b>is going to invite</b> his friends to dinner."], "hint": "He has already decided to do this." }
+          ]
+        },
+        {
+          "tense": "Future Continuous",
+          "items": [
+            { "case": "actions in progress at a stated future time", "examples": ["He<b>'ll be sunbathing</b> in Hawaii this time next week."] },
+            { "case": "actions which are the result of a routine (instead of the Present Continuous)", "examples": ["I<b>'ll be seeing</b> John tomorrow."], "hint": "We work in the same office so we'll definitely meet." },
+            { "case": "when we ask politely about people's arrangements, to see if they can do something for us or because we want to offer to do something for them", "examples": ["<b>Will</b> you <b>be going</b> to the supermarket? Can you buy me some tea?"] }
+          ]
+        },
+        {
+          "tense": "Future Perfect",
+          "items": [
+            { "case": "actions which will have finished before a stated future time", "examples": ["She <b>will have come</b> back by the end of July."] },
+            { "case": "by or not ... until / till are used with the Future Perfect. Until / till are normally used with the Future Perfect only in negative sentences", "examples": ["She <b>will have finished</b> by 8 o'clock.", "She <b>won't have finished</b> until 8 o'clock."], "hint": "NOT: She will have finished until 8 o'clock." }
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "AND TWO PRESENT FORMS WITH FUTURE MEANING",
+          "kind": "table",
+          "items": [
+            { "k": "Present Simple", "v": "timetables and programmes. The plane <b>reaches</b> London at 9:45 pm." },
+            { "k": "Present Continuous", "v": "fixed arrangements in the near future. Sally <b>is seeing</b> her dentist tomorrow afternoon. (Sally has already made an appointment.)" },
+            { "k": "Future Perfect Continuous", "v": "emphasis on the duration of an action up to a certain time in the future. By the end of this year, Sally <b>will have been working</b> here for two years." }
+          ]
+        }
+      ]
+    }
+  ]
+}

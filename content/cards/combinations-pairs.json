@@ -1,0 +1,258 @@
+{
+  "topic": "Tense combinations",
+  "group": "present",
+  "cards": [
+    {
+      "type": "compare",
+      "title": "Present Simple vs Past Simple",
+      "columns": [
+        {
+          "tense": "Present Simple",
+          "items": [
+            {
+              "case": "for permanent states and repeated or habitual actions",
+              "examples": ["Tom <b>is</b> a student. He <b>goes</b> to school every day.", "He usually <b>goes</b> to school by bus."]
+            }
+          ],
+          "time": ["every day / week / month / year", "usually", "often", "always", "rarely", "never", "sometimes", "in the morning / evening / afternoon", "at night"]
+        },
+        {
+          "tense": "Past Simple",
+          "items": [
+            {
+              "case": "for actions which finished at a stated time in the past",
+              "examples": ["He <b>bought</b> a new car last week."]
+            }
+          ],
+          "time": ["yesterday", "then", "when", "last night / week / month / year", "a week / month / year ago", "two days ago", "in 2003"]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "Present Perfect vs Past Simple",
+      "columns": [
+        {
+          "tense": "Present Perfect",
+          "items": [
+            {
+              "case": "for recent actions or states, or for actions which happened at an unstated time in the past",
+              "examples": ["I <b>have bought</b> a new bicycle."],
+              "hint": "When did he buy it? We don't know. — unstated time"
+            },
+            {
+              "case": "for actions or states which began in the past and continue up to the present",
+              "examples": ["I <b>have been</b> a teacher for two years."],
+              "hint": "He is still a teacher."
+            },
+            {
+              "case": "completed action which happened at an unstated time in the past",
+              "examples": ["Don <b>has left</b> for Madrid."],
+              "hint": "We don't know when he left; he's either there now or on his way there."
+            },
+            {
+              "case": "action which happened in the past and may be repeated",
+              "examples": ["I<b>'ve spoken</b> to Julia Roberts."],
+              "hint": "I may speak to her again. She's alive — period of time not finished yet."
+            }
+          ],
+          "time": ["just", "ever", "never", "already", "yet", "always", "how long", "so far", "for", "since", "recently"]
+        },
+        {
+          "tense": "Past Simple",
+          "items": [
+            {
+              "case": "for actions or states which finished at a stated time in the past",
+              "examples": ["I <b>bought</b> this bicycle five years ago."],
+              "hint": "When did he buy it? Five years ago. — stated time"
+            },
+            {
+              "case": "for actions or states which finished in the past",
+              "examples": ["I <b>was</b> a student fourteen years ago."],
+              "hint": "He isn't a student now. He is a teacher."
+            },
+            {
+              "case": "completed action which happened at a stated time in the past",
+              "examples": ["She <b>left</b> yesterday."],
+              "hint": "When did she leave? Yesterday."
+            },
+            {
+              "case": "action which happened in the past and cannot be repeated",
+              "examples": ["I <b>met</b> Princess Diana."],
+              "hint": "I won't meet her again. She's dead — period of time finished."
+            }
+          ],
+          "time": ["yesterday", "last night / week / month / year", "ago", "then", "when", "in 2004"]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "Past Continuous vs Past Simple",
+      "group": "past",
+      "columns": [
+        {
+          "tense": "Past Continuous",
+          "items": [
+            {
+              "case": "for an action which was in progress at a stated time in the past",
+              "examples": ["The girls <b>were playing</b> volleyball at five o'clock in the afternoon."],
+              "hint": "When did they start? We don't know."
+            },
+            {
+              "case": "for two or more actions happening at the same time in the past",
+              "examples": ["The children <b>were studying</b> while their mother <b>was cooking</b>."]
+            },
+            {
+              "case": "for an action which was in progress when another action interrupted it",
+              "examples": ["Mary <b>was cooking</b> when he <b>burnt</b> her hand."],
+              "hint": "The action that interrupted it is in the past simple."
+            },
+            {
+              "case": "to describe the background to the events in a story",
+              "examples": ["We <b>were walking</b> in the woods. It <b>was raining</b> hard ..."]
+            }
+          ],
+          "time": ["while", "when", "as", "all day / night / morning", "all day yesterday"]
+        },
+        {
+          "tense": "Past Simple",
+          "items": [
+            {
+              "case": "for an action that took place at a specific time in the past",
+              "examples": ["Simon <b>went</b> to camp last month."],
+              "hint": "When did he go to camp? Last month."
+            },
+            {
+              "case": "for actions which happened immediately one after the other in the past",
+              "examples": ["First she <b>made</b> the pizza, then she <b>put</b> it in the oven.", "He <b>slipped</b>, <b>fell over</b> and <b>hurt</b> his ankle."]
+            },
+            {
+              "case": "with non-continuous verbs",
+              "examples": ["Sylvia <b>saw</b> Alex at the party yesterday."],
+              "hint": "appear (= seem), believe, belong, cost, feel, forget, hate, have (= possess), know, like, love, mean, need, prefer, realise, remember, see, seem, smell, sound, suppose, taste, think, understand, want, etc."
+            },
+            {
+              "case": "for people who are no longer alive",
+              "examples": ["Shakespeare <b>wrote</b> a lot of plays."],
+              "hint": "Shakespeare is dead. He won't write any more."
+            }
+          ],
+          "time": ["ago", "yesterday", "last month / week / year", "in 2005", "then"]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "Past Perfect vs Past Perfect Continuous",
+      "group": "past",
+      "columns": [
+        {
+          "tense": "Past Perfect",
+          "items": [
+            {
+              "case": "for an action which happened before another past action or before a stated time in the past",
+              "examples": ["They <b>had</b> already <b>reserved</b> the table when they went to the restaurant.", "They <b>had</b> already <b>sat</b> down for dinner by 8 pm."],
+              "hint": "They made a reservation first and then they went to the restaurant."
+            },
+            {
+              "case": "for an action which finished in the past and whose result was visible in the past",
+              "examples": ["Bill <b>had injured</b> his legs in a car accident, so he had to use a wheelchair for six months."],
+              "hint": "The action finished in the past and its result was visible in the past, too."
+            },
+            {
+              "case": "the past equivalent of the present perfect",
+              "examples": ["He <b>had broken</b> his leg, so he <b>couldn't walk</b>.", "He <b>has broken</b> his leg, so he <b>can't walk</b>."],
+              "hint": "In the first sentence the result was visible in the past; in the second it is still visible in the present."
+            }
+          ],
+          "time": ["before", "after", "already", "for", "since", "just", "till / until", "when", "by", "by the time", "never"]
+        },
+        {
+          "tense": "Past Perfect Continuous",
+          "items": [
+            {
+              "case": "to put emphasis on the duration of an action which started and finished in the past before another past action or a stated time in the past, usually with since or for",
+              "examples": ["They <b>had been skating</b> together for five years before they entered the competition."]
+            },
+            {
+              "case": "for an action which lasted for some time in the past and whose result was visible in the past",
+              "examples": ["She <b>had been working</b> hard that day, so she <b>was</b> tired."],
+              "hint": "She spent all day working hard and the result of the action was visible in the past, too."
+            },
+            {
+              "case": "the past equivalent of the present perfect continuous",
+              "examples": ["He <b>had been waiting</b> for hours, so he <b>was</b> bored.", "He <b>has been waiting</b> for hours, so he <b>is</b> bored."],
+              "hint": "In the first sentence the result was visible in the past; in the second it is still visible in the present."
+            }
+          ],
+          "time": ["for", "since", "how long", "before", "until"]
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "NOTE",
+          "kind": "text",
+          "items": ["We can use the past perfect or the past simple with <b>before</b> or <b>after</b> without any difference in meaning. She left <b>after</b> she <b>had finished</b> her work. / She left <b>after</b> she <b>finished</b> her work."]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "Will vs Be going to",
+      "group": "future",
+      "columns": [
+        {
+          "tense": "Will",
+          "items": [
+            {
+              "case": "to talk about things we are not sure about or we haven't decided yet",
+              "examples": ["I<b>'ll</b> probably <b>buy</b> a new bike."],
+              "hint": "I'm not sure yet."
+            },
+            {
+              "case": "to express hopes, fears, threats, on-the-spot decisions, offers, promises, warnings, predictions, comments, etc. especially with expect, hope, believe, I'm afraid, I'm sure, I know, I think, probably",
+              "examples": ["I'm hungry. I<b>'ll make</b> a sandwich.", "It's cold. I<b>'ll close</b> the window."],
+              "hint": "on-the-spot decision"
+            },
+            {
+              "case": "to make a prediction based on what we think or imagine",
+              "examples": ["I think you <b>will pass</b> the test.", "She <b>will</b> probably <b>phone</b> later.", "He <b>will</b> probably <b>win</b> the race."]
+            },
+            {
+              "case": "to talk about actions which will definitely happen in the future and which we cannot control",
+              "examples": ["He <b>will be</b> twelve next year.", "She <b>will be</b> twelve next month."]
+            }
+          ]
+        },
+        {
+          "tense": "Be going to",
+          "items": [
+            {
+              "case": "to talk about things we are sure about or we have already decided to do in the near future",
+              "examples": ["I<b>'m going to buy</b> a new bike.", "He <b>is going to fly</b> to Rome tomorrow."],
+              "hint": "I've decided it."
+            },
+            {
+              "case": "to express intentions and plans",
+              "examples": ["Now that I've got the money, I<b>'m going to buy</b> a new dress.", "I<b>'m going to get</b> some more training so I can get a better job.", "He likes acting. He <b>is going to be</b> an actor."],
+              "hint": "intention / plan"
+            },
+            {
+              "case": "when we can see evidence that something is going to happen",
+              "examples": ["Watch out! We<b>'re going to have</b> an accident.", "It<b>'s going to rain</b>.", "Watch out! You<b>'re going to fall</b>."],
+              "hint": "We can see a car coming. We can see dark clouds in the sky."
+            }
+          ]
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "TIME EXPRESSIONS USED WITH WILL AND BE GOING TO",
+          "kind": "chips",
+          "items": ["tomorrow", "tonight", "next week / month / year", "in two days", "the day after tomorrow", "soon", "in a week / month"]
+        }
+      ]
+    }
+  ]
+}

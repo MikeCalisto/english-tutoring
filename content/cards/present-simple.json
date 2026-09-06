@@ -1,0 +1,188 @@
+{
+  "topic": "Present Simple",
+  "group": "present",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Present Simple Form",
+      "subtitle": "main verbs",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "you", "we", "they"], "forms": ["work ..."] },
+            { "pronouns": ["he", "she", "it"], "forms": ["work<b>s</b> ..."] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "you", "we", "they"], "forms": ["do not work ...", "don't work ..."] },
+            { "pronouns": ["he", "she", "it"], "forms": ["does not work ...", "doesn't work ..."] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["Do"], "pronouns": ["I", "you", "we", "they"], "forms": ["work? ..."] },
+            { "prefix": ["Does"], "pronouns": ["he", "she", "it"], "forms": ["work? ..."] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I", "you", "we", "they"], "form": "<b>do</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>does</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I", "you", "we", "they"], "form": "<b>don't</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>doesn't</b>." }
+              ]
+            }
+          ],
+          "examples": [
+            "— <b>Do</b> you <b>work</b> here? — Yes, I <b>do</b>.",
+            "— <b>Does</b> she <b>work</b> here? — Yes, she <b>does</b>.",
+            "— <b>Do</b> they <b>work</b> together? — No, they <b>don't</b>."
+          ]
+        },
+        {
+          "role": "careful",
+          "columns": [
+            { "heading": "NEGATIVE", "wrong": "He doesn't work<b>s</b>.", "right": "He doesn't work." },
+            { "heading": "QUESTION", "wrong": "Does she work<b>s</b>?", "right": "Does she work?" }
+          ],
+          "note": "Use <b>does</b> or <b>doesn't</b> + infinitive with no -s in questions and negatives."
+        }
+      ]
+    },
+    {
+      "type": "form",
+      "title": "Present Simple — to be",
+      "subtitle": "long and short forms",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I"], "forms": ["am ...", "'m ..."] },
+            { "pronouns": ["you", "we", "they"], "forms": ["are ...", "'re ..."] },
+            { "pronouns": ["he", "she", "it"], "forms": ["is ...", "'s ..."] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I"], "forms": ["am not ...", "'m not ..."] },
+            { "pronouns": ["you", "we", "they"], "forms": ["are not ...", "aren't ..."] },
+            { "pronouns": ["he", "she", "it"], "forms": ["is not ...", "isn't ..."] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["Am"], "pronouns": ["I"], "forms": ["late?"] },
+            { "prefix": ["Are"], "pronouns": ["you", "we", "they"], "forms": ["late?"] },
+            { "prefix": ["Is"], "pronouns": ["he", "she", "it"], "forms": ["late?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I"], "form": "<b>am</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>are</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>is</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I"], "form": "<b>'m not</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>aren't</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>isn't</b>." }
+              ]
+            }
+          ],
+          "examples": [
+            "— <b>Are</b> you happy? — Yes, I <b>am</b>.",
+            "— <b>Is</b> he happy? — No, he <b>isn't</b>.",
+            "— <b>Are</b> they from Spain? — Yes, they <b>are</b>."
+          ]
+        },
+        {
+          "role": "careful",
+          "columns": [
+            { "heading": "SHORT ANSWER", "wrong": "Are you happy? — Yes, I'm.", "right": "Are you happy? — Yes, I am." }
+          ],
+          "note": "We cannot use short forms in positive short answers."
+        }
+      ]
+    },
+    {
+      "title": "Present Simple Spelling",
+      "subtitle": "he / she / it",
+      "layout": "two",
+      "blocks": [
+        {
+          "heading": "SPELLING",
+          "kind": "spelling",
+          "items": [
+            { "from": "play, work", "to": "plays, works", "rule": "general rule: add -s" },
+            { "from": "watch, miss", "to": "watches, misses", "rule": "after -s, -ch, -sh, -z: add -es" },
+            { "from": "study, try", "to": "studies, tries", "rule": "after consonant + -y: delete -y and add -ies" },
+            { "from": "do, go", "to": "does, goes", "rule": "after -o: add -es" },
+            { "from": "have", "to": "has", "rule": "irregular form" }
+          ]
+        },
+        {
+          "heading": "ADVERBS OF FREQUENCY",
+          "kind": "lines",
+          "note": "Adverbs of frequency (often, always, usually, sometimes, rarely / seldom, never) are placed <b>before</b> main verbs but <b>after</b> auxiliary and modal verbs (be, have, can, will, must, shall).",
+          "items": [
+            "He often <b>goes</b> to the theatre.",
+            "He <b>is</b> never late.",
+            "Tonia <b>doesn't</b> usually <b>go</b> to bed late."
+          ]
+        },
+        {
+          "heading": "CAREFUL",
+          "kind": "careful",
+          "warn": true,
+          "items": [
+            { "wrong": "The hotel doesn't <b>has</b> a spa.", "right": "The hotel doesn't have a spa." },
+            { "wrong": "Does Suzan work<b>s</b> in your office?", "right": "Does Suzan work in your office?" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Present Simple is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            { "emoji": "\ud83c\udfe2", "case": "permanent situations or states", "examples": ["She <b>works</b> in an office.", "She <b>works</b> as a nurse.", "She <b>owns</b> a large shop."] },
+            { "emoji": "\ud83d\udd01", "case": "repeated / habitual actions (especially with frequency adverbs: often, usually, etc.)", "examples": ["He often <b>buys</b> her flowers.", "I usually <b>get up</b> at 7:30 am."] },
+            { "emoji": "\ud83c\udf0d", "case": "permanent truths or laws of nature", "examples": ["The Sun <b>sets</b> in the west.", "Money <b>doesn't buy</b> happiness.", "Water <b>freezes</b> at 0\u00b0C."] },
+            { "emoji": "\ud83d\ude86", "case": "timetables / programmes (future meaning)", "examples": ["The lesson <b>starts</b> at 10 o'clock.", "The match <b>finishes</b> at 7:45 pm.", "The plane <b>leaves</b> at 6:05 am."] },
+            { "emoji": "\ud83c\udfac", "case": "reviews / sports commentaries / dramatic narratives", "examples": ["Angelina Jolie <b>acts</b> brilliantly in this film."], "wide": true }
+          ]
+        },
+        {
+          "heading": "TIME EXPRESSIONS",
+          "kind": "chips",
+          "items": ["usually", "always", "never", "often", "sometimes", "rarely", "every day / week / month / year", "on Mondays / Tuesdays", "in the morning", "in the afternoon", "in the evening", "at night", "at the weekend"]
+        }
+      ]
+    }
+  ]
+}

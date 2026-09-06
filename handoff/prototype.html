@@ -1,0 +1,919 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English tenses — cards and timelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17181A; --muted:#5F6169; --faint:#93959C;
+  --page:#E9EBE6; --paper:#FFFFFF; --soft:#F5F6F2; --rule:#E6E8E1;
+  --pos:#2F8F4E; --neg:#C0396B; --que:#6B45C0; --ans:#C77A18; --warn:#C62828;
+  --timeword:#6B45C0; --point:#E2542A; --span:#0E7C66; --span-bg:#C8EADF;
+}
+.g-present{--frame:#0E7C66;--frame-soft:#DFF2EC}
+.g-past{--frame:#2A4A7F;--frame-soft:#E3E9F5}
+.g-future{--frame:#8A5A00;--frame-soft:#F6EBD6}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);
+  font-family:"Golos Text",system-ui,sans-serif;font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 20px 80px}
+.masthead h1{font-family:"Unbounded",sans-serif;font-size:27px;font-weight:700;
+  letter-spacing:-.02em;margin:0 0 8px}
+.masthead p{margin:0;color:var(--muted);max-width:58ch}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 20px}
+.divider h2{font-family:"Unbounded",sans-serif;font-size:16px;font-weight:600;margin:0}
+.divider::after{content:"";flex:1;height:2px;background:#D4D7CE;border-radius:1px}
+
+/* ---------- card shell ---------- */
+.card{background:var(--frame);border-radius:20px;padding:8px;margin-bottom:22px}
+.card-in{background:var(--paper);border-radius:15px;overflow:hidden}
+.card-hd{padding:16px 26px 13px;text-align:center;border-bottom:1px solid var(--rule)}
+.card-hd h3{font-family:"Unbounded",sans-serif;font-size:24px;font-weight:700;
+  letter-spacing:-.035em;margin:0;color:var(--frame);line-height:1.15}
+.card-hd .sub{font-size:13.5px;color:var(--muted);margin-top:5px}
+.card-bd{background:var(--soft);padding:11px}
+.card-ft{background:var(--frame);text-align:center;padding:7px;
+  font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.82)}
+
+/* ---------- role panels: one per row ---------- */
+.panels{display:flex;flex-direction:column;gap:9px}
+.panels2{display:grid;grid-template-columns:1fr 1fr;gap:9px;align-items:stretch}
+.panels2 .pn{height:100%}
+.panels2 .pn-bd{display:flex;flex-direction:column}
+.panels2 .r,.panels2 .sa-row{flex:1}
+.panels2 .span2{grid-column:1 / -1}
+.pn{display:flex;border:2px solid var(--c);border-radius:13px;background:var(--paper);overflow:hidden}
+.pn-lb{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;
+  font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--c);
+  padding:10px 6px;background:color-mix(in srgb,var(--c) 8%,#fff);flex:none}
+.pn-bd{padding:3px 14px;flex:1}
+.p-pos{--c:var(--pos)}.p-neg{--c:var(--neg)}.p-que{--c:var(--que)}
+.p-ans{--c:var(--ans)}.p-warn{--c:var(--warn)}
+
+.r{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:7px 0;border-bottom:1px solid var(--rule)}
+.r:last-child{border-bottom:none}
+.prons{display:flex;flex-direction:column;gap:3px;justify-content:center;flex:none}
+.pr{border:1.5px solid var(--c);border-radius:6px;padding:0 9px;font-size:12.5px;
+  color:var(--ink);text-align:center;background:#fff;white-space:nowrap}
+.brace{width:9px;flex:none;border:2px solid var(--c);border-left:none;border-radius:0 9px 9px 0}
+.forms{display:flex;flex-direction:column;justify-content:center;gap:3px;flex:none}
+.fm{border:1.5px solid var(--c);border-radius:6px;padding:2px 10px;font-size:13px;
+  color:var(--ink);background:color-mix(in srgb,var(--c) 6%,#fff);white-space:nowrap;text-align:center}
+.pre{display:flex;flex-direction:column;justify-content:center;gap:3px;flex:none}
+.exs{display:flex;flex-direction:column;justify-content:center;gap:2px;flex:1;min-width:150px}
+.ex{font-size:14px;line-height:1.4;color:var(--ink)}
+b{font-weight:600;color:var(--c,var(--frame))}
+.pn b{color:var(--c)}
+
+/* short answer wraps */
+.sa-row{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start;
+  padding:8px 0;border-bottom:1px solid var(--rule)}
+.sa-row:last-child{border-bottom:none}
+.sa-unit{display:flex;align-items:center;gap:9px}
+.sagrp{display:flex;flex-direction:column;gap:7px}
+.sa-line{display:flex;align-items:center;gap:8px}
+
+.warn-h{font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--warn);margin:10px 0 4px}
+.warnrow{display:flex;align-items:baseline;gap:8px;font-size:14.5px;padding:2px 0}
+.warnrow .x{color:var(--warn);font-weight:700;flex:none}
+.warnrow .v{color:var(--pos);font-weight:700;flex:none}
+.warn-note{font-size:13px;color:var(--muted);margin:8px 0 10px}
+.warn-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* ---------- content blocks ---------- */
+.blk{background:var(--paper);border-radius:13px;padding:16px 18px;border:1px solid var(--rule)}
+.blk + .blk{margin-top:11px}
+.blk h4{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--frame);margin:0 0 12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:11px;align-items:start}
+
+.sp div{display:flex;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--rule)}
+.sp div:last-child{border-bottom:none}
+.sp code{font-family:"JetBrains Mono",monospace;font-size:12.5px;flex:none;width:47%;color:var(--ink)}
+.sp code em{font-style:normal;color:var(--frame);font-weight:500}
+.sp code i{font-style:normal;color:var(--faint);padding:0 4px}
+.sp span{font-size:13px;color:var(--muted);line-height:1.4}
+
+.uses{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+.u{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.u .em{font-size:23px;line-height:1.1;flex:none;width:28px;text-align:center}
+.u .ttl{font-size:13px;font-weight:600;color:var(--frame);margin-bottom:6px;line-height:1.35}
+.u .ex2{font-size:15.5px;line-height:1.45;margin:0}
+.u .ex2 b{color:var(--frame)}
+.u .ex2 + .ex2{margin-top:3px}
+.u .hint{font-size:12.5px;color:var(--faint);margin-top:5px}
+.u.wide{grid-column:1 / -1}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:12px;padding:4px 10px;
+  border-radius:999px;background:var(--frame-soft);color:var(--ink)}
+.note{margin:0 0 10px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.note b{color:var(--frame)}
+.adv{margin:0;font-size:15px;line-height:1.9;color:var(--ink)}
+.adv b{color:var(--frame)}
+.irr{margin:0;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:2;color:var(--ink)}
+.irr b{color:var(--frame)}
+
+/* ---------- timelines ---------- */
+.tl .card-bd{padding:18px 22px}
+.tl svg{display:block;width:100%;height:auto}
+.sentence{font-size:22px;line-height:1.5;margin:12px 0 0;text-align:center}
+.w-verb{color:var(--point);font-weight:600}
+.w-verb-s{background:var(--span-bg);color:var(--span);font-weight:600;padding:1px 6px;border-radius:6px}
+.w-time{color:var(--timeword);font-weight:600;border-bottom:2px solid var(--timeword)}
+.tl-note{margin:12px 0 0;font-size:15px;color:var(--muted);text-align:center}
+.tl-lg{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;margin-top:14px;
+  padding-top:12px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.tl-lg div{display:flex;align-items:center;gap:8px}
+.sq{width:22px;height:12px;border-radius:3px;flex:none}
+
+@media (max-width:840px){
+  .two,.uses,.warn-cols,.panels2{grid-template-columns:1fr}
+  .card-hd h3{font-size:19px}
+  .sentence{font-size:17px}
+  .u.wide{grid-column:auto}
+}
+@media print{ body{background:#fff} .card{break-inside:avoid} }
+</style>
+
+<div class="wrap">
+
+<div class="masthead">
+  <h1>Cards and timelines</h1>
+  <p>Три часа як зразок структури. Усі правки внесено.</p>
+</div>
+
+<div class="divider"><h2>Present Simple</h2></div>
+
+<!-- ============ PS FORM ============ -->
+<div class="card g-present">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Simple Form</h3><div class="sub">main verbs</div></div>
+    <div class="card-bd">
+      <div class="panels2">
+
+        <div class="pn p-pos">
+          <div class="pn-lb">POSITIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">work</span></div>
+              <div class="exs"><div class="ex">I <b>work</b> in an office.</div>
+                <div class="ex">They <b>work</b> in an office.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">work<b>s</b></span></div>
+              <div class="exs"><div class="ex">She <b>works</b> as a nurse.</div>
+                <div class="ex">It <b>works</b> very well.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-neg">
+          <div class="pn-lb">NEGATIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">do not work</span><span class="fm">don't work</span></div>
+              <div class="exs"><div class="ex">I <b>do not work</b> on Sundays.</div>
+                <div class="ex">I <b>don't work</b> on Sundays.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">does not work</span><span class="fm">doesn't work</span></div>
+              <div class="exs"><div class="ex">She <b>does not work</b> on Sundays.</div>
+                <div class="ex">She <b>doesn't work</b> on Sundays.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-que">
+          <div class="pn-lb">QUESTION</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="pre"><span class="fm">Do</span></div>
+              <div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">work?</span></div>
+              <div class="exs"><div class="ex"><b>Do</b> you <b>work</b> here?</div>
+                <div class="ex"><b>Do</b> they <b>work</b> together?</div></div>
+            </div>
+            <div class="r">
+              <div class="pre"><span class="fm">Does</span></div>
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">work?</span></div>
+              <div class="exs"><div class="ex"><b>Does</b> she <b>work</b> here?</div>
+                <div class="ex"><b>Does</b> it <b>work</b> at all?</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-ans">
+          <div class="pn-lb">SHORT ANSWER</div>
+          <div class="pn-bd">
+            <div class="sa-row"><div class="sa-unit"><span class="fm">Yes,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>do</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>does</b>.</span></div></div></div></div></div><div class="sa-row"><div class="sa-unit"><span class="fm">No,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>don't</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>doesn't</b>.</span></div></div></div></div></div>
+            <div class="sa-row">
+              <div class="ex">Do you work here? — Yes, I <b>do</b>.</div>
+              <div class="ex">Does she work here? — No, she <b>doesn't</b>.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-warn span2">
+          <div class="pn-lb">CAREFUL</div>
+          <div class="pn-bd">
+            <div class="warn-cols">
+              <div>
+                <div class="warn-h">NEGATIVE</div>
+                <div class="warnrow"><span class="x">✗</span><span>He doesn't work<b>s</b>.</span></div>
+                <div class="warnrow"><span class="v">✓</span><span>He doesn't work.</span></div>
+              </div>
+              <div>
+                <div class="warn-h">QUESTION</div>
+                <div class="warnrow"><span class="x">✗</span><span>Does she work<b>s</b>?</span></div>
+                <div class="warnrow"><span class="v">✓</span><span>Does she work?</span></div>
+              </div>
+            </div>
+            <div class="warn-note">Use <b>does</b> or <b>doesn't</b> + infinitive with no -s in questions and negatives.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PS TO BE ============ -->
+<div class="card g-present">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Simple — to be</h3><div class="sub">long and short forms</div></div>
+    <div class="card-bd">
+      <div class="panels2">
+
+        <div class="pn p-pos">
+          <div class="pn-lb">POSITIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">am</span><span class="fm">I'm</span></div>
+              <div class="exs"><div class="ex">I <b>am</b> a teacher.</div><div class="ex">I<b>'m</b> a teacher.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">is</span><span class="fm">he's</span></div>
+              <div class="exs"><div class="ex">She <b>is</b> a doctor.</div><div class="ex">She<b>'s</b> a doctor.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">are</span><span class="fm">you're</span></div>
+              <div class="exs"><div class="ex">They <b>are</b> from Spain.</div><div class="ex">They<b>'re</b> from Spain.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-neg">
+          <div class="pn-lb">NEGATIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">am not</span><span class="fm">I'm not</span></div>
+              <div class="exs"><div class="ex">I <b>am not</b> late.</div><div class="ex">I<b>'m not</b> late.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">is not</span><span class="fm">isn't</span></div>
+              <div class="exs"><div class="ex">He <b>is not</b> at home.</div><div class="ex">He <b>isn't</b> at home.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">are not</span><span class="fm">aren't</span></div>
+              <div class="exs"><div class="ex">They <b>are not</b> ready.</div><div class="ex">They <b>aren't</b> ready.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-que">
+          <div class="pn-lb">QUESTION</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="pre"><span class="fm">Am</span></div>
+              <div class="prons"><span class="pr">I</span></div><div class="brace"></div>
+              <div class="exs"><div class="ex"><b>Am</b> I late?</div></div>
+            </div>
+            <div class="r">
+              <div class="pre"><span class="fm">Is</span></div>
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="exs"><div class="ex"><b>Is</b> she a doctor?</div></div>
+            </div>
+            <div class="r">
+              <div class="pre"><span class="fm">Are</span></div>
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="exs"><div class="ex"><b>Are</b> they from Spain?</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-ans">
+          <div class="pn-lb">SHORT ANSWER</div>
+          <div class="pn-bd">
+            <div class="sa-row"><div class="sa-unit"><span class="fm">Yes,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>am</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>is</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>are</b>.</span></div></div></div></div></div><div class="sa-row"><div class="sa-unit"><span class="fm">No,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>'m not</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>isn't</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>aren't</b>.</span></div></div></div></div></div>
+          </div>
+        </div>
+
+        <div class="pn p-warn span2">
+          <div class="pn-lb">CAREFUL</div>
+          <div class="pn-bd">
+            <div class="warn-cols">
+              <div>
+                <div class="warn-h">SHORT ANSWER</div>
+                <div class="warnrow"><span class="x">✗</span><span>Are you happy? — Yes, I'm.</span></div>
+                <div class="warnrow"><span class="v">✓</span><span>Are you happy? — Yes, I am.</span></div>
+              </div>
+              <div class="warn-note" style="margin-top:22px">We cannot use short forms in positive short answers.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PS SPELLING ============ -->
+<div class="card g-present">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Simple Spelling</h3><div class="sub">he / she / it</div></div>
+    <div class="card-bd">
+      <div class="two">
+        <div class="blk">
+          <h4>SPELLING</h4>
+          <div class="sp">
+            <div><code>play, work <i>→</i> <em>plays, works</em></code><span>general rule: add -s</span></div>
+            <div><code>watch, miss <i>→</i> <em>watches, misses</em></code><span>after -s, -ch, -sh, -z: add -es</span></div>
+            <div><code>study, try <i>→</i> <em>studies, tries</em></code><span>after consonant + -y: delete -y and add -ies</span></div>
+            <div><code>do, go <i>→</i> <em>does, goes</em></code><span>after -o: add -es</span></div>
+            <div><code>have <i>→</i> <em>has</em></code><span>irregular form</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="blk">
+            <h4>ADVERBS OF FREQUENCY</h4>
+            <p class="note">Adverbs of frequency (often, always, usually, sometimes, rarely / seldom, never) are placed <b>before</b> main verbs but <b>after</b> auxiliary and modal verbs (be, have, can, will, must, shall).</p>
+            <p class="adv">
+              He often <b>goes</b> to the theatre.<br>
+              He <b>is</b> never late.<br>
+              Tonia <b>doesn't</b> usually <b>go</b> to bed late.
+            </p>
+          </div>
+          <div class="blk" style="border-color:#F0C8C8;background:#FDF6F5">
+            <h4 style="color:var(--warn)">CAREFUL</h4>
+            <div class="warnrow"><span class="x">✗</span><span>The hotel doesn't <b style="color:var(--warn)">has</b> a spa.</span></div>
+            <div class="warnrow"><span class="v">✓</span><span>The hotel doesn't have a spa.</span></div>
+            <div class="warnrow" style="margin-top:6px"><span class="x">✗</span><span>Does Suzan work<b style="color:var(--warn)">s</b> in your office?</span></div>
+            <div class="warnrow"><span class="v">✓</span><span>Does Suzan work in your office?</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PS USED ============ -->
+<div class="card g-present">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Simple is used</h3><div class="sub">all cases and time expressions</div></div>
+    <div class="card-bd">
+      <div class="blk">
+        <div class="uses">
+          <div class="u"><div class="em">🏢</div><div>
+            <div class="ttl">permanent situations or states</div>
+            <p class="ex2">She <b>works</b> in an office.</p>
+            <p class="ex2">She <b>works</b> as a nurse.</p>
+            <p class="ex2">She <b>owns</b> a large shop.</p></div></div>
+          <div class="u"><div class="em">🔁</div><div>
+            <div class="ttl">repeated / habitual actions (especially with frequency adverbs: often, usually, etc.)</div>
+            <p class="ex2">He often <b>buys</b> her flowers.</p>
+            <p class="ex2">I usually <b>get up</b> at 7:30 am.</p></div></div>
+          <div class="u"><div class="em">🌍</div><div>
+            <div class="ttl">permanent truths or laws of nature</div>
+            <p class="ex2">The Sun <b>sets</b> in the west.</p>
+            <p class="ex2">Money <b>doesn't buy</b> happiness.</p>
+            <p class="ex2">Water <b>freezes</b> at 0°C.</p></div></div>
+          <div class="u"><div class="em">🚆</div><div>
+            <div class="ttl">timetables / programmes (future meaning)</div>
+            <p class="ex2">The lesson <b>starts</b> at 10 o'clock.</p>
+            <p class="ex2">The match <b>finishes</b> at 7:45 pm.</p>
+            <p class="ex2">The plane <b>leaves</b> at 6:05 am.</p></div></div>
+          <div class="u wide"><div class="em">🎬</div><div>
+            <div class="ttl">reviews / sports commentaries / dramatic narratives</div>
+            <p class="ex2">Angelina Jolie <b>acts</b> brilliantly in this film.</p></div></div>
+        </div>
+      </div>
+      <div class="blk">
+        <h4>TIME EXPRESSIONS</h4>
+        <div class="chips">
+          <span class="chip">usually</span><span class="chip">always</span><span class="chip">never</span>
+          <span class="chip">often</span><span class="chip">sometimes</span><span class="chip">rarely</span>
+          <span class="chip">every day / week / month / year</span><span class="chip">on Mondays / Tuesdays</span>
+          <span class="chip">in the morning</span><span class="chip">in the afternoon</span>
+          <span class="chip">in the evening</span><span class="chip">at night</span><span class="chip">at the weekend</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<div class="divider"><h2>Present Continuous</h2></div>
+
+<!-- ============ PC FORM ============ -->
+<div class="card g-present">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Continuous Form</h3><div class="sub">be + verb -ing</div></div>
+    <div class="card-bd">
+      <div class="panels2">
+
+        <div class="pn p-pos">
+          <div class="pn-lb">POSITIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">am working</span><span class="fm">I'm working</span></div>
+              <div class="exs"><div class="ex">I <b>am working</b> now.</div><div class="ex">I<b>'m working</b> now.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">is working</span><span class="fm">he's working</span></div>
+              <div class="exs"><div class="ex">He <b>is working</b> now.</div><div class="ex">He<b>'s working</b> now.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">are working</span><span class="fm">they're working</span></div>
+              <div class="exs"><div class="ex">They <b>are working</b> now.</div><div class="ex">They<b>'re working</b> now.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-neg">
+          <div class="pn-lb">NEGATIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">am not working</span><span class="fm">I'm not working</span></div>
+              <div class="exs"><div class="ex">I <b>am not working</b> today.</div><div class="ex">I<b>'m not working</b> today.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">is not working</span><span class="fm">isn't working</span></div>
+              <div class="exs"><div class="ex">He <b>is not working</b> today.</div><div class="ex">He <b>isn't working</b> today.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">are not working</span><span class="fm">aren't working</span></div>
+              <div class="exs"><div class="ex">They <b>are not working</b> today.</div><div class="ex">They <b>aren't working</b> today.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-que">
+          <div class="pn-lb">QUESTION</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="pre"><span class="fm">Am</span></div>
+              <div class="prons"><span class="pr">I</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">working?</span></div>
+              <div class="exs"><div class="ex"><b>Am</b> I <b>listening</b>?</div></div>
+            </div>
+            <div class="r">
+              <div class="pre"><span class="fm">Is</span></div>
+              <div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">working?</span></div>
+              <div class="exs"><div class="ex"><b>Is</b> he <b>listening</b>?</div></div>
+            </div>
+            <div class="r">
+              <div class="pre"><span class="fm">Are</span></div>
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">working?</span></div>
+              <div class="exs"><div class="ex"><b>Are</b> they <b>listening</b>?</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-ans">
+          <div class="pn-lb">SHORT ANSWER</div>
+          <div class="pn-bd">
+            <div class="sa-row"><div class="sa-unit"><span class="fm">Yes,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>am</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>is</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>are</b>.</span></div></div></div></div></div><div class="sa-row"><div class="sa-unit"><span class="fm">No,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>'m not</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>isn't</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>aren't</b>.</span></div></div></div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PC SPELLING ============ -->
+<div class="card g-present">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Continuous Spelling</h3><div class="sub">-ing endings</div></div>
+    <div class="card-bd">
+      <div class="blk">
+        <div class="sp">
+          <div><code>work, study <i>→</i> <em>working, studying</em></code><span>general rule: add -ing</span></div>
+          <div><code>live, make <i>→</i> <em>living, making</em></code><span>consonant + -e: delete -e and add -ing</span></div>
+          <div><code>run, swim <i>→</i> <em>running, swimming</em></code><span>one stressed vowel between two consonants: double the consonant and add -ing</span></div>
+          <div><code>walk, wait <i>→</i> <em>walking, waiting</em></code><span>two vowels: we do not double the consonant</span></div>
+          <div><code>lie <i>→</i> <em>lying</em></code><span>-ie changes to -y</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PC USED ============ -->
+<div class="card g-present">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Continuous is used</h3><div class="sub">all cases and time expressions</div></div>
+    <div class="card-bd">
+      <div class="blk">
+        <div class="uses">
+          <div class="u"><div class="em">🧳</div><div>
+            <div class="ttl">temporary situations</div>
+            <p class="ex2">He's <b>looking</b> for a new job these days.</p>
+            <p class="ex2">They<b>'re staying</b> at the Park Hotel at present.</p></div></div>
+          <div class="u"><div class="em">👀</div><div>
+            <div class="ttl">actions happening at or around the time of speaking</div>
+            <p class="ex2">Chris <b>is painting</b> the garage at the moment.</p>
+            <p class="ex2">She <b>is looking</b> for a better job.</p></div></div>
+          <div class="u"><div class="em">😤</div><div>
+            <div class="ttl">with always to express annoyance or criticism</div>
+            <p class="ex2">He's always <b>telling</b> lies!</p>
+            <p class="ex2">She's always <b>interrupting</b> me!</p></div></div>
+          <div class="u"><div class="em">📅</div><div>
+            <div class="ttl">fixed arrangements in the near future</div>
+            <p class="ex2">I'm <b>flying</b> to London tomorrow.</p>
+            <p class="ex2">The Browns <b>are visiting</b> us tonight.</p>
+            <div class="hint">It's all arranged. The time of the action is always stated or understood.</div></div></div>
+          <div class="u wide"><div class="em">📈</div><div>
+            <div class="ttl">changing or developing situations</div>
+            <p class="ex2">His English <b>is getting</b> better.</p></div></div>
+        </div>
+      </div>
+      <div class="blk">
+        <h4>TIME EXPRESSIONS</h4>
+        <div class="chips">
+          <span class="chip">now</span><span class="chip">at the moment</span><span class="chip">at present</span>
+          <span class="chip">this week</span><span class="chip">this month</span><span class="chip">these days</span>
+          <span class="chip">today</span><span class="chip">tonight</span>
+          <span class="chip">tomorrow</span><span class="chip">next week</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<div class="divider"><h2>Past Simple</h2></div>
+
+<!-- ============ PastS FORM ============ -->
+<div class="card g-past">
+  <div class="card-in">
+    <div class="card-hd"><h3>Past Simple Form</h3><div class="sub">regular verbs</div></div>
+    <div class="card-bd">
+      <div class="panels2">
+
+        <div class="pn p-pos">
+          <div class="pn-lb">POSITIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span><span class="pr">we</span><span class="pr">they</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">stay<b>ed</b></span></div>
+              <div class="exs"><div class="ex">I <b>stayed</b> at home.</div>
+                <div class="ex">They <b>stayed</b> at home.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-neg">
+          <div class="pn-lb">NEGATIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span><span class="pr">we</span><span class="pr">they</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">did not stay</span><span class="fm">didn't stay</span></div>
+              <div class="exs"><div class="ex">I <b>did not stay</b> at home.</div>
+                <div class="ex">I <b>didn't stay</b> at home.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-que">
+          <div class="pn-lb">QUESTION</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="pre"><span class="fm">Did</span></div>
+              <div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span><span class="pr">we</span><span class="pr">they</span></div>
+              <div class="brace"></div>
+              <div class="forms"><span class="fm">stay?</span></div>
+              <div class="exs"><div class="ex"><b>Did</b> you <b>stay</b> at home?</div>
+                <div class="ex"><b>Did</b> she <b>go</b> to the party?</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-ans">
+          <div class="pn-lb">SHORT ANSWER</div>
+          <div class="pn-bd">
+            <div class="sa-row"><div class="sa-unit"><span class="fm">Yes,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>did</b>.</span></div></div></div></div></div><div class="sa-row"><div class="sa-unit"><span class="fm">No,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">you</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>didn't</b>.</span></div></div></div></div></div>
+            <div class="sa-row">
+              <div class="ex">Did you go to the party? — Yes, I <b>did</b>.</div>
+              <div class="ex">Did she stay? — No, she <b>didn't</b>.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-warn span2">
+          <div class="pn-lb">CAREFUL</div>
+          <div class="pn-bd">
+            <div class="warn-cols">
+              <div>
+                <div class="warn-h">QUESTION</div>
+                <div class="warnrow"><span class="x">✗</span><span>Did she stay<b>ed</b> at home?</span></div>
+                <div class="warnrow"><span class="v">✓</span><span>Did she stay at home?</span></div>
+              </div>
+              <div>
+                <div class="warn-h">NEGATIVE</div>
+                <div class="warnrow"><span class="x">✗</span><span>He didn't <b>went</b>.</span></div>
+                <div class="warnrow"><span class="v">✓</span><span>He didn't go.</span></div>
+              </div>
+            </div>
+            <div class="warn-note">After <b>did</b> and <b>didn't</b> the verb goes back to the infinitive.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PastS TO BE ============ -->
+<div class="card g-past">
+  <div class="card-in">
+    <div class="card-hd"><h3>Past Simple — to be</h3><div class="sub">long and short forms</div></div>
+    <div class="card-bd">
+      <div class="panels2">
+
+        <div class="pn p-pos">
+          <div class="pn-lb">POSITIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">was</span></div>
+              <div class="exs"><div class="ex">I <b>was</b> at home.</div><div class="ex">She <b>was</b> very tired.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">were</span></div>
+              <div class="exs"><div class="ex">They <b>were</b> at home.</div><div class="ex">We <b>were</b> very tired.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-neg">
+          <div class="pn-lb">NEGATIVE</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="prons"><span class="pr">I</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">was not</span><span class="fm">wasn't</span></div>
+              <div class="exs"><div class="ex">I <b>was not</b> at home.</div><div class="ex">I <b>wasn't</b> at home.</div></div>
+            </div>
+            <div class="r">
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="forms"><span class="fm">were not</span><span class="fm">weren't</span></div>
+              <div class="exs"><div class="ex">They <b>were not</b> at home.</div><div class="ex">They <b>weren't</b> at home.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-que">
+          <div class="pn-lb">QUESTION</div>
+          <div class="pn-bd">
+            <div class="r">
+              <div class="pre"><span class="fm">Was</span></div>
+              <div class="prons"><span class="pr">I</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div>
+              <div class="exs"><div class="ex"><b>Was</b> he at home?</div></div>
+            </div>
+            <div class="r">
+              <div class="pre"><span class="fm">Were</span></div>
+              <div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div>
+              <div class="exs"><div class="ex"><b>Were</b> they at home?</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pn p-ans">
+          <div class="pn-lb">SHORT ANSWER</div>
+          <div class="pn-bd">
+            <div class="sa-row"><div class="sa-unit"><span class="fm">Yes,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>was</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>were</b>.</span></div></div></div></div></div><div class="sa-row"><div class="sa-unit"><span class="fm">No,</span><div class="sagrp"><div class="sa-line"><div class="prons"><span class="pr">I</span><span class="pr">he</span><span class="pr">she</span><span class="pr">it</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>wasn't</b>.</span></div></div><div class="sa-line"><div class="prons"><span class="pr">you</span><span class="pr">we</span><span class="pr">they</span></div><div class="brace"></div><div class="forms"><span class="fm"><b>weren't</b>.</span></div></div></div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PastS SPELLING ============ -->
+<div class="card g-past">
+  <div class="card-in">
+    <div class="card-hd"><h3>Past Simple Spelling</h3><div class="sub">-ed endings and irregular verbs</div></div>
+    <div class="card-bd">
+      <div class="two">
+        <div class="blk">
+          <h4>SPELLING</h4>
+          <div class="sp">
+            <div><code>like, hate <i>→</i> <em>liked, hated</em></code><span>-e: add -d only</span></div>
+            <div><code>prefer, stop <i>→</i> <em>preferred, stopped</em></code><span>one stressed vowel + consonant: double the consonant and add -ed</span></div>
+            <div><code>carry, study <i>→</i> <em>carried, studied</em></code><span>consonant + y: change y to i and add -ied</span></div>
+            <div><code>play, enjoy <i>→</i> <em>played, enjoyed</em></code><span>vowel + y: simply add -ed</span></div>
+          </div>
+        </div>
+        <div class="blk">
+          <h4>IRREGULAR VERBS</h4>
+          <p class="note">Irregular verbs have a special past form. It cannot be built by a rule and has to be learned.</p>
+          <p class="irr">
+            I go → <b>I went</b><br>
+            I drink → <b>I drank</b><br>
+            I am → <b>I was</b>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<!-- ============ PastS USED ============ -->
+<div class="card g-past">
+  <div class="card-in">
+    <div class="card-hd"><h3>Past Simple is used</h3><div class="sub">all cases and time expressions</div></div>
+    <div class="card-bd">
+      <div class="blk">
+        <div class="uses">
+          <div class="u"><div class="em">📆</div><div>
+            <div class="ttl">for actions which happened at a stated time in the past</div>
+            <p class="ex2">He <b>sold</b> his car two weeks ago.</p>
+            <p class="ex2">She <b>called</b> an hour ago.</p>
+            <div class="hint">When? Two weeks ago.</div></div></div>
+          <div class="u"><div class="em">🏠</div><div>
+            <div class="ttl">to express a past state or habit</div>
+            <p class="ex2">When he <b>was</b> young, he <b>lived</b> in a small flat.</p>
+            <p class="ex2">He <b>used to go</b> / <b>went</b> to school on foot.</p></div></div>
+          <div class="u"><div class="em">🔗</div><div>
+            <div class="ttl">for past actions which happened one after the other</div>
+            <p class="ex2">She <b>put on</b> her coat, <b>took</b> her bag and <b>left</b> the house.</p>
+            <p class="ex2">She <b>sealed</b> the letter, <b>put</b> a stamp on it and <b>posted</b> it.</p></div></div>
+          <div class="u"><div class="em">🔒</div><div>
+            <div class="ttl">for an action which happened in the past and cannot be repeated</div>
+            <p class="ex2">I once <b>spoke</b> to Princess Diana.</p>
+            <p class="ex2">Shakespeare <b>wrote</b> a lot of plays.</p>
+            <div class="hint">The action was completed in the past.</div></div></div>
+        </div>
+      </div>
+      <div class="blk">
+        <h4>TIME EXPRESSIONS</h4>
+        <div class="chips">
+          <span class="chip">yesterday</span><span class="chip">last week / month / year</span>
+          <span class="chip">last Monday</span><span class="chip">two weeks ago</span>
+          <span class="chip">how long ago</span><span class="chip">just now</span>
+          <span class="chip">then</span><span class="chip">when</span><span class="chip">in 2000</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<div class="divider"><h2>Timelines</h2></div>
+
+<div class="card g-present tl">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Simple</h3><div class="sub">a repeated action</div></div>
+    <div class="card-bd">
+      <svg viewBox="0 0 800 182" role="img"><title>Present Simple timeline</title>
+        <text x="24" y="30" font-family="Golos Text" font-size="13" fill="#93959C">past</text>
+        <text x="776" y="30" text-anchor="end" font-family="Golos Text" font-size="13" fill="#93959C">future</text>
+        <line x1="24" y1="100" x2="744" y2="100" stroke="#17181A" stroke-width="3" stroke-linecap="round"/>
+        <path d="M742 88l22 12-22 12" fill="none" stroke="#17181A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="400" y1="52" x2="400" y2="142" stroke="#0E7C66" stroke-width="2" stroke-dasharray="5 6"/>
+        <rect x="366" y="30" width="68" height="25" rx="12" fill="#0E7C66"/>
+        <text x="400" y="47" text-anchor="middle" font-family="Unbounded" font-weight="600" font-size="11" fill="#fff">NOW</text>
+        <g stroke="#E2542A" stroke-width="6" stroke-linecap="round">
+          <path d="M229 88l22 24M251 88l-22 24"/><path d="M286 88l22 24M308 88l-22 24"/>
+          <path d="M343 88l22 24M365 88l-22 24"/><path d="M389 88l22 24M411 88l-22 24"/>
+          <path d="M435 88l22 24M457 88l-22 24"/><path d="M492 88l22 24M514 88l-22 24"/>
+          <path d="M549 88l22 24M571 88l-22 24"/>
+        </g>
+        <g font-family="Golos Text" font-size="12.5" fill="#5F6169" text-anchor="middle">
+          <text x="240" y="132">Mon</text><text x="297" y="132">Tue</text><text x="354" y="132">Wed</text>
+          <text x="400" y="132">Thu</text><text x="446" y="132">Fri</text><text x="503" y="132">Mon</text>
+          <text x="560" y="132">Tue</text>
+        </g>
+        <line x1="240" y1="144" x2="240" y2="154" stroke="#6B45C0" stroke-width="1.5"/>
+        <line x1="560" y1="144" x2="560" y2="154" stroke="#6B45C0" stroke-width="1.5"/>
+        <line x1="240" y1="154" x2="560" y2="154" stroke="#6B45C0" stroke-width="1.5"/>
+        <text x="400" y="175" text-anchor="middle" font-family="Golos Text" font-size="14" fill="#6B45C0">every weekday</text>
+      </svg>
+      <p class="sentence">I <span class="w-verb">go</span> to work <span class="w-time">every weekday</span>.</p>
+      <p class="tl-note">The action repeats again and again. It does not matter whether it is happening right now.</p>
+      <div class="tl-lg">
+        <div><svg width="22" height="12" viewBox="0 0 22 12"><path d="M4 1l14 10M18 1L4 11" stroke="#E2542A" stroke-width="3" stroke-linecap="round" fill="none"/></svg> one occurrence of the action</div>
+        <div><span class="sq" style="background:#6B45C0;height:3px"></span> how often it repeats</div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<div class="card g-present tl">
+  <div class="card-in">
+    <div class="card-hd"><h3>Present Continuous</h3><div class="sub">an action in progress</div></div>
+    <div class="card-bd">
+      <svg viewBox="0 0 800 182" role="img"><title>Present Continuous timeline</title>
+        <text x="24" y="30" font-family="Golos Text" font-size="13" fill="#93959C">past</text>
+        <text x="776" y="30" text-anchor="end" font-family="Golos Text" font-size="13" fill="#93959C">future</text>
+        <rect x="250" y="78" width="270" height="44" rx="10" fill="#C8EADF" stroke="#0E7C66" stroke-width="2"/>
+        <line x1="24" y1="100" x2="744" y2="100" stroke="#17181A" stroke-width="3" stroke-linecap="round"/>
+        <path d="M742 88l22 12-22 12" fill="none" stroke="#17181A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="400" y1="52" x2="400" y2="142" stroke="#0E7C66" stroke-width="2" stroke-dasharray="5 6"/>
+        <rect x="366" y="30" width="68" height="25" rx="12" fill="#0E7C66"/>
+        <text x="400" y="47" text-anchor="middle" font-family="Unbounded" font-weight="600" font-size="11" fill="#fff">NOW</text>
+        <g font-family="Golos Text" font-size="12.5" fill="#0E7C66" text-anchor="middle">
+          <text x="250" y="138">9:00</text><text x="520" y="138">12:00</text>
+        </g>
+        <text x="400" y="138" text-anchor="middle" font-family="Golos Text" font-size="12.5" fill="#5F6169">11:20</text>
+        <line x1="400" y1="146" x2="400" y2="156" stroke="#6B45C0" stroke-width="1.5"/>
+        <text x="400" y="176" text-anchor="middle" font-family="Golos Text" font-size="14" fill="#6B45C0">at the moment</text>
+      </svg>
+      <p class="sentence">Chris <span class="w-verb-s">is painting</span> the garage <span class="w-time">at the moment</span>.</p>
+      <p class="tl-note">The action is still going on. NOW sits inside the block, so the action is unfinished.</p>
+      <div class="tl-lg">
+        <div><span class="sq" style="background:#C8EADF;border:1.5px solid #0E7C66"></span> action in progress</div>
+        <div><span class="sq" style="background:#6B45C0;height:3px"></span> the exact point it refers to</div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+<div class="card g-past tl">
+  <div class="card-in">
+    <div class="card-hd"><h3>Past Simple</h3><div class="sub">a finished action at a named time</div></div>
+    <div class="card-bd">
+      <svg viewBox="0 0 800 182" role="img"><title>Past Simple timeline</title>
+        <text x="24" y="30" font-family="Golos Text" font-size="13" fill="#93959C">past</text>
+        <text x="776" y="30" text-anchor="end" font-family="Golos Text" font-size="13" fill="#93959C">future</text>
+        <line x1="24" y1="100" x2="744" y2="100" stroke="#17181A" stroke-width="3" stroke-linecap="round"/>
+        <path d="M742 88l22 12-22 12" fill="none" stroke="#17181A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="600" y1="52" x2="600" y2="142" stroke="#2A4A7F" stroke-width="2" stroke-dasharray="5 6"/>
+        <rect x="566" y="30" width="68" height="25" rx="12" fill="#2A4A7F"/>
+        <text x="600" y="47" text-anchor="middle" font-family="Unbounded" font-weight="600" font-size="11" fill="#fff">NOW</text>
+        <g stroke="#E2542A" stroke-width="7" stroke-linecap="round">
+          <path d="M228 86l24 28M252 86l-24 28"/>
+        </g>
+        <g font-family="Golos Text" font-size="12.5" fill="#5F6169" text-anchor="middle">
+          <text x="240" y="134">2 June</text><text x="600" y="134">16 June</text>
+        </g>
+        <line x1="240" y1="144" x2="240" y2="154" stroke="#6B45C0" stroke-width="1.5"/>
+        <line x1="600" y1="144" x2="600" y2="154" stroke="#6B45C0" stroke-width="1.5"/>
+        <line x1="240" y1="154" x2="600" y2="154" stroke="#6B45C0" stroke-width="1.5"/>
+        <text x="420" y="175" text-anchor="middle" font-family="Golos Text" font-size="14" fill="#6B45C0">two weeks ago</text>
+      </svg>
+      <p class="sentence">He <span class="w-verb">sold</span> his car <span class="w-time">two weeks ago</span>.</p>
+      <p class="tl-note">The action is over. It is cut off from NOW and cannot continue.</p>
+      <div class="tl-lg">
+        <div><svg width="22" height="12" viewBox="0 0 22 12"><path d="M4 1l14 10M18 1L4 11" stroke="#E2542A" stroke-width="3" stroke-linecap="round" fill="none"/></svg> finished action</div>
+        <div><span class="sq" style="background:#6B45C0;height:3px"></span> when exactly it happened</div>
+      </div>
+    </div>
+    <div class="card-ft">ЧАСИ АНГЛІЙСЬКОЇ</div>
+  </div>
+</div>
+
+</div>

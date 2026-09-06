@@ -1,0 +1,8 @@
+{
+  "groups": [
+    { "id": "present", "label": "Present", "topics": ["present-simple", "present-continuous", "present-perfect", "present-perfect-continuous"] },
+    { "id": "past", "label": "Past", "topics": ["past-simple", "past-continuous", "past-perfect", "past-perfect-continuous"] },
+    { "id": "future", "label": "Future", "topics": ["future-simple", "future-continuous", "future-perfect", "future-perfect-continuous"] },
+    { "id": "other", "label": "Інше", "topics": ["to-be-going-to", "stative-verbs", "used-to", "irregular-verbs", "combinations-pairs", "combinations-scenarios", "combinations-overviews"] }
+  ]
+}

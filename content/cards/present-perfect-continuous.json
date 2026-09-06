@@ -1,0 +1,124 @@
+{
+  "topic": "Present Perfect Continuous",
+  "group": "present",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Present Perfect Continuous Form",
+      "subtitle": "have / has been + verb -ing",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "we", "they"],
+              "forms": ["have been working", "'ve been working"],
+              "examples": ["I <b>have been working</b>.", "I<b>'ve been working</b>."]
+            },
+            {
+              "pronouns": ["he", "she", "it"],
+              "forms": ["has been working", "'s been working"],
+              "examples": ["He <b>has been working</b>.", "He<b>'s been working</b>."]
+            }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            {
+              "pronouns": ["I", "you", "we", "they"],
+              "forms": ["have not been working", "haven't been working"],
+              "examples": ["I <b>have not been working</b>.", "I <b>haven't been working</b>."]
+            },
+            {
+              "pronouns": ["he", "she", "it"],
+              "forms": ["has not been working", "hasn't been working"],
+              "examples": ["He <b>has not been working</b>.", "He <b>hasn't been working</b>."]
+            }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            {
+              "prefix": ["Have"],
+              "pronouns": ["I", "you", "we", "they"],
+              "forms": ["been working?"],
+              "examples": ["<b>Have</b> you <b>been working</b>?"]
+            },
+            {
+              "prefix": ["Has"],
+              "pronouns": ["he", "she", "it"],
+              "forms": ["been working?"],
+              "examples": ["<b>Has</b> he <b>been working</b>?"]
+            }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I", "we", "you", "they"], "form": "<b>have</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>has</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I", "we", "you", "they"], "form": "<b>haven't</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>hasn't</b>." }
+              ]
+            }
+          ],
+          "examples": ["Negative-Interrogative: <b>Haven't</b> you <b>been working</b>?"]
+        }
+      ]
+    },
+    {
+      "title": "Present Perfect Continuous is used",
+      "subtitle": "all cases and time adverbs",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "\ud83c\udf6a",
+              "case": "for actions which started in the past and continue up to the present",
+              "examples": ["They <b>have been making</b> biscuits since 11 o'clock.", "He<b>'s been writing</b> a letter for two hours."],
+              "hint": "They're still making biscuits. He started two hours ago and he's still writing."
+            },
+            {
+              "emoji": "\ud83d\ude24",
+              "case": "for past actions of certain duration which have visible results or effects in the present",
+              "examples": ["Bob is very tired. He <b>has been working</b> all day long.", "She<b>'s been crying</b>."],
+              "hint": "Her eyes are red."
+            },
+            {
+              "emoji": "\ud83d\ude20",
+              "case": "to express irritation, anger, annoyance, explanation or criticism",
+              "examples": ["Who <b>has been reading</b> my business papers?", "Who <b>has been using</b> my hairbrush?"],
+              "hint": "showing anger, annoyance"
+            },
+            {
+              "emoji": "\u23f1\ufe0f",
+              "case": "to put emphasis on duration, usually with for, since or how long",
+              "examples": ["I<b>'ve been typing</b> letters since 9 o'clock.", "They <b>have been speaking</b> in his office for the last hour."]
+            }
+          ]
+        },
+        {
+          "heading": "TIME ADVERBS",
+          "kind": "chips",
+          "items": ["for", "since", "how long"]
+        },
+        {
+          "heading": "NOTE",
+          "kind": "text",
+          "items": ["With the verbs <b>live</b>, <b>feel</b> and <b>work</b> we can use either Present Perfect or Present Perfect Continuous with no difference in meaning. I<b>'ve been living</b> in London for a year. or I<b>'ve lived</b> in London for a year."]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "topic": "Tense combinations — one situation, different tenses",
+  "group": "past",
+  "cards": [
+    {
+      "title": "Past Simple — Past Continuous — Past Perfect",
+      "subtitle": "the same situation told three ways",
+      "blocks": [
+        {
+          "kind": "scenario",
+          "items": [
+            {
+              "tense": "PAST SIMPLE",
+              "sentence": "Last Monday, Lisa and her husband <b>fed</b> the children when he <b>came</b> home.",
+              "note": "Her husband came home and then they fed the children together. The past simple is used for actions which happened immediately one after the other in the past."
+            },
+            {
+              "tense": "PAST CONTINUOUS",
+              "sentence": "Last Tuesday, Lisa <b>was feeding</b> the children when her husband <b>came</b> home.",
+              "note": "She was still feeding the children when her husband came home. The past continuous is used for a past action which was in progress when another action interrupted it."
+            },
+            {
+              "tense": "PAST PERFECT",
+              "sentence": "Last Friday, Lisa <b>had</b> already <b>fed</b> the children when her husband <b>came</b> home.",
+              "note": "She fed the children first. Her husband came home afterwards. The past perfect is used for an action which happened before another past action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Note the difference",
+      "subtitle": "Past Perfect and Past Simple after when",
+      "blocks": [
+        {
+          "kind": "scenario",
+          "items": [
+            {
+              "tense": "PAST PERFECT",
+              "sentence": "When his sister <b>phoned</b>, Tim <b>had left</b>.",
+              "note": "Tim had left before his sister phoned."
+            },
+            {
+              "tense": "PAST SIMPLE",
+              "sentence": "When his sister <b>phoned</b>, Tim <b>left</b>.",
+              "note": "His sister phoned and then Tim left."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Review of Future Forms",
+      "subtitle": "which form for which meaning",
+      "group": "future",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "\ud83d\udd2e",
+              "case": "future simple",
+              "examples": [
+                "a) in predictions about the future, usually with think, believe, be afraid, probably. I believe life <b>will change</b> in the 21st century.",
+                "b) for on-the-spot decisions or offers. It's late. I<b>'ll take</b> a taxi home. I<b>'ll lend</b> you my car if you want.",
+                "c) for actions, events or situations which will definitely happen in the future and which we cannot control. Winter <b>will set in</b> early this year.",
+                "d) for promises, threats, warnings, requests, hopes. Stop talking or I<b>'ll send</b> you out of the class."
+              ],
+              "wide": true
+            },
+            {
+              "emoji": "\ud83c\udfaf",
+              "case": "be going to",
+              "examples": [
+                "a) for plans, intentions or ambitions. I<b>'m going to buy</b> a sports car.",
+                "b) in predictions when there is evidence that something will happen in the near future. Someone<b>'s going to fall</b> over that box if you don't move it."
+              ],
+              "wide": true
+            },
+            {
+              "emoji": "\ud83d\udcc5",
+              "case": "present continuous",
+              "examples": ["for fixed arrangements in the near future. He<b>'s flying</b> to Turkey next month. He has already booked his flight."]
+            },
+            {
+              "emoji": "\ud83d\ude82",
+              "case": "present simple",
+              "examples": ["for timetables and programmes. The ferry <b>leaves</b> at eight o'clock tomorrow morning."]
+            },
+            {
+              "emoji": "\u23f1\ufe0f",
+              "case": "future continuous",
+              "examples": [
+                "a) for actions which will be in progress at a stated future time. This time next week he<b>'ll be flying</b> to Morocco.",
+                "b) for actions which will definitely happen as a result of a routine or arrangement. I<b>'ll be seeing</b> Jim at work later on today.",
+                "c) when we ask politely about someone's plans for the near future. <b>Will</b> you <b>be going</b> to the dentist this afternoon?"
+              ],
+              "wide": true
+            },
+            {
+              "emoji": "\u2705",
+              "case": "future perfect",
+              "examples": ["for actions which will be finished before a stated future time. We <b>will have returned</b> home by Sunday afternoon."]
+            },
+            {
+              "emoji": "\u23f3",
+              "case": "future perfect continuous",
+              "examples": ["to emphasise the duration of an action up to a certain time in the future. By the end of this week, she <b>will have been working</b> here for six years."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Future forms — note",
+      "subtitle": "four rules that decide the form",
+      "group": "future",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "\ud83c\udf89",
+              "case": "We use the Present Continuous rather than be going to for things which are definitely arranged to happen in the future",
+              "examples": ["They<b>'re having</b> a party next week.", "They<b>'re going to have</b> a party in two weeks."],
+              "hint": "It's all arranged, the invitations have already been sent. — They've decided but it hasn't been arranged yet."
+            },
+            {
+              "emoji": "\ud83d\udd52",
+              "case": "We use the Present Simple for timetables, programmes, etc.",
+              "examples": ["Our plane <b>leaves</b> at 10:30 am."]
+            },
+            {
+              "emoji": "\u26d4",
+              "case": "We do not use the Future tense after while, before, until, as soon as, if (conditional) and when (time conjunction)",
+              "examples": ["Call me <b>when</b> you <b>arrive</b>.", "BUT <b>When will</b> you <b>be</b> ready?"],
+              "hint": "We can use when + will if when is a question word."
+            },
+            {
+              "emoji": "\ud83d\udeb6",
+              "case": "With the verbs go and come we often use the Present Continuous rather than be going to",
+              "examples": ["I<b>'m going</b> out tonight.", "RATHER THAN I<b>'m going to go</b> out tonight."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Future Perfect and time clauses",
+      "subtitle": "what tense goes after by the time, until, before",
+      "group": "future",
+      "blocks": [
+        {
+          "kind": "text",
+          "items": ["After the time expressions <b>by the time</b>, <b>until</b>, <b>before</b> we use the present simple, because they introduce time clauses. The future perfect and the future perfect continuous may come either before or after the time clause."]
+        },
+        {
+          "kind": "scenario",
+          "items": [
+            {
+              "tense": "TIME CLAUSE SECOND",
+              "sentence": "I <b>will have tidied</b> up by the time you <b>get</b> back.",
+              "note": "The main clause is in the future perfect, the time clause after 'by the time' is in the present simple."
+            },
+            {
+              "tense": "TIME CLAUSE FIRST",
+              "sentence": "By the time she <b>finishes</b> work, we <b>will have been waiting</b> for more than an hour.",
+              "note": "The time clause comes first and is still in the present simple; the main clause is in the future perfect continuous."
+            }
+          ]
+        },
+        {
+          "heading": "TIME EXPRESSIONS",
+          "kind": "table",
+          "items": [
+            { "k": "Future Perfect", "v": "by, by the time, before, until, by then" },
+            { "k": "Future Perfect Continuous", "v": "by ... for" }
+          ]
+        }
+      ]
+    }
+  ]
+}
