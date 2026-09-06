@@ -1,5 +1,17 @@
+import { lt } from "drizzle-orm";
 import { TelegramLogin } from "@/components/TelegramLogin";
 import { BRAND } from "@/config/brand";
+import { db, schema } from "@/db";
+import { newId } from "@/lib/auth";
+import { deepLink } from "@/lib/telegram";
+
+/** Токен входа создаётся при открытии страницы; старые токены чистим попутно. */
+async function createLoginToken() {
+  const id = newId(24);
+  await db.insert(schema.loginTokens).values({ id });
+  await db.delete(schema.loginTokens).where(lt(schema.loginTokens.createdAt, new Date(Date.now() - 60 * 60 * 1000)));
+  return { token: id, url: deepLink(id) };
+}
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +23,7 @@ const MESSAGES: Record<string, string> = {
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; pending?: string }> }) {
   const sp = await searchParams;
   const bot = process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME;
+  const login = bot ? await createLoginToken() : null;
   return (
     <div className="login">
       <div className="login-box">
@@ -27,8 +40,8 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
         <section>
           <h2>Для вчителя</h2>
-          {bot ? (
-            <TelegramLogin bot={bot} />
+          {bot && login ? (
+            <TelegramLogin bot={bot} token={login.token} url={login.url} />
           ) : (
             <div className="notice">Вхід через Telegram ще не налаштовано: не задано ім&apos;я бота.</div>
           )}
