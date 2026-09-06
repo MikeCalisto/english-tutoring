@@ -262,3 +262,34 @@ table.te td.v { color: var(--muted); }
 @media print {
   body { background: #fff; }
 }
+
+/* ---------- login ---------- */
+.login { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.login-box { width: 100%; max-width: 460px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 28px 30px 30px; display: flex; flex-direction: column; gap: 14px; }
+.login h1, .h1 { font-family: var(--display); font-size: 28px; margin: 0; }
+.h2 { font-family: var(--display); font-size: 18px; margin: 0; }
+.login h2 { font-family: var(--display); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.login section { border-top: 1px solid var(--line); padding-top: 14px; }
+.muted { color: var(--muted); margin: 0; }
+.small { font-size: 12.5px; }
+.notice { background: var(--surface2); border: 1px solid var(--line); border-radius: var(--rp); padding: 10px 14px; font-size: 14px; color: var(--muted); }
+.notice.error { border-color: color-mix(in srgb, var(--warn) 60%, var(--line)); color: var(--warn); }
+input[type="text"], input:not([type]), input[type="number"] { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--rb); padding: 8px 12px; }
+input:focus { outline: none; border-color: var(--muted); }
+.code-form { display: flex; flex-direction: column; gap: 8px; }
+.code-form .btn { align-self: flex-start; }
+.btn:disabled { opacity: .5; cursor: default; }
+
+/* ---------- cabinet ---------- */
+.cab { max-width: 980px; }
+.cab-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.cab-sec { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+.cab-sec-h { display: flex; align-items: baseline; justify-content: space-between; }
+.cab-sec-h h2 { font-family: var(--display); font-size: 18px; margin: 0; }
+.row-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.list { display: flex; flex-direction: column; gap: 6px; }
+.row { display: flex; align-items: center; gap: 12px; padding: 8px 12px; background: var(--surface2); border: 1px solid var(--line); border-radius: var(--rp); flex-wrap: wrap; }
+.row .t { flex: 1; }
+.row form.inline { display: flex; gap: 6px; align-items: center; }
+.code { font-family: var(--mono); font-size: 16px; letter-spacing: .14em; color: var(--ans); }
+.task-group { display: flex; flex-direction: column; gap: 8px; }

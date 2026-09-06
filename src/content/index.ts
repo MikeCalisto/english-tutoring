@@ -60,7 +60,9 @@ export function getTimeline(id: string): Timeline | null {
 
 export interface Task {
   tense: string;
+  tenseLabel: string;
   title: string;
+  type: string;
   url: string;
 }
 
