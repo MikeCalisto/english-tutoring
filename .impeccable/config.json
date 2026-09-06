@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "src/app/globals.css"
+        ],
+        "createdAt": "2026-09-06T19:00:56.221Z",
+        "reason": "user picked direction A mockup on 2026-09-06; its cards and scenario blocks carry a top accent border in the tense-group colour on rounded, overflow-hidden containers"
+      }
+    ]
+  }
+}
