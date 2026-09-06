@@ -276,6 +276,7 @@ table.te td.v { color: var(--muted); }
 .notice.error { border-color: color-mix(in srgb, var(--warn) 60%, var(--line)); color: var(--warn); }
 input[type="text"], input:not([type]), input[type="number"] { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: var(--rb); padding: 8px 12px; }
 input:focus { outline: none; border-color: var(--muted); }
+.tg-widget { min-height: 44px; }
 .code-form { display: flex; flex-direction: column; gap: 8px; }
 .code-form .btn { align-self: flex-start; }
 .btn:disabled { opacity: .5; cursor: default; }

@@ -1,4 +1,4 @@
-import Script from "next/script";
+import { TelegramLogin } from "@/components/TelegramLogin";
 import { BRAND } from "@/config/brand";
 
 export const dynamic = "force-dynamic";
@@ -28,17 +28,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         <section>
           <h2>Для вчителя</h2>
           {bot ? (
-            <>
-              <div id="tg-widget" />
-              <Script
-                src="https://telegram.org/js/telegram-widget.js?22"
-                data-telegram-login={bot}
-                data-size="large"
-                data-auth-url="/api/auth/telegram"
-                data-request-access="write"
-                strategy="afterInteractive"
-              />
-            </>
+            <TelegramLogin bot={bot} authUrl="/api/auth/telegram" />
           ) : (
             <div className="notice">Вхід через Telegram ще не налаштовано: не задано ім&apos;я бота.</div>
           )}
