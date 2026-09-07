@@ -714,5 +714,1296 @@
         ]
       }
     ]
+  },
+  {
+    "id": "past-simple",
+    "title": "Past Simple",
+    "subtitle": "a finished action at a stated past time",
+    "group": "past",
+    "tenses": [
+      "Past Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.78,
+        "points": [
+          {
+            "at": 0.32,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.32,
+            "text": "2019"
+          },
+          {
+            "at": 0.78,
+            "text": "today"
+          }
+        ],
+        "timeMark": {
+          "from": 0.32,
+          "to": 0.32,
+          "text": "in 2019"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Olena "
+              },
+              {
+                "text": "moved",
+                "mark": "v1"
+              },
+              {
+                "text": " to Kyiv "
+              },
+              {
+                "text": "in 2019",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "a finished action at a stated time in the past"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.78,
+        "points": [
+          {
+            "at": 0.28,
+            "t": 1
+          },
+          {
+            "at": 0.4,
+            "t": 1
+          },
+          {
+            "at": 0.52,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "8:00"
+          },
+          {
+            "at": 0.4,
+            "text": "8:10"
+          },
+          {
+            "at": 0.52,
+            "text": "8:15"
+          },
+          {
+            "at": 0.78,
+            "text": "today"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "She "
+              },
+              {
+                "text": "locked",
+                "mark": "v1"
+              },
+              {
+                "text": " the door, "
+              },
+              {
+                "text": "walked",
+                "mark": "v1"
+              },
+              {
+                "text": " to the bus stop and "
+              },
+              {
+                "text": "caught",
+                "mark": "v1"
+              },
+              {
+                "text": " the 8:15 bus."
+              }
+            ],
+            "note": "several past actions one after the other"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "past-continuous",
+    "title": "Past Continuous",
+    "subtitle": "an action in progress at a stated past time",
+    "group": "past",
+    "tenses": [
+      "Past Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.78,
+        "spans": [
+          {
+            "from": 0.3,
+            "to": 0.56,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.43,
+            "text": "21:00"
+          },
+          {
+            "at": 0.78,
+            "text": "today"
+          }
+        ],
+        "timeMark": {
+          "from": 0.43,
+          "to": 0.43,
+          "text": "at nine last night"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "At nine last night",
+                "mark": "time"
+              },
+              {
+                "text": " we "
+              },
+              {
+                "text": "were watching",
+                "mark": "v1"
+              },
+              {
+                "text": " a film."
+              }
+            ],
+            "note": "the action was in progress at that moment; we do not know when it started or ended"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.78,
+        "spans": [
+          {
+            "from": 0.3,
+            "to": 0.56,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.3,
+            "text": "18:00"
+          },
+          {
+            "at": 0.56,
+            "text": "18:30"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "While",
+                "mark": "time"
+              },
+              {
+                "text": " Dan "
+              },
+              {
+                "text": "was cooking",
+                "mark": "v1"
+              },
+              {
+                "text": ", Mia "
+              },
+              {
+                "text": "was setting",
+                "mark": "v1"
+              },
+              {
+                "text": " the table."
+              }
+            ],
+            "note": "two actions in progress at the same time"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "past-perfect",
+    "title": "Past Perfect",
+    "subtitle": "an action before another past action",
+    "group": "past",
+    "tenses": [
+      "Past Perfect"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.78,
+        "spans": [
+          {
+            "from": 0.18,
+            "to": 0.36,
+            "t": 1
+          }
+        ],
+        "points": [
+          {
+            "at": 0.5,
+            "t": 1,
+            "small": true
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.27,
+            "text": "cooked"
+          },
+          {
+            "at": 0.5,
+            "text": "guests arrived"
+          },
+          {
+            "at": 0.78,
+            "text": "today"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "By the time",
+                "mark": "time"
+              },
+              {
+                "text": " the guests arrived, Sam "
+              },
+              {
+                "text": "had cooked",
+                "mark": "v1"
+              },
+              {
+                "text": " dinner."
+              }
+            ],
+            "note": "the cooking was finished before the guests arrived: earlier of two past events"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "past-perfect-continuous",
+    "title": "Past Perfect Continuous",
+    "subtitle": "duration up to a past moment",
+    "group": "past",
+    "tenses": [
+      "Past Perfect Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.78,
+        "spans": [
+          {
+            "from": 0.26,
+            "to": 0.5,
+            "t": 1
+          }
+        ],
+        "points": [
+          {
+            "at": 0.5,
+            "t": 1,
+            "small": true
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.26,
+            "text": "7:00"
+          },
+          {
+            "at": 0.5,
+            "text": "8:00 · bus came"
+          }
+        ],
+        "timeMark": {
+          "from": 0.26,
+          "to": 0.5,
+          "text": "for an hour"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "We "
+              },
+              {
+                "text": "had been waiting",
+                "mark": "v1"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "for an hour",
+                "mark": "time"
+              },
+              {
+                "text": " when the bus finally came."
+              }
+            ],
+            "note": "how long the action had lasted before another past moment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "future-simple",
+    "title": "Future Simple",
+    "subtitle": "an action that will happen",
+    "group": "future",
+    "tenses": [
+      "Future Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.28,
+        "points": [
+          {
+            "at": 0.62,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "today"
+          },
+          {
+            "at": 0.62,
+            "text": "tomorrow"
+          }
+        ],
+        "timeMark": {
+          "from": 0.62,
+          "to": 0.62,
+          "text": "tomorrow"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "I "
+              },
+              {
+                "text": "will call",
+                "mark": "v1"
+              },
+              {
+                "text": " you "
+              },
+              {
+                "text": "tomorrow",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "a future action; the decision may be made right now"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "future-continuous",
+    "title": "Future Continuous",
+    "subtitle": "an action in progress at a future time",
+    "group": "future",
+    "tenses": [
+      "Future Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.28,
+        "spans": [
+          {
+            "from": 0.5,
+            "to": 0.76,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "today 10:00"
+          },
+          {
+            "at": 0.63,
+            "text": "tomorrow 10:00"
+          }
+        ],
+        "timeMark": {
+          "from": 0.63,
+          "to": 0.63,
+          "text": "this time tomorrow"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "This time tomorrow",
+                "mark": "time"
+              },
+              {
+                "text": " we "
+              },
+              {
+                "text": "will be flying",
+                "mark": "v1"
+              },
+              {
+                "text": " to Lisbon."
+              }
+            ],
+            "note": "at that future moment the action will be in progress"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "future-perfect",
+    "title": "Future Perfect",
+    "subtitle": "finished before a future time",
+    "group": "future",
+    "tenses": [
+      "Future Perfect"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.28,
+        "spans": [
+          {
+            "from": 0.36,
+            "to": 0.58,
+            "t": 1
+          }
+        ],
+        "points": [
+          {
+            "at": 0.7,
+            "t": 1,
+            "small": true
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "Mon"
+          },
+          {
+            "at": 0.7,
+            "text": "Fri"
+          }
+        ],
+        "timeMark": {
+          "from": 0.7,
+          "to": 0.7,
+          "text": "by Friday"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "By Friday",
+                "mark": "time"
+              },
+              {
+                "text": " the team "
+              },
+              {
+                "text": "will have finished",
+                "mark": "v1"
+              },
+              {
+                "text": " the report."
+              }
+            ],
+            "note": "the action will be complete before that future point"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "future-perfect-continuous",
+    "title": "Future Perfect Continuous",
+    "subtitle": "duration up to a future moment",
+    "group": "future",
+    "tenses": [
+      "Future Perfect Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.28,
+        "spans": [
+          {
+            "from": 0.06,
+            "to": 0.66,
+            "t": 1,
+            "openStart": true
+          }
+        ],
+        "points": [
+          {
+            "at": 0.66,
+            "t": 1,
+            "small": true
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "today"
+          },
+          {
+            "at": 0.66,
+            "text": "June"
+          }
+        ],
+        "timeMark": {
+          "from": 0.06,
+          "to": 0.66,
+          "text": "for ten years"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "By June",
+                "mark": "time"
+              },
+              {
+                "text": " we "
+              },
+              {
+                "text": "will have been living",
+                "mark": "v1"
+              },
+              {
+                "text": " here "
+              },
+              {
+                "text": "for ten years",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "how long the action will have lasted by that future point"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "be-going-to",
+    "title": "Be going to",
+    "subtitle": "a plan made before now",
+    "group": "future",
+    "tenses": [
+      "Be going to"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.28,
+        "points": [
+          {
+            "at": 0.12,
+            "t": 1,
+            "small": true
+          },
+          {
+            "at": 0.62,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.12,
+            "text": "decided"
+          },
+          {
+            "at": 0.28,
+            "text": "today"
+          },
+          {
+            "at": 0.62,
+            "text": "weekend"
+          }
+        ],
+        "timeMark": {
+          "from": 0.62,
+          "to": 0.62,
+          "text": "this weekend"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "We"
+              },
+              {
+                "text": "'re going to",
+                "mark": "v1"
+              },
+              {
+                "text": " paint the kitchen "
+              },
+              {
+                "text": "this weekend",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "the plan already exists now; the action is in the future"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "used-to",
+    "title": "Used to",
+    "subtitle": "a past habit that no longer happens",
+    "group": "other",
+    "tenses": [
+      "Used to"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.78,
+        "points": [
+          {
+            "at": 0.14,
+            "t": 1
+          },
+          {
+            "at": 0.22,
+            "t": 1
+          },
+          {
+            "at": 0.3,
+            "t": 1
+          },
+          {
+            "at": 0.38,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.26,
+            "text": "1975 – 1985"
+          },
+          {
+            "at": 0.78,
+            "text": "today"
+          }
+        ],
+        "timeMark": {
+          "from": 0.14,
+          "to": 0.38,
+          "text": "when he was young"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Grandpa "
+              },
+              {
+                "text": "used to ride",
+                "mark": "v1"
+              },
+              {
+                "text": " a motorbike "
+              },
+              {
+                "text": "when he was young",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "repeated in the past, not anymore: nothing after the past crosses"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "present-simple-present-continuous",
+    "title": "Present Simple vs Present Continuous",
+    "subtitle": "a habit vs an action happening now",
+    "group": "present",
+    "tenses": [
+      "Present Simple",
+      "Present Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.5,
+        "points": [
+          {
+            "at": 0.26,
+            "t": 1
+          },
+          {
+            "at": 0.34,
+            "t": 1
+          },
+          {
+            "at": 0.42,
+            "t": 1
+          },
+          {
+            "at": 0.5,
+            "t": 1
+          },
+          {
+            "at": 0.58,
+            "t": 1
+          },
+          {
+            "at": 0.66,
+            "t": 1
+          }
+        ],
+        "ticks": [],
+        "timeMark": {
+          "from": 0.26,
+          "to": 0.66,
+          "text": "every morning"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Mark "
+              },
+              {
+                "text": "drinks",
+                "mark": "v1"
+              },
+              {
+                "text": " tea "
+              },
+              {
+                "text": "every morning",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "a habit: repeated again and again, not necessarily right now"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.5,
+        "spans": [
+          {
+            "from": 0.42,
+            "to": 0.58,
+            "t": 2
+          }
+        ],
+        "ticks": [],
+        "timeMark": {
+          "from": 0.5,
+          "to": 0.5,
+          "text": "right now"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "Mark "
+              },
+              {
+                "text": "is drinking",
+                "mark": "v2"
+              },
+              {
+                "text": " coffee "
+              },
+              {
+                "text": "right now",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "one action in progress at this moment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "present-perfect-past-simple",
+    "title": "Present Perfect vs Past Simple",
+    "subtitle": "time not stated vs time stated",
+    "group": "present",
+    "tenses": [
+      "Present Perfect",
+      "Past Simple"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.7,
+        "points": [
+          {
+            "at": 0.42,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.42,
+            "text": "?"
+          },
+          {
+            "at": 0.7,
+            "text": "today"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "I "
+              },
+              {
+                "text": "have visited",
+                "mark": "v1"
+              },
+              {
+                "text": " Rome."
+              }
+            ],
+            "note": "when is not important; the experience matters now"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.7,
+        "points": [
+          {
+            "at": 0.3,
+            "t": 2
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.3,
+            "text": "2018"
+          },
+          {
+            "at": 0.7,
+            "text": "today"
+          }
+        ],
+        "timeMark": {
+          "from": 0.3,
+          "to": 0.3,
+          "text": "in 2018"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "I "
+              },
+              {
+                "text": "visited",
+                "mark": "v2"
+              },
+              {
+                "text": " Rome "
+              },
+              {
+                "text": "in 2018",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "a finished action at a stated past time, cut off from now"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "present-perfect-present-perfect-continuous",
+    "title": "Present Perfect vs Present Perfect Continuous",
+    "subtitle": "result vs duration",
+    "group": "present",
+    "tenses": [
+      "Present Perfect",
+      "Present Perfect Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.66,
+        "points": [
+          {
+            "at": 0.4,
+            "t": 1,
+            "small": true
+          },
+          {
+            "at": 0.5,
+            "t": 1,
+            "small": true
+          },
+          {
+            "at": 0.6,
+            "t": 1,
+            "small": true
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.66,
+            "text": "now"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "She "
+              },
+              {
+                "text": "has written",
+                "mark": "v1"
+              },
+              {
+                "text": " three letters."
+              }
+            ],
+            "note": "the result: three letters are ready"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.66,
+        "spans": [
+          {
+            "from": 0.34,
+            "to": 0.66,
+            "t": 2
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.34,
+            "text": "9:00"
+          },
+          {
+            "at": 0.66,
+            "text": "12:00"
+          }
+        ],
+        "timeMark": {
+          "from": 0.34,
+          "to": 0.66,
+          "text": "all morning"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "She "
+              },
+              {
+                "text": "has been writing",
+                "mark": "v2"
+              },
+              {
+                "text": " letters "
+              },
+              {
+                "text": "all morning",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "the duration: the activity has filled the whole morning"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "past-perfect-past-perfect-continuous",
+    "title": "Past Perfect vs Past Perfect Continuous",
+    "subtitle": "a finished action vs its duration before a past moment",
+    "group": "past",
+    "tenses": [
+      "Past Perfect",
+      "Past Perfect Continuous"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.78,
+        "spans": [
+          {
+            "from": 0.22,
+            "to": 0.4,
+            "t": 1
+          }
+        ],
+        "points": [
+          {
+            "at": 0.52,
+            "t": 1,
+            "small": true
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.31,
+            "text": "repaired"
+          },
+          {
+            "at": 0.52,
+            "text": "race"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "He "
+              },
+              {
+                "text": "had repaired",
+                "mark": "v1"
+              },
+              {
+                "text": " the bike "
+              },
+              {
+                "text": "before",
+                "mark": "time"
+              },
+              {
+                "text": " the race started."
+              }
+            ],
+            "note": "the job was complete before the race"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.78,
+        "spans": [
+          {
+            "from": 0.28,
+            "to": 0.52,
+            "t": 2
+          }
+        ],
+        "points": [
+          {
+            "at": 0.52,
+            "t": 2,
+            "small": true
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "8:00"
+          },
+          {
+            "at": 0.52,
+            "text": "10:00 · race"
+          }
+        ],
+        "timeMark": {
+          "from": 0.28,
+          "to": 0.52,
+          "text": "for two hours"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "He "
+              },
+              {
+                "text": "had been repairing",
+                "mark": "v2"
+              },
+              {
+                "text": " the bike "
+              },
+              {
+                "text": "for two hours",
+                "mark": "time"
+              },
+              {
+                "text": " when the race started."
+              }
+            ],
+            "note": "how long the work had gone on up to that moment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "will-be-going-to",
+    "title": "Will vs Be going to",
+    "subtitle": "a decision now vs a plan made earlier",
+    "group": "future",
+    "tenses": [
+      "Will",
+      "Be going to"
+    ],
+    "lanes": [
+      {
+        "nowAt": 0.28,
+        "points": [
+          {
+            "at": 0.28,
+            "t": 1,
+            "small": true
+          },
+          {
+            "at": 0.42,
+            "t": 1
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.28,
+            "text": "decision"
+          },
+          {
+            "at": 0.42,
+            "text": "action"
+          }
+        ],
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "It's cold. I"
+              },
+              {
+                "text": "'ll close",
+                "mark": "v1"
+              },
+              {
+                "text": " the window."
+              }
+            ],
+            "note": "decided at the moment of speaking, so the decision sits on NOW"
+          }
+        ]
+      },
+      {
+        "nowAt": 0.28,
+        "points": [
+          {
+            "at": 0.1,
+            "t": 2,
+            "small": true
+          },
+          {
+            "at": 0.64,
+            "t": 2
+          }
+        ],
+        "ticks": [
+          {
+            "at": 0.1,
+            "text": "decided"
+          },
+          {
+            "at": 0.28,
+            "text": "today"
+          },
+          {
+            "at": 0.64,
+            "text": "next week"
+          }
+        ],
+        "timeMark": {
+          "from": 0.64,
+          "to": 0.64,
+          "text": "next week"
+        },
+        "sentences": [
+          {
+            "tokens": [
+              {
+                "text": "We"
+              },
+              {
+                "text": "'re going to",
+                "mark": "v2"
+              },
+              {
+                "text": " repaint the fence "
+              },
+              {
+                "text": "next week",
+                "mark": "time"
+              },
+              {
+                "text": "."
+              }
+            ],
+            "note": "decided before now; the plan already exists"
+          }
+        ]
+      }
+    ]
   }
 ]
