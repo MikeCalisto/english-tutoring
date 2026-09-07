@@ -111,7 +111,7 @@ def build(d):
 
   <!-- platform chrome -->
   <div class="chrome">
-    <div class="brand">[НАЗВА]</div>
+    <div class="brand">english-tutors</div>
     <div class="tabs"><span class="tab on">Картки</span><span class="tab">Таймлайни</span><span class="tab">Завдання</span><span class="tab">Тести</span></div>
     <div class="grow"></div>
     <span class="btn-s small">PDF</span>
@@ -171,7 +171,7 @@ def build(d):
         </div>
       </div>
     </div>
-    <div class="card-ft"><span>[НАЗВА]</span><span>Present Simple · 1 / 4</span></div>
+    <div class="card-ft"><span>english-tutors</span><span>Present Simple · 1 / 4</span></div>
   </div>
 
   <!-- timeline: conflict of two tenses -->
@@ -205,7 +205,7 @@ def build(d):
         <div><span class="lg-time"></span> time expression</div>
       </div>
     </div>
-    <div class="card-ft"><span>[НАЗВА]</span><span>Timelines · conflicts · 3 / 8</span></div>
+    <div class="card-ft"><span>english-tutors</span><span>Timelines · conflicts · 3 / 8</span></div>
   </div>
 
 </div>

@@ -7,7 +7,7 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;900&family=Manrope:wght@500;700;800&family=DM+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
   <style>
 
     *{box-sizing:border-box}
@@ -122,38 +122,41 @@
     .lg-time{width:24px;height:3px;background:var(--timeword)}
 
 :root{}
-    .root{--bg:#EFEFEA;--surface:#FFFFFF;--surface2:#F6F6F2;--ink:#0F0F10;--muted:#6B6B6E;--line:#E1E1DC;
-      --pos:#12B76A;--neg:#F63D68;--que:#6938EF;--ans:#F79009;--warn:#E5261F;
-      --frame-present:#00A886;--frame-past:#2E5BFF;--frame-future:#FF6A00;
-      --soft-present:#D9F3EC;--soft-past:#DEE6FF;--soft-future:#FFE6D3;
-      --span:#2E5BFF;--span-bg:#DEE6FF;--point:#F63D68;--timeword:#6938EF;
-      --display:"Rubik","Arial Black",sans-serif;--body:"Manrope","Helvetica Neue",Arial,sans-serif;--mono:"DM Mono","Menlo",monospace;
-      --r:20px;--rp:14px;--rb:10px;--bw:2px;--pbw:0px;--shadow:0 8px 0 #0F0F10;
-      --panel-bg:color-mix(in srgb,var(--c) 9%,#fff);--pill-line:var(--ink);--pill-bg:#fff;--fm-mix:100%;--exs-bg:var(--surface2)}
-    .root{font-weight:500}
-    .card{border:2px solid var(--ink)}
-    .card-hd{background:var(--frame);padding:20px 28px}
-    .card-h,.card-sub{color:#fff}
-    .card-sub{opacity:.85;font-weight:700}
-    .card-hd .grp{background:#fff;color:var(--frame)}
-    .card-h{font-weight:900;letter-spacing:-.02em;font-size:38px}
-    .pn-lb{background:var(--c);color:#fff;align-self:flex-start;padding:4px 10px;border-radius:6px;font-size:11px}
-    .pr{border:2px solid var(--ink);font-weight:700}
-    .fm{border:none;color:#fff;font-weight:700;font-size:15px}
-    .fm .k{color:#fff;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
-    .brace{border-color:var(--ink);border-width:2px}
-    .exs{border:2px solid var(--ink);background:#fff}
-    .card-ft{background:var(--ink);color:#fff;border-top:none}
-    .col{border:2px solid var(--ink);box-shadow:0 6px 0 var(--ink)}
-    .chrome{border:2px solid var(--ink);box-shadow:0 4px 0 var(--ink)}
-    .tab{font-weight:800}
-    .tab.on{background:var(--frame-present)}
-    .btn-p,.btn-s{border-width:2px;font-weight:800;box-shadow:0 3px 0 var(--ink)}
-    .chip{font-weight:500;border:2px solid var(--ink);background:#fff}
-    .tl-line{stroke-width:4}
-    .tl-point{stroke-width:9}
-    .sentence{font-weight:700;font-size:28px}
-    .w-time{border-bottom-width:4px}
+    .root{--bg:#EEF3FA;--surface:rgba(255,255,255,.66);--surface2:rgba(255,255,255,.55);--ink:#141A2A;--muted:#6B7590;--line:rgba(255,255,255,.85);
+      --pos:#22B573;--neg:#E5527A;--que:#6D5BE8;--ans:#E6931E;--warn:#E0413A;
+      --frame-present:#3B82F6;--frame-past:#22B573;--frame-future:#F0823C;
+      --soft-present:#DCE9FF;--soft-past:#D8F3E6;--soft-future:#FFE6D6;
+      --span:#3B82F6;--span-bg:#CFE0FF;--point:#F0823C;--timeword:#6D5BE8;--t1:#3B82F6;--t2:#F0823C;
+      --display:"Lexend","Helvetica Neue",Arial,sans-serif;--body:"Manrope","Helvetica Neue",Arial,sans-serif;--mono:"JetBrains Mono","Menlo",monospace;
+      --r:22px;--rp:16px;--rb:12px;--bw:1px;--pbw:1px;--shadow:0 20px 60px rgba(120,140,190,.14);
+      --panel-bg:rgba(255,255,255,.6);--pill-line:#C9D4E6;--pill-bg:#fff;--fm-mix:12%;--exs-bg:rgba(255,255,255,.6);
+      background:radial-gradient(800px 500px at 10% 0%,rgba(59,130,246,.16),transparent 60%),radial-gradient(700px 500px at 90% 20%,rgba(240,130,60,.14),transparent 60%),radial-gradient(700px 500px at 50% 100%,rgba(34,181,115,.12),transparent 60%),#EEF3FA}
+    .dname,.dt1,.card-h,.ty-display{font-weight:500}
+    .card{border:1px solid var(--line);border-top:1px solid var(--line)}
+    .card-hd{border-bottom:1px solid #E6ECF5}
+    .card-h{font-size:34px;letter-spacing:-.02em}
+    .card-ft{background:rgba(255,255,255,.5);border-top:1px solid #E6ECF5}
+    .pn{border:1px solid rgba(255,255,255,.9);border-top:1px solid rgba(255,255,255,.9);box-shadow:0 8px 24px rgba(120,140,190,.08)}
+    .pn-lb{padding:4px 10px;border-radius:999px;align-self:flex-start;background:color-mix(in srgb,var(--c) 12%,#fff);font-size:11px;letter-spacing:.08em}
+    .pr{border-radius:999px;background:#fff;border-color:#C9D4E6}
+    .fm{border-radius:999px}
+    .grp{color:#fff;border-radius:999px}
+    .tl-now-t{fill:#fff}
+    .chrome{border:1px solid var(--line);border-radius:999px}
+    .brand{color:var(--ink);border-color:#C9D4E6}
+    .tabs{gap:8px}
+    .tab{border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);color:var(--muted)}
+    .tab.on{background:#3B82F6;color:#fff;border-color:#3B82F6;box-shadow:0 8px 20px rgba(59,130,246,.35)}
+    .btn-p{background:#3B82F6;border-color:#3B82F6;color:#fff;border-radius:999px}
+    .btn-s{border-radius:999px;background:rgba(255,255,255,.7);border-color:#C9D4E6}
+    .chip{background:#fff;border:1px solid #D9E2F0}
+    .crumb2{background:rgba(255,255,255,.7);border-color:#D9E2F0}.crumb2.on{color:#fff}
+    .col{border:1px solid var(--line)}
+    .swc{border-color:rgba(0,0,0,.06)}
+    .sentence{font-weight:400;font-size:25px}
+    .lg-block{background:#E3EAF6}
+
+    .card,.col,.chrome{backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 
   </style>
 </helmet>
@@ -161,11 +164,11 @@
 <div class="root">
 
   <div class="dhead">
-    <div class="dname">C</div>
+    <div class="dname">F</div>
     <div class="dtitle">
-      <div class="dt1">Постер</div>
-      <div class="dt2">Белый лист, чёрный жирный гротеск и насыщенные плашки. Заголовок карточки сидит на цветной шапке группы времени, панели ролей залиты своим цветом на 8–10%. Похоже на хорошие учебные постеры, но чище и современнее.</div>
-      <div class="dt3">Компроміс: самый «громкий» из трёх, требует дисциплины, чтобы не превратиться в ярмарку.</div>
+      <div class="dt1">Скло</div>
+      <div class="dt2">Светлая версия: молочный фон с пастельными пятнами, матовые стеклянные карточки, тонкий геометрический шрифт, синяя пилюля активной вкладки. Как у Aurevia: легко, воздушно, отлично печатается и читается днём в светлом классе.</div>
+      <div class="dt3">Компроміс: на проекторе в тёмной комнате светлый экран слепит; контраст пастелей нужно держать под контролем.</div>
     </div>
   </div>
 
@@ -174,21 +177,21 @@
     <div class="col">
       <div class="colh">Типографіка</div>
       <div class="ty-display">Present Perfect</div>
-      <div class="ty-sub">Rubik 900 · заголовки карток, читаються з проєктора</div>
+      <div class="ty-sub">Lexend 400 / 500 · заголовки карток, читаються з проєктора</div>
       <div class="ty-body">She <b class="k">has lived</b> here <span class="tw">since 2010</span>. Ann <b class="k">has never been</b> to Rome.</div>
-      <div class="ty-sub">Manrope 500 / 800 · приклади, пояснення, інтерфейс</div>
+      <div class="ty-sub">Manrope 400 / 600 · приклади, пояснення, інтерфейс</div>
       <div class="ty-mono">have / has + V3 &nbsp;&nbsp; -ed &nbsp;&nbsp; consonant + y → -ies</div>
-      <div class="ty-sub">DM Mono · формули, закінчення, вирази часу</div>
+      <div class="ty-sub">JetBrains Mono · формули, закінчення, вирази часу</div>
       <div class="scale">
         <span class="s1">48</span><span class="s2">32</span><span class="s3">22</span><span class="s4">18</span><span class="s5">15</span><span class="s6">12</span>
       </div>
     </div>
     <div class="col">
       <div class="colh">Кольори</div>
-      <div class="swg"><div class="swt">Нейтральні</div><div class="swr"><div class="sw"><div class="swc" style="background:#EFEFEA"></div><div class="swl"><span>фон</span><span class="mono">#EFEFEA</span></div></div><div class="sw"><div class="swc" style="background:#FFFFFF"></div><div class="swl"><span>аркуш</span><span class="mono">#FFFFFF</span></div></div><div class="sw"><div class="swc" style="background:#0F0F10"></div><div class="swl"><span>чорний</span><span class="mono">#0F0F10</span></div></div><div class="sw"><div class="swc" style="background:#6B6B6E"></div><div class="swl"><span>другорядний</span><span class="mono">#6B6B6E</span></div></div><div class="sw"><div class="swc" style="background:#E1E1DC"></div><div class="swl"><span>лінія</span><span class="mono">#E1E1DC</span></div></div></div></div>
-      <div class="swg"><div class="swt">Ролі в панелях форми</div><div class="swr"><div class="sw"><div class="swc" style="background:#12B76A"></div><div class="swl"><span>positive</span><span class="mono">#12B76A</span></div></div><div class="sw"><div class="swc" style="background:#F63D68"></div><div class="swl"><span>negative</span><span class="mono">#F63D68</span></div></div><div class="sw"><div class="swc" style="background:#6938EF"></div><div class="swl"><span>question</span><span class="mono">#6938EF</span></div></div><div class="sw"><div class="swc" style="background:#F79009"></div><div class="swl"><span>short answer</span><span class="mono">#F79009</span></div></div><div class="sw"><div class="swc" style="background:#E5261F"></div><div class="swl"><span>careful</span><span class="mono">#E5261F</span></div></div></div></div>
-      <div class="swg"><div class="swt">Групи часів</div><div class="swr"><div class="sw"><div class="swc" style="background:#00A886"></div><div class="swl"><span>present</span><span class="mono">#00A886</span></div></div><div class="sw"><div class="swc" style="background:#2E5BFF"></div><div class="swl"><span>past</span><span class="mono">#2E5BFF</span></div></div><div class="sw"><div class="swc" style="background:#FF6A00"></div><div class="swl"><span>future</span><span class="mono">#FF6A00</span></div></div></div></div>
-      <div class="swg"><div class="swt">Таймлайн</div><div class="swr"><div class="sw"><div class="swc" style="background:#2E5BFF"></div><div class="swl"><span>відрізок</span><span class="mono">#2E5BFF</span></div></div><div class="sw"><div class="swc" style="background:#F63D68"></div><div class="swl"><span>точка</span><span class="mono">#F63D68</span></div></div><div class="sw"><div class="swc" style="background:#6938EF"></div><div class="swl"><span>вираз часу</span><span class="mono">#6938EF</span></div></div></div></div>
+      <div class="swg"><div class="swt">Нейтральні</div><div class="swr"><div class="sw"><div class="swc" style="background:#EEF3FA"></div><div class="swl"><span>фон</span><span class="mono">#EEF3FA</span></div></div><div class="sw"><div class="swc" style="background:#FFFFFF"></div><div class="swl"><span>скло</span><span class="mono">#FFFFFF</span></div></div><div class="sw"><div class="swc" style="background:#141A2A"></div><div class="swl"><span>текст</span><span class="mono">#141A2A</span></div></div><div class="sw"><div class="swc" style="background:#6B7590"></div><div class="swl"><span>другорядний</span><span class="mono">#6B7590</span></div></div><div class="sw"><div class="swc" style="background:#D9E2F0"></div><div class="swl"><span>лінія</span><span class="mono">#D9E2F0</span></div></div></div></div>
+      <div class="swg"><div class="swt">Ролі в панелях форми</div><div class="swr"><div class="sw"><div class="swc" style="background:#22B573"></div><div class="swl"><span>positive</span><span class="mono">#22B573</span></div></div><div class="sw"><div class="swc" style="background:#E5527A"></div><div class="swl"><span>negative</span><span class="mono">#E5527A</span></div></div><div class="sw"><div class="swc" style="background:#6D5BE8"></div><div class="swl"><span>question</span><span class="mono">#6D5BE8</span></div></div><div class="sw"><div class="swc" style="background:#E6931E"></div><div class="swl"><span>short answer</span><span class="mono">#E6931E</span></div></div><div class="sw"><div class="swc" style="background:#E0413A"></div><div class="swl"><span>careful</span><span class="mono">#E0413A</span></div></div></div></div>
+      <div class="swg"><div class="swt">Групи часів</div><div class="swr"><div class="sw"><div class="swc" style="background:#3B82F6"></div><div class="swl"><span>present</span><span class="mono">#3B82F6</span></div></div><div class="sw"><div class="swc" style="background:#22B573"></div><div class="swl"><span>past</span><span class="mono">#22B573</span></div></div><div class="sw"><div class="swc" style="background:#F0823C"></div><div class="swl"><span>future</span><span class="mono">#F0823C</span></div></div></div></div>
+      <div class="swg"><div class="swt">Таймлайн</div><div class="swr"><div class="sw"><div class="swc" style="background:#3B82F6"></div><div class="swl"><span>відрізок</span><span class="mono">#3B82F6</span></div></div><div class="sw"><div class="swc" style="background:#F0823C"></div><div class="swl"><span>точка</span><span class="mono">#F0823C</span></div></div><div class="sw"><div class="swc" style="background:#6D5BE8"></div><div class="swl"><span>вираз часу</span><span class="mono">#6D5BE8</span></div></div></div></div>
     </div>
     <div class="col">
       <div class="colh">Компоненти і токени</div>
@@ -197,11 +200,11 @@
       <div class="cmp-row"><span class="pr">she</span><span class="brace-demo"></span><span class="fm">work<b class="k">s</b> …</span><span class="chip">since 2010</span><span class="chip">just</span></div>
       <div class="cmp-row"><span class="grp g-present">PRESENT</span><span class="grp g-past">PAST</span><span class="grp g-future">FUTURE</span><span class="lbl-demo">POSITIVE</span></div>
       <div class="tokens">
-        <div><span>Радіус</span><span class="mono">20 / 14 / 10 px</span></div>
-        <div><span>Рамка</span><span class="mono">2 px чорна на пілюлях, панелі без рамки</span></div>
-        <div><span>Крок відступів</span><span class="mono">4 · 8 · 12 · 16 · 24 · 32</span></div>
+        <div><span>Радіус</span><span class="mono">22 / 16 / 12 px</span></div>
+        <div><span>Рамка</span><span class="mono">1 px біла 70%, скло 65% з розмиттям</span></div>
+        <div><span>Крок відступів</span><span class="mono">4 · 8 · 12 · 16 · 24 · 40</span></div>
         <div><span>Ширина картки</span><span class="mono">100% контенту, 16:7 на проєкторі</span></div>
-        <div><span>Тінь</span><span class="mono">0 8px 0 чорна під картками</span></div>
+        <div><span>Тінь</span><span class="mono">0 20px 60px рожево-блакитної тіні 12%</span></div>
       </div>
     </div>
   </div>
@@ -281,7 +284,7 @@
       <svg viewBox="0 0 1300 170" class="tlsvg">
         <text x="20" y="28" class="tl-axis">past</text>
         <text x="1280" y="28" text-anchor="end" class="tl-axis">future</text>
-        <rect x="260" y="72" width="500" height="52" rx="14" class="tl-span"/>
+        <rect x="260" y="72" width="500" height="52" rx="12" class="tl-span"/>
         <line x1="20" y1="98" x2="1250" y2="98" class="tl-line"/>
         <path d="M1248 86l22 12-22 12" class="tl-line" fill="none"/>
         <line x1="1050" y1="46" x2="1050" y2="140" class="tl-now-line"/>
