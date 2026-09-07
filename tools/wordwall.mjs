@@ -33,7 +33,8 @@ const meta = (html, prop) => {
 for (const url of urls) {
   const id = (url.match(/resource\/(\d+)/) || [])[1];
   if (!id) { console.error("no resource id in", url); continue; }
-  const html = await (await fetch(url, { headers: UA })).text();
+  // метаданные всегда берём с украинской версии страницы, чтобы типы заданий были одной мовою
+  const html = await (await fetch(`https://wordwall.net/uk/resource/${id}`, { headers: UA })).text();
   const ogTitle = meta(html, "og:title");
   const desc = meta(html, "og:description");
   const type = desc.split(" - ")[0].trim();

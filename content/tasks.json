@@ -1,14 +1,5 @@
 [
   {
-    "tense": "irregular-verbs",
-    "tenseLabel": "Irregular verbs",
-    "title": "Англійські дієслова: правильні й неправильні",
-    "type": "Сортування на швидкість",
-    "url": "https://wordwall.net/uk/resource/118494259?wwmethod=link",
-    "id": "118494259",
-    "image": "/previews/118494259.jpg"
-  },
-  {
     "tense": "present-simple",
     "tenseLabel": "Present Simple",
     "title": "Present Simple: правильні та неправильні речення",
@@ -16,6 +7,69 @@
     "url": "https://wordwall.net/uk/resource/118494603?wwmethod=link",
     "id": "118494603",
     "image": "/previews/118494603.jpg"
+  },
+  {
+    "id": "118538605",
+    "tense": "present-simple",
+    "tenseLabel": "Present Simple",
+    "title": "Present Simple",
+    "type": "Ігрова вікторина",
+    "url": "https://wordwall.net/uk/resource/118538605?wwmethod=link",
+    "image": "/previews/118538605.jpg"
+  },
+  {
+    "id": "118538954",
+    "tense": "present-continuous",
+    "tenseLabel": "Present Continuous",
+    "title": "Present Continuous",
+    "type": "Відповідники",
+    "url": "https://wordwall.net/resource/118538954?wwmethod=link",
+    "image": "/previews/118538954.jpg"
+  },
+  {
+    "id": "118539436",
+    "tense": "present-perfect",
+    "tenseLabel": "Present Perfect",
+    "title": "Present Perfect",
+    "type": "Відкрийте коробку",
+    "url": "https://wordwall.net/resource/118539436?wwmethod=link",
+    "image": "/previews/118539436.jpg"
+  },
+  {
+    "id": "118540352",
+    "tense": "present-perfect-continuous",
+    "tenseLabel": "Present Perfect Continuous",
+    "title": "Present Perfect Continuous",
+    "type": "Відкрийте коробку",
+    "url": "https://wordwall.net/resource/118540352?wwmethod=link",
+    "image": "/previews/118540352.jpg"
+  },
+  {
+    "id": "118540749",
+    "tense": "past-simple",
+    "tenseLabel": "Past Simple",
+    "title": "Past Simple",
+    "type": "Вікторина",
+    "url": "https://wordwall.net/resource/118540749?wwmethod=link",
+    "image": "/previews/118540749.jpg"
+  },
+  {
+    "id": "118541529",
+    "tense": "past-continuous-past-simple",
+    "tenseLabel": "Past Simple vs Past Continuous",
+    "title": "Past Simple vs Past Continuous",
+    "type": "Введіть відповідь",
+    "url": "https://wordwall.net/resource/118541529?wwmethod=link",
+    "image": "/previews/118541529.jpg"
+  },
+  {
+    "tense": "irregular-verbs",
+    "tenseLabel": "Irregular verbs",
+    "title": "Англійські дієслова: правильні й неправильні",
+    "type": "Сортування на швидкість",
+    "url": "https://wordwall.net/uk/resource/118494259?wwmethod=link",
+    "id": "118494259",
+    "image": "/previews/118494259.jpg"
   },
   {
     "tense": "all",
