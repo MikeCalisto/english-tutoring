@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export interface RailGroup {
   id: string;
   label: string;
-  items: { id: string; label: string; href: string; available?: boolean }[];
+  items: { id: string; label: string; href: string; available?: boolean; count?: number }[];
 }
 
 /** Левая навигация: группы времён или список таймлайнов. */
@@ -22,7 +22,8 @@ export function Rail({ groups }: { groups: RailGroup[] }) {
               <span key={it.id} className="dis" title="Ще не зібрано">{it.label}</span>
             ) : (
               <Link key={it.id} href={it.href} className={path === it.href ? "on" : ""}>
-                {it.label}
+                <span>{it.label}</span>
+                {it.count ? <span className="cnt">{it.count}</span> : null}
               </Link>
             ),
           )}

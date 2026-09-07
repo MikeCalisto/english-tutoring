@@ -5,6 +5,7 @@ import { BRAND } from "@/config/brand";
 import { TopBar } from "@/components/shell/TopBar";
 import { ShellFrame } from "@/components/shell/ShellFrame";
 import { getCurrentUser } from "@/lib/auth";
+import { getSearchIndex } from "@/content";
 
 const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"], weight: ["700", "800"] });
 const body = Onest({ variable: "--font-body", subsets: ["latin", "cyrillic"], weight: ["400", "600", "700"] });
@@ -22,7 +23,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="uk" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <ShellFrame>
-          <TopBar user={user} />
+          <TopBar user={user} search={getSearchIndex()} />
           {children}
         </ShellFrame>
       </body>

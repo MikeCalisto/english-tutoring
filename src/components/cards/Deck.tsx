@@ -11,14 +11,22 @@ function shortName(title: string, topic: string) {
 }
 
 /** Колода: одна карточка на экране, переключение пилюлями и стрелками клавиатуры. */
-export function Deck({ topic }: { topic: Topic }) {
-  const [i, setI] = useState(0);
+export function Deck({ topic, initial = 0 }: { topic: Topic; initial?: number }) {
+  const [i, setI] = useState(Math.min(initial, topic.cards.length - 1));
   const cards = topic.cards;
   const n = cards.length;
 
   useEffect(() => {
-    setI(0);
-  }, [topic.id]);
+    setI(Math.min(initial, topic.cards.length - 1));
+  }, [topic.id, initial, topic.cards.length]);
+
+  // Адрес всегда указывает на открытую карточку: ссылку можно скопировать.
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (i === 0) url.searchParams.delete("card");
+    else url.searchParams.set("card", String(i + 1));
+    window.history.replaceState(null, "", url.toString());
+  }, [i]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -41,9 +49,13 @@ export function Deck({ topic }: { topic: Topic }) {
         ))}
         <div className="grow" />
         <div className="pager">
-          <button onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0}>←</button>
+          <button onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0} aria-label="Попередня">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 3L5 9l6 6" /></svg>
+          </button>
           <span>{i + 1} / {n}</span>
-          <button onClick={() => setI(Math.min(n - 1, i + 1))} disabled={i === n - 1}>→</button>
+          <button onClick={() => setI(Math.min(n - 1, i + 1))} disabled={i === n - 1} aria-label="Наступна">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 3l6 6-6 6" /></svg>
+          </button>
         </div>
       </div>
       {card && <CardView card={{ ...card, group: card.group ?? topic.group }} footer={`${topic.topic} · ${i + 1} / ${n}`} />}

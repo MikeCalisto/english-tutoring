@@ -84,6 +84,8 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .rail-h.present { color: var(--frame-present); } .rail-h.past { color: var(--frame-past); }
 .rail-h.future { color: var(--frame-future); } .rail-h.other { color: var(--frame-other); }
 .rail a, .rail .dis { display: block; padding: 6px 10px; border-radius: var(--rb); font-size: 14px; color: var(--muted); }
+.rail a { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.rail a .cnt { font-family: var(--mono); font-size: 11px; color: var(--faint); }
 .rail a:hover { background: var(--surface2); color: var(--ink); }
 .rail a.on { background: var(--surface2); color: var(--ink); font-weight: 600; }
 .rail .dis { color: var(--faint); cursor: default; }
@@ -95,7 +97,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .crumb2:hover { color: var(--ink); }
 .crumb2.on { background: var(--frame); border-color: var(--frame); color: #16191d; font-weight: 600; }
 .pager { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
-.pager button { border: 1px solid var(--line); border-radius: var(--rb); padding: 5px 10px; color: var(--ink); }
+.pager button { border: 1px solid var(--line); border-radius: var(--rb); padding: 5px 8px; color: var(--ink); display: inline-flex; align-items: center; }
 .pager button:disabled { color: var(--faint); cursor: default; }
 
 .empty { border: 1px dashed var(--line); border-radius: var(--r); padding: 40px; color: var(--muted); text-align: center; }
@@ -303,3 +305,22 @@ input:focus { outline: none; border-color: var(--muted); }
 .row form.inline { display: flex; gap: 6px; align-items: center; }
 .code { font-family: var(--mono); font-size: 16px; letter-spacing: .14em; color: var(--ans); }
 .task-group { display: flex; flex-direction: column; gap: 8px; }
+
+/* ---------- search palette ---------- */
+.search { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: var(--rb); padding: 6px 10px; min-width: 220px; background: var(--bg); }
+.search:hover { color: var(--ink); border-color: var(--muted); }
+.search kbd { margin-left: auto; font-family: var(--mono); font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--faint); }
+.pal-back { position: fixed; inset: 0; background: rgba(0, 0, 0, .55); display: flex; align-items: flex-start; justify-content: center; padding-top: 12vh; z-index: 50; }
+.pal { width: min(640px, 92vw); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: 0 30px 80px rgba(0, 0, 0, .5); overflow: hidden; }
+.pal-in { width: 100%; font: inherit; font-size: 17px; color: var(--ink); background: transparent; border: none; border-bottom: 1px solid var(--line); padding: 16px 20px; outline: none; }
+.pal-list { max-height: 50vh; overflow: auto; padding: 6px; }
+.pal-it { width: 100%; display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 9px 12px; border-radius: var(--rb); text-align: left; color: var(--ink); }
+.pal-it.on { background: var(--surface2); }
+.pal-k { font-family: var(--display); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.pal-k.k-topic { color: var(--frame-present); } .pal-k.k-timeline { color: var(--frame-past); } .pal-k.k-task { color: var(--frame-future); }
+.pal-t { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pal-s { font-size: 12px; color: var(--faint); white-space: nowrap; }
+.pal-empty { padding: 20px; color: var(--muted); text-align: center; }
+.pal-hint { display: flex; gap: 14px; padding: 8px 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--faint); }
+.pal-hint kbd { font-family: var(--mono); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin-right: 4px; }
+@media (max-width: 900px) { .search span { display: none; } .search { min-width: 0; } .search kbd { display: none; } }

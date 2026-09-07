@@ -38,16 +38,36 @@ export function getTopic(id: string): Topic | null {
 /** Навигация: группы с темами; отсутствующие темы помечены как недоступные. */
 export function getNav() {
   const order = getOrder();
-  const have = new Set(getTopics().map((t) => t.id));
+  const counts = new Map(getTopics().map((t) => [t.id, t.cards.length]));
   return order.groups.map((g) => ({
     id: g.id,
     label: g.label,
     topics: g.topics.map((id) => ({
       id,
       label: TOPIC_LABELS[id] ?? id,
-      available: have.has(id),
+      available: counts.has(id),
+      count: counts.get(id) ?? 0,
     })),
   }));
+}
+
+export interface SearchItem {
+  kind: "topic" | "card" | "timeline" | "task";
+  title: string;
+  sub: string;
+  href: string;
+}
+
+/** Индекс для палитры поиска: темы, отдельные карточки, таймлайны, задания. */
+export function getSearchIndex(): SearchItem[] {
+  const out: SearchItem[] = [];
+  for (const t of getTopics()) {
+    out.push({ kind: "topic", title: t.topic, sub: `${t.cards.length} карток`, href: `/cards/${t.id}` });
+    t.cards.forEach((c, i) => out.push({ kind: "card", title: c.title, sub: t.topic, href: `/cards/${t.id}?card=${i + 1}` }));
+  }
+  for (const tl of getTimelines()) out.push({ kind: "timeline", title: tl.title, sub: "таймлайн", href: `/timelines/${tl.id}` });
+  for (const task of getTasks()) out.push({ kind: "task", title: task.title, sub: `Wordwall · ${task.tenseLabel}`, href: "/tasks" });
+  return out;
 }
 
 export function getTimelines(): Timeline[] {
