@@ -1,0 +1,90 @@
+{
+  "topic": "Used to",
+  "group": "other",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Used to Form",
+      "subtitle": "the same form for all persons",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>used to</b> play …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>didn't use to</b> play …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Did</b>"], "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>use to</b> play …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            { "word": "Yes,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>did</b>." }] },
+            { "word": "No,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>didn't</b>." }] }
+          ],
+          "examples": [
+            "We <b>used to</b> play football in this yard.",
+            "My dad <b>didn't use to</b> drink coffee.",
+            "— <b>Did</b> you <b>use to</b> live here? — Yes, I <b>did</b>."
+          ]
+        },
+        {
+          "role": "careful",
+          "columns": [
+            { "heading": "NEGATIVE", "wrong": "She didn't <b>used</b> to like tea.", "right": "She didn't <b>use</b> to like tea." },
+            { "heading": "QUESTION", "wrong": "Did they <b>used</b> to live here?", "right": "Did they <b>use</b> to live here?" }
+          ],
+          "note": "Negatives and questions are built with <b>did</b>, so the main verb goes back to <b>use to</b>."
+        }
+      ]
+    },
+    {
+      "title": "Used to — Be / Get used to — Would — Was going to",
+      "subtitle": "past habits, getting accustomed, unfulfilled plans",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "🕰️",
+              "case": "Used to / Past Simple: past habits or regular past actions that no longer happen",
+              "examples": ["Grandpa <b>used to ride</b> / <b>rode</b> a motorbike when he was young.", "I <b>didn't use to like</b> spinach as a child."],
+              "hint": "Used to has one form for all persons; negatives and questions take did."
+            },
+            {
+              "emoji": "🧊",
+              "case": "Be / Get used to + noun / pronoun / -ing form: be or become accustomed to something",
+              "examples": [
+                "Sailors <b>are used to</b> rough weather. (accustomed, present)",
+                "I<b>'m used to waking up</b> at six. (accustomed, present)",
+                "She <b>wasn't used to driving</b> on the left. (not accustomed, past)",
+                "Ivan <b>is getting used to</b> his new school. (becoming accustomed, present)",
+                "After a month abroad he <b>got used to</b> the food. (became accustomed, past)",
+                "You<b>'ll get used to</b> the noise soon. (will become accustomed, future)"
+              ]
+            },
+            {
+              "emoji": "🍲",
+              "case": "Would / used to: repeated actions or routines in the past. Would is not used with stative verbs",
+              "examples": ["Every summer we <b>would swim</b> in the river. (also: <b>used to swim</b>)", "I <b>used to own</b> a red bicycle. (NOT: would own)"]
+            },
+            {
+              "emoji": "🚪",
+              "case": "Was going to: a plan or arrangement in the past that did not happen",
+              "examples": ["I <b>was going to</b> call you, but my phone died."]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

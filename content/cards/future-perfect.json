@@ -1,0 +1,70 @@
+{
+  "topic": "Future Perfect",
+  "group": "future",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Future Perfect Form",
+      "subtitle": "will have + past participle",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will have</b> finished …", "<b>'ll have</b> finished …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will not have</b> finished …", "<b>won't have</b> finished …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Will</b>"], "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>have</b> finished …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            { "word": "Yes,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>will</b>." }] },
+            { "word": "No,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>won't</b>." }] }
+          ],
+          "examples": [
+            "By June they <b>will have moved</b> house. — They<b>'ll have moved</b> house.",
+            "He <b>will not have read</b> the report by then. — He <b>won't have read</b> it.",
+            "— <b>Will</b> you <b>have finished</b> by five? — Yes, I <b>will</b>. / No, I <b>won't</b>."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Future Perfect is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "🏁",
+              "case": "an action that will be finished before a stated time in the future",
+              "examples": ["The builders <b>will have finished</b> the roof by the end of the month.", "By noon we <b>will have packed</b> everything."]
+            },
+            {
+              "emoji": "⚠️",
+              "case": "by and not … until / till go with the Future Perfect; until / till normally appear only in negative sentences",
+              "examples": ["Dinner <b>will have been</b> ready by seven. (NOT: until seven)", "Dinner <b>won't be</b> ready until seven."]
+            }
+          ]
+        },
+        {
+          "kind": "chips",
+          "heading": "TIME EXPRESSIONS",
+          "note": "Until is used with this tense only in negative sentences.",
+          "items": ["before", "by", "by then", "by the time", "until (negative only)", "by the end of the month", "by noon"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "topic": "To be going to",
+  "group": "future",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Be going to Form",
+      "subtitle": "am / is / are going to + verb",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I"], "forms": ["<b>am going to</b> …", "<b>'m going to</b> …"] },
+            { "pronouns": ["he", "she", "it"], "forms": ["<b>is going to</b> …", "<b>'s going to</b> …"] },
+            { "pronouns": ["you", "we", "they"], "forms": ["<b>are going to</b> …", "<b>'re going to</b> …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I"], "forms": ["<b>am not going to</b> …", "<b>'m not going to</b> …"] },
+            { "pronouns": ["he", "she", "it"], "forms": ["<b>is not going to</b> …", "<b>isn't going to</b> …"] },
+            { "pronouns": ["you", "we", "they"], "forms": ["<b>are not going to</b> …", "<b>aren't going to</b> …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Am</b>"], "pronouns": ["I"], "forms": ["<b>going to</b> …?"] },
+            { "prefix": ["<b>Is</b>"], "pronouns": ["he", "she", "it"], "forms": ["<b>going to</b> …?"] },
+            { "prefix": ["<b>Are</b>"], "pronouns": ["you", "we", "they"], "forms": ["<b>going to</b> …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            {
+              "word": "Yes,",
+              "lines": [
+                { "pronouns": ["I"], "form": "<b>am</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>is</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>are</b>." }
+              ]
+            },
+            {
+              "word": "No,",
+              "lines": [
+                { "pronouns": ["I"], "form": "<b>'m not</b>." },
+                { "pronouns": ["he", "she", "it"], "form": "<b>isn't</b>." },
+                { "pronouns": ["you", "we", "they"], "form": "<b>aren't</b>." }
+              ]
+            }
+          ],
+          "examples": [
+            "We<b>'re going to</b> paint the kitchen this weekend.",
+            "She <b>is not going to</b> apply for the job. — She <b>isn't going to</b> apply.",
+            "— <b>Is</b> it <b>going to</b> snow? — Yes, it <b>is</b>.",
+            "— <b>Are</b> you <b>going to</b> call him? — No, I<b>'m not</b>."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Be going to is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "note": "<b>Be going to</b> is for plans and intentions, and for predictions when we can see the evidence.",
+          "items": [
+            {
+              "emoji": "🗓️",
+              "case": "future plans and intentions",
+              "examples": ["Mark<b>'s going to</b> study medicine after school.", "We<b>'re going to</b> visit my grandparents in July."],
+              "hint": "It is a plan or an intention."
+            },
+            {
+              "emoji": "🌧️",
+              "case": "predictions based on what we can see or know, especially when there is evidence",
+              "examples": ["The sky is black. It<b>'s going to</b> pour.", "Slow down! You<b>'re going to</b> hit that tree."],
+              "hint": "We can see that it will happen."
+            },
+            {
+              "emoji": "✅",
+              "case": "things we are sure about or have already decided to do in the near future",
+              "examples": ["Lena <b>is going to</b> book the tickets tonight."],
+              "hint": "She has already decided."
+            }
+          ]
+        },
+        {
+          "kind": "chips",
+          "heading": "TIME EXPRESSIONS USED WITH WILL / BE GOING TO / FUTURE CONTINUOUS",
+          "items": ["tomorrow", "tonight", "next week / month", "in two / three days", "the day after tomorrow", "soon", "in a week / month"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "topic": "Future Perfect Continuous",
+  "group": "future",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Future Perfect Continuous Form",
+      "subtitle": "will have been + verb -ing",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will have been</b> liv<b>ing</b> …", "<b>'ll have been</b> liv<b>ing</b> …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will not have been</b> living …", "<b>won't have been</b> living …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Will</b>"], "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>have been</b> living …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            { "word": "Yes,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>will</b>." }] },
+            { "word": "No,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>won't</b>." }] }
+          ],
+          "examples": [
+            "Next spring we <b>will have been living</b> here for ten years. — We<b>'ll have been living</b> here for ten years.",
+            "He <b>won't have been waiting</b> long by the time we arrive.",
+            "— <b>Will</b> she <b>have been teaching</b> for twenty years by then? — Yes, she <b>will</b>."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Future Perfect Continuous is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "⏱️",
+              "case": "to stress how long an action will have lasted up to a certain time in the future",
+              "examples": ["By the end of this month Olena <b>will have been studying</b> English for three years.", "When the clock strikes nine, the band <b>will have been playing</b> for two hours.", "By the time he retires, Mr Kovalenko <b>will have been driving</b> buses for forty years."]
+            }
+          ]
+        },
+        {
+          "kind": "chips",
+          "heading": "TIME EXPRESSIONS",
+          "note": "This tense goes with <b>by … for</b>: a point in the future plus a length of time.",
+          "items": ["by … for", "by the end of this month", "by the time", "for three years", "for forty years"]
+        }
+      ]
+    }
+  ]
+}

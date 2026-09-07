@@ -166,7 +166,7 @@ function FormCardView({ c, footer }: { c: FormCard; footer?: string }) {
 
 /* ---------- content blocks ---------- */
 
-const WIDE_KINDS = new Set(["uses", "scenario", "table"]);
+const WIDE_KINDS = new Set(["uses", "scenario", "table", "verbs"]);
 
 function BlockView({ b, forceWide }: { b: Block; forceWide?: boolean }) {
   const items = b.items as never[];
@@ -249,6 +249,28 @@ function BlockView({ b, forceWide }: { b: Block; forceWide?: boolean }) {
               <Html as="p" className="st" html={i.sentence} />
               {i.note && <Html as="div" className="nt" html={i.note} />}
             </div>
+          ))}
+        </div>
+      );
+      break;
+    }
+    case "verbs": {
+      const vs = items as { inf: string; past: string; pp: string }[];
+      const cols = 3;
+      const per = Math.ceil(vs.length / cols);
+      inner = (
+        <div className="verbs">
+          {Array.from({ length: cols }, (_, ci) => (
+            <table className="vt" key={ci}>
+              <thead>
+                <tr><th>Infinitive</th><th>Past</th><th>Past Participle</th></tr>
+              </thead>
+              <tbody>
+                {vs.slice(ci * per, (ci + 1) * per).map((v, n) => (
+                  <tr key={n}><td>{v.inf}</td><td className="p">{v.past}</td><td className="p">{v.pp}</td></tr>
+                ))}
+              </tbody>
+            </table>
           ))}
         </div>
       );

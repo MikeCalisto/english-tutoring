@@ -1,0 +1,118 @@
+{
+  "topic": "Future Simple",
+  "group": "future",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Future Simple Form",
+      "subtitle": "will + verb",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will</b> call …", "<b>'ll</b> call …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will not</b> call …", "<b>won't</b> call …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Will</b>"], "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["call …?"] },
+            { "prefix": ["<b>Shall</b>"], "pronouns": ["I", "we"], "forms": ["call …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            { "word": "Yes,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>will</b>." }] },
+            { "word": "No,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>won't</b>." }] }
+          ],
+          "examples": [
+            "I <b>will call</b> you later. — I<b>'ll call</b> you later.",
+            "Dan <b>will not come</b>. — Dan <b>won't come</b>.",
+            "— <b>Will</b> you <b>open</b> the door for me? — Yes, I <b>will</b>.",
+            "— <b>Shall</b> we <b>take</b> a taxi? — No, we <b>won't</b>, let's walk."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Future Simple is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "note": "The future tense describes actions that will happen in the future.",
+          "items": [
+            {
+              "emoji": "⚡",
+              "case": "on-the-spot decisions: we decide at the moment of speaking",
+              "examples": ["The phone is ringing. I<b>'ll get</b> it.", "It's hot in here. I<b>'ll open</b> a window."]
+            },
+            {
+              "emoji": "💭",
+              "case": "hopes, fears, threats, offers, promises, warnings, requests and comments, especially with expect, hope, believe, I'm sure, I'm afraid, probably",
+              "examples": ["I'm afraid we<b>'ll miss</b> the bus.", "I hope she<b>'ll like</b> the present."]
+            },
+            {
+              "emoji": "🔮",
+              "case": "predictions based on what we think or imagine",
+              "examples": ["I think it <b>will snow</b> tonight.", "They<b>'ll</b> probably <b>move</b> to the city next year."]
+            },
+            {
+              "emoji": "📌",
+              "case": "facts about the future",
+              "examples": ["My sister <b>will be</b> eighteen in May."]
+            },
+            {
+              "emoji": "🤔",
+              "case": "things we are not sure about or haven't decided yet",
+              "examples": ["Maybe I<b>'ll stay</b> at home this weekend."],
+              "hint": "not decided yet"
+            },
+            {
+              "emoji": "🙋",
+              "case": "Shall with I or we in questions: suggestions and offers",
+              "examples": ["<b>Shall</b> we <b>order</b> pizza tonight? (suggestion)", "<b>Shall</b> I <b>carry</b> that box for you? (offer)"]
+            }
+          ]
+        },
+        {
+          "kind": "chips",
+          "heading": "TIME EXPRESSIONS",
+          "items": ["tomorrow", "tonight", "soon", "next week / month / year", "in a week / month", "in two / three days", "the day after tomorrow"]
+        }
+      ]
+    },
+    {
+      "title": "Will is used to express",
+      "subtitle": "predictions, warnings, offers, promises, threats, requests, decisions, hopes",
+      "blocks": [
+        {
+          "kind": "pairs",
+          "note": "Often with words like <b>think, expect, suppose, hope, believe, know</b> and <b>probably</b>.",
+          "items": [
+            { "left": "Robots <b>will do</b> most of the housework one day.", "right": "prediction" },
+            { "left": "Careful, you<b>'ll drop</b> the glass.", "right": "warning" },
+            { "left": "I<b>'ll carry</b> your bags.", "right": "offer" },
+            { "left": "I<b>'ll call</b> you as soon as I arrive.", "right": "promise" }
+          ]
+        },
+        {
+          "kind": "pairs",
+          "items": [
+            { "left": "Do that again and I<b>'ll tell</b> your mother.", "right": "threat" },
+            { "left": "<b>Will</b> you <b>pass</b> me the salt, please?", "right": "request" },
+            { "left": "I'm tired. I<b>'ll go</b> to bed early.", "right": "on-the-spot decision" },
+            { "left": "I hope you<b>'ll enjoy</b> the trip.", "right": "hope" }
+          ]
+        }
+      ]
+    }
+  ]
+}

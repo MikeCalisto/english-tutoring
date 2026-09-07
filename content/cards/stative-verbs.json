@@ -1,0 +1,87 @@
+{
+  "topic": "Stative verbs",
+  "group": "other",
+  "cards": [
+    {
+      "title": "Stative Verbs",
+      "subtitle": "verbs that rarely take continuous forms",
+      "blocks": [
+        {
+          "kind": "chips",
+          "heading": "STATIVE VERBS",
+          "note": "These verbs describe a state, not an action, so they rarely appear in continuous tenses:",
+          "items": ["appear (= seem)", "be", "believe", "belong", "cost", "feel", "forget", "hate", "have (= possess)", "know", "like", "love", "mean", "need", "prefer", "realise", "remember", "see", "seem", "smell", "sound", "suppose", "taste", "think", "understand", "want"]
+        },
+        {
+          "kind": "careful",
+          "heading": "CAREFUL",
+          "note": "Some of these verbs do have continuous forms, but then the meaning changes (see the next card).",
+          "items": [
+            { "wrong": "I <b>am knowing</b> the answer.", "right": "I <b>know</b> the answer." },
+            { "wrong": "This soup <b>is tasting</b> salty.", "right": "This soup <b>tastes</b> salty." }
+          ]
+        },
+        {
+          "kind": "uses",
+          "heading": "GROUPS OF STATIVE VERBS",
+          "items": [
+            {
+              "emoji": "👁️",
+              "case": "verbs of the senses: see, hear, smell, feel, taste (often with can or could)",
+              "examples": ["<b>Can</b> you <b>hear</b> the music from next door?", "I<b>'m listening</b> to the radio, BUT I <b>can't hear</b> it well."],
+              "hint": "Look, watch and listen are deliberate actions, so they can be continuous. Feel and hurt work both ways: How are you feeling? / How do you feel? My arm is hurting. / My arm hurts."
+            },
+            {
+              "emoji": "💬",
+              "case": "verbs of opinion: agree, believe, consider",
+              "examples": ["I <b>believe</b> you are right."]
+            },
+            {
+              "emoji": "❤️",
+              "case": "verbs of emotion: feel, forgive, hate, like, love",
+              "examples": ["Nina <b>loves</b> jazz."]
+            },
+            {
+              "emoji": "📦",
+              "case": "other verbs: appear (= seem), be, belong, fit, have (= possess), know, look (= appear), need, prefer, require, want, weigh, wish",
+              "examples": ["This bag <b>belongs</b> to me. (NOT: is belonging)"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "title": "Stative verbs — difference in meaning",
+      "subtitle": "the same verb in Present Simple and Present Continuous",
+      "columns": [
+        {
+          "tense": "Present Simple",
+          "items": [
+            { "case": "I <b>think</b> the film is boring.", "examples": [], "hint": "= believe" },
+            { "case": "Your brother <b>looks</b> tired.", "examples": [], "hint": "= appears to be" },
+            { "case": "I <b>see</b> a boat on the lake.", "examples": [], "hint": "= it is visible" },
+            { "case": "Olga <b>has</b> two cats.", "examples": [], "hint": "= owns" },
+            { "case": "The cake <b>tastes</b> of lemon.", "examples": [], "hint": "= has the flavour of" },
+            { "case": "These shoes <b>fit</b> me well.", "examples": [], "hint": "= are the right size" },
+            { "case": "Tom <b>is</b> a kind person.", "examples": [], "hint": "= his character" },
+            { "case": "The road <b>appears</b> closed.", "examples": [], "hint": "= seems" }
+          ]
+        },
+        {
+          "tense": "Present Continuous",
+          "items": [
+            { "case": "I<b>'m thinking</b> about buying a bike.", "examples": [], "hint": "= considering" },
+            { "case": "He<b>'s looking</b> at the map.", "examples": [], "hint": "= directing his eyes at" },
+            { "case": "I<b>'m seeing</b> the dentist on Monday.", "examples": [], "hint": "= meeting" },
+            { "case": "Olga<b>'s having</b> lunch now.", "examples": [], "hint": "= eating" },
+            { "case": "The chef <b>is tasting</b> the sauce.", "examples": [], "hint": "= trying" },
+            { "case": "They<b>'re fitting</b> a new door.", "examples": [], "hint": "= installing" },
+            { "case": "Tom <b>is being</b> very rude today.", "examples": [], "hint": "= behaving like that now" },
+            { "case": "A new singer <b>is appearing</b> at the club tonight.", "examples": [], "hint": "= performing" }
+          ]
+        }
+      ]
+    }
+  ]
+}

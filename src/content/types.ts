@@ -40,7 +40,8 @@ export type BlockKind =
   | "lines"
   | "careful"
   | "scenario"
-  | "table";
+  | "table"
+  | "verbs";
 
 export interface UseItem {
   emoji?: string;

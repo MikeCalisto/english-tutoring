@@ -179,6 +179,14 @@ table.te tr:last-child td { border-bottom: none; }
 table.te td.k { width: 26%; font-weight: 600; color: var(--frame); white-space: nowrap; }
 table.te td.v { color: var(--muted); }
 
+/* irregular verbs */
+.verbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; }
+table.vt { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+table.vt th { text-align: left; font-family: var(--display); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 4px 8px 8px 0; border-bottom: 1px solid var(--line); }
+table.vt td { padding: 4px 8px 4px 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+table.vt td.p { color: var(--frame); font-weight: 600; }
+@media (max-width: 1100px) { .verbs { grid-template-columns: 1fr; } }
+
 /* compare */
 .cmp { display: grid; gap: 14px; align-items: stretch; }
 .cmp-col { background: var(--surface2); border: 1px solid var(--line); border-top: 2px solid var(--cc); border-radius: var(--rp); display: flex; flex-direction: column; overflow: hidden; --c: var(--cc); }

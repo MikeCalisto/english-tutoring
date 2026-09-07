@@ -1,0 +1,77 @@
+{
+  "topic": "Future Continuous",
+  "group": "future",
+  "cards": [
+    {
+      "type": "form",
+      "title": "Future Continuous Form",
+      "subtitle": "will be + verb -ing",
+      "panels": [
+        {
+          "role": "positive",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will be</b> driv<b>ing</b> …", "<b>'ll be</b> driv<b>ing</b> …"] }
+          ]
+        },
+        {
+          "role": "negative",
+          "rows": [
+            { "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>will not be</b> driving …", "<b>won't be</b> driving …"] }
+          ]
+        },
+        {
+          "role": "question",
+          "rows": [
+            { "prefix": ["<b>Will</b>"], "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "forms": ["<b>be</b> driving …?"] }
+          ]
+        },
+        {
+          "role": "short_answer",
+          "units": [
+            { "word": "Yes,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>will</b>." }] },
+            { "word": "No,", "lines": [{ "pronouns": ["I", "you", "he", "she", "it", "we", "they"], "form": "<b>won't</b>." }] }
+          ],
+          "examples": [
+            "At nine tomorrow I <b>will be driving</b> to work. — I<b>'ll be driving</b> to work.",
+            "She <b>will not be working</b> on Sunday. — She <b>won't be working</b> on Sunday.",
+            "— <b>Will</b> you <b>be using</b> the car tonight? — Yes, I <b>will</b>.",
+            "— <b>Will</b> they <b>be staying</b> long? — No, they <b>won't</b>."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Future Continuous is used",
+      "subtitle": "all cases and time expressions",
+      "blocks": [
+        {
+          "kind": "uses",
+          "items": [
+            {
+              "emoji": "⏳",
+              "case": "an action that will be in progress at a stated future time",
+              "examples": ["This time tomorrow we<b>'ll be flying</b> over the Alps.", "At eight o'clock tonight she<b>'ll be watching</b> the match."]
+            },
+            {
+              "emoji": "🔁",
+              "case": "an action that will definitely happen as part of a routine or arrangement (instead of the Present Continuous)",
+              "examples": ["I<b>'ll be seeing</b> Anna at the office tomorrow, so I can pass on your message.", "We<b>'ll be meeting</b> the team on Friday as usual."],
+              "hint": "It is already planned, so the meeting is certain."
+            },
+            {
+              "emoji": "🙏",
+              "case": "asking politely about someone's plans, to see if they can do something for us or so that we can offer help",
+              "examples": ["— <b>Will</b> you <b>be passing</b> the post office? — Yes. Why? — Could you post this letter for me?", "<b>Will</b> you <b>be using</b> the printer this afternoon? I need it for an hour."],
+              "hint": "We want to know whether our wishes fit in with their plans."
+            }
+          ]
+        },
+        {
+          "kind": "chips",
+          "heading": "TIME EXPRESSIONS",
+          "items": ["tomorrow", "tonight", "next week / month", "in two / three days", "the day after tomorrow", "soon", "in a week / month", "this time tomorrow", "at eight o'clock tonight"]
+        }
+      ]
+    }
+  ]
+}

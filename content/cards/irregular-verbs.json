@@ -1,0 +1,482 @@
+{
+  "topic": "Irregular verbs",
+  "group": "other",
+  "cards": [
+    {
+      "title": "Irregular Verbs",
+      "subtitle": "infinitive · past · past participle",
+      "blocks": [
+        {
+          "kind": "verbs",
+          "items": [
+            {
+              "inf": "be",
+              "past": "was / were",
+              "pp": "been"
+            },
+            {
+              "inf": "bear",
+              "past": "bore",
+              "pp": "born / borne"
+            },
+            {
+              "inf": "become",
+              "past": "became",
+              "pp": "become"
+            },
+            {
+              "inf": "begin",
+              "past": "began",
+              "pp": "begun"
+            },
+            {
+              "inf": "bite",
+              "past": "bit",
+              "pp": "bitten"
+            },
+            {
+              "inf": "blow",
+              "past": "blew",
+              "pp": "blown"
+            },
+            {
+              "inf": "break",
+              "past": "broke",
+              "pp": "broken"
+            },
+            {
+              "inf": "bring",
+              "past": "brought",
+              "pp": "brought"
+            },
+            {
+              "inf": "build",
+              "past": "built",
+              "pp": "built"
+            },
+            {
+              "inf": "buy",
+              "past": "bought",
+              "pp": "bought"
+            },
+            {
+              "inf": "catch",
+              "past": "caught",
+              "pp": "caught"
+            },
+            {
+              "inf": "choose",
+              "past": "chose",
+              "pp": "chosen"
+            },
+            {
+              "inf": "come",
+              "past": "came",
+              "pp": "come"
+            },
+            {
+              "inf": "cut",
+              "past": "cut",
+              "pp": "cut"
+            },
+            {
+              "inf": "deal",
+              "past": "dealt",
+              "pp": "dealt"
+            },
+            {
+              "inf": "dig",
+              "past": "dug",
+              "pp": "dug"
+            },
+            {
+              "inf": "do",
+              "past": "did",
+              "pp": "done"
+            },
+            {
+              "inf": "draw",
+              "past": "drew",
+              "pp": "drawn"
+            },
+            {
+              "inf": "dream",
+              "past": "dreamt / dreamed",
+              "pp": "dreamt / dreamed"
+            },
+            {
+              "inf": "drink",
+              "past": "drank",
+              "pp": "drunk"
+            },
+            {
+              "inf": "drive",
+              "past": "drove",
+              "pp": "driven"
+            },
+            {
+              "inf": "eat",
+              "past": "ate",
+              "pp": "eaten"
+            },
+            {
+              "inf": "fall",
+              "past": "fell",
+              "pp": "fallen"
+            },
+            {
+              "inf": "feed",
+              "past": "fed",
+              "pp": "fed"
+            },
+            {
+              "inf": "feel",
+              "past": "felt",
+              "pp": "felt"
+            },
+            {
+              "inf": "fight",
+              "past": "fought",
+              "pp": "fought"
+            },
+            {
+              "inf": "find",
+              "past": "found",
+              "pp": "found"
+            },
+            {
+              "inf": "fly",
+              "past": "flew",
+              "pp": "flown"
+            },
+            {
+              "inf": "forbid",
+              "past": "forbade / forbad",
+              "pp": "forbidden"
+            },
+            {
+              "inf": "forget",
+              "past": "forgot",
+              "pp": "forgotten"
+            },
+            {
+              "inf": "forgive",
+              "past": "forgave",
+              "pp": "forgiven"
+            },
+            {
+              "inf": "freeze",
+              "past": "froze",
+              "pp": "frozen"
+            },
+            {
+              "inf": "get",
+              "past": "got",
+              "pp": "got / gotten"
+            },
+            {
+              "inf": "give",
+              "past": "gave",
+              "pp": "given"
+            },
+            {
+              "inf": "go",
+              "past": "went",
+              "pp": "gone"
+            },
+            {
+              "inf": "grow",
+              "past": "grew",
+              "pp": "grown"
+            },
+            {
+              "inf": "hang",
+              "past": "hung / hanged",
+              "pp": "hung / hanged"
+            },
+            {
+              "inf": "have",
+              "past": "had",
+              "pp": "had"
+            },
+            {
+              "inf": "hear",
+              "past": "heard",
+              "pp": "heard"
+            },
+            {
+              "inf": "hide",
+              "past": "hid",
+              "pp": "hidden"
+            },
+            {
+              "inf": "hold",
+              "past": "held",
+              "pp": "held"
+            },
+            {
+              "inf": "keep",
+              "past": "kept",
+              "pp": "kept"
+            },
+            {
+              "inf": "know",
+              "past": "knew",
+              "pp": "known"
+            },
+            {
+              "inf": "lay",
+              "past": "laid",
+              "pp": "laid"
+            },
+            {
+              "inf": "lead",
+              "past": "led",
+              "pp": "led"
+            },
+            {
+              "inf": "learn",
+              "past": "learnt, learned",
+              "pp": "learnt, learned"
+            },
+            {
+              "inf": "leave",
+              "past": "left",
+              "pp": "left"
+            },
+            {
+              "inf": "lend",
+              "past": "lent",
+              "pp": "lent"
+            },
+            {
+              "inf": "let",
+              "past": "let",
+              "pp": "let"
+            },
+            {
+              "inf": "lie",
+              "past": "lain, lied",
+              "pp": "lain, lied"
+            },
+            {
+              "inf": "light",
+              "past": "lit",
+              "pp": "lit"
+            },
+            {
+              "inf": "lose",
+              "past": "lost",
+              "pp": "lost"
+            },
+            {
+              "inf": "make",
+              "past": "made",
+              "pp": "made"
+            },
+            {
+              "inf": "mean",
+              "past": "meant",
+              "pp": "meant"
+            },
+            {
+              "inf": "meet",
+              "past": "met",
+              "pp": "met"
+            },
+            {
+              "inf": "pay",
+              "past": "paid",
+              "pp": "paid"
+            },
+            {
+              "inf": "put",
+              "past": "put",
+              "pp": "put"
+            },
+            {
+              "inf": "read",
+              "past": "read",
+              "pp": "read"
+            },
+            {
+              "inf": "ride",
+              "past": "rode",
+              "pp": "ridden"
+            },
+            {
+              "inf": "ring",
+              "past": "rang",
+              "pp": "rung"
+            },
+            {
+              "inf": "rise",
+              "past": "rose",
+              "pp": "risen"
+            },
+            {
+              "inf": "run",
+              "past": "ran",
+              "pp": "run"
+            },
+            {
+              "inf": "saw",
+              "past": "(E)",
+              "pp": "(E)"
+            },
+            {
+              "inf": "say",
+              "past": "said",
+              "pp": "said"
+            },
+            {
+              "inf": "see",
+              "past": "saw",
+              "pp": "seen"
+            },
+            {
+              "inf": "seek",
+              "past": "sought",
+              "pp": "sought"
+            },
+            {
+              "inf": "sell",
+              "past": "sold",
+              "pp": "sold"
+            },
+            {
+              "inf": "send",
+              "past": "sent",
+              "pp": "sent"
+            },
+            {
+              "inf": "set",
+              "past": "set",
+              "pp": "set"
+            },
+            {
+              "inf": "shake",
+              "past": "shook",
+              "pp": "shaken"
+            },
+            {
+              "inf": "shine",
+              "past": "shone",
+              "pp": "shone"
+            },
+            {
+              "inf": "shoot",
+              "past": "shot",
+              "pp": "shot"
+            },
+            {
+              "inf": "show",
+              "past": "showed",
+              "pp": "shown"
+            },
+            {
+              "inf": "sing",
+              "past": "sang",
+              "pp": "sung"
+            },
+            {
+              "inf": "sit",
+              "past": "sat",
+              "pp": "sat"
+            },
+            {
+              "inf": "sleep",
+              "past": "slept",
+              "pp": "slept"
+            },
+            {
+              "inf": "smell",
+              "past": "smelt / smelled",
+              "pp": "smelt / smelled"
+            },
+            {
+              "inf": "speak",
+              "past": "spoke",
+              "pp": "spoken"
+            },
+            {
+              "inf": "spend",
+              "past": "spent",
+              "pp": "spent"
+            },
+            {
+              "inf": "spill",
+              "past": "spilt / spilled",
+              "pp": "spilt / spilled"
+            },
+            {
+              "inf": "stand",
+              "past": "stood",
+              "pp": "stood"
+            },
+            {
+              "inf": "steal",
+              "past": "stole",
+              "pp": "stolen"
+            },
+            {
+              "inf": "take",
+              "past": "took",
+              "pp": "taken"
+            },
+            {
+              "inf": "teach",
+              "past": "taught",
+              "pp": "taught"
+            },
+            {
+              "inf": "tear",
+              "past": "tore",
+              "pp": "torn"
+            },
+            {
+              "inf": "tell",
+              "past": "told",
+              "pp": "told"
+            },
+            {
+              "inf": "think",
+              "past": "thought",
+              "pp": "thought"
+            },
+            {
+              "inf": "throw",
+              "past": "threw",
+              "pp": "thrown"
+            },
+            {
+              "inf": "understand",
+              "past": "understood",
+              "pp": "understood"
+            },
+            {
+              "inf": "wake",
+              "past": "woke",
+              "pp": "woken"
+            },
+            {
+              "inf": "wear",
+              "past": "wore",
+              "pp": "worn"
+            },
+            {
+              "inf": "win",
+              "past": "won",
+              "pp": "won"
+            },
+            {
+              "inf": "write",
+              "past": "wrote",
+              "pp": "written"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
