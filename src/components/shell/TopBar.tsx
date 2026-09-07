@@ -7,6 +7,7 @@ import { BRAND } from "@/config/brand";
 import type { SearchItem } from "@/content";
 import { useFullscreen } from "./ShellFrame";
 import { CommandPalette } from "./CommandPalette";
+import { ThemeToggle } from "./ThemeToggle";
 
 const TABS = [
   { href: "/cards", label: "Картки", student: false },
@@ -20,7 +21,7 @@ export interface TopBarUser {
   role: "admin" | "teacher" | "student";
 }
 
-export function TopBar({ user, search }: { user: TopBarUser | null; search: SearchItem[] }) {
+export function TopBar({ user, search, theme }: { user: TopBarUser | null; search: SearchItem[]; theme: "light" | "dark" }) {
   const path = usePathname();
   const { toggle } = useFullscreen();
   const [open, setOpen] = useState(false);
@@ -57,6 +58,7 @@ export function TopBar({ user, search }: { user: TopBarUser | null; search: Sear
           <kbd>⌘K</kbd>
         </button>
       )}
+      <ThemeToggle initial={theme} />
       <button className="btn" onClick={toggle} title="На весь екран для проєктора">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6">
           <path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" />

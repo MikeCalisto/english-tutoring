@@ -4,6 +4,8 @@ import { BRAND } from "@/config/brand";
 import { db, schema } from "@/db";
 import { newId } from "@/lib/auth";
 import { deepLink } from "@/lib/telegram";
+import { ThemeToggle } from "@/components/shell/ThemeToggle";
+import { cookies } from "next/headers";
 
 /** Токен входа создаётся при открытии страницы; старые токены чистим попутно. */
 async function createLoginToken() {
@@ -22,12 +24,13 @@ const MESSAGES: Record<string, string> = {
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; pending?: string }> }) {
   const sp = await searchParams;
+  const theme = (await cookies()).get("theme")?.value === "dark" ? "dark" : "light";
   const bot = process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME;
   const login = bot ? await createLoginToken() : null;
   return (
     <div className="login">
       <div className="login-box">
-        <div className="brand"><img src="/brand/logo.svg" alt="" />{BRAND.name}</div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><div className="brand"><img src="/brand/logo.svg" alt="" />{BRAND.name}</div><ThemeToggle initial={theme} /></div>
         <h1>Вхід</h1>
         <p className="muted">{BRAND.tagline}</p>
 
