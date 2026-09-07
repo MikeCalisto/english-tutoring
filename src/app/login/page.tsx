@@ -27,7 +27,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   return (
     <div className="login">
       <div className="login-box">
-        <div className="brand" style={{ alignSelf: "flex-start" }}>{BRAND.name}</div>
+        <div className="brand">{BRAND.name}</div>
         <h1>Вхід</h1>
         <p className="muted">{BRAND.tagline}</p>
 
