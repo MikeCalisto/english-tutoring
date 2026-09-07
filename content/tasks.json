@@ -4,20 +4,26 @@
     "tenseLabel": "Irregular verbs",
     "title": "Англійські дієслова: правильні й неправильні",
     "type": "Сортування на швидкість",
-    "url": "https://wordwall.net/uk/resource/118494259?wwmethod=link"
+    "url": "https://wordwall.net/uk/resource/118494259?wwmethod=link",
+    "id": "118494259",
+    "image": "/previews/118494259.jpg"
   },
   {
     "tense": "present-simple",
     "tenseLabel": "Present Simple",
     "title": "Present Simple: правильні та неправильні речення",
     "type": "Правильно чи неправильно",
-    "url": "https://wordwall.net/uk/resource/118494603?wwmethod=link"
+    "url": "https://wordwall.net/uk/resource/118494603?wwmethod=link",
+    "id": "118494603",
+    "image": "/previews/118494603.jpg"
   },
   {
     "tense": "all",
     "tenseLabel": "Усі часи",
     "title": "Форми англійських часів",
     "type": "Відповідники",
-    "url": "https://wordwall.net/uk/resource/118494981?wwmethod=link"
+    "url": "https://wordwall.net/uk/resource/118494981?wwmethod=link",
+    "id": "118494981",
+    "image": "/previews/118494981.jpg"
   }
 ]

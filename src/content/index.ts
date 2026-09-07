@@ -79,11 +79,13 @@ export function getTimeline(id: string): Timeline | null {
 }
 
 export interface Task {
+  id?: string;
   tense: string;
   tenseLabel: string;
   title: string;
   type: string;
   url: string;
+  image?: string;
 }
 
 export function getTasks(): Task[] {

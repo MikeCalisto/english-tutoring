@@ -304,7 +304,17 @@ input:focus { outline: none; border-color: var(--muted); }
 .row .t { flex: 1; }
 .row form.inline { display: flex; gap: 6px; align-items: center; }
 .code { font-family: var(--mono); font-size: 16px; letter-spacing: .14em; color: var(--ans); }
-.task-group { display: flex; flex-direction: column; gap: 8px; }
+.task-group { display: flex; flex-direction: column; gap: 10px; }
+.task-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.tcard { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; transition: border-color .15s, transform .15s; }
+.tcard:hover { border-color: var(--muted); transform: translateY(-2px); }
+.tcard-img { position: relative; aspect-ratio: 16 / 9; background: var(--surface2); overflow: hidden; }
+.tcard-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tcard-noimg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--faint); font-family: var(--display); }
+.tcard-type { position: absolute; left: 10px; bottom: 10px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; background: rgba(22, 25, 29, .85); color: var(--ink); }
+.tcard-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+.tcard-title { font-weight: 600; font-size: 15px; line-height: 1.35; }
+.tcard-meta { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); }
 
 /* ---------- search palette ---------- */
 .search { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: var(--rb); padding: 6px 10px; min-width: 220px; background: var(--bg); }

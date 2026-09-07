@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTasks } from "@/content";
 
 export default function TasksPage() {
@@ -22,14 +23,24 @@ export default function TasksPage() {
           Array.from(groups.entries()).map(([label, items]) => (
             <section key={label} className="task-group">
               <h2 className="h2">{label}</h2>
-              <div className="task-list">
-                {items.map((t, n) => (
-                  <a key={n} className="task" href={t.url} target="_blank" rel="noopener noreferrer">
-                    <div className="t">
-                      <div>{t.title}</div>
-                      <div className="tense">{t.type} · Wordwall</div>
+              <div className="task-grid">
+                {items.map((t) => (
+                  <a key={t.url} className="tcard" href={t.url} target="_blank" rel="noopener noreferrer">
+                    <div className="tcard-img">
+                      {t.image ? (
+                        <Image src={t.image} alt="" width={800} height={450} sizes="(max-width: 1100px) 100vw, 33vw" />
+                      ) : (
+                        <div className="tcard-noimg">Wordwall</div>
+                      )}
+                      <span className="tcard-type">{t.type}</span>
                     </div>
-                    <span className="btn">Відкрити</span>
+                    <div className="tcard-body">
+                      <div className="tcard-title">{t.title}</div>
+                      <div className="tcard-meta">
+                        <span>Wordwall</span>
+                        <span className="btn">Відкрити</span>
+                      </div>
+                    </div>
                   </a>
                 ))}
               </div>
