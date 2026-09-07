@@ -41,7 +41,7 @@ export function TopBar({ user, search }: { user: TopBarUser | null; search: Sear
   const items = user?.role === "student" ? search.filter((s) => s.kind === "timeline") : search;
   return (
     <header className="topbar">
-      <Link href="/cards" className="brand">{BRAND.name}</Link>
+      <Link href="/cards" className="brand"><img src="/brand/logo.svg" alt="" />{BRAND.name}</Link>
       <nav className="tabs">
         {tabs.map((t) => (
           <Link key={t.href} href={t.href} className={`tab${path.startsWith(t.href) ? " on" : ""}`}>

@@ -68,7 +68,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: -.01em;
   padding: 4px 0; color: var(--ink); display: inline-flex; align-items: center; gap: 8px;
 }
-.brand::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--frame-present); box-shadow: 14px 0 0 var(--frame-past), 28px 0 0 var(--frame-future); margin-right: 28px; }
+.brand img { width: 26px; height: 26px; border-radius: 7px; display: block; }
 .tabs { display: flex; gap: 4px; }
 .tab { padding: 8px 14px; border-radius: var(--rb); font-weight: 600; font-size: 14px; color: var(--muted); }
 .tab:hover { color: var(--ink); background: var(--surface2); }
