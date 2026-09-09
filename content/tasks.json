@@ -88,5 +88,23 @@
     "url": "https://wordwall.net/uk/resource/118494981?wwmethod=link",
     "id": "118494981",
     "image": "/previews/118494981.jpg"
+  },
+  {
+    "id": "118537289",
+    "tense": "mixed",
+    "tenseLabel": "Усі часи",
+    "title": "Tense Review",
+    "type": "Доповніть речення",
+    "url": "https://wordwall.net/uk/resource/118537289?wwmethod=link",
+    "image": "/previews/118537289.jpg"
+  },
+  {
+    "id": "118537599",
+    "tense": "mixed",
+    "tenseLabel": "Усі часи",
+    "title": "Англійські часи: форма і вживання",
+    "type": "Введіть відповідь",
+    "url": "https://wordwall.net/uk/resource/118537599?wwmethod=link",
+    "image": "/previews/118537599.jpg"
   }
 ]
