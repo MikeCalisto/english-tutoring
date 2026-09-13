@@ -7,7 +7,7 @@ const PUBLIC = ["/login", "/api/auth", "/api/telegram", "/_next", "/favicon.ico"
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  if (PUBLIC.some((p) => pathname.startsWith(p))) return NextResponse.next();
+  if (pathname === "/" || PUBLIC.some((p) => pathname.startsWith(p))) return NextResponse.next();
 
   const claims = await verifySession(req.cookies.get(COOKIE)?.value);
   if (!claims) {
