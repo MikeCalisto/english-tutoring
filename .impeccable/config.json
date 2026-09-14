@@ -11,6 +11,24 @@
         ],
         "createdAt": "2026-09-06T19:00:56.221Z",
         "reason": "user picked direction A mockup on 2026-09-06; its cards and scenario blocks carry a top accent border in the tense-group colour on rounded, overflow-hidden containers"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "public/landing/variant-b.html"
+        ],
+        "createdAt": "2026-09-13T16:48:48.180Z",
+        "reason": "CTA-тінь і мʼяке світіння під превʼю прописані в скілі landing-design користувача та в ТЗ лендингу (розділ «Візуальний стиль»)"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "public/landing/variant-a.html"
+        ],
+        "createdAt": "2026-09-13T19:43:16.362Z",
+        "reason": "user confirmed 13.09.2026: просив перенести прийоми з референсу olena-kulyk.vercel.app/morskyi-peyzazh-v2 («сделай также»), рухомий рядок — один із них"
       }
     ]
   }

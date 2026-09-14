@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Варіант B · Плакат — банк матеріалів по часах</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================= ВАРІАНТ B · «ПЛАКАТ» =================
+   Стиль із техзавдання: білий фон, чорний гротеск UPPERCASE,
+   фіолетовий акцент, лаймовий — тільки бейдж і таймер.
+   Медіа — справжні екрани платформи: світлі в білих секціях,
+   темна тема платформи — у чорній секції бонусів.
+   ======================================================== */
+:root{
+  --ink:#0e0e12; --ink2:#1a1a20; --white:#fff; --paper:#f6f5f9;
+  --violet:#6c3ff5; --violet-d:#4f27d6; --violet-soft:#efeaff;
+  --lime:#c8f53f; --gray:#6e6e7a; --line:#e3e1ea;
+  --font:'Jost',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --mono:'JetBrains Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--font);color:var(--ink);background:var(--white);
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+img{max-width:100%}
+
+.wrap{max-width:480px;margin:0 auto;position:relative;overflow:hidden;background:var(--white)}
+@media(min-width:520px){.wrap{box-shadow:0 0 60px rgba(14,14,18,.10);border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+.sec{position:relative;padding:46px 22px;overflow:hidden}
+.sec.dark{background:var(--ink);color:var(--white)}
+.sec.dark .lead,.sec.dark p{color:#d8d8e2}
+
+/* ---------- типографіка ---------- */
+h1,h2{font-weight:900;text-transform:uppercase;letter-spacing:-.025em;line-height:1.02;margin:0}
+h1{font-size:clamp(30px,8.6vw,40px)}
+h2{font-size:clamp(26px,7.2vw,34px)}
+h3{font-weight:700;font-size:20px;line-height:1.15;margin:0;text-transform:uppercase;letter-spacing:-.015em}
+.vi{color:var(--violet)}
+.sub{font-style:italic;font-weight:500;color:var(--violet);font-size:17px;margin:14px 0 0;text-transform:lowercase}
+.micro{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin:0 0 18px}
+.lead{font-size:15.5px;line-height:1.6;margin:0}
+.mono{font-family:var(--mono)}
+.mark{background:linear-gradient(180deg,transparent 58%,rgba(108,63,245,.28) 58%);padding:0 3px;margin:0 -3px}
+
+/* ---------- превʼю в чорній рамці ---------- */
+.frame-wrap{position:relative;margin:30px 0 0}
+.frame{position:relative;z-index:2;border:9px solid var(--ink);border-radius:10px;padding:12px;background:var(--white);overflow:hidden}
+.frame img{display:block;width:122%;max-width:none;height:auto;margin-left:-11%}
+.frame::after{content:'';position:absolute;left:0;right:0;bottom:0;height:20%;
+  background:linear-gradient(to bottom,transparent,var(--white))}
+.frame-wrap::before{content:'';position:absolute;left:8%;right:8%;bottom:-22px;height:70px;z-index:0;
+  background:radial-gradient(closest-side,rgba(108,63,245,.42),transparent);filter:blur(16px)}
+.cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);
+  text-align:center;margin:20px 0 0}
+
+/* лаймовий круглий бейдж */
+.badge{position:absolute;right:-12px;top:-28px;width:104px;height:104px;z-index:6;display:grid;place-items:center;
+  border-radius:50%;background:var(--lime);border:3px solid var(--ink);animation:bfloat 6s ease-in-out infinite}
+.badge svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 15s linear infinite}
+.badge svg.ring text{font-family:var(--font);font-weight:700;font-size:10px;letter-spacing:.2em;fill:var(--ink)}
+.badge .arrow{position:relative;z-index:2;width:30px;height:30px;color:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* ---------- пілюлі ---------- */
+.pills{display:flex;flex-direction:column;gap:9px;margin:32px 0 0}
+.pill{display:flex;align-items:flex-start;gap:11px;padding:12px 18px;border-radius:999px;
+  border:1.6px solid var(--ink);font-size:14.5px;line-height:1.35;background:var(--white)}
+.pill svg{flex:none;margin-top:2px;color:var(--violet)}
+.pill b{font-weight:700}
+
+/* ---------- ціна, кнопка, таймер ---------- */
+.price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:30px 0 0}
+.price s{font-family:var(--mono);font-size:16px;color:var(--gray)}
+.price .new{font-weight:900;font-size:46px;line-height:.95;letter-spacing:-.035em}
+.price .off{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--white);background:var(--violet);
+  padding:6px 11px;border-radius:999px;letter-spacing:.04em}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:18px 0 0;
+  padding:20px 18px;border-radius:16px;background:var(--violet);color:var(--white);text-decoration:none;
+  font-weight:700;font-size:14.5px;letter-spacing:.06em;text-transform:uppercase;text-align:center;
+  box-shadow:0 12px 30px rgba(108,63,245,.34);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);transition:left .8s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(108,63,245,.46)}
+.btn:hover::before{left:130%}
+.note{font-size:13px;color:var(--gray);line-height:1.5;margin:14px 2px 0}
+.sec.dark .note{color:#9a9aa8}
+
+.timer{display:flex;align-items:center;gap:13px;margin:24px 0 0;padding:14px 18px;border:1.6px solid var(--ink);border-radius:16px}
+.sec.dark .timer{border-color:#33333f}
+.timer .t{font-family:var(--mono);font-weight:700;font-size:34px;letter-spacing:-.03em;line-height:1}
+.timer .lb{font-size:12.5px;color:var(--gray);line-height:1.3;text-transform:uppercase;letter-spacing:.06em}
+.sec.dark .timer .lb{color:#9a9aa8}
+.ldot{width:10px;height:10px;border-radius:50%;background:var(--lime);flex:none;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+
+/* ---------- бонуси (чорна секція) ---------- */
+.bonus{position:relative;padding:26px 0 24px;border-top:1px solid #2a2a34}
+.bonus:first-of-type{border-top:none}
+.bonus .n{font-weight:900;font-size:64px;line-height:.8;letter-spacing:-.05em;
+  -webkit-text-stroke:1.6px var(--violet);color:transparent;display:block;margin-bottom:12px}
+.bonus .kick{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);display:block;margin-bottom:8px}
+.bonus h3{color:var(--white);margin-bottom:12px}
+.bonus p{font-size:14.5px;line-height:1.6;margin:0}
+.res{margin-top:16px;padding:15px 17px;border-radius:14px;background:#17171f;border:1px solid rgba(108,63,245,.3)}
+.res .h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--violet);margin-bottom:7px}
+.res p{font-size:14px;line-height:1.6;color:#cfcfdb}
+.warnline{margin-top:14px;padding:12px 15px;border-radius:12px;border:1px dashed #3a3a48;font-size:12.5px;color:#8d8d9c}
+
+/* великий елемент у чорній секції: темна тема платформи */
+.dark-shot{position:relative;margin:6px -22px 30px -22px}
+.dark-shot img{display:block;width:118%;max-width:none;height:auto;margin-left:-9%;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+.dark-shot .tagline{position:absolute;right:16px;bottom:-14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:#7a7a8a;background:var(--ink);padding:4px 8px}
+
+/* ---------- «впізнаєш себе?» ---------- */
+.pain{position:relative;padding:26px 0;border-bottom:1px solid var(--line)}
+.pain:last-of-type{border-bottom:none}
+.pain .n{font-weight:900;font-size:52px;line-height:.8;letter-spacing:-.05em;
+  -webkit-text-stroke:1.4px var(--ink);color:transparent;display:block;margin-bottom:10px}
+.pain p{margin:0;font-size:16px;line-height:1.6}
+.pain b{font-weight:700}
+.wrong{display:inline-block;font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--violet);
+  border:1.4px solid var(--violet);border-radius:6px;padding:1px 8px;background:var(--violet-soft)}
+.optional .n{-webkit-text-stroke-color:var(--gray)}
+.optional-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+  border:1px dashed var(--line);padding:3px 8px;border-radius:999px;margin-left:10px;vertical-align:middle}
+
+/* фоновий великий елемент (об'єкт за текстом, діагональна маска) */
+.bgshot{position:absolute;z-index:0;pointer-events:none;opacity:.55}
+.bgshot img{display:block;width:100%;max-width:none;height:auto}
+.bg-pain{top:-20px;right:-46%;width:118%;transform:rotate(-5deg);
+  -webkit-mask-image:linear-gradient(205deg,#000 0 20%,rgba(0,0,0,.28) 54%,transparent 80%);
+          mask-image:linear-gradient(205deg,#000 0 20%,rgba(0,0,0,.28) 54%,transparent 80%)}
+.sec>*:not(.bgshot){position:relative;z-index:1}
+
+/* декор */
+.bolt{position:absolute;right:14px;top:16%;opacity:.10;animation:floatY 9s ease-in-out infinite;z-index:0}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.dashring{position:absolute;left:10px;bottom:8%;opacity:.12;animation:floatR 13s ease-in-out infinite;z-index:0}
+@keyframes floatR{0%,100%{transform:rotate(0)}50%{transform:rotate(10deg)}}
+
+/* ---------- sticky ---------- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.on{transform:none}
+.sticky-in{max-width:480px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:11px 14px;
+  background:var(--ink);color:var(--white);border-top:3px solid var(--violet)}
+.sticky .p{display:flex;flex-direction:column;line-height:1.05}
+.sticky .p s{font-family:var(--mono);font-size:11px;color:#8d8d9c}
+.sticky .p b{font-weight:900;font-size:22px;letter-spacing:-.03em}
+.sticky .tm{font-family:var(--mono);font-size:12px;color:var(--lime);margin-left:auto}
+.sticky a{flex:none;padding:12px 18px;border-radius:12px;background:var(--violet);color:var(--white);
+  text-decoration:none;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.vis{opacity:1;transform:none}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.badge,.badge svg.ring,.ldot,.bolt,.dashring{animation:none}}
+
+.tag{position:fixed;left:12px;top:12px;z-index:50;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;background:var(--violet);color:#fff;padding:6px 11px;border-radius:999px;opacity:.92}
+</style>
+</head>
+<body>
+<div class="tag">Варіант B · Плакат</div>
+
+<div class="wrap">
+
+  <!-- ============ БЛОК 1. ШАПКА ============ -->
+  <section class="sec" style="padding-top:30px">
+    <svg class="bolt" width="56" height="76" viewBox="0 0 60 80" fill="none"><path d="M35 2L15 32h18L10 78l40-40H30L50 2H35z" fill="var(--violet)"/></svg>
+
+    <p class="micro reveal">Банк матеріалів для викладача англійської · Платформа + PDF</p>
+
+    <h1 class="reveal d1">Як пояснити будь-який час англійської так, щоб учень зрозумів <span class="vi">з першого разу</span>?</h1>
+    <p class="sub reveal d2">без підготовки до уроку</p>
+
+    <!-- великий елемент: картка платформи в чорній рамці -->
+    <div class="frame-wrap reveal d3">
+      <div class="badge">
+        <svg class="ring" viewBox="0 0 100 100">
+          <defs><path id="cB" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
+          <text><textPath href="#cB" startOffset="0">ДИВИТИСЬ · ДИВИТИСЬ · ДИВИТИСЬ ·</textPath></text>
+        </svg>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+      </div>
+      <div class="frame">
+        <img src="media/card-pp.webp" alt="Картка Present Perfect на платформі" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+    <p class="cap reveal">Відкрив платформу → обрав час → схема на екрані</p>
+
+    <div class="pills">
+      <div class="pill reveal"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg><span><b>12 карток часів:</b> формула, приклади, ключові слова</span></div>
+      <div class="pill reveal"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg><span><b>20 графічних схем</b> часу на часовій шкалі</span></div>
+      <div class="pill reveal d1"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg><span><b>6 розборів пар часів</b>, які плутають найчастіше</span></div>
+      <div class="pill reveal d1"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg><span><b>12 інтерактивних ігор</b> на Wordwall</span></div>
+      <div class="pill reveal d2"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg><span><b>26 тестів</b> з автоматичною перевіркою</span></div>
+      <div class="pill reveal d2"><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg><span>Онлайн на платформі <b>+ PDF для друку</b></span></div>
+    </div>
+
+    <div class="price reveal"><s>2400 грн</s><span class="new">390 ГРН</span><span class="off">−84%</span></div>
+
+    <a class="btn reveal" href="#buy">Забрати банк матеріалів за 390 грн</a>
+    <p class="note reveal">Після оплати тебе переадресує в Telegram-бот — доступ до платформи відкриється одразу</p>
+
+    <div class="timer reveal">
+      <i class="ldot"></i><span class="t" data-timer>10:00</span>
+      <span class="lb">бонуси зникають<br>разом із таймером</span>
+    </div>
+  </section>
+
+  <!-- ============ БЛОК 2. БОНУСИ ============ -->
+  <section class="sec dark">
+    <h2 class="reveal"><span class="vi">4 бонуси</span> для тих, хто забере доступ до кінця таймера</h2>
+    <p class="sub reveal d1">далі банк продається без них</p>
+
+    <!-- великий елемент: темна тема платформи, виходить за край -->
+    <div class="dark-shot reveal d2" style="margin-top:26px">
+      <img src="media/dark-tl-pair.webp" alt="Схема пари часів у темній темі платформи" decoding="async">
+      <span class="tagline">схема пари часів</span>
+    </div>
+
+    <article class="bonus reveal">
+      <span class="n">01</span>
+      <span class="kick">Бонус №1</span>
+      <h3>Картки порівняння часів</h3>
+      <p>Окремі картки на пари, які учні плутають найчастіше: Present Simple і Present Continuous, Past Simple і Present Perfect, Past Simple і Past Continuous, Past Simple і Past Perfect, Present Perfect і Present Perfect Continuous, група Future. Два часи поруч на одному аркуші, з однаковим прикладом у двох варіантах — видно, що саме змінює зміст.</p>
+      <div class="res"><div class="h">🎯 Результат</div><p>Зникає найдовша частина уроку — та, де ти втретє пояснюєш, чим Past Simple відрізняється від Present Perfect, і бачиш по очах, що учень усе одно не вловив. Тепер він дивиться на два речення поруч і сам показує пальцем, де різниця.</p></div>
+    </article>
+
+    <article class="bonus reveal">
+      <span class="n">02</span>
+      <span class="kick">Бонус №2</span>
+      <h3>Майндмеп усіх часів</h3>
+      <p>Уся система англійських часів на одній карті: 12 часів, звʼязки між ними, точки входу. Не список, а мапа — де людина бачить, у якому місці системи вона зараз стоїть.</p>
+      <div class="res"><div class="h">🎯 Результат</div><p>Учень перестає сприймати часи як 12 не повʼязаних тем, які треба вивчити по черзі. Він бачить логіку цілком і розуміє, куди рухається. Ти отримуєш готову мапу маршруту, яку показуєш на першому уроці й повертаєшся до неї на кожному наступному.</p></div>
+    </article>
+
+    <article class="bonus reveal">
+      <span class="n">03</span>
+      <span class="kick">Бонус №3</span>
+      <h3>Велика збірка з неправильних дієслів</h3>
+      <p>Списки за рівнями, практичні ігри на відпрацювання, готові завдання на закріплення.</p>
+      <div class="res"><div class="h">🎯 Результат</div><p>Тема, яку зазвичай віддають на «вивчи таблицю вдома» і яка через тиждень забувається, нарешті відпрацьовується на уроці. Замість переписування трьох колонок — гра, після якої дієслова залишаються в голові.</p></div>
+    </article>
+
+    <article class="bonus reveal">
+      <span class="n">04</span>
+      <span class="kick">Бонус №4</span>
+      <h3>Кабінет викладача — доступ назавжди</h3>
+      <p>Не матеріали, а робоче місце. Надсилаєш учневі тест у два кліки й одразу бачиш результат: що він вирішив, де помилився, який саме час не тягне. Ведеш облік учнів: хто скільки заплатив, скільки оплачених занять залишилось, коли наступне.</p>
+      <p style="margin-top:12px">Платформа розвивається далі — нові тести, ігри, книги, матеріали. <b style="color:#fff">Усе, що зʼявиться, буде твоїм без доплат.</b> Але тільки для тих, хто зайшов до кінця таймера.</p>
+      <div class="res"><div class="h">🎯 Результат</div><p>Зникає блокнот з оплатами й вічне «здається, у нього залишилось два заняття?». Домашка більше не «перевір сам за ключами» — ти бачиш реальний зріз по кожному учню й приходиш на урок, уже знаючи, що розбирати.</p></div>
+      <!-- ВІДКРИТЕ ПИТАННЯ №2 з ТЗ -->
+      <div class="warnline">Альтернатива (якщо кабінет у розробці): «Кабінет викладача — у розробці, запуск [місяць]. Ти отримуєш доступ назавжди й безкоштовно, щойно він відкриється. Далі доступ буде платним.»</div>
+    </article>
+
+    <a class="btn reveal" href="#buy" style="margin-top:30px">Забрати банк + 4 бонуси за 390 грн</a>
+    <p class="note reveal" style="text-align:center">⏱ Бонуси зникають разом із таймером · залишилось <b class="mono" style="color:var(--lime)" data-timer>10:00</b></p>
+  </section>
+
+  <!-- ============ БЛОК 3. ВПІЗНАЄШ СЕБЕ? ============ -->
+  <section class="sec">
+    <div class="bgshot bg-pain"><img src="media/tl-pair2.webp" alt="" decoding="async"></div>
+    <svg class="dashring" width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="22" stroke="var(--violet)" stroke-width="1.6" fill="none"/><circle cx="27" cy="27" r="13" stroke="var(--violet)" stroke-width="1.2" fill="none" stroke-dasharray="3 3"/></svg>
+
+    <h2 class="reveal"><span class="vi">Впізнаєш</span> себе?</h2>
+
+    <div style="margin-top:14px">
+      <div class="pain reveal">
+        <span class="n">01</span>
+        <p>Ти постійно пояснюєш різницю між Past Simple і Present Perfect, учень киває, повторює правило майже дослівно — <b>а через дві хвилини каже</b><br><span class="wrong">«I have seen him yesterday»</span></p>
+      </div>
+
+      <div class="pain reveal">
+        <span class="n">02</span>
+        <p><b>Учень знає правила краще за тебе, але говорити не може.</b> Формули переказує напамʼять, «маркери часу» називає без запинки. А в живій розмові бере перший-ліпший час і говорить<br><span class="wrong">«I go to Kyiv last week»</span></p>
+      </div>
+
+      <div class="pain reveal">
+        <span class="n">03</span>
+        <p>За двадцять хвилин до заняття ти шукаєш, на чому пояснити Present Perfect Continuous. <b>Відкритий підручник, дві вкладки з вправами, стара дошка в Miro, папка з PDF</b>, де ти точно щось зберігав(ла) пів року тому.</p>
+      </div>
+
+      <div class="pain reveal">
+        <span class="n">04</span>
+        <p>Прийшов учень іншого рівня. Те, що працювало з попереднім, не підходить: зарано чи заскладно. Ти знову йдеш шукати, підбирати, роздруковувати. <b>Матеріали не накопичуються — вони щоразу збираються з нуля</b> під конкретну людину.</p>
+      </div>
+
+      <!-- опціональний пʼятий пункт під онлайн-викладачів -->
+      <div class="pain reveal optional">
+        <span class="n">05<span class="optional-tag">опційно</span></span>
+        <p>Демонстрація екрана увімкнена, а учень дивиться, як ти згортаєш вікна й відкриваєш не те. <b>Дві хвилини оплаченого уроку йдуть на клацання по папках.</b></p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="sticky" id="sticky">
+  <div class="sticky-in">
+    <span class="p"><s>2400 грн</s><b>390 грн</b></span>
+    <span class="tm" data-timer>10:00</span>
+    <a href="#buy">Забрати −84%</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='ttb_deadline', TOTAL=10*60*1000;
+  var end=+localStorage.getItem(KEY);
+  if(!end||isNaN(end)||end-Date.now()>TOTAL){end=Date.now()+TOTAL;localStorage.setItem(KEY,end);}
+  var nodes=document.querySelectorAll('[data-timer]');
+  function tick(){
+    var ms=Math.max(0,end-Date.now());
+    var m=Math.floor(ms/60000), s=Math.floor(ms%60000/1000);
+    var txt=m+':'+(s<10?'0':'')+s;
+    nodes.forEach(function(n){n.textContent=txt});
+    if(ms<=0){document.body.classList.add('expired');return}
+    requestAnimationFrame(function(){setTimeout(tick,250)});
+  }
+  tick();
+})();
+if(location.search.indexOf('static')>-1){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('vis')});}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -40px'});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+var st=document.getElementById('sticky');
+window.addEventListener('scroll',function(){st.classList.toggle('on',window.scrollY>window.innerHeight*.8)},{passive:true});
+</script>
+</body>
+</html>

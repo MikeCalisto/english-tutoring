@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Варіант A · Скло — банк матеріалів по часах</title>
+<meta name="description" content="Банк матеріалів для викладача англійської: 12 карток часів, схеми на часових шкалах, ігри та тести. Платформа + PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="media/card-pp.webp" type="image/webp" fetchpriority="high">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   ВАРІАНТ A · «СКЛО»
+   Мова дизайну — та сама, що на платформі (напрям F): світлий
+   градієнт із трьома підсвітками, скляні поверхні, Geologica +
+   Manrope, синій акцент. Кольори груп часів (синій/зелений/
+   помаранчевий) лишаються семантичними: вони означають час, а не
+   прикрашають блоки. Колір у секції дає медіа, а не хром.
+   ══════════════════════════════════════════════════════════════ */
+
+:root{
+  /* поверхні й чорнило — токени платформи */
+  --bg:#eef3fa;
+  --paper:#ffffff;
+  --surface:rgba(255,255,255,.70);
+  --surface-2:rgba(255,255,255,.52);
+  --ink:#141a2a;
+  --ink-2:#3d465e;
+  --muted:#6b7590;
+  --faint:#98a2b8;
+  --line:rgba(20,26,42,.09);
+  --line-2:rgba(20,26,42,.055);
+  --hair:rgba(20,26,42,.14);
+
+  --accent:#3b82f6;
+  --accent-ink:#1d4ed8;        /* акцент, достатньо темний для тексту */
+  --accent-wash:rgba(59,130,246,.10);
+  --lime:#c8f53f;              /* тільки бейдж і таймер */
+  --alarm:#e5527a;             /* тільки помилки учня */
+
+  --glow-1:rgba(59,130,246,.17);
+  --glow-2:rgba(240,130,60,.13);
+  --glow-3:rgba(34,181,115,.11);
+
+  /* висота: три рівні, у кожного зсув і мʼяке розмиття */
+  --e1:0 1px 2px rgba(30,41,70,.05), 0 8px 22px rgba(90,115,170,.10);
+  --e2:0 2px 4px rgba(30,41,70,.06), 0 18px 44px rgba(90,115,170,.16);
+  --e3:0 4px 8px rgba(30,41,70,.07), 0 34px 74px rgba(90,115,170,.24);
+
+  /* крок відступів */
+  --s1:6px; --s2:10px; --s3:16px; --s4:24px; --s5:36px; --s6:56px; --s7:84px;
+
+  --r-lg:22px; --r-md:16px; --r-sm:11px; --pill:999px;
+
+  --display:'Geologica',-apple-system,'Segoe UI',Arial,sans-serif;
+  --body:'Manrope',-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+
+  --ease:cubic-bezier(.16,.84,.28,1);
+  color-scheme:light;
+  accent-color:var(--accent);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--body);
+  font-size:15px;
+  line-height:1.55;
+  color:var(--ink);
+  background:
+    radial-gradient(720px 480px at 8% -6%, var(--glow-1), transparent 62%),
+    radial-gradient(640px 460px at 100% 10%, var(--glow-2), transparent 62%),
+    radial-gradient(660px 480px at 46% 104%, var(--glow-3), transparent 62%),
+    var(--bg);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  padding-bottom:88px;
+}
+
+/* ── поверхні браузера, які теж належать дизайну ───────────── */
+::selection{background:rgba(59,130,246,.20);color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+:where(a,button):focus:not(:focus-visible){outline:none}
+html{scrollbar-color:rgba(107,117,144,.38) transparent;scrollbar-width:thin}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:rgba(107,117,144,.34);border-radius:var(--pill);
+  border:3px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:rgba(107,117,144,.55);background-clip:content-box}
+::-webkit-scrollbar-track{background:transparent}
+
+img{max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+b,strong{font-weight:700}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+/* ── колонка-телефон ───────────────────────────────────────── */
+.wrap{max-width:480px;margin:0 auto;position:relative;overflow:hidden;isolation:isolate}
+@media(min-width:520px){
+  .wrap{
+    box-shadow:0 0 0 1px rgba(255,255,255,.55), 0 0 80px rgba(20,26,42,.09);
+  }
+}
+.sec{position:relative;padding:var(--s6) 20px;overflow:clip}
+
+/* ── типографіка ───────────────────────────────────────────── */
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.024em;text-wrap:balance}
+h1{font-weight:600;font-size:clamp(30px,8.4vw,39px);line-height:1.06}
+h2{font-weight:600;font-size:clamp(25px,6.8vw,32px);line-height:1.1}
+h3{font-weight:500;font-size:19px;line-height:1.24;letter-spacing:-.018em}
+p{margin:0;text-wrap:pretty}
+.accent{color:var(--accent-ink)}
+.under{
+  background:linear-gradient(180deg,transparent 63%,rgba(59,130,246,.26) 63%,rgba(59,130,246,.26) 92%,transparent 92%);
+  padding:0 3px;margin:0 -3px;
+}
+.deck{
+  font-family:var(--display);font-style:italic;font-weight:400;
+  color:var(--accent-ink);font-size:16px;margin-top:var(--s2);letter-spacing:-.01em;
+}
+.note{font-size:12.5px;line-height:1.5;color:var(--muted)}
+.lede{font-size:15.5px;line-height:1.62;color:var(--ink-2)}
+
+/* ── мікро-плашка над H1 (вимога ТЗ) ───────────────────────── */
+.plate{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px 7px 11px;border-radius:var(--pill);
+  background:var(--surface);border:1px solid var(--line);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--e1);
+  font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+}
+.plate i{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+
+/* ── сцена з великим елементом ─────────────────────────────── */
+.stage{
+  position:relative;margin:var(--s5) 0 31%;
+  perspective:1500px;perspective-origin:52% 34%;
+}
+.stage-in{position:relative;transform-style:preserve-3d}
+
+/* світловий пул під сценою */
+.stage::before{
+  content:'';position:absolute;left:2%;right:2%;top:16%;bottom:-4%;z-index:0;
+  background:radial-gradient(58% 46% at 50% 52%, rgba(59,130,246,.26), transparent 72%);
+  filter:blur(18px);
+}
+.shot-a{
+  display:block;position:relative;z-index:1;
+  width:118%;max-width:none;margin-left:-6%;
+  border-radius:14px;
+  transform:rotateX(7deg) rotateZ(-2.2deg);
+  filter:drop-shadow(0 28px 46px rgba(66,96,160,.28));
+  will-change:transform;
+}
+.shot-b{
+  position:absolute;z-index:3;right:-2%;bottom:-30%;
+  width:82%;max-width:none;
+  border-radius:12px;
+  transform:rotateX(5deg) rotateZ(3.4deg);
+  filter:drop-shadow(0 22px 40px rgba(66,96,160,.32));
+}
+
+/* лаймовий бейдж «дивитись» */
+.badge{
+  position:absolute;z-index:5;right:-8px;top:-26px;
+  width:94px;height:94px;display:grid;place-items:center;
+  border-radius:50%;background:var(--lime);
+  box-shadow:0 10px 26px rgba(122,158,32,.34), inset 0 -2px 6px rgba(0,0,0,.08);
+}
+.badge .ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 18s linear infinite}
+.badge .ring text{font-family:var(--mono);font-size:9.2px;font-weight:600;letter-spacing:.245em;fill:#25330a}
+.badge .play{position:relative;z-index:2;color:#25330a}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+figure{margin:0}
+figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* ── пілюлі-кваліфікатори ───────────────────────────────────── */
+.pills{display:flex;flex-direction:column;gap:8px;margin:var(--s5) 0 0;padding:0;list-style:none}
+.pills li{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:12px 18px 12px 15px;border-radius:var(--pill);
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  font-size:14.5px;line-height:1.38;
+}
+.pills svg{flex:none;margin-top:2px;color:var(--accent-ink)}
+.pills b{font-weight:700}
+
+/* ── ціна й кнопка ─────────────────────────────────────────── */
+.price{display:flex;align-items:last baseline;gap:11px;flex-wrap:wrap;margin-top:var(--s5)}
+.price s{font-family:var(--mono);font-size:15px;color:var(--faint);font-variant-numeric:tabular-nums}
+.price .now{font-family:var(--display);font-weight:600;font-size:42px;line-height:.94;
+  letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.price .off{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent-ink);
+  background:var(--accent-wash);padding:5px 10px;border-radius:var(--pill);align-self:center}
+
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;margin-top:var(--s3);padding:19px 20px;
+  border-radius:18px;color:#fff;
+  background:linear-gradient(180deg,#4d8ef8,#3b82f6);
+  border-bottom:3px solid #2563eb;
+  font-family:var(--display);font-weight:600;font-size:14.5px;letter-spacing:-.005em;
+  text-align:center;position:relative;overflow:hidden;
+  box-shadow:0 2px 4px rgba(29,78,216,.18), 0 16px 34px rgba(59,130,246,.32),
+             inset 0 1px 0 rgba(255,255,255,.24);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .2s;
+}
+.cta svg{flex:none;transition:transform .3s var(--ease)}
+.cta::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.26) 50%,transparent 62%);
+  transform:translateX(-130%);transition:transform .85s var(--ease);
+}
+.cta:hover{background:#2f78f2;transform:translateY(-2px);
+  box-shadow:0 2px 4px rgba(29,78,216,.2), 0 22px 46px rgba(59,130,246,.42), inset 0 1px 0 rgba(255,255,255,.24)}
+.cta:hover svg{transform:translateX(3px)}
+.cta:hover::after{transform:translateX(130%)}
+.cta:active{transform:translateY(2px);filter:saturate(1.08) brightness(.97)}
+
+/* ── таймер ────────────────────────────────────────────────── */
+.timer{
+  display:flex;align-items:center;gap:13px;margin-top:var(--s4);
+  padding:13px 17px;border-radius:var(--r-md);
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+}
+.timer .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);flex:none;
+  box-shadow:0 0 0 4px rgba(200,245,63,.26);animation:beat 2.4s var(--ease) infinite}
+.timer .t{font-family:var(--mono);font-weight:600;font-size:30px;line-height:1;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.timer .l{font-size:12px;line-height:1.32;color:var(--muted)}
+@keyframes beat{0%,100%{box-shadow:0 0 0 4px rgba(200,245,63,.26)}50%{box-shadow:0 0 0 7px rgba(200,245,63,.06)}}
+
+/* ── бонуси ────────────────────────────────────────────────── */
+.bonuses{position:relative;z-index:1;background:rgba(255,255,255,.86);border:1px solid var(--line);
+  border-radius:var(--r-lg);box-shadow:var(--e1);overflow:hidden;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.bonus{padding:22px 20px 24px}
+.bonus+.bonus{border-top:1px solid var(--line-2)}
+.bonus .no,.bonus-hero .no{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent-ink);
+}
+.bonus .no::before,.bonus-hero .no::before{content:'';width:16px;height:1.5px;background:var(--accent);border-radius:2px}
+.bonus h3{margin:11px 0 9px}
+.bonus p{font-size:14.5px;line-height:1.58;color:var(--ink-2)}
+
+/* бонус 4 — якір пропозиції, окрема вага */
+.bonus-hero{
+  margin-top:14px;padding:24px 20px 22px;border-radius:var(--r-lg);
+  background:linear-gradient(178deg,rgba(255,255,255,.86),rgba(255,255,255,.62));
+  border:1px solid rgba(59,130,246,.26);box-shadow:var(--e2);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+}
+.bonus-hero h3{font-size:22px;font-weight:600;margin:11px 0 10px}
+.bonus-hero p+p{margin-top:11px}
+
+.result{
+  margin-top:15px;padding:14px 16px;border-radius:var(--r-md);
+  background:var(--accent-wash);border:1px solid rgba(59,130,246,.16);
+}
+.result .h{display:flex;align-items:center;gap:7px;margin-bottom:6px;
+  font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent-ink)}
+.result p{font-size:14px;line-height:1.56;color:var(--ink-2)}
+
+.open-q{
+  margin-top:13px;padding:11px 14px;border-radius:var(--r-sm);
+  border:1px dashed var(--hair);font-size:12.5px;line-height:1.5;color:var(--muted);
+}
+
+/* ── «впізнаєш себе?» — редакційний список, не картки ───────── */
+.pains{margin-top:var(--s5);display:flex;flex-direction:column}
+.pain{position:relative;padding:22px 0 24px 34px}
+.pain+.pain{border-top:1px solid var(--line-2)}
+.pain .mark{position:absolute;left:0;top:24px;color:var(--alarm);opacity:.9}
+.pain p{font-size:15.5px;line-height:1.58}
+.pain .said{
+  display:inline-block;margin-top:9px;padding:6px 12px;border-radius:var(--r-sm);
+  font-family:var(--mono);font-size:13.5px;font-weight:500;color:#b32a54;
+  background:rgba(229,82,122,.10);border:1px solid rgba(229,82,122,.24);
+}
+.pain-opt{opacity:.72}
+.pain-opt .mark{color:var(--faint)}
+.opt-flag{display:inline-block;margin-top:10px;padding:3px 9px;border-radius:var(--pill);
+  border:1px dashed var(--hair);font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint)}
+
+/* ── фонове медіа під діагональною маскою ──────────────────── */
+.behind{position:absolute;z-index:0;pointer-events:none}
+.behind img{display:block;width:100%;max-width:none}
+.stack{position:relative;margin-top:var(--s5)}
+.behind-bonus{
+  top:-58px;right:-34%;width:94%;opacity:.6;
+  -webkit-mask-image:linear-gradient(214deg,#000 0 22%,rgba(0,0,0,.28) 54%,transparent 78%);
+          mask-image:linear-gradient(214deg,#000 0 22%,rgba(0,0,0,.28) 54%,transparent 78%);
+}
+.behind-pain{
+  bottom:-86px;left:-30%;width:106%;opacity:.42;transform:rotate(-4deg);
+  -webkit-mask-image:linear-gradient(34deg,#000 0 20%,rgba(0,0,0,.26) 54%,transparent 80%);
+          mask-image:linear-gradient(34deg,#000 0 20%,rgba(0,0,0,.26) 54%,transparent 80%);
+}
+.sec>*:not(.behind){position:relative;z-index:1}
+
+/* ── нижня панель ──────────────────────────────────────────── */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;
+  transform:translateY(102%);transition:transform .42s var(--ease)}
+.bar.on{transform:none}
+.bar-in{max-width:480px;margin:0 auto;display:flex;align-items:center;gap:12px;
+  padding:11px 14px;background:rgba(255,255,255,.84);
+  backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);
+  border-top:1px solid var(--line);box-shadow:0 -8px 28px rgba(20,26,42,.10)}
+.bar .p{display:flex;flex-direction:column;line-height:1.05}
+.bar .p s{font-family:var(--mono);font-size:10.5px;color:var(--faint);font-variant-numeric:tabular-nums}
+.bar .p b{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.028em;
+  font-variant-numeric:tabular-nums}
+.bar .tm{display:flex;align-items:center;gap:6px;margin-left:auto;
+  font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar a{flex:none;padding:12px 17px;border-radius:13px;background:var(--accent);color:#fff;
+  font-family:var(--display);font-weight:600;font-size:13px;
+  box-shadow:0 8px 20px rgba(59,130,246,.34);transition:background-color .2s,transform .25s var(--ease)}
+.bar a:hover{background:#2f78f2;transform:translateY(-1px)}
+
+/* ══ рух ══════════════════════════════════════════════════════
+   Один авторський момент — збирання сцени в шапці. Решта
+   сторінки просто зʼявляється, одним тихим рухом.
+   ═══════════════════════════════════════════════════════════ */
+.up{opacity:0;transform:translateY(14px);
+  transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.up.in{opacity:1;transform:none}
+.up-1{transition-delay:.05s}.up-2{transition-delay:.1s}.up-3{transition-delay:.15s}
+
+@media(prefers-reduced-motion:no-preference){
+  .stage .shot-a{animation:riseA .92s var(--ease) .08s backwards}
+  .stage .shot-b{animation:riseB .92s var(--ease) .26s backwards}
+  .stage::before{animation:bloom 1.3s var(--ease) .2s backwards}
+  .badge{animation:popIn .6s var(--ease) .58s backwards, bob 6.5s ease-in-out 1.2s infinite}
+  @keyframes riseA{from{opacity:0;transform:rotateX(15deg) rotateZ(-4deg) translateY(46px) scale(.965);filter:blur(6px) drop-shadow(0 28px 46px rgba(66,96,160,.28))}}
+  @keyframes riseB{from{opacity:0;transform:rotateX(12deg) rotateZ(7deg) translateY(56px) scale(.94);filter:blur(5px) drop-shadow(0 22px 40px rgba(66,96,160,.32))}}
+  @keyframes bloom{from{opacity:0;transform:scale(.82)}}
+  @keyframes popIn{from{opacity:0;transform:scale(.6) rotate(-22deg)}}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+}
+@media(prefers-reduced-motion:reduce){
+  .up{opacity:1;transform:none;transition:none}
+  .badge .ring,.timer .dot{animation:none}
+}
+
+/* ══ БЛОК 4 · заява ═══════════════════════════════════════════ */
+.claim{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.3;
+  letter-spacing:-.018em;text-wrap:balance}
+.dark-panel{
+  margin:var(--s5) -20px 0;padding:var(--s6) 24px;color:#e8edf6;
+  background:linear-gradient(168deg,#1a2236,#101726 62%,#141c2e);
+  position:relative;overflow:hidden;
+}
+.dark-panel::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(62% 46% at 82% 6%, rgba(91,149,255,.26), transparent 70%),
+             radial-gradient(50% 40% at 8% 96%, rgba(52,208,138,.14), transparent 70%);
+}
+.dark-panel>*{position:relative}
+.dark-panel h2{color:#fff}
+.dark-panel p{font-size:15.5px;line-height:1.64;color:#b9c4d8;margin-top:var(--s4)}
+.dark-panel b{color:#fff;font-weight:700}
+
+/* ══ БЛОК 5 · частини ═════════════════════════════════════════ */
+.part{padding:var(--s6) 0 0}
+.part:first-of-type{padding-top:var(--s5)}
+.part-no{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+  font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
+.part-no::before{content:'';width:16px;height:1.5px;background:var(--accent);border-radius:2px}
+.part h3{margin:11px 0 0;font-size:22px;font-weight:600}
+.part>p{margin-top:var(--s3);font-size:15px;line-height:1.62;color:var(--ink-2)}
+
+.shot-frame{margin:var(--s4) 0 0;position:relative}
+.shot-frame img{display:block;border-radius:13px;filter:drop-shadow(0 20px 38px rgba(66,96,160,.24))}
+.bleed-r img{width:124%;max-width:none;margin-left:-2%}
+.bleed-l img{width:124%;max-width:none;margin-left:-22%}
+.pair-shots{display:flex;flex-direction:column;gap:12px;margin:var(--s4) 0 0}
+.pair-shots img{display:block;width:112%;max-width:none;border-radius:12px;
+  filter:drop-shadow(0 16px 30px rgba(66,96,160,.22))}
+.pair-shots img:first-child{margin-left:-11%}
+.pair-shots img:last-child{margin-left:-1%}
+.cap{margin-top:var(--s3);font-size:12.5px;line-height:1.5;color:var(--muted);font-style:italic}
+
+/* рамка браузера для гри */
+.chrome{margin:var(--s4) 0 0;border-radius:14px;overflow:hidden;background:var(--paper);
+  border:1px solid var(--line);box-shadow:var(--e2)}
+.chrome-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(20,26,42,.04);
+  border-bottom:1px solid var(--line)}
+.chrome-bar i{width:8px;height:8px;border-radius:50%;background:var(--hair);flex:none}
+.chrome-bar span{margin-left:8px;font-family:var(--mono);font-size:10px;color:var(--faint);
+  letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chrome img{display:block;width:100%}
+
+/* слот під медіа, якого ще нема */
+.slot{margin:var(--s4) 0 0;border:1.5px dashed var(--hair);border-radius:var(--r-md);
+  padding:26px 20px;text-align:center;background:rgba(255,255,255,.42)}
+.slot svg{color:var(--faint)}
+.slot b{display:block;margin-top:10px;font-family:var(--display);font-weight:500;font-size:15px}
+.slot span{display:block;margin-top:5px;font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* підсумок блока 5 */
+.both{margin:var(--s6) 0 0;padding:24px 20px;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.both h2{font-size:26px}
+.both dl{margin:var(--s4) 0 0;display:flex;flex-direction:column;gap:16px}
+.both dt{font-family:var(--display);font-weight:600;font-size:15px;color:var(--accent-ink);
+  display:flex;align-items:center;gap:8px}
+.both dd{margin:6px 0 0 26px;font-size:14.5px;line-height:1.58;color:var(--ink-2)}
+.both .kicker{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line-2);
+  font-family:var(--display);font-weight:500;font-size:16px}
+
+/* ══ БЛОК 6 · підручник vs схема ══════════════════════════════ */
+/* у колонці 480 два візуали поруч нечитабельні — ставимо одне під одним
+   в одній рамці, порівняння тримається на підписах */
+.vs{margin:var(--s5) 0 0;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.vs figure{margin:0;padding:15px 15px 17px}
+.vs figure+figure{border-top:1px solid var(--line-2)}
+.vs figcaption{margin:0 0 10px;font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+.vs figure:last-child figcaption{color:var(--accent-ink)}
+.vs .box{border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--line);background:var(--paper)}
+.vs .box img{display:block;width:100%}
+.vs .box.empty{border-style:dashed;border-color:var(--hair);background:rgba(255,255,255,.5);
+  min-height:150px;padding:26px 20px;display:grid;place-content:center;justify-items:center;text-align:center}
+.vs .box.empty svg{color:var(--faint)}
+.vs .box.empty span{display:block;margin-top:9px;font-size:12.5px;line-height:1.5;color:var(--muted);max-width:30ch}
+.vs-cap{margin-top:var(--s3);text-align:center;font-size:14px;line-height:1.5;color:var(--ink-2)}
+
+/* ══ списки з жирним зачином (блоки 7, 10) ════════════════════ */
+.rows{margin:var(--s5) 0 0;display:flex;flex-direction:column}
+.rows > div{padding:18px 0}
+.rows > div + div{border-top:1px solid var(--line-2)}
+.rows p{font-size:15px;line-height:1.58;color:var(--ink-2)}
+.rows b{color:var(--ink)}
+
+/* ══ смуга-CTA (блоки 8, 15) ══════════════════════════════════ */
+.band{margin:0 -20px;padding:var(--s6) 24px;
+  background:linear-gradient(172deg,rgba(59,130,246,.13),rgba(59,130,246,.05) 58%,transparent);
+  border-top:1px solid rgba(59,130,246,.18);border-bottom:1px solid rgba(59,130,246,.18)}
+.band h2{text-align:center}
+.band .price-line .now{font-size:30px}
+.band .price{justify-content:center;margin-top:var(--s4)}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;margin-top:var(--s4)}
+.trust span{display:inline-flex;align-items:center;gap:5px;padding:6px 9px;border-radius:var(--pill);
+  background:rgba(255,255,255,.74);border:1px solid var(--line);font-size:11px;color:var(--ink-2);
+  white-space:nowrap}
+.trust svg{color:var(--accent-ink);flex:none}
+
+/* ══ БЛОК 9 · кроки ═══════════════════════════════════════════ */
+.steps{margin:var(--s5) 0 0;position:relative;padding-left:46px}
+.steps::before{content:'';position:absolute;left:15px;top:14px;bottom:26px;width:2px;
+  background:linear-gradient(to bottom,var(--accent),rgba(59,130,246,.18));border-radius:2px}
+.step{position:relative;padding:0 0 24px}
+.step:last-child{padding-bottom:0}
+.step .n{position:absolute;left:-46px;top:0;width:32px;height:32px;border-radius:50%;
+  display:grid;place-items:center;background:var(--accent);color:#fff;
+  font-family:var(--display);font-weight:600;font-size:14px;
+  box-shadow:0 0 0 4px var(--bg), 0 6px 14px rgba(59,130,246,.3)}
+.step h3{font-size:17px;font-weight:600}
+.step p{margin-top:5px;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+
+/* ══ БЛОК 11 · пул-цитата ═════════════════════════════════════ */
+.pull{margin:var(--s5) -4px;padding:26px 22px;border-radius:var(--r-lg);
+  background:linear-gradient(168deg,rgba(255,255,255,.9),rgba(255,255,255,.62));
+  border:1px solid rgba(59,130,246,.22);box-shadow:var(--e2);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.pull h3{font-size:23px;font-weight:600;letter-spacing:-.024em}
+.pull p{margin-top:var(--s3);font-size:15px;line-height:1.6;color:var(--ink-2)}
+.work{margin:var(--s4) 0 0;display:flex;flex-direction:column}
+.work > div{padding:16px 0}
+.work > div + div{border-top:1px solid var(--line-2)}
+.work h4{margin:0 0 5px;font-family:var(--display);font-weight:600;font-size:15px}
+.work p{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+
+/* ══ БЛОК 12 · чеклист ════════════════════════════════════════ */
+.checks{margin:var(--s5) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.checks li{display:flex;align-items:flex-start;gap:12px;padding:13px 0;font-size:15px;line-height:1.52}
+.checks li+li{border-top:1px solid var(--line-2)}
+.checks svg{flex:none;margin-top:2px;color:var(--accent-ink)}
+
+/* ══ БЛОК 13 · гарантія ═══════════════════════════════════════ */
+.warranty{margin:var(--s5) 0 0;padding:26px 22px;border-radius:var(--r-lg);text-align:center;
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.warranty .shield{width:48px;height:48px;margin:0 auto;display:grid;place-items:center;
+  border-radius:50%;background:var(--accent-wash);color:var(--accent-ink)}
+.warranty p{margin-top:var(--s3);font-size:15px;line-height:1.6;color:var(--ink-2)}
+
+/* ══ БЛОК 14 · рахунок ════════════════════════════════════════ */
+.bill{margin:var(--s5) 0 0;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.bill .r{display:flex;align-items:baseline;gap:14px;padding:13px 18px}
+.bill .r+.r{border-top:1px solid var(--line-2)}
+.bill .r .w{flex:1;font-size:14px;line-height:1.45}
+.bill .r .w em{font-style:normal;font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);display:block;margin-bottom:3px}
+.bill .r .v{flex:none;font-family:var(--mono);font-size:13.5px;color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.bill .sum{display:flex;align-items:baseline;gap:14px;padding:15px 18px;
+  border-top:1px solid var(--hair);background:rgba(20,26,42,.03)}
+.bill .sum .w{flex:1;font-family:var(--display);font-weight:600;font-size:15px}
+.bill .sum .v{font-family:var(--mono);font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.bill .today{padding:20px 18px;background:var(--accent-wash);border-top:1px solid rgba(59,130,246,.2)}
+.bill .today .row{display:flex;align-items:last baseline;gap:11px;flex-wrap:wrap}
+.bill .today .lbl{font-family:var(--display);font-weight:600;font-size:15px}
+.bill .today .big{font-family:var(--display);font-weight:600;font-size:38px;line-height:.95;
+  letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.bill .today .save{margin-top:8px;font-size:13px;color:var(--ink-2)}
+.bill .today .save b{color:var(--accent-ink)}
+
+/* ══ БЛОК 15 · короткий підсумок ══════════════════════════════ */
+.summary{margin:var(--s5) 0 0;display:flex;flex-direction:column;gap:2px}
+.summary > p{padding:13px 0;font-size:15.5px;line-height:1.5}
+.summary > p + p{border-top:1px solid var(--line-2)}
+.summary b{font-weight:700}
+
+/* ══ БЛОК 16 · питання ════════════════════════════════════════ */
+.faq{margin:var(--s5) 0 0;display:flex;flex-direction:column;gap:9px}
+.faq details{border-radius:var(--r-md);overflow:hidden;
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  transition:box-shadow .25s var(--ease)}
+.faq details[open]{box-shadow:var(--e2)}
+.faq summary{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;cursor:pointer;
+  font-family:var(--display);font-weight:500;font-size:15.5px;line-height:1.35;
+  list-style:none;transition:background-color .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{background:rgba(255,255,255,.5)}
+.faq summary .ic{flex:none;margin-top:1px;width:18px;height:18px;position:relative;color:var(--accent-ink);
+  transition:transform .3s var(--ease)}
+.faq summary .ic::before,.faq summary .ic::after{content:'';position:absolute;left:50%;top:50%;
+  background:currentColor;border-radius:2px;transform:translate(-50%,-50%)}
+.faq summary .ic::before{width:14px;height:2px}
+.faq summary .ic::after{width:2px;height:14px;transition:opacity .25s var(--ease)}
+.faq details[open] summary .ic{transform:rotate(135deg)}
+.faq details[open] summary{background:rgba(255,255,255,.5)}
+.faq .a{padding:0 18px 18px 44px;font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+
+/* ══ БЛОК 17 · футер ══════════════════════════════════════════ */
+.foot{padding:var(--s6) 20px var(--s5);text-align:center;border-top:1px solid var(--line)}
+.foot .who{font-family:var(--display);font-weight:500;font-size:15px}
+.foot .links{margin-top:var(--s3);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.foot .links a{font-size:13.5px;color:var(--muted);text-decoration:underline;
+  text-decoration-color:var(--hair);text-underline-offset:3px;transition:color .2s}
+.foot .links a:hover{color:var(--accent-ink);text-decoration-color:currentColor}
+.foot .yr{margin-top:var(--s4);font-family:var(--mono);font-size:11px;color:var(--faint)}
+
+/* ══ великі обʼєкти: сцена, фішки, скляна картка поверх ═══════ */
+.scene{position:relative;margin:var(--s5) 0 var(--s4);isolation:isolate}
+.scene .obj-img{display:block;width:118%;max-width:none;height:auto;margin-left:-9%;
+  filter:drop-shadow(0 26px 44px rgba(66,96,160,.26))}
+/* поки рендера нема — місце під нього, композиція вже зібрана */
+.obj-pending{position:relative;width:112%;max-width:none;margin-left:-6%;aspect-ratio:1 / .72;
+  border-radius:50%;border:1.5px dashed var(--hair);display:grid;place-items:center;
+  background:radial-gradient(closest-side,rgba(59,130,246,.14),transparent 74%);
+  padding:28px;text-align:center}
+.obj-pending b{display:block;font-family:var(--display);font-weight:500;font-size:15px;max-width:24ch}
+.obj-pending span{display:block;margin-top:6px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.obj-pending svg{color:var(--faint);margin-bottom:10px}
+.chip{position:absolute;width:56px;height:56px;border-radius:18px;display:grid;place-items:center;
+  background:#fff;color:var(--accent-ink);box-shadow:var(--e2);z-index:4;
+  animation:ofloat 6.5s ease-in-out infinite}
+.chip-a{left:2%;top:12%;rotate:-7deg}
+.chip-b{right:4%;top:34%;rotate:6deg;animation-delay:-2.2s}
+.chip-c{left:14%;bottom:6%;rotate:4deg;animation-delay:-4.1s}
+@keyframes ofloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.dark-panel .chip{background:#f3f0e7;color:#1a2236}
+.dark-panel .obj-pending{border-color:rgba(255,255,255,.22);
+  background:radial-gradient(closest-side,rgba(91,149,255,.20),transparent 74%)}
+.dark-panel .obj-pending b{color:#e8edf6}
+.dark-panel .obj-pending svg{color:rgba(255,255,255,.4)}
+.dark-panel .obj-pending span{color:rgba(255,255,255,.38)}
+/* скляна картка, що перекриває низ обʼєкта */
+.obj-card{position:relative;z-index:5;margin:-14% 8px 0;padding:18px 20px;border-radius:var(--r-lg);
+  background:rgba(255,255,255,.74);border:1px solid var(--line);box-shadow:var(--e2);
+  backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);text-align:center}
+.dark-panel .obj-card{background:rgba(16,23,38,.66);border-color:rgba(255,255,255,.14);color:#e8edf6}
+.obj-card .big{font-family:var(--display);font-weight:600;font-size:34px;line-height:1;
+  letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.obj-card .lbl{margin-top:7px;font-size:13px;line-height:1.45;color:var(--muted)}
+.dark-panel .obj-card .lbl{color:#a9b6cd}
+@media(prefers-reduced-motion:reduce){.chip{animation:none}}
+
+/* ══ рухомий рядок між секціями ═══════════════════════════════ */
+.marquee{overflow:hidden;background:linear-gradient(100deg,#182034,#101726);padding:12px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;width:max-content;animation:slide 26s linear infinite}
+.mq-track span{display:inline-flex;align-items:center;gap:14px;padding-right:14px;white-space:nowrap;
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#93a1bd}
+.mq-track i{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq-track{animation:none}}
+
+/* ══ горизонтальні каруселі ═══════════════════════════════════ */
+.swipe-hint{display:flex;align-items:center;gap:8px;margin:var(--s5) 0 var(--s3);
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint)}
+.swipe-hint svg{animation:nudge 2.4s var(--ease) infinite}
+@keyframes nudge{0%,100%{translate:0 0}50%{translate:5px 0}}
+.swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -20px;padding:4px 20px 16px}
+.swipe::-webkit-scrollbar{display:none}
+.swipe > article{
+  flex:0 0 auto;min-width:264px;max-width:284px;scroll-snap-align:start;
+  padding:20px 18px 22px;border-radius:var(--r-lg);
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  content-visibility:auto;contain-intrinsic-size:274px 280px;
+}
+.swipe article .n{display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:9px;background:var(--accent-wash);color:var(--accent-ink);
+  font-family:var(--mono);font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}
+.swipe article h3{margin:12px 0 8px;font-size:16.5px;font-weight:600;line-height:1.25}
+.swipe article p{font-size:14px;line-height:1.55;color:var(--ink-2)}
+@media(prefers-reduced-motion:reduce){.swipe-hint svg{animation:none}}
+
+/* ══ розкривні смуги (що всередині) ═══════════════════════════ */
+.more{margin-top:14px;border-radius:var(--r-md);overflow:hidden;
+  background:var(--accent-wash);border:1px solid rgba(59,130,246,.16)}
+.more summary{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer;list-style:none;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--accent-ink);transition:background-color .2s}
+.more summary::-webkit-details-marker{display:none}
+.more summary:hover{background:rgba(59,130,246,.07)}
+.more summary .pl{margin-left:auto;flex:none;width:26px;height:26px;border-radius:50%;
+  background:var(--accent);position:relative;transition:transform .3s var(--ease)}
+.more summary .pl::before,.more summary .pl::after{content:'';position:absolute;left:50%;top:50%;
+  background:#fff;border-radius:2px;transform:translate(-50%,-50%)}
+.more summary .pl::before{width:11px;height:2px}
+.more summary .pl::after{width:2px;height:11px}
+.more[open] summary .pl{transform:rotate(135deg)}
+.more .more-b{padding:2px 16px 16px;font-size:14px;line-height:1.58;color:var(--ink-2)}
+.more .more-b p+p{margin-top:10px}
+
+/* ══ розділювач-шкала між секціями ════════════════════════════ */
+.sec+.sec::before,.foot::before{
+  content:'';position:absolute;left:20px;right:20px;top:0;height:7px;
+  background:
+    linear-gradient(90deg,transparent,var(--hair) 20%,var(--hair) 80%,transparent) center/100% 1px no-repeat,
+    repeating-linear-gradient(90deg,var(--hair) 0 1px,transparent 1px 26px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
+}
+.foot{position:relative}
+
+/* мітка макета — не частина сторінки */
+.stamp{position:fixed;left:12px;top:12px;z-index:50;font-family:var(--mono);font-size:10px;
+  font-weight:500;letter-spacing:.11em;text-transform:uppercase;background:var(--ink);color:#fff;
+  padding:6px 11px;border-radius:var(--pill);opacity:.82}
+</style>
+</head>
+<body>
+<div class="stamp">Варіант A · Скло</div>
+
+<!-- один набір іконок: 24×24, обведення 1.8, круглі кінці -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <g id="i-check" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.6l4.7 4.6L19.6 6.6"/></g>
+  <g id="i-cross" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8"/></g>
+  <g id="i-aim" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.6"/><path d="M12 .9v3.4M12 19.7v3.4M.9 12h3.4M19.7 12h3.4"/></g>
+  <g id="i-clock" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.4" r="7.9"/><path d="M12 13.4V9.3M9.4 2.2h5.2M18.6 6.1l1.6-1.6"/></g>
+  <g id="i-arrow" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 12h13.4M11.8 5.4L18.4 12l-6.6 6.6"/></g>
+  <g id="i-shield" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6l7.3 3v6c0 4.6-3.1 8.3-7.3 9.8-4.2-1.5-7.3-5.2-7.3-9.8v-6z"/><path d="M8.9 12.1l2.2 2.2 4-4.3"/></g>
+  <g id="i-lock" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.4" y="10.2" width="15.2" height="11" rx="2.6"/><path d="M8.2 10.2V7.1a3.8 3.8 0 0 1 7.6 0v3.1"/></g>
+  <g id="i-zap" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2.4L4.8 13.3h6.1l-.9 8.3 8.9-11.2h-6.2z"/></g>
+  <g id="i-shot" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.4" width="18.8" height="15.2" rx="2.6"/><circle cx="8.6" cy="9.6" r="1.9"/><path d="M3.2 17.4l5.1-4.6 3.6 3.2 3.4-3 5.1 4.6"/></g>
+  <g id="i-screen" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4" width="18.8" height="12.6" rx="2.3"/><path d="M8.4 20.4h7.2M12 16.6v3.8"/></g>
+  <g id="i-print" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V3.4h10V9"/><rect x="3.2" y="9" width="17.6" height="7.6" rx="2.2"/><path d="M7 13.6h10v7H7z"/></g>
+</defs></svg>
+
+<div class="wrap">
+
+  <!-- ═════════ БЛОК 1 · ШАПКА ═════════ -->
+  <section class="sec" style="padding-top:30px">
+
+    <span class="plate up"><i></i>Банк матеріалів · Платформа + PDF</span>
+
+    <h1 class="up up-1" style="margin-top:18px">
+      Як пояснити будь-який час англійської так, щоб учень зрозумів
+      <span class="accent under">з першого разу</span>?
+    </h1>
+    <p class="deck up-2 up">без підготовки до уроку</p>
+
+    <figure>
+      <div class="stage">
+        <div class="stage-in">
+          <a class="badge" href="#watch" aria-label="Дивитись, як це працює">
+            <svg class="ring" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+              <defs><path id="arcA" d="M50 50 m-35.5 0 a35.5 35.5 0 1 1 71 0 a35.5 35.5 0 1 1 -71 0"/></defs>
+              <text><textPath href="#arcA" startOffset="0">ДИВИТИСЬ · ДИВИТИСЬ · ДИВИТИСЬ · </textPath></text>
+            </svg>
+            <svg class="play" width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <img class="shot-a" src="media/card-pp.webp" width="1500" height="1069"
+               alt="Картка Present Perfect на платформі: форми з кожною особою, приклади, короткі відповіді"
+               fetchpriority="high" decoding="async">
+          <img class="shot-b" src="media/tl-pair.webp" width="1500" height="707"
+               alt="Схема Present Perfect і Past Simple на одній часовій шкалі"
+               decoding="async">
+        </div>
+      </div>
+      <figcaption>Картка часу і схема пари — те саме, що побачить учень на екрані</figcaption>
+    </figure>
+
+    <ul class="pills up">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span><b>12 карток часів:</b> формула, приклади, ключові слова</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span><b>20 графічних схем</b> часу на часовій шкалі</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span><b>6 розборів пар часів</b>, які плутають найчастіше</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span><b>12 інтерактивних ігор</b> на Wordwall</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span><b>26 тестів</b> з автоматичною перевіркою</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Онлайн на платформі <b>+ PDF для друку</b></span></li>
+    </ul>
+
+    <div class="price up">
+      <s class="num">2400 грн</s>
+      <span class="now">390 грн</span>
+      <span class="off">−84%</span>
+    </div>
+
+    <a class="cta up" href="#buy">Забрати банк матеріалів за 390 грн
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+    <p class="note up" style="margin-top:var(--s3)">Після оплати тебе переадресує в Telegram-бот — доступ до платформи відкриється одразу</p>
+
+    <div class="timer up">
+      <i class="dot"></i>
+      <span class="t" data-timer>10:00</span>
+      <span class="l">бонуси зникають<br>разом із таймером</span>
+    </div>
+  </section>
+
+
+  <div class="marquee" aria-hidden="true">
+    <div class="mq-track">
+      <span>12 часів<i></i>20 схем на шкалі<i></i>12 ігор<i></i>26 тестів<i></i>платформа + PDF<i></i></span>
+      <span>12 часів<i></i>20 схем на шкалі<i></i>12 ігор<i></i>26 тестів<i></i>платформа + PDF<i></i></span>
+    </div>
+  </div>
+
+  <!-- ═════════ БЛОК 2 · БОНУСИ ═════════ -->
+  <section class="sec">
+    <h2 class="up"><span class="accent">4 бонуси</span> для тих, хто забере доступ до кінця таймера</h2>
+    <p class="deck up up-1">далі банк продається без них</p>
+
+    <!-- ВЕЛИКИЙ ОБʼЄКТ 2 · стос карток, перевʼязаний стрічкою -->
+      <div class="scene up">
+        <div class="obj-pending">
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
+          <b>Стос друкованих карток, перевʼязаний стрічкою</b>
+          <span>media/obj-cards.webp</span>
+        </div>
+        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></i>
+        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg></i>
+        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></i>
+      </div>
+
+    <div class="stack">
+      <div class="behind behind-bonus"><img src="media/tasks.webp" width="1500" height="843" alt="" decoding="async"></div>
+      <div class="bonuses up">
+      <article class="bonus">
+        <span class="no">Бонус №1</span>
+        <h3>Картки порівняння часів</h3>
+        <div class="result">
+          <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+          <p>Зникає найдовша частина уроку — та, де ти втретє пояснюєш, чим Past Simple відрізняється від Present Perfect, і бачиш по очах, що учень усе одно не вловив. Тепер він дивиться на два речення поруч і сам показує пальцем, де різниця.</p>
+        </div>
+        <details class="more">
+          <summary>Що всередині<i class="pl"></i></summary>
+          <div class="more-b">Окремі картки на пари, які учні плутають найчастіше: Present Simple і Present Continuous, Past Simple і Present Perfect, Past Simple і Past Continuous, Past Simple і Past Perfect, Present Perfect і Present Perfect Continuous, група Future. Два часи поруч на одному аркуші, з однаковим прикладом у двох варіантах — видно, що саме змінює зміст.</div>
+        </details>
+      </article>
+
+      <article class="bonus">
+        <span class="no">Бонус №2</span>
+        <h3>Майндмеп усіх часів</h3>
+        <div class="result">
+          <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+          <p>Учень перестає сприймати часи як 12 не повʼязаних тем, які треба вивчити по черзі. Він бачить логіку цілком і розуміє, куди рухається. Ти отримуєш готову мапу маршруту, яку показуєш на першому уроці й повертаєшся до неї на кожному наступному.</p>
+        </div>
+        <details class="more">
+          <summary>Що всередині<i class="pl"></i></summary>
+          <div class="more-b">Уся система англійських часів на одній карті: 12 часів, звʼязки між ними, точки входу. Не список, а мапа — де людина бачить, у якому місці системи вона зараз стоїть.</div>
+        </details>
+      </article>
+
+      <article class="bonus">
+        <span class="no">Бонус №3</span>
+        <h3>Велика збірка з неправильних дієслів</h3>
+        <div class="result">
+          <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+          <p>Тема, яку зазвичай віддають на «вивчи таблицю вдома» і яка через тиждень забувається, нарешті відпрацьовується на уроці. Замість переписування трьох колонок — гра, після якої дієслова залишаються в голові.</p>
+        </div>
+        <details class="more">
+          <summary>Що всередині<i class="pl"></i></summary>
+          <div class="more-b">Списки за рівнями, практичні ігри на відпрацювання, готові завдання на закріплення.</div>
+        </details>
+      </article>
+      </div>
+    </div>
+
+    <article class="bonus-hero up">
+      <span class="no">Бонус №4</span>
+      <h3>Кабінет викладача — доступ назавжди</h3>
+      <p class="lede">Не матеріали, а робоче місце. Надсилаєш учневі тест у два кліки й одразу бачиш результат: що він вирішив, де помилився, який саме час не тягне. Ведеш облік учнів: хто скільки заплатив, скільки оплачених занять залишилось, коли наступне.</p>
+      <p class="lede">Платформа розвивається далі — нові тести, ігри, книги, матеріали. <b>Усе, що зʼявиться, буде твоїм без доплат.</b> Але тільки для тих, хто зайшов до кінця таймера.</p>
+      <div class="result">
+        <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+        <p>Зникає блокнот з оплатами й вічне «здається, у нього залишилось два заняття?». Домашка більше не «перевір сам за ключами» — ти бачиш реальний зріз по кожному учню й приходиш на урок, уже знаючи, що розбирати.</p>
+      </div>
+      <!-- ВІДКРИТЕ ПИТАННЯ №2 з ТЗ: якщо кабінет у розробці — два абзаци вище замінює цей рядок -->
+      <p class="open-q">Альтернатива, якщо кабінет у розробці: «Кабінет викладача — у розробці, запуск [місяць]. Ти отримуєш доступ назавжди й безкоштовно, щойно він відкриється. Далі доступ буде платним.»</p>
+    </article>
+
+    <a class="cta up" href="#buy" style="margin-top:var(--s5)">Забрати банк + 4 бонуси за 390 грн
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+    <p class="note up" style="margin-top:var(--s3);display:flex;align-items:center;justify-content:center;gap:7px">
+      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><use href="#i-clock"/></svg>
+      Бонуси зникають разом із таймером · залишилось <b class="num" data-timer>10:00</b>
+    </p>
+  </section>
+
+  <!-- ═════════ БЛОК 3 · ВПІЗНАЄШ СЕБЕ? ═════════ -->
+  <section class="sec">
+    <div class="behind behind-pain"><img src="media/tl-pair2.webp" width="1500" height="517" alt="" decoding="async"></div>
+
+    <h2 class="up"><span class="accent">Впізнаєш</span> себе?</h2>
+
+    <div class="pains">
+      <div class="pain up">
+        <svg class="mark" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cross"/></svg>
+        <p>Ти постійно пояснюєш різницю між Past Simple і Present Perfect, учень киває, повторює правило майже дослівно — <b>а через дві хвилини каже:</b></p>
+        <span class="said">I have seen him yesterday</span>
+      </div>
+
+      <div class="pain up">
+        <svg class="mark" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cross"/></svg>
+        <p><b>Учень знає правила краще за тебе, але говорити не може.</b> Формули переказує напамʼять, «маркери часу» називає без запинки. А в живій розмові бере перший-ліпший час і говорить:</p>
+        <span class="said">I go to Kyiv last week</span>
+      </div>
+
+      <div class="pain up">
+        <svg class="mark" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cross"/></svg>
+        <p>За двадцять хвилин до заняття ти шукаєш, на чому пояснити Present Perfect Continuous. <b>Відкритий підручник, дві вкладки з вправами, стара дошка в Miro, папка з PDF</b>, де ти точно щось зберігав(ла) пів року тому.</p>
+      </div>
+
+      <div class="pain up">
+        <svg class="mark" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cross"/></svg>
+        <p>Прийшов учень іншого рівня. Те, що працювало з попереднім, не підходить: зарано чи заскладно. Ти знову йдеш шукати, підбирати, роздруковувати. <b>Матеріали не накопичуються — вони щоразу збираються з нуля</b> під конкретну людину.</p>
+      </div>
+
+      <!-- опціональний пʼятий пункт під онлайн-викладачів (ТЗ, блок 3) -->
+      <div class="pain pain-opt up">
+        <svg class="mark" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cross"/></svg>
+        <p>Демонстрація екрана увімкнена, а учень дивиться, як ти згортаєш вікна й відкриваєш не те. <b>Дві хвилини оплаченого уроку йдуть на клацання по папках.</b></p>
+        <span class="opt-flag">опційно</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═════════ БЛОК 4 · ЗАМИКАЮЧА + ЗНЯТТЯ ПРОВИНИ ═════════ -->
+  <section class="sec" style="padding-bottom:0">
+    <p class="claim up">Якщо впізнав(ла) себе хоча б в одному пункті — <span class="accent">цей банк матеріалів для тебе</span>.</p>
+
+    <div class="dark-panel">
+      <h2 class="up">Проблема не в тобі.<br>І не в учневі.</h2>
+      <p class="up">Ти пояснюєш правильно. Він старається. Просто <b>час — це абстракція</b>. У мозку немає органа, який відчуває час, тому він добудовує його через простір: раніше — лівіше, пізніше — правіше, триває — відрізок, сталося — крапка.</p>
+      <p class="up">Таблиця в підручнику цього не дає. Вона дає перелік: формула, приклад, маркер. <b>Перелік можна вивчити. Побачити — ні.</b></p>
+
+      <!-- ВЕЛИКИЙ ОБʼЄКТ 1 · пісочний годинник на шкалі -->
+      <div class="scene up">
+        <div class="obj-pending">
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
+          <b>Пісочний годинник, крізь який проходить часова шкала</b>
+          <span>media/obj-hourglass.webp</span>
+        </div>
+        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></i>
+        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></i>
+        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-screen"/></svg></i>
+      </div>
+      <div class="obj-card up">
+        <div class="big">12</div>
+        <p class="lbl">часів — і кожен стоїть у своєму місці на одній шкалі</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ БЛОК 5 · ЩО ВСЕРЕДИНІ ═════════ -->
+  <section class="sec">
+    <h2 class="up">Банк складається з <span class="accent">чотирьох частин</span></h2>
+    <p class="deck up up-1">від пояснення до перевірки — повний цикл роботи з часом</p>
+
+    <article class="part up">
+      <span class="part-no">Частина 1</span>
+      <h3>12 карток часів</h3>
+      <figure class="shot-frame bleed-r">
+        <img src="media/card-pp-used.webp" width="1500" height="1070" alt="Картка Present Perfect: усі випадки вживання з прикладами" loading="lazy" decoding="async">
+        <figcaption class="cap">Так виглядає одна з дванадцяти карток</figcaption>
+      </figure>
+      <p>Одна картка — один час. Усередині: формула, приклади ствердження, заперечення й питання <b>з кожною особою</b> (I, you, we, they, he, she, it), випадки використання, ключові слова-маркери. У частині карток — особливості вимови.</p>
+      <div class="result">
+        <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+        <p>Зникає потреба тримати в голові всю систему й перевіряти себе в підручнику перед уроком. Відкрив картку — і перед тобою готова структура пояснення в тому порядку, у якому її сприймає учень. <b>Учень забирає ту саму картку собі</b> й повертається до неї вдома замість переписаного конспекту.</p>
+      </div>
+    </article>
+
+    <article class="part up">
+      <span class="part-no">Частина 2</span>
+      <h3>20 графічних схем на таймлайнах</h3>
+      <figure class="pair-shots">
+        <img src="media/tl-single.webp" width="1500" height="707" alt="Схема Present Simple на часовій шкалі" loading="lazy" decoding="async">
+        <img src="media/tl-pair.webp" width="1500" height="707" alt="Схема пари Present Perfect і Past Simple на одній шкалі" loading="lazy" decoding="async">
+        <figcaption class="cap">Згори — схема окремого часу, знизу — схема на пару, яку плутають найчастіше</figcaption>
+      </figure>
+      <p>12 схем на кожен час окремо + <b>6 схем на пари, які плутають найчастіше</b>: Present Simple / Present Continuous, Past Simple / Present Perfect, Past Simple / Past Continuous, Past Simple / Past Perfect, Present Perfect / Present Perfect Continuous та група Future. Під кожною схемою — приклад речення.</p>
+      <p style="margin-top:var(--s3)">Усі 12 часів намальовані <b>в одній візуальній логіці</b>: та сама шкала, ті самі позначки, той самий спосіб показати крапку, відрізок і момент мовлення.</p>
+      <div class="result">
+        <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+        <p>Ти більше не креслиш лінію на аркуші заново на кожному уроці. Учень один раз розбирається, як читати шкалу, — і далі читає будь-який час сам, навіть той, який ви ще не проходили. <b>Замість «вивчи правило» він бачить, де саме на шкалі стоїть подія.</b></p>
+      </div>
+    </article>
+
+    <article class="part up">
+      <span class="part-no">Частина 3</span>
+      <h3>12 інтерактивних ігор на Wordwall</h3>
+      <figure class="chrome">
+        <div class="chrome-bar"><i></i><i></i><i></i><span>wordwall.net — Past Simple</span></div>
+        <img src="media/game-quiz.webp" width="800" height="600" alt="Гра на Wordwall у процесі: речення з чотирма варіантами відповіді" loading="lazy" decoding="async">
+      </figure>
+      <p class="cap">Так гра виглядає на екрані учня</p>
+      <p>Гра на кожен час. Запускається в браузері за посиланням, працює на телефоні й на компʼютері. На онлайн-уроці кидаєш учневі лінк, у класі виводиш на екран.</p>
+      <div class="result">
+        <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+        <p>Зникає найважча частина заняття — та, де треба втримати увагу після двадцяти хвилин теорії. Відпрацювання перестає бути «зроби вправу 4 на сторінці 87». <b>Учень грає й повторює той самий час у десятці варіантів, не помічаючи, що це вправа.</b></p>
+      </div>
+    </article>
+
+    <article class="part up">
+      <span class="part-no">Частина 4</span>
+      <h3>26 тестів з автоматичною перевіркою</h3>
+      <div class="slot">
+        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
+        <b>Тут буде екран результату тесту</b>
+        <span>Потрібен скрин: бали, помилки й розбір. На платформі цей екран ще не зібрано — знімемо, щойно зʼявиться.</span>
+      </div>
+      <p class="cap">Учень проходить тест — ти одразу бачиш результат</p>
+      <p>Тести на один окремий час, тести на комбінацію часів, різні рівні складності. Перевірка автоматична.</p>
+      <div class="result">
+        <div class="h"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg>Результат</div>
+        <p>Ти перестаєш витрачати вечір на перевірку домашок. Замість «здається, він плутає перфект» ти бачиш <b>точну картину: який час просів, у якому типі речення, скільки спроб знадобилось</b>. На урок приходиш, уже знаючи, що саме розбирати.</p>
+      </div>
+    </article>
+
+    <div class="both up">
+      <h2>І все це — <span class="accent">в одному місці</span></h2>
+      <dl>
+        <div>
+          <dt><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-screen"/></svg>Онлайн-платформа</dt>
+          <dd>Відкрив вкладку, обрав час, показав екран. Без згорнутих вікон і пошуку файлів під час уроку.</dd>
+        </div>
+        <div>
+          <dt><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg>PDF на завантаження</dt>
+          <dd>Та сама збірка офлайн. Роздрукував, поклав у папку, працюєш без інтернету й у класі біля дошки.</dd>
+        </div>
+      </dl>
+      <p class="kicker">Обидва формати. Не або-або.</p>
+    </div>
+  </section>
+
+  <!-- ═════════ БЛОК 6 · ТАБЛИЦЯ VS СХЕМА ═════════ -->
+  <section class="sec">
+    <h2 class="up">Як це <span class="accent">в підручнику</span> і як це <span class="accent">в нас</span></h2>
+    <p class="deck up up-1">одна тема, два способи подачі</p>
+
+    <div class="vs up">
+      <figure>
+        <figcaption>Як це в підручнику</figcaption>
+        <div class="box empty">
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
+          <span>Потрібне фото: розворот підручника з таблицею Past Simple / Present Perfect</span>
+        </div>
+      </figure>
+      <figure>
+        <figcaption>Як це в нас</figcaption>
+        <div class="box"><img src="media/tl-pair.webp" width="1500" height="707" alt="Наша схема пари Past Simple і Present Perfect на часовій шкалі" loading="lazy" decoding="async"></div>
+      </figure>
+    </div>
+    <p class="vs-cap up">Згори — <b>перелік правил</b>. Знизу — <b>картина того, що відбувається</b>.</p>
+
+    <p class="lede up" style="margin-top:var(--s5)">Таблиця відповідає на питання «як побудувати речення». Схема відповідає на питання <b>«коли це взагалі брати»</b> — а саме тут і ламається більшість учнів.</p>
+    <p class="lede up" style="margin-top:var(--s3)">Тому й виходить, що учень вивчив формулу, переказав маркери — і все одно каже «I have seen him yesterday». Формулу він знає. <b>Куди на шкалі поставити цю подію — ні.</b></p>
+
+    <p class="claim up" style="margin-top:var(--s5)">Покажи учневі обидва варіанти й подивись, на якому він скаже <span class="accent">«а, тепер зрозуміло»</span>.</p>
+  </section>
+
+  <!-- ═════════ БЛОК 7 · КОМУ ЦЕ ЗАЙДЕ ═════════ -->
+  <section class="sec">
+    <h2 class="up">Кому це <span class="accent">зайде</span></h2>
+    <p class="deck up up-1">якщо ти вчиш когось англійської — це про тебе</p>
+
+    <div class="swipe-hint up">Гортай
+      <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </div>
+    <div class="swipe up">
+      <article><span class="n">01</span><h3>Репетиторам на фрилансі</h3><p>Ти сам(а) собі методист: ніхто не дає готових матеріалів, усе збирається власноруч між уроками. Тут збірка вже зібрана — під будь-якого учня, під будь-який час.</p></article>
+      <article><span class="n">02</span><h3>Шкільним учителям</h3><p>Тридцять людей у класі, у яких різний рівень і різна швидкість. Схему на екрані бачать усі одночасно, а тести перевіряються самі — замість стосу зошитів увечері.</p></article>
+      <article><span class="n">03</span><h3>Викладачам онлайн-шкіл</h3><p>Демонстрація екрана перестає бути пошуком файлу. Одна вкладка, з якої ти ведеш увесь урок.</p></article>
+      <article><span class="n">04</span><h3>Тим, хто тільки починає викладати</h3><p>Ти знаєш англійську, але ще не маєш власної системи пояснень. Тут вона готова: не треба вигадувати, як подати Present Perfect, — треба відкрити й показати.</p></article>
+      <article><span class="n">05</span><h3>Досвідченим, які втомилися малювати одне й те саме</h3><p>У тебе вже є свій спосіб пояснювати часи. Просто щоразу ти відтворюєш його вручну. Тепер він лежить готовий.</p></article>
+      <article><span class="n">06</span><h3>Тим, хто веде і дітей, і дорослих</h3><p>Ті самі матеріали працюють на обидві аудиторії: дитині — гра, дорослому — схема й тест. Не треба тримати два окремі набори.</p></article>
+      <article><span class="n">07</span><h3>Тим, хто повертається до викладання після перерви</h3><p>Оновлювати матеріали з нуля не доведеться — актуальна збірка вже в руках.</p></article>
+    </div>
+
+  <!-- ═════════ БЛОК 8 · CTA ═════════ -->
+  <section class="sec" style="padding-top:0;padding-bottom:0">
+    <div class="band">
+      <h2 class="up">70 матеріалів + 4 бонуси — <span class="accent">390 грн</span></h2>
+      <div class="price price-line up"><s class="num">2400 грн</s><span class="now">390 грн</span><span class="off">−84%</span></div>
+
+      <a class="cta up" href="#buy">Забрати доступ
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+
+      <div class="trust up">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lock"/></svg>Безпечна оплата</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zap"/></svg>Доступ одразу</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg>Гарантія 14 днів</span>
+      </div>
+
+      <div class="timer up">
+        <i class="dot"></i>
+        <span class="t" data-timer>10:00</span>
+        <span class="l">після таймера бонуси зникають,<br>залишається тільки банк матеріалів</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ БЛОК 9 · ЯК ОТРИМАЄШ ДОСТУП ═════════ -->
+  <section class="sec">
+    <h2 class="up">Як ти <span class="accent">отримаєш доступ</span></h2>
+    <p class="deck up up-1">від оплати до першого уроку — кілька хвилин</p>
+
+    <div class="steps">
+      <div class="step up"><span class="n">1</span><h3>Оплата</h3><p>Тиснеш кнопку, оплачуєш 390 грн. Карткою, за пару хвилин.</p></div>
+      <div class="step up"><span class="n">2</span><h3>Telegram-бот</h3><p>Одразу після оплати тебе переадресує в бот. Там — посилання на платформу й файли для завантаження.</p></div>
+      <div class="step up"><span class="n">3</span><h3>Платформа</h3><p>Відкриваєш у браузері з будь-якого пристрою. Обираєш час — на екрані картка, схема, гра й тести до нього. Нічого не треба встановлювати.</p></div>
+      <div class="step up"><span class="n">4</span><h3>PDF</h3><p>Завантажуєш усю збірку одним файлом. Працює без інтернету, друкується на звичайному принтері.</p></div>
+    </div>
+
+    <p class="claim up" style="margin-top:var(--s5)">Уже наступного уроку ти <span class="accent">відкриваєш вкладку</span> замість того, щоб шукати матеріали.</p>
+  </section>
+
+  <!-- ═════════ БЛОК 10 · ДЕ ЦЕ ПРАЦЮЄ ═════════ -->
+  <section class="sec">
+    <h2 class="up"><span class="accent">Де</span> це працює</h2>
+
+    <div class="swipe-hint up">Гортай
+      <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </div>
+    <div class="swipe up">
+      <article><span class="n">01</span><h3>На онлайн-уроці</h3><p>Демонстрація екрана: відкрив вкладку зі схемою, показав, перейшов до гри. Учень бачить те саме, що й ти.</p></article>
+      <article><span class="n">02</span><h3>У класі біля дошки</h3><p>Вивів схему на проєктор або роздрукував і повісив. Формат A4 читається з останньої парти.</p></article>
+      <article><span class="n">03</span><h3>На офлайн-занятті вдома</h3><p>Роздруковані картки лягають на стіл між тобою й учнем. Він тримає картку в руках і забирає її з собою.</p></article>
+      <article><span class="n">04</span><h3>У домашньому завданні</h3><p>Кидаєш учневі посилання на тест — він проходить, ти бачиш результат. Без «принеси зошит, перевірю».</p></article>
+      <article><span class="n">05</span><h3>На першому занятті з новим учнем</h3><p>Показуєш майндмеп усіх часів: ось де ти зараз, ось куди рухаємось. Учень з першого уроку бачить маршрут, а не безкінечну купу тем.</p></article>
+      <article><span class="n">06</span><h3>Коли повертаєшся до пройденого</h3><p>Не переказуєш тему заново — відкриваєш ту саму схему, яку показував(ла) три місяці тому. Учень упізнає її й згадує за секунди.</p></article>
+    </div>
+
+  <!-- ═════════ БЛОК 11 · ЧИ МОЖЕШ ЗІБРАТИ ЦЕ САМ(А)? ═════════ -->
+  <section class="sec">
+    <h2 class="up"><span class="accent">Так, можеш.</span> І це безкоштовно</h2>
+    <p class="deck up up-1">питання тільки в тому, скільки це займе</p>
+
+    <p class="lede up" style="margin-top:var(--s5)">Усе, що тут є, можна зробити самостійно. Схеми малюються, картки верстаються, ігри збираються у Wordwall, тести пишуться руками. Жодної магії.</p>
+
+    <p class="up" style="margin-top:var(--s4);font-family:var(--display);font-weight:600;font-size:16px">Ось із чого складається робота:</p>
+
+    <div class="work">
+      <div class="up"><h4>12 карток часів</h4><p>Зібрати формули, приклади з усіма особами, випадки використання, маркери. Звірити з кількома джерелами, бо підручники суперечать один одному. Зверстати так, щоб читалося з екрана й з друку.</p></div>
+      <div class="up"><h4>20 схем на таймлайнах</h4><p>Не просто намалювати, а <b>придумати єдину візуальну логіку</b> — щоб усі 12 часів читалися однаково. Це найдовша частина: перші версії доведеться переробити, бо на практиці виявиться, що учень читає шкалу не так, як ти задумав(ла).</p></div>
+      <div class="up"><h4>12 ігор</h4><p>Розібратися з Wordwall, зібрати завдання, наповнити, перевірити на живому учневі.</p></div>
+      <div class="up"><h4>26 тестів</h4><p>Скласти, розкласти за рівнями, налаштувати автоперевірку, вичистити помилки.</p></div>
+    </div>
+
+    <!-- ВЕЛИКИЙ ОБʼЄКТ 3 · настільний годинник і стос чернеток -->
+      <div class="scene up">
+        <div class="obj-pending">
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
+          <b>Настільний годинник поруч зі стосом зіжмаканих чернеток</b>
+          <span>media/obj-clock.webp</span>
+        </div>
+        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></i>
+        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg></i>
+        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cross"/></svg></i>
+      </div>
+
+    <div class="pull up">
+      <h3>На таку збірку йде до двох місяців роботи</h3>
+      <p>Не двох місяців вільного часу — <b>двох місяців вечорів після уроків</b>. Коли ти вже відпрацював(ла) день, а ввечері сідаєш верстати картку, бо завтра вона потрібна на занятті.</p>
+    </div>
+
+    <p class="lede up">Порахуй по-іншому. Скільки коштує твоя година? Навіть якщо взяти мінімум — <b>390 грн це одне заняття</b>. Одне. За збірку, яку ти інакше збиратимеш два місяці й усе одно зробиш гірше, ніж хотілося, бо між уроками робиться на швидку руку.</p>
+
+    <p class="claim up" style="margin-top:var(--s5)">Ти не платиш за матеріали. Ти платиш за <span class="accent">два місяці, які не витратиш</span>.</p>
+
+    <!-- опціональний рядок під шкільних учителів (ТЗ, блок 11) -->
+    <p class="note up" style="margin-top:var(--s3)">А якщо ти працюєш у школі — це <b>дві кави й половина обіду</b> за збірку, яку інакше збирав(ла) би все літо.<span class="opt-flag" style="margin-left:8px">опційно</span></p>
+  </section>
+
+  <!-- ═════════ БЛОК 12 · ЩО ЗМІНИТЬСЯ ═════════ -->
+  <section class="sec">
+    <h2 class="up"><span class="accent">Уже наступного тижня</span> ти:</h2>
+
+    <ul class="checks">
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Відкриваєш вкладку замість того, щоб шукати матеріали за двадцять хвилин до уроку</span></li>
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Пояснюєш будь-який час <b>одним і тим самим способом</b> — і учень читає схему сам, навіть на темі, яку ви ще не проходили</span></li>
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Показуєш пару часів на одній шкалі замість того, щоб пояснювати різницю втретє</span></li>
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Даєш відпрацювання грою, а не вправою на сторінці 87</span></li>
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Кидаєш тест посиланням і <b>бачиш результат одразу</b>, без стосу зошитів увечері</span></li>
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Приходиш на урок, уже знаючи, який час у учня просів</span></li>
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Працюєш з учнем будь-якого рівня <b>з тієї самої збірки</b> — не збираєш усе з нуля під кожну нову людину</span></li>
+      <li class="up"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>Ведеш урок онлайн, у класі чи вдома — платформа й PDF покривають усі три формати</span></li>
+    </ul>
+
+    <p class="claim up" style="margin-top:var(--s5)">І жодного разу не малюєш шкалу на аркуші <span class="accent">від руки</span>.</p>
+  </section>
+
+
+  <div class="marquee" aria-hidden="true">
+    <div class="mq-track">
+      <span>12 часів<i></i>20 схем на шкалі<i></i>12 ігор<i></i>26 тестів<i></i>платформа + PDF<i></i></span>
+      <span>12 часів<i></i>20 схем на шкалі<i></i>12 ігор<i></i>26 тестів<i></i>платформа + PDF<i></i></span>
+    </div>
+  </div>
+
+  <!-- ═════════ БЛОК 13 · ГАРАНТІЯ ═════════ -->
+  <section class="sec">
+    <h2 class="up"><span class="accent">14 днів</span> на повернення</h2>
+    <p class="deck up up-1">без анкет і пояснень</p>
+
+    <!-- ВЕЛИКИЙ ОБʼЄКТ 4 · щит, складений з аркуша паперу -->
+      <div class="scene up">
+        <div class="obj-pending">
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
+          <b>Щит, складений з одного аркуша цупкого паперу</b>
+          <span>media/obj-shield.webp</span>
+        </div>
+        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg></i>
+        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lock"/></svg></i>
+        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></i>
+      </div>
+
+    <div class="warranty up">
+      <p>Відкрив платформу, подивився схеми, провів з ними урок — і зрозумів(ла), що це не твоє.</p>
+      <p><b>Пишеш одне повідомлення протягом 14 днів і отримуєш гроші назад.</b> Без анкет, без «доведи, що користувався», без «а чому саме?».</p>
+    </div>
+
+    <p class="claim up" style="margin-top:var(--s5)">Або збірка економить тобі години підготовки — або я повертаю гроші. <span class="accent">Третього не дано.</span></p>
+  </section>
+
+  <!-- ═════════ БЛОК 14 · ПОВНИЙ СПИСОК ═════════ -->
+  <section class="sec">
+    <h2 class="up"><span class="accent">Що саме</span> ти отримаєш</h2>
+    <p class="deck up up-1">усе, що входить у доступ, з реальною вартістю кожної частини</p>
+
+    <div class="bill up">
+      <div class="r"><span class="w">12 карток часів: формули, приклади з усіма особами, маркери, вимова</span><span class="v">690 грн</span></div>
+      <div class="r"><span class="w">20 графічних схем на таймлайнах, з них 6 — на пари часів</span><span class="v">990 грн</span></div>
+      <div class="r"><span class="w">12 інтерактивних ігор на Wordwall</span><span class="v">490 грн</span></div>
+      <div class="r"><span class="w">26 тестів з автоматичною перевіркою</span><span class="v">690 грн</span></div>
+      <div class="r"><span class="w">Онлайн-платформа: усе в одному місці, з будь-якого пристрою</span><span class="v">590 грн</span></div>
+      <div class="r"><span class="w">Уся збірка в PDF для друку й офлайну</span><span class="v">290 грн</span></div>
+      <div class="r"><span class="w"><em>Бонус 1</em>Картки порівняння часів</span><span class="v">390 грн</span></div>
+      <div class="r"><span class="w"><em>Бонус 2</em>Майндмеп усіх часів</span><span class="v">290 грн</span></div>
+      <div class="r"><span class="w"><em>Бонус 3</em>Збірка з неправильних дієслів: списки за рівнями + ігри</span><span class="v">490 грн</span></div>
+      <div class="r"><span class="w"><em>Бонус 4</em>Кабінет викладача: тести учням, результати, облік оплат — <b>назавжди</b></span><span class="v">990 грн</span></div>
+
+      <div class="sum"><span class="w">Загальна вартість</span><span class="v">5 900 грн</span></div>
+
+      <div class="today">
+        <div class="row"><span class="lbl">Сьогодні:</span><span class="big">390 грн</span></div>
+        <p class="save">Економія — <b>5 510 грн</b> (−93%)</p>
+      </div>
+    </div>
+
+    <a class="cta up" href="#buy" style="margin-top:var(--s4)">Забрати всю збірку за 390 грн
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+    <p class="note up" style="margin-top:var(--s3);display:flex;align-items:center;justify-content:center;gap:7px">
+      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="flex:none"><use href="#i-clock"/></svg>
+      Бонуси зникають разом із таймером · залишилось <b class="num" data-timer>10:00</b>
+    </p>
+  </section>
+
+  <!-- ═════════ БЛОК 15 · ФІНАЛЬНИЙ ОФЕР ═════════ -->
+  <section class="sec" style="padding-top:0;padding-bottom:0">
+    <div class="band">
+      <h2 class="up">Останній раз <span class="accent">коротко</span></h2>
+
+      <div class="summary">
+        <p class="up"><b>70 матеріалів</b> по всіх 12 часах англійської: картки, схеми на таймлайнах, ігри, тести з автоперевіркою.</p>
+        <p class="up"><b>На платформі й у PDF.</b> Онлайн, у класі, вдома.</p>
+        <p class="up"><b>4 бонуси</b>, включно з доступом до кабінету викладача назавжди.</p>
+        <p class="up"><b>14 днів на повернення</b> без пояснень.</p>
+      </div>
+
+      <div class="price up"><s class="num">2400 грн</s><span class="now">390 грн</span><span class="off">−84%</span></div>
+
+      <a class="cta up" href="#buy">Забрати доступ за 390 грн
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      <p class="note up" style="text-align:center">Після оплати тебе переадресує в Telegram-бот — доступ відкриється одразу</p>
+
+      <div class="timer up">
+        <i class="dot"></i>
+        <span class="t" data-timer>10:00</span>
+        <span class="l">далі збірка<br>продається без бонусів</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ БЛОК 16 · ПИТАННЯ ═════════ -->
+  <section class="sec">
+    <h2 class="up">Часті <span class="accent">питання</span></h2>
+
+    <div class="faq up">
+      <details><summary><i class="ic"></i>Чому так дешево? У чому підступ?</summary><div class="a">Підступу немає. Це перший запуск — ми тестуємо ціну й збираємо перші відгуки від викладачів. У наступних запусках вона буде іншою. Плюс це збірка матеріалів, а не курс із зворотним звʼязком: я нічого не перевіряю вручну, тому й можу тримати таку ціну.</div></details>
+      <details><summary><i class="ic"></i>Скільки часу в мене буде доступ?</summary><div class="a">До матеріалів — назавжди. Кабінет викладача для тих, хто зайшов до кінця таймера, теж залишається назавжди, разом з усім, що зʼявиться на платформі далі.</div></details>
+      <details><summary><i class="ic"></i>Це курс? Мене будуть чогось навчати?</summary><div class="a">Ні. Це банк готових матеріалів для роботи з учнями, а не навчання для тебе. Ти не проходиш уроки — ти відкриваєш і використовуєш на своїх заняттях.</div></details>
+      <details><summary><i class="ic"></i>Я викладаю дітям. Підійде?</summary><div class="a">Так. Схема на шкалі працює з дітьми навіть краще, ніж з дорослими: дитина сприймає картинку швидше за таблицю. Ігри розраховані саме на утримання уваги.</div></details>
+      <details><summary><i class="ic"></i>А дорослим?</summary><div class="a">Так. Дорослому даєш схему й тест, ігри лишаєш за бажанням. Той самий набір покриває обидві аудиторії.</div></details>
+      <details><summary><i class="ic"></i>У мене учні різних рівнів. Мені вистачить одного набору?</summary><div class="a">Так. Тести розкладені за рівнями, схеми однакові для всіх — різниця тільки в тому, наскільки глибоко ти заходиш у тему. Одна збірка на всіх учнів.</div></details>
+      <details><summary><i class="ic"></i>Чи можу я показувати ці матеріали учням і давати їм картки?</summary><div class="a">Так, для роботи зі своїми учнями — без обмежень. Не можна тільки перепродавати збірку як власний продукт.</div></details>
+      <details><summary><i class="ic"></i>Чи потрібно щось встановлювати?</summary><div class="a">Ні. Платформа відкривається в браузері з компʼютера, планшета чи телефона. PDF завантажується одним файлом.</div></details>
+      <details><summary><i class="ic"></i>Я працюю в школі без інтернету в класі. Як бути?</summary><div class="a">Для цього і є PDF-версія. Завантажуєш, друкуєш, працюєш офлайн. Обидва формати входять у доступ.</div></details>
+      <details><summary><i class="ic"></i>Що робити, якщо не зайде?</summary><div class="a">Пишеш протягом 14 днів — повертаю гроші. Без анкет і пояснень.</div></details>
+    </div>
+  </section>
+
+  <!-- ═════════ БЛОК 17 · ФУТЕР ═════════ -->
+  <footer class="foot">
+    <p class="who">ФОП Земляний</p>
+    <p class="links">
+      <a href="#offer">Договір оферти</a>
+      <a href="#privacy">Політика конфіденційності</a>
+    </p>
+    <p class="yr">© 2026</p>
+  </footer>
+
+</div>
+
+<div class="bar" id="bar">
+  <div class="bar-in">
+    <span class="p"><s>2400 грн</s><b>390 грн</b></span>
+    <span class="tm"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg><span data-timer>10:00</span></span>
+    <a href="#buy">Забрати −84%</a>
+  </div>
+</div>
+
+<script>
+/* таймер 10:00 — один на сторінку, переживає перезавантаження */
+(function(){
+  var KEY='ttb_deadline', TOTAL=10*60*1000;
+  var end=+localStorage.getItem(KEY);
+  if(!end||isNaN(end)||end-Date.now()>TOTAL){end=Date.now()+TOTAL;localStorage.setItem(KEY,String(end));}
+  var nodes=document.querySelectorAll('[data-timer]');
+  function paint(){
+    var ms=Math.max(0,end-Date.now());
+    var m=Math.floor(ms/60000), s=Math.floor(ms%60000/1000);
+    var txt=m+':'+(s<10?'0':'')+s;
+    for(var i=0;i<nodes.length;i++) nodes[i].textContent=txt;
+    if(ms>0) setTimeout(paint,1000-(Date.now()%1000));
+    else document.body.classList.add('expired');
+  }
+  paint();
+})();
+
+/* поява контенту — один тихий рух на всю сторінку */
+(function(){
+  var els=document.querySelectorAll('.up');
+  if(location.search.indexOf('static')>-1||!('IntersectionObserver'in window)){
+    for(var i=0;i<els.length;i++) els[i].classList.add('in');
+    return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.06,rootMargin:'0px 0px -48px'});
+  for(var j=0;j<els.length;j++) io.observe(els[j]);
+})();
+
+/* нижня панель зʼявляється після першого екрана */
+(function(){
+  var bar=document.getElementById('bar'), shown=false, tick=false;
+  function check(){
+    tick=false;
+    var want=window.scrollY>window.innerHeight*.75;
+    if(want!==shown){shown=want;bar.classList.toggle('on',want);}
+  }
+  window.addEventListener('scroll',function(){ if(!tick){tick=true;requestAnimationFrame(check);} },{passive:true});
+  check();
+})();
+</script>
+</body>
+</html>
