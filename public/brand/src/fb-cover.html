@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Manrope:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;width:1640px;height:624px;overflow:hidden;font-family:Manrope,sans-serif;color:#141a2a;
+ background:radial-gradient(900px 560px at 8% -5%,rgba(59,130,246,.22),transparent 60%),radial-gradient(760px 520px at 95% 15%,rgba(240,130,60,.18),transparent 60%),radial-gradient(760px 520px at 55% 115%,rgba(34,181,115,.16),transparent 60%),#eef3fa}
+.wrap{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 170px 0 190px;gap:40px}
+.brand{display:flex;align-items:center;gap:18px;font-family:Geologica,sans-serif;font-weight:600;font-size:44px;letter-spacing:-.02em}
+.brand img{width:64px;height:64px;border-radius:17px;box-shadow:0 12px 30px rgba(20,26,42,.18)}
+h1{font-family:Geologica,sans-serif;font-weight:500;font-size:52px;line-height:1.08;letter-spacing:-.02em;margin:34px 0 18px;max-width:600px}
+p{font-size:22px;line-height:1.45;color:#6b7590;margin:0 0 26px;max-width:560px}
+.pills{display:flex;gap:10px}
+.pill{font-family:Geologica,sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:9px 16px;border-radius:999px;color:#fff}
+.card{background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:26px 30px 24px;box-shadow:0 30px 70px rgba(120,140,190,.22);backdrop-filter:blur(18px);width:640px;justify-self:end}
+.hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.hd b{font-family:Geologica,sans-serif;font-weight:500;font-size:28px;color:#22b573;letter-spacing:-.01em}
+.hd span{font-size:15px;color:#6b7590}
+.tag{font-family:Geologica,sans-serif;font-size:11px;letter-spacing:.12em;font-weight:600;padding:4px 11px;border-radius:999px;color:#fff}
+.sent{font-size:24px;margin:14px 0 6px;line-height:1.4}
+.v1{background:rgba(59,130,246,.18);color:#3b82f6;font-weight:700;padding:1px 8px;border-radius:8px}
+.v2{background:rgba(240,130,60,.2);color:#f0823c;font-weight:700;padding:1px 8px;border-radius:8px}
+.tw{color:#6d5be8;font-weight:700;border-bottom:3px solid #6d5be8}
+.note{font-size:14px;color:#6b7590}
+.roles{display:flex;gap:8px;margin-top:16px}
+.role{font-family:Geologica,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:5px 12px;border-radius:999px}
+</style></head><body>
+<div class="wrap">
+  <div>
+    <div class="brand"><img src="../logo.svg">english-tutors</div>
+    <h1>Часи англійської, які видно, а не чути</h1>
+    <p>Картки, таймлайни, завдання і тести для вчителя: відкрив, показав, пояснив.</p>
+    <div class="pills"><span class="pill" style="background:#3b82f6">Present</span><span class="pill" style="background:#22b573">Past</span><span class="pill" style="background:#f0823c">Future</span></div>
+  </div>
+  <div class="card">
+    <div class="hd"><div><b>Past Continuous vs Past Simple</b></div><span class="tag" style="background:#22b573">PAST</span></div>
+    <svg viewBox="0 0 800 150" width="580" height="109">
+      <text x="30" y="24" font-family="Manrope" font-size="13" fill="#6b7590">past</text>
+      <text x="770" y="24" text-anchor="end" font-family="Manrope" font-size="13" fill="#6b7590">future</text>
+      <rect x="240" y="58" width="270" height="48" rx="12" fill="rgba(59,130,246,.22)" stroke="#3b82f6" stroke-width="2"/>
+      <line x1="30" y1="82" x2="764" y2="82" stroke="#141a2a" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M760 71l16 11-16 11" fill="none" stroke="#141a2a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="620" y1="36" x2="620" y2="128" stroke="#22b573" stroke-width="2" stroke-dasharray="5 6"/>
+      <rect x="590" y="6" width="60" height="24" rx="12" fill="#22b573"/><text x="620" y="22.5" text-anchor="middle" font-family="Geologica" font-weight="600" font-size="11" fill="#fff" letter-spacing="1">NOW</text>
+      <path d="M363 70l24 24M387 70l-24 24" stroke="#f0823c" stroke-width="6" stroke-linecap="round"/>
+      <text x="240" y="126" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6b7590">6:00</text>
+      <text x="375" y="126" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6b7590">6:40</text>
+      <text x="510" y="126" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#6b7590">7:00</text>
+    </svg>
+    <div class="sent">I <span class="v1">was cooking</span> dinner <span class="tw">when</span> my husband <span class="v2">came</span> home.</div>
+    <div class="note">The long action was in progress. The short action happened at one point inside it.</div>
+    <div class="roles">
+      <span class="role" style="background:rgba(34,181,115,.14);color:#22b573">positive</span>
+      <span class="role" style="background:rgba(229,82,122,.14);color:#e5527a">negative</span>
+      <span class="role" style="background:rgba(109,91,232,.14);color:#6d5be8">question</span>
+      <span class="role" style="background:rgba(230,147,30,.16);color:#e6931e">short answer</span>
+    </div>
+  </div>
+</div>
+</body></html>
