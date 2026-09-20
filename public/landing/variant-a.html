@@ -308,7 +308,7 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
   -webkit-mask-image:linear-gradient(34deg,#000 0 20%,rgba(0,0,0,.26) 54%,transparent 80%);
           mask-image:linear-gradient(34deg,#000 0 20%,rgba(0,0,0,.26) 54%,transparent 80%);
 }
-.sec>*:not(.behind){position:relative;z-index:1}
+.sec>*:not(.behind):not(.obj-bg){position:relative;z-index:1}
 
 /* ── нижня панель ──────────────────────────────────────────── */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:40;
@@ -493,7 +493,7 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
 .checks svg{flex:none;margin-top:2px;color:var(--accent-ink)}
 
 /* ══ БЛОК 13 · гарантія ═══════════════════════════════════════ */
-.warranty{margin:var(--s5) 0 0;padding:26px 22px;border-radius:var(--r-lg);text-align:center;
+.warranty{margin:-9% 8px 0;padding:26px 22px;position:relative;z-index:5;border-radius:var(--r-lg);text-align:center;
   background:var(--surface);border:1px solid var(--line);box-shadow:var(--e1);
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .warranty .shield{width:48px;height:48px;margin:0 auto;display:grid;place-items:center;
@@ -560,42 +560,56 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
 .foot .links a:hover{color:var(--accent-ink);text-decoration-color:currentColor}
 .foot .yr{margin-top:var(--s4);font-family:var(--mono);font-size:11px;color:var(--faint)}
 
-/* ══ великі обʼєкти: сцена, фішки, скляна картка поверх ═══════ */
-.scene{position:relative;margin:var(--s5) 0 var(--s4);isolation:isolate}
-.scene .obj-img{display:block;width:118%;max-width:none;height:auto;margin-left:-9%;
-  filter:drop-shadow(0 26px 44px rgba(66,96,160,.26))}
-/* поки рендера нема — місце під нього, композиція вже зібрана */
-.obj-pending{position:relative;width:112%;max-width:none;margin-left:-6%;aspect-ratio:1 / .72;
-  border-radius:50%;border:1.5px dashed var(--hair);display:grid;place-items:center;
-  background:radial-gradient(closest-side,rgba(59,130,246,.14),transparent 74%);
-  padding:28px;text-align:center}
-.obj-pending b{display:block;font-family:var(--display);font-weight:500;font-size:15px;max-width:24ch}
-.obj-pending span{display:block;margin-top:6px;font-family:var(--mono);font-size:10px;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
-.obj-pending svg{color:var(--faint);margin-bottom:10px}
-.chip{position:absolute;width:56px;height:56px;border-radius:18px;display:grid;place-items:center;
+/* ══ великі обʼєкти ═══════════════════════════════════════════
+   Два способи посадки, обидва не з'їдають висоту:
+   A — обʼєкт збоку від тексту, виходить за край колонки;
+   B — обʼєкт на задньому плані, текст іде поверх, діагональна
+       маска гасить обʼєкт рівно там, де лежить текст.
+   ═══════════════════════════════════════════════════════════ */
+
+/* A · обʼєкт збоку */
+.obj-row{display:flex;align-items:center;gap:14px;margin:var(--s4) 0 0}
+.obj-art{flex:0 0 34%;position:relative;align-self:center}
+.obj-art img{display:block;width:166%;max-width:none;height:auto;
+  filter:drop-shadow(0 20px 36px rgba(66,96,160,.24))}
+.obj-row.to-left .obj-art{order:-1}
+.obj-row.to-left .obj-art img{margin-left:-66%}
+.obj-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px}
+.dark-panel .obj-art img{filter:drop-shadow(0 22px 40px rgba(0,0,0,.5))}
+
+/* B · обʼєкт за текстом */
+.obj-bg{position:absolute;z-index:0;pointer-events:none}
+.obj-bg img{display:block;width:100%;max-width:none;height:auto}
+.obj-bg-cards{top:-34px;right:-22%;width:58%;
+  -webkit-mask-image:linear-gradient(214deg,#000 0 30%,rgba(0,0,0,.34) 62%,transparent 86%);
+          mask-image:linear-gradient(214deg,#000 0 30%,rgba(0,0,0,.34) 62%,transparent 86%)}
+
+/* фішки — дрібніші, дві на обʼєкт */
+.chip{position:absolute;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
   background:#fff;color:var(--accent-ink);box-shadow:var(--e2);z-index:4;
   animation:ofloat 6.5s ease-in-out infinite}
-.chip-a{left:2%;top:12%;rotate:-7deg}
-.chip-b{right:4%;top:34%;rotate:6deg;animation-delay:-2.2s}
-.chip-c{left:14%;bottom:6%;rotate:4deg;animation-delay:-4.1s}
-@keyframes ofloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.chip svg{width:19px;height:19px}
+.chip-a{left:-2%;top:12%;rotate:-7deg}
+.chip-b{right:6%;bottom:14%;rotate:6deg;animation-delay:-2.6s}
+@keyframes ofloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
 .dark-panel .chip{background:#f3f0e7;color:#1a2236}
-.dark-panel .obj-pending{border-color:rgba(255,255,255,.22);
-  background:radial-gradient(closest-side,rgba(91,149,255,.20),transparent 74%)}
-.dark-panel .obj-pending b{color:#e8edf6}
-.dark-panel .obj-pending svg{color:rgba(255,255,255,.4)}
-.dark-panel .obj-pending span{color:rgba(255,255,255,.38)}
-/* скляна картка, що перекриває низ обʼєкта */
-.obj-card{position:relative;z-index:5;margin:-14% 8px 0;padding:18px 20px;border-radius:var(--r-lg);
-  background:rgba(255,255,255,.74);border:1px solid var(--line);box-shadow:var(--e2);
-  backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);text-align:center}
-.dark-panel .obj-card{background:rgba(16,23,38,.66);border-color:rgba(255,255,255,.14);color:#e8edf6}
-.obj-card .big{font-family:var(--display);font-weight:600;font-size:34px;line-height:1;
-  letter-spacing:-.035em;font-variant-numeric:tabular-nums}
-.obj-card .lbl{margin-top:7px;font-size:13px;line-height:1.45;color:var(--muted)}
-.dark-panel .obj-card .lbl{color:#a9b6cd}
 @media(prefers-reduced-motion:reduce){.chip{animation:none}}
+
+/* місце під обʼєкт, якого ще нема */
+.obj-art .obj-pending{aspect-ratio:1 / 1.2}
+.obj-pending{position:relative;width:100%;aspect-ratio:1 / 1.25;border-radius:50%;
+  border:1.5px dashed var(--hair);display:grid;place-items:center;padding:18px;text-align:center;
+  background:radial-gradient(closest-side,rgba(59,130,246,.14),transparent 74%)}
+.obj-pending b{display:block;font-family:var(--display);font-weight:500;font-size:13px;max-width:18ch;line-height:1.3}
+.obj-pending span{display:block;margin-top:5px;font-family:var(--mono);font-size:9px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.obj-pending svg{color:var(--faint);margin-bottom:7px}
+
+/* компактна цифра поруч із текстом */
+.stat{display:flex;align-items:center;gap:13px}
+.stat b{font-family:var(--display);font-weight:600;font-size:38px;line-height:1;
+  letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:#fff}
+.stat span{font-size:13px;line-height:1.4;color:#a9b6cd}
 
 /* ══ рухомий рядок між секціями ═══════════════════════════════ */
 .marquee{overflow:hidden;background:linear-gradient(100deg,#182034,#101726);padding:12px 0;
@@ -755,23 +769,15 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
 
   <!-- ═════════ БЛОК 2 · БОНУСИ ═════════ -->
   <section class="sec">
+    <!-- ВЕЛИКИЙ ОБʼЄКТ 2 · стос карток, на задньому плані -->
+    <div class="obj-bg obj-bg-cards">
+      <img src="media/obj-cards.webp" alt="" loading="lazy" decoding="async">
+    </div>
+
     <h2 class="up"><span class="accent">4 бонуси</span> для тих, хто забере доступ до кінця таймера</h2>
     <p class="deck up up-1">далі банк продається без них</p>
 
-    <!-- ВЕЛИКИЙ ОБʼЄКТ 2 · стос карток, перевʼязаний стрічкою -->
-      <div class="scene up">
-        <div class="obj-pending">
-          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
-          <b>Стос друкованих карток, перевʼязаний стрічкою</b>
-          <span>media/obj-cards.webp</span>
-        </div>
-        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></i>
-        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-print"/></svg></i>
-        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></i>
-      </div>
-
     <div class="stack">
-      <div class="behind behind-bonus"><img src="media/tasks.webp" width="1500" height="843" alt="" decoding="async"></div>
       <div class="bonuses up">
       <article class="bonus">
         <span class="no">Бонус №1</span>
@@ -881,23 +887,18 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
 
     <div class="dark-panel">
       <h2 class="up">Проблема не в тобі.<br>І не в учневі.</h2>
-      <p class="up">Ти пояснюєш правильно. Він старається. Просто <b>час — це абстракція</b>. У мозку немає органа, який відчуває час, тому він добудовує його через простір: раніше — лівіше, пізніше — правіше, триває — відрізок, сталося — крапка.</p>
-      <p class="up">Таблиця в підручнику цього не дає. Вона дає перелік: формула, приклад, маркер. <b>Перелік можна вивчити. Побачити — ні.</b></p>
-
-      <!-- ВЕЛИКИЙ ОБʼЄКТ 1 · пісочний годинник на шкалі -->
-      <div class="scene up">
-        <div class="obj-pending">
-          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
-          <b>Пісочний годинник, крізь який проходить часова шкала</b>
-          <span>media/obj-hourglass.webp</span>
+      <div class="obj-row up">
+        <div class="obj-col">
+          <p>Ти пояснюєш правильно. Він старається. Просто <b>час — це абстракція</b>. У мозку немає органа, який відчуває час, тому він добудовує його через простір: раніше — лівіше, пізніше — правіше, триває — відрізок, сталося — крапка.</p>
+          <p>Таблиця в підручнику цього не дає. Вона дає перелік: формула, приклад, маркер. <b>Перелік можна вивчити. Побачити — ні.</b></p>
+          <div class="stat"><b>12</b><span>часів — і кожен стоїть у своєму місці на одній шкалі</span></div>
         </div>
-        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></i>
-        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></i>
-        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-screen"/></svg></i>
-      </div>
-      <div class="obj-card up">
-        <div class="big">12</div>
-        <p class="lbl">часів — і кожен стоїть у своєму місці на одній шкалі</p>
+        <!-- ВЕЛИКИЙ ОБʼЄКТ 1 · пісочний годинник на шкалі -->
+        <div class="obj-art">
+          <img src="media/obj-hourglass.webp" alt="Пісочний годинник, крізь який проходить часова шкала" loading="lazy" decoding="async">
+          <i class="chip chip-a"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></i>
+          <i class="chip chip-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-aim"/></svg></i>
+        </div>
       </div>
     </div>
   </section>
@@ -1027,8 +1028,9 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
       <article><span class="n">06</span><h3>Тим, хто веде і дітей, і дорослих</h3><p>Ті самі матеріали працюють на обидві аудиторії: дитині — гра, дорослому — схема й тест. Не треба тримати два окремі набори.</p></article>
       <article><span class="n">07</span><h3>Тим, хто повертається до викладання після перерви</h3><p>Оновлювати матеріали з нуля не доведеться — актуальна збірка вже в руках.</p></article>
     </div>
+  </section>
 
-  <!-- ═════════ БЛОК 8 · CTA ═════════ -->
+<!-- ═════════ БЛОК 8 · CTA ═════════ -->
   <section class="sec" style="padding-top:0;padding-bottom:0">
     <div class="band">
       <h2 class="up">70 матеріалів + 4 бонуси — <span class="accent">390 грн</span></h2>
@@ -1082,8 +1084,9 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
       <article><span class="n">05</span><h3>На першому занятті з новим учнем</h3><p>Показуєш майндмеп усіх часів: ось де ти зараз, ось куди рухаємось. Учень з першого уроку бачить маршрут, а не безкінечну купу тем.</p></article>
       <article><span class="n">06</span><h3>Коли повертаєшся до пройденого</h3><p>Не переказуєш тему заново — відкриваєш ту саму схему, яку показував(ла) три місяці тому. Учень упізнає її й згадує за секунди.</p></article>
     </div>
+  </section>
 
-  <!-- ═════════ БЛОК 11 · ЧИ МОЖЕШ ЗІБРАТИ ЦЕ САМ(А)? ═════════ -->
+<!-- ═════════ БЛОК 11 · ЧИ МОЖЕШ ЗІБРАТИ ЦЕ САМ(А)? ═════════ -->
   <section class="sec">
     <h2 class="up"><span class="accent">Так, можеш.</span> І це безкоштовно</h2>
     <p class="deck up up-1">питання тільки в тому, скільки це займе</p>
@@ -1099,24 +1102,26 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
       <div class="up"><h4>26 тестів</h4><p>Скласти, розкласти за рівнями, налаштувати автоперевірку, вичистити помилки.</p></div>
     </div>
 
-    <!-- ВЕЛИКИЙ ОБʼЄКТ 3 · настільний годинник і стос чернеток -->
-      <div class="scene up">
+    <div class="obj-row to-left up">
+      <!-- ВЕЛИКИЙ ОБʼЄКТ 3 · настільний годинник і стос чернеток -->
+      <div class="obj-art">
         <div class="obj-pending">
-          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
-          <b>Настільний годинник поруч зі стосом зіжмаканих чернеток</b>
-          <span>media/obj-clock.webp</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
+          <b>Годинник і стос чернеток</b>
+          <span>obj-clock.webp</span>
         </div>
-        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></i>
-        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg></i>
-        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cross"/></svg></i>
       </div>
+      <div class="obj-col">
+        <p class="lede">Порахуй по-іншому. Скільки коштує твоя година? Навіть якщо взяти мінімум — <b>390 грн це одне заняття</b>. Одне.</p>
+      </div>
+    </div>
 
     <div class="pull up">
       <h3>На таку збірку йде до двох місяців роботи</h3>
       <p>Не двох місяців вільного часу — <b>двох місяців вечорів після уроків</b>. Коли ти вже відпрацював(ла) день, а ввечері сідаєш верстати картку, бо завтра вона потрібна на занятті.</p>
     </div>
 
-    <p class="lede up">Порахуй по-іншому. Скільки коштує твоя година? Навіть якщо взяти мінімум — <b>390 грн це одне заняття</b>. Одне. За збірку, яку ти інакше збиратимеш два місяці й усе одно зробиш гірше, ніж хотілося, бо між уроками робиться на швидку руку.</p>
+    <p class="lede up">За збірку, яку ти інакше збиратимеш два місяці й усе одно зробиш гірше, ніж хотілося, бо між уроками робиться на швидку руку.</p>
 
     <p class="claim up" style="margin-top:var(--s5)">Ти не платиш за матеріали. Ти платиш за <span class="accent">два місяці, які не витратиш</span>.</p>
 
@@ -1155,21 +1160,17 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
     <h2 class="up"><span class="accent">14 днів</span> на повернення</h2>
     <p class="deck up up-1">без анкет і пояснень</p>
 
-    <!-- ВЕЛИКИЙ ОБʼЄКТ 4 · щит, складений з аркуша паперу -->
-      <div class="scene up">
-        <div class="obj-pending">
-          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shot"/></svg>
-          <b>Щит, складений з одного аркуша цупкого паперу</b>
-          <span>media/obj-shield.webp</span>
-        </div>
-        <i class="chip chip-a"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg></i>
-        <i class="chip chip-b"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lock"/></svg></i>
-        <i class="chip chip-c"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></i>
+    <div class="obj-row to-left up">
+      <!-- ВЕЛИКИЙ ОБʼЄКТ 4 · щит, складений з аркуша паперу -->
+      <div class="obj-art">
+        <img src="media/obj-shield.webp" alt="Щит, складений з аркуша паперу" loading="lazy" decoding="async">
+        <i class="chip chip-a"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg></i>
+        <i class="chip chip-b"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lock"/></svg></i>
       </div>
-
-    <div class="warranty up">
-      <p>Відкрив платформу, подивився схеми, провів з ними урок — і зрозумів(ла), що це не твоє.</p>
-      <p><b>Пишеш одне повідомлення протягом 14 днів і отримуєш гроші назад.</b> Без анкет, без «доведи, що користувався», без «а чому саме?».</p>
+      <div class="obj-col">
+        <p class="lede">Відкрив платформу, подивився схеми, провів з ними урок — і зрозумів(ла), що це не твоє.</p>
+        <p class="lede"><b>Пишеш одне повідомлення протягом 14 днів і отримуєш гроші назад.</b> Без анкет, без «доведи, що користувався», без «а чому саме?».</p>
+      </div>
     </div>
 
     <p class="claim up" style="margin-top:var(--s5)">Або збірка економить тобі години підготовки — або я повертаю гроші. <span class="accent">Третього не дано.</span></p>
@@ -1297,6 +1298,9 @@ figcaption{margin-top:var(--s4);text-align:center;font-size:12.5px;color:var(--m
   var els=document.querySelectorAll('.up');
   if(location.search.indexOf('static')>-1||!('IntersectionObserver'in window)){
     for(var i=0;i<els.length;i++) els[i].classList.add('in');
+    /* для знімків: не чекати, поки lazy-картинки доїдуть у видиму зону */
+    var im=document.images;
+    for(var k=0;k<im.length;k++) im[k].loading='eager';
     return;
   }
   var io=new IntersectionObserver(function(es){
