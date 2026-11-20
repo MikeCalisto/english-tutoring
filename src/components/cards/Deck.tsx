@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { Topic } from "@/content/types";
 import { CardView } from "./Card";
+import { Icon, cardIcon } from "@/components/Icon";
 
 /** Короткое имя карточки для переключателя: убираем название темы из заголовка. */
 function shortName(title: string, topic: string) {
@@ -40,25 +41,26 @@ export function Deck({ topic, initial = 0 }: { topic: Topic; initial?: number })
   const card = cards[i];
   return (
     <>
-      <div className="subnav subnav-row">
+      <div className="subnav subnav-row" data-tour="subnav">
         <span className={`grp g-${topic.group}`} style={{ background: "var(--frame)" }}>{topic.group.toUpperCase()}</span>
         {cards.map((c, k) => (
           <button key={k} className={`crumb2 g-${topic.group}${k === i ? " on" : ""}`} onClick={() => setI(k)}>
+            <Icon name={cardIcon(c)} size={14} />
             {shortName(c.title, topic.topic)}
           </button>
         ))}
         <div className="grow" />
         <div className="pager">
           <button onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0} aria-label="Попередня">
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 3L5 9l6 6" /></svg>
+            <Icon name="left" />
           </button>
           <span>{i + 1} / {n}</span>
           <button onClick={() => setI(Math.min(n - 1, i + 1))} disabled={i === n - 1} aria-label="Наступна">
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 3l6 6-6 6" /></svg>
+            <Icon name="right" />
           </button>
         </div>
       </div>
-      {card && <CardView card={{ ...card, group: card.group ?? topic.group }} footer={`${topic.topic} · ${i + 1} / ${n}`} />}
+      {card && <CardView card={{ ...card, group: card.group ?? topic.group }} footer={`${topic.topic} · ${i + 1} / ${n}`} topicId={topic.id} />}
     </>
   );
 }

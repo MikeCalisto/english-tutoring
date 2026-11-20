@@ -135,7 +135,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .btn:hover { background: var(--surface2); }
 .btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 
-.layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); flex: 1; }
+.layout { display: grid; grid-template-columns: 272px minmax(0, 1fr); flex: 1; }
 .rail { border-right: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 60%, transparent); padding: 18px 14px; display: flex; flex-direction: column; gap: 4px; position: sticky; top: 53px; align-self: start; max-height: calc(100vh - 53px); overflow: auto; }
 .rail-h { font-family: var(--display); font-size: 11px; letter-spacing: .12em; font-weight: 600; padding: 12px 10px 6px; }
 .rail-h.present { color: var(--frame-present); } .rail-h.past { color: var(--frame-past); }
@@ -152,7 +152,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .grp { font-family: var(--display); font-size: 11px; letter-spacing: .12em; font-weight: 600; padding: 4px 10px; border-radius: var(--pill); color: var(--on-frame); background: var(--frame); }
 .crumb2 { font-size: 13px; padding: 5px 12px; border-radius: var(--pill); color: var(--muted); border: 1px solid var(--line-strong); background: var(--surface); }
 .crumb2:hover { color: var(--ink); }
-.crumb2.on { background: var(--frame); border-color: var(--frame); color: var(--on-frame); font-weight: 600; }
+.crumb2.on { background: var(--frame, var(--accent)); border-color: var(--frame, var(--accent)); color: var(--on-frame); font-weight: 600; }
 .pager { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
 .pager button { border: 1px solid var(--line-strong); border-radius: var(--pill); padding: 5px 9px; color: var(--ink); background: var(--surface); display: inline-flex; align-items: center; }
 .pager button:disabled { color: var(--faint); cursor: default; }
@@ -220,7 +220,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .chip { font-family: var(--mono); font-size: 12.5px; padding: 5px 11px; border-radius: var(--pill); background: var(--frame-soft); color: var(--ink); }
 .uses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 26px; }
 .u { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-.u .em { font-size: 22px; line-height: 1.1; flex: none; width: 28px; text-align: center; }
+.u .tile { margin-top: 1px; }
 .u .ttl { font-size: 13px; font-weight: 600; color: var(--frame); margin-bottom: 6px; line-height: 1.35; }
 .u .ex2 { font-size: 16px; line-height: 1.45; margin: 0; }
 .u .ex2 + .ex2 { margin-top: 3px; }
@@ -438,3 +438,49 @@ input:focus { outline: none; border-color: var(--muted); }
   .ld-hero, .ld-author { grid-template-columns: 1fr; }
   .ld-grid3, .ld-grid4 { grid-template-columns: 1fr; }
 }
+
+/* ---------- icons ---------- */
+.ic { flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.warnrow .ic { stroke-width: 2.2; }
+.tile { width: 44px; height: 44px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; flex: none; background: color-mix(in srgb, var(--frame, var(--accent)) 14%, var(--paper)); color: var(--frame, var(--accent)); }
+.tile.sm { width: 34px; height: 34px; border-radius: 11px; }
+.tab { display: inline-flex; align-items: center; gap: 7px; }
+.top-actions { display: flex; align-items: center; gap: 10px; }
+.btn .ic { opacity: .8; }
+.rail a .lbl, .rail .dis .lbl { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
+.rail a .ic { color: var(--frame); opacity: .85; }
+.rail a.on .ic { opacity: 1; }
+.rail .dis .ic { opacity: .5; }
+.rail-h { display: flex; align-items: center; gap: 7px; }
+.rail-h i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.crumb2 { display: inline-flex; align-items: center; gap: 6px; }
+.pn-lb { display: inline-flex; align-items: center; gap: 6px; }
+.blk h4, .exs-h { display: flex; align-items: center; gap: 7px; }
+.card-hd .hd-l { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.card-hd .hd-r { display: flex; align-items: center; gap: 14px; flex: none; }
+.sig { width: 150px; height: 34px; color: var(--frame); flex: none; }
+.tcard-type { display: inline-flex; align-items: center; gap: 6px; }
+.tl-lg .ic { color: var(--muted); }
+.page-hd { display: flex; align-items: center; gap: 14px; }
+.empty { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.empty .tile { width: 56px; height: 56px; border-radius: 18px; }
+.shell.fs .sig { display: none; }
+@media (max-width: 900px) { .sig { display: none; } .top-actions { gap: 6px; } }
+
+/* ---------- onboarding tour ---------- */
+.tour { position: fixed; inset: 0; z-index: 100; }
+.tour-block { position: absolute; inset: 0; }
+.tour-dim { position: absolute; inset: 0; background: rgba(10, 14, 24, .62); }
+.tour-hole { position: fixed; border-radius: 16px; box-shadow: 0 0 0 9999px rgba(10, 14, 24, .62), 0 0 0 2px var(--accent); transition: top .28s ease, left .28s ease, width .28s ease, height .28s ease; pointer-events: none; }
+.tour-pop { position: fixed; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px 16px; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); display: flex; flex-direction: column; gap: 8px; transition: top .28s ease, left .28s ease; }
+.tour-step { font-family: var(--display); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.tour-title { font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: -.01em; margin: 0; }
+.tour-text { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.tour-dots { display: flex; gap: 5px; margin-top: 4px; }
+.tour-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--line-strong); }
+.tour-dots i.done { background: color-mix(in srgb, var(--accent) 45%, var(--line-strong)); }
+.tour-dots i.on { width: 18px; border-radius: 3px; background: var(--accent); }
+.tour-actions { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.tour-skip { font-size: 13px; color: var(--muted); padding: 6px 2px; }
+.tour-skip:hover { color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .tour-hole, .tour-pop { transition: none; } }

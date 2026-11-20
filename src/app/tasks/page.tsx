@@ -1,12 +1,14 @@
 import { getTasks } from "@/content";
 import { TasksGrid } from "@/components/TasksGrid";
+import { Tile } from "@/components/Icon";
 
 export default function TasksPage() {
   const tasks = getTasks();
   return (
     <div className="layout" style={{ gridTemplateColumns: "1fr" }}>
       <main className="main">
-        <div className="cab-head">
+        <div className="page-hd g-future">
+          <Tile name="tasks" />
           <div>
             <h1 className="h1">Інтерактивні завдання</h1>
             <p className="muted">Завдання живуть на Wordwall і відкриваються в новій вкладці.</p>

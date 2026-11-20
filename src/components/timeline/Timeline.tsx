@@ -1,5 +1,6 @@
 import type { Group, TLLane, TLSentence, Timeline } from "@/content/types";
 import { BRAND } from "@/config/brand";
+import { Icon, Tile, topicIcon } from "@/components/Icon";
 
 const W = 800;
 const H = 158;
@@ -116,11 +117,14 @@ export function TimelineCard({ t, footer }: { t: Timeline; footer?: string }) {
   const group: Group = t.group;
   const two = t.tenses.length > 1;
   return (
-    <div className={`card g-${group} tl`}>
+    <div className={`card g-${group} tl`} data-tour="card">
       <div className="card-hd">
+        <div className="hd-l">
+        <Tile name={topicIcon(t.id, t.tenses.length)} />
         <div className="card-t">
           <span className="card-h">{t.title}</span>
           {t.subtitle && <span className="card-sub">{t.subtitle}</span>}
+        </div>
         </div>
         <div className="tchips">
           {t.tenses.map((n, i) => (
@@ -143,13 +147,10 @@ export function TimelineCard({ t, footer }: { t: Timeline; footer?: string }) {
           <div><span className="lg-sq t1" /> {t.tenses[0]}</div>
           {two && <div><span className="lg-sq t2" /> {t.tenses[1]}</div>}
           <div>
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" className="lg-x">
-              <path d="M3 1l12 12M15 1L3 13" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-            </svg>
-            one action at a point
+            <Icon name="simple" /> one action at a point
           </div>
-          <div><span className="lg-block" /> action with duration</div>
-          <div><span className="lg-time" /> time expression</div>
+          <div><Icon name="continuous" /> action with duration</div>
+          <div><Icon name="clock" /> time expression</div>
         </div>
       </div>
       <div className="card-ft">

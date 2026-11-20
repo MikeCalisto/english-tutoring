@@ -3,12 +3,19 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import type { Task } from "@/content";
+import { Icon, taskIcon, topicIcon } from "@/components/Icon";
 
 function groupOf(tense: string) {
   if (tense.startsWith("present")) return "present";
   if (tense.startsWith("past")) return "past";
   if (tense.startsWith("future") || tense === "be-going-to") return "future";
   return "other";
+}
+
+/** Значок фільтра: один час = його міні-таймлайн, кілька часів = два кола. */
+function filterIcon(tense: string) {
+  const i = topicIcon(tense);
+  return i === "cards" ? "versus" : i;
 }
 
 /** Сетка заданий на весь экран с фильтром по временам. */
@@ -23,9 +30,9 @@ export function TasksGrid({ tasks }: { tasks: Task[] }) {
   return (
     <>
       <div className="subnav">
-        <button className={`crumb2${f === "all" ? " on" : ""}`} onClick={() => setF("all")}>Усі · {tasks.length}</button>
+        <button className={`crumb2${f === "all" ? " on" : ""}`} onClick={() => setF("all")}><Icon name="tasks" size={14} />Усі · {tasks.length}</button>
         {tenses.map(([id, label]) => (
-          <button key={id} className={`crumb2 g-${groupOf(id)}${f === id ? " on" : ""}`} onClick={() => setF(id)}>{label}</button>
+          <button key={id} className={`crumb2 g-${groupOf(id)}${f === id ? " on" : ""}`} onClick={() => setF(id)}><Icon name={filterIcon(id)} size={14} />{label}</button>
         ))}
       </div>
       <div className="task-grid">
@@ -37,14 +44,14 @@ export function TasksGrid({ tasks }: { tasks: Task[] }) {
               ) : (
                 <div className="tcard-noimg">Wordwall</div>
               )}
-              <span className="tcard-type">{t.type}</span>
+              <span className="tcard-type"><Icon name={taskIcon(t.type)} size={13} />{t.type}</span>
             </div>
             <div className="tcard-body">
               <span className="grp">{t.tenseLabel}</span>
               <div className="tcard-title">{t.title}</div>
               <div className="tcard-meta">
                 <span>Wordwall</span>
-                <span className="btn">Відкрити</span>
+                <span className="btn">Відкрити<Icon name="external" size={14} /></span>
               </div>
             </div>
           </a>

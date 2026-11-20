@@ -17,6 +17,8 @@ export const users = pgTable(
     active: boolean("active").notNull().default(false),
     /** Сколько учеников может пригласить учитель. */
     studentLimit: integer("student_limit").notNull().default(10),
+    /** Коли користувач пройшов навчання по платформі. null: ще не бачив, покажемо при вході. */
+    tourDoneAt: timestamp("tour_done_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [uniqueIndex("users_telegram_id_idx").on(t.telegramId)],

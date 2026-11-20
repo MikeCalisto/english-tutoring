@@ -7,6 +7,7 @@ import { TopBar } from "@/components/shell/TopBar";
 import { ShellFrame } from "@/components/shell/ShellFrame";
 import { getCurrentUser } from "@/lib/auth";
 import { getSearchIndex } from "@/content";
+import { Tour } from "@/components/shell/Tour";
 
 const display = Geologica({ variable: "--font-display", subsets: ["latin", "cyrillic"], weight: ["400", "500", "600"] });
 const body = Manrope({ variable: "--font-body", subsets: ["latin", "cyrillic"], weight: ["400", "600", "700"] });
@@ -28,6 +29,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <ShellFrame>
           <TopBar user={user} search={getSearchIndex()} theme={theme} />
           {children}
+          {u && <Tour auto={!u.tourDoneAt} role={u.role} />}
         </ShellFrame>
       </body>
     </html>

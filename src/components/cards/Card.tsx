@@ -1,6 +1,7 @@
 import type { Block, Card, CompareCard, ContentCard, FormCard, Group, Panel, UseItem } from "@/content/types";
 import { BRAND } from "@/config/brand";
 import { Html } from "@/components/Html";
+import { BLOCK_ICON, Icon, ROLE_ICON, TenseSig, Tile, cardIcon, emojiIcon } from "@/components/Icon";
 
 const ROLE_LABEL: Record<string, string> = {
   positive: "Positive",
@@ -31,15 +32,21 @@ function Pills({ items, cls = "pr" }: { items: string[]; cls?: string }) {
   );
 }
 
-function Shell({ group, title, subtitle, footer, children }: { group: Group; title: string; subtitle?: string; footer?: string; children: React.ReactNode }) {
+function Shell({ group, title, subtitle, footer, icon, topicId, children }: { group: Group; title: string; subtitle?: string; footer?: string; icon: string; topicId?: string; children: React.ReactNode }) {
   return (
-    <div className={`card g-${group}`}>
+    <div className={`card g-${group}`} data-tour="card">
       <div className="card-hd">
-        <div className="card-t">
-          <span className="card-h">{title}</span>
-          {subtitle && <span className="card-sub">{subtitle}</span>}
+        <div className="hd-l">
+          <Tile name={icon} />
+          <div className="card-t">
+            <span className="card-h">{title}</span>
+            {subtitle && <span className="card-sub">{subtitle}</span>}
+          </div>
         </div>
-        <span className="grp">{group.toUpperCase()}</span>
+        <div className="hd-r">
+          <TenseSig topicId={topicId} />
+          <span className="grp">{group.toUpperCase()}</span>
+        </div>
       </div>
       <div className="card-bd">{children}</div>
       <div className="card-ft">
@@ -55,7 +62,7 @@ function Shell({ group, title, subtitle, footer, children }: { group: Group; tit
 function RowsPanel({ p }: { p: Panel }) {
   return (
     <div className={`pn p-${p.role}`}>
-      <div className="pn-lb">{ROLE_LABEL[p.role]}</div>
+      <div className="pn-lb"><Icon name={ROLE_ICON[p.role]} size={14} />{ROLE_LABEL[p.role]}</div>
       {p.rows?.map((r, n) => (
         <div className="r" key={n}>
           {r.prefix && (
@@ -85,7 +92,7 @@ function RowsPanel({ p }: { p: Panel }) {
 function ShortAnswerPanel({ p }: { p: Panel }) {
   return (
     <div className={`pn p-${p.role}`}>
-      <div className="pn-lb">{ROLE_LABEL[p.role]}</div>
+      <div className="pn-lb"><Icon name={ROLE_ICON[p.role]} size={14} />{ROLE_LABEL[p.role]}</div>
       <div className="sa-wrap">
         {p.units?.map((u, n) => (
           <div className="sa-unit" key={n}>
@@ -113,7 +120,7 @@ function ShortAnswerPanel({ p }: { p: Panel }) {
 function CarefulPanel({ p }: { p: Panel }) {
   return (
     <div className={`pn p-${p.role}`}>
-      <div className="pn-lb">{ROLE_LABEL[p.role]}</div>
+      <div className="pn-lb"><Icon name={ROLE_ICON[p.role]} size={14} />{ROLE_LABEL[p.role]}</div>
       <div className="warn-cols">
         {p.columns?.map((c, n) => (
           <div key={n}>
@@ -128,7 +135,7 @@ function CarefulPanel({ p }: { p: Panel }) {
   );
 }
 
-function FormCardView({ c, footer }: { c: FormCard; footer?: string }) {
+function FormCardView({ c, footer, topicId }: { c: FormCard; footer?: string; topicId?: string }) {
   const top = c.panels.filter((p) => p.role !== "careful");
   const careful = c.panels.find((p) => p.role === "careful");
   const sa = c.panels.find((p) => p.role === "short_answer");
@@ -139,7 +146,7 @@ function FormCardView({ c, footer }: { c: FormCard; footer?: string }) {
   ];
   const hasSa = Boolean(sa);
   return (
-    <Shell group={c.group ?? "present"} title={c.title} subtitle={c.subtitle} footer={footer}>
+    <Shell group={c.group ?? "present"} title={c.title} subtitle={c.subtitle} footer={footer} icon={cardIcon(c)} topicId={topicId}>
       <div className={`panels${hasSa ? "" : " no-sa"}`}>
         {top.map((p, n) =>
           p.role === "short_answer" ? <ShortAnswerPanel key={n} p={p} /> : <RowsPanel key={n} p={p} />,
@@ -150,7 +157,7 @@ function FormCardView({ c, footer }: { c: FormCard; footer?: string }) {
           {careful && <CarefulPanel p={careful} />}
           {examples.length > 0 && (
             <div className="exs">
-              <div className="exs-h">Examples</div>
+              <div className="exs-h"><Icon name="quote" size={14} />Examples</div>
               <div className={`ex-grid${examples.length > 4 ? " many" : ""}`}>
                 {examples.map((e, i) => (
                   <Html key={i} className="ex" html={e} />
@@ -212,7 +219,7 @@ function BlockView({ b, forceWide }: { b: Block; forceWide?: boolean }) {
         <div className="uses">
           {(items as UseItem[]).map((u, n) => (
             <div className={`u${u.wide ? " wide" : ""}`} key={n}>
-              <div className="em">{u.emoji ?? ""}</div>
+              <Tile name={emojiIcon(u.emoji)} small />
               <div>
                 <div className="ttl">{u.case}</div>
                 {u.examples.map((e, i) => (
@@ -294,20 +301,20 @@ function BlockView({ b, forceWide }: { b: Block; forceWide?: boolean }) {
   const wide = forceWide || (b.kind ? WIDE_KINDS.has(b.kind) : false);
   return (
     <div className={`blk${wide ? " wide" : ""}${b.warn ? " warn" : ""}`}>
-      {b.heading && <h4>{b.heading}</h4>}
+      {b.heading && <h4>{b.kind && <Icon name={BLOCK_ICON[b.kind] ?? "cards"} size={14} />}{b.heading}</h4>}
       {b.note && <Html as="p" className="note" html={b.note} />}
       {inner}
     </div>
   );
 }
 
-function ContentCardView({ c, footer }: { c: ContentCard; footer?: string }) {
+function ContentCardView({ c, footer, topicId }: { c: ContentCard; footer?: string; topicId?: string }) {
   const one = c.blocks.length === 1;
   // Если узкий блок остаётся один среди широких, он тоже растягивается на всю ширину.
   const narrow = c.blocks.filter((b) => !(b.kind && WIDE_KINDS.has(b.kind)));
   const forceWide = narrow.length === 1;
   return (
-    <Shell group={c.group ?? "present"} title={c.title} subtitle={c.subtitle} footer={footer}>
+    <Shell group={c.group ?? "present"} title={c.title} subtitle={c.subtitle} footer={footer} icon={cardIcon(c)} topicId={topicId}>
       <div className={`blocks${one ? " one" : ""}`}>
         {c.blocks.map((b, n) => (
           <BlockView key={n} b={b} forceWide={forceWide} />
@@ -317,9 +324,9 @@ function ContentCardView({ c, footer }: { c: ContentCard; footer?: string }) {
   );
 }
 
-function CompareCardView({ c, footer }: { c: CompareCard; footer?: string }) {
+function CompareCardView({ c, footer, topicId }: { c: CompareCard; footer?: string; topicId?: string }) {
   return (
-    <Shell group={c.group ?? "present"} title={c.title} subtitle={c.subtitle} footer={footer}>
+    <Shell group={c.group ?? "present"} title={c.title} subtitle={c.subtitle} footer={footer} icon={cardIcon(c)} topicId={topicId}>
       <div className="cmp" style={{ gridTemplateColumns: `repeat(${c.columns.length}, minmax(0, 1fr))` }}>
         {c.columns.map((col, n) => (
           <div className={`cmp-col c-t${n + 1}`} key={n}>
@@ -359,8 +366,8 @@ function CompareCardView({ c, footer }: { c: CompareCard; footer?: string }) {
   );
 }
 
-export function CardView({ card, footer }: { card: Card; footer?: string }) {
-  if (card.type === "form") return <FormCardView c={card} footer={footer} />;
-  if (card.type === "compare") return <CompareCardView c={card} footer={footer} />;
-  return <ContentCardView c={card} footer={footer} />;
+export function CardView({ card, footer, topicId }: { card: Card; footer?: string; topicId?: string }) {
+  if (card.type === "form") return <FormCardView c={card} footer={footer} topicId={topicId} />;
+  if (card.type === "compare") return <CompareCardView c={card} footer={footer} topicId={topicId} />;
+  return <ContentCardView c={card} footer={footer} topicId={topicId} />;
 }

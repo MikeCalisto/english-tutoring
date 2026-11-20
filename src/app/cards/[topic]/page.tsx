@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getNav, getTopic, getTopics } from "@/content";
 import { Rail } from "@/components/shell/Rail";
 import { Deck } from "@/components/cards/Deck";
+import { topicIcon } from "@/components/Icon";
 
 export function generateStaticParams() {
   return getTopics().map((t) => ({ topic: t.id }));
@@ -16,7 +17,7 @@ export default async function TopicPage({ params, searchParams }: { params: Prom
   const groups = getNav().map((g) => ({
     id: g.id,
     label: g.label,
-    items: g.topics.map((x) => ({ id: x.id, label: x.label, href: `/cards/${x.id}`, available: x.available, count: x.count })),
+    items: g.topics.map((x) => ({ id: x.id, label: x.label, href: `/cards/${x.id}`, available: x.available, count: x.count, icon: topicIcon(x.id) })),
   }));
   return (
     <div className="layout">

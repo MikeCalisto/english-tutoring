@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getTimeline, getTimelines } from "@/content";
 import { Rail, type RailGroup } from "@/components/shell/Rail";
 import { TimelineCard } from "@/components/timeline/Timeline";
+import { topicIcon } from "@/components/Icon";
 
 export function generateStaticParams() {
   return getTimelines().map((t) => ({ id: t.id }));
@@ -15,8 +16,8 @@ export default async function TimelinePage({ params }: { params: Promise<{ id: s
   const single = all.filter((x) => x.tenses.length === 1);
   const conflicts = all.filter((x) => x.tenses.length > 1);
   const groups: RailGroup[] = [
-    { id: "present", label: "Часи", items: single.map((x) => ({ id: x.id, label: x.title, href: `/timelines/${x.id}` })) },
-    { id: "past", label: "Конфлікти часів", items: conflicts.map((x) => ({ id: x.id, label: x.title, href: `/timelines/${x.id}` })) },
+    { id: "present", label: "Часи", items: single.map((x) => ({ id: x.id, label: x.title, href: `/timelines/${x.id}`, icon: topicIcon(x.id) })) },
+    { id: "past", label: "Конфлікти часів", items: conflicts.map((x) => ({ id: x.id, label: x.title, href: `/timelines/${x.id}`, icon: "versus" })) },
   ];
   const idx = all.findIndex((x) => x.id === id);
   return (
