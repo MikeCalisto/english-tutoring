@@ -198,11 +198,14 @@ export function Tour({ auto, role }: { auto: boolean; role: Role }) {
     <div className="tour" role="dialog" aria-modal="true" aria-label="Навчання по платформі">
       <div className="tour-block" />
       {hole ? (
-        <div className="tour-hole" style={{ top: hole.top, left: hole.left, width: hole.right - hole.left, height: hole.bottom - hole.top }} />
+        <div className="tour-hole" style={{ top: hole.top, left: hole.left, width: hole.right - hole.left, height: hole.bottom - hole.top }}>
+          <div className="tour-ring" key={step.id} />
+        </div>
       ) : (
         <div className="tour-dim" />
       )}
       <div className="tour-pop" style={pos}>
+        <div className="tour-pop-in" key={step.id}>
         <div className="tour-step">Крок {i + 1} з {steps.length}</div>
         <h3 className="tour-title">{step.title}</h3>
         <p className="tour-text">{text}</p>
@@ -216,6 +219,7 @@ export function Tour({ auto, role }: { auto: boolean; role: Role }) {
           <div className="grow" />
           {i > 0 && <button type="button" className="btn" onClick={() => setI(i - 1)}>Назад</button>}
           <button type="button" className="btn primary" autoFocus onClick={() => (last ? finish() : setI(i + 1))}>{last ? "Почати роботу" : "Далі"}</button>
+        </div>
         </div>
       </div>
     </div>

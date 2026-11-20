@@ -471,8 +471,12 @@ input:focus { outline: none; border-color: var(--muted); }
 .tour { position: fixed; inset: 0; z-index: 100; }
 .tour-block { position: absolute; inset: 0; }
 .tour-dim { position: absolute; inset: 0; background: rgba(10, 14, 24, .62); }
-.tour-hole { position: fixed; border-radius: 16px; box-shadow: 0 0 0 9999px rgba(10, 14, 24, .62), 0 0 0 2px var(--accent); transition: top .28s ease, left .28s ease, width .28s ease, height .28s ease; pointer-events: none; }
-.tour-pop { position: fixed; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px 16px; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); display: flex; flex-direction: column; gap: 8px; transition: top .28s ease, left .28s ease; }
+.tour-hole { position: fixed; border-radius: 16px; box-shadow: 0 0 0 9999px rgba(10, 14, 24, .62); pointer-events: none; }
+.tour-ring { position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 2px var(--accent); animation: tour-ring .32s ease both; }
+@keyframes tour-ring { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+@keyframes tour-pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.tour-pop { position: fixed; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px 16px; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); display: flex; flex-direction: column; gap: 8px; }
+.tour-pop-in { display: flex; flex-direction: column; gap: 8px; animation: tour-pop .28s ease both; }
 .tour-step { font-family: var(--display); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 .tour-title { font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: -.01em; margin: 0; }
 .tour-text { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--muted); }
@@ -483,4 +487,4 @@ input:focus { outline: none; border-color: var(--muted); }
 .tour-actions { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
 .tour-skip { font-size: 13px; color: var(--muted); padding: 6px 2px; }
 .tour-skip:hover { color: var(--ink); }
-@media (prefers-reduced-motion: reduce) { .tour-hole, .tour-pop { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .tour-ring, .tour-pop-in { animation: none; } }
