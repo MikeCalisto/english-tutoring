@@ -8,6 +8,7 @@ const P: Record<string, string> = {
   timeline: '<path d="M2 12h19"/><path d="M18 8.5l3.5 3.5-3.5 3.5"/><circle cx="8" cy="12" r="2.4" fill="currentColor" stroke="none"/>',
   tasks: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="M10 9l5 3-5 3z"/>',
   tests: '<rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4.2V3h6v1.2"/><path d="M9 13l2.2 2.2L15.2 11"/>',
+  mindmap: '<circle cx="12" cy="12" r="2.6"/><path d="M9.4 12H7M14.6 12H17"/><path d="M7 12C5 12 5 6.500 2.500 6.500M7 12c-2 0-2 5.500-4.500 5.500M17 12c2 0 2-5.500 4.500-5.500M17 12c2 0 2 5.500 4.500 5.500"/>',
   // аспекти часів: міні-таймлайни
   simple: '<path d="M2 12h20"/><path d="M9.3 9.3l5.4 5.4M14.7 9.3l-5.4 5.4"/>',
   continuous: '<path d="M2 12h4M18 12h4"/><rect x="6" y="8" width="12" height="8" rx="2.5"/>',

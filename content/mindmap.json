@@ -1,0 +1,289 @@
+{
+  "title": "English Tenses",
+  "tenses": [
+    {
+      "id": "present-simple",
+      "title": "Present Simple",
+      "group": "present",
+      "side": "left",
+      "form": {
+        "pos": "S + V   (he / she / it: V-s)",
+        "neg": "S + don't / doesn't + V",
+        "que": "Do / Does + S + V?"
+      },
+      "uses": [
+        "permanent situations and states",
+        "habits and repeated actions",
+        "general truths and laws of nature",
+        "timetables and programmes",
+        "commentaries, reviews, stories"
+      ],
+      "time": [
+        "always · usually · often · sometimes · rarely · never",
+        "every day / week / year",
+        "on Mondays · in the morning · at night"
+      ],
+      "spelling": [
+        "most verbs: + -s (works)",
+        "-s, -ss, -sh, -ch, -x, -o: + -es (watches, goes)",
+        "consonant + y: -ies (studies)"
+      ]
+    },
+    {
+      "id": "present-continuous",
+      "title": "Present Continuous",
+      "group": "present",
+      "side": "left",
+      "form": {
+        "pos": "S + am / is / are + V-ing",
+        "neg": "S + am not / isn't / aren't + V-ing",
+        "que": "Am / Is / Are + S + V-ing?"
+      },
+      "uses": [
+        "actions happening right now",
+        "temporary situations",
+        "fixed arrangements in the near future",
+        "changing and developing situations",
+        "always + an annoying habit"
+      ],
+      "time": [
+        "now · right now · at the moment · at present",
+        "today · tonight · this week · these days",
+        "tomorrow · next week (for arrangements)"
+      ],
+      "spelling": [
+        "most verbs: + -ing (working)",
+        "-e: drop the e (making)",
+        "short vowel + consonant: double it (running)",
+        "-ie becomes -ying (lying)"
+      ]
+    },
+    {
+      "id": "present-perfect",
+      "title": "Present Perfect",
+      "group": "present",
+      "side": "right",
+      "form": {
+        "pos": "S + have / has + V3",
+        "neg": "S + haven't / hasn't + V3",
+        "que": "Have / Has + S + V3?"
+      },
+      "uses": [
+        "past action, the time is not stated",
+        "just finished action with a visible result",
+        "life experience",
+        "state that started in the past and still continues",
+        "emphasis on number: how many"
+      ],
+      "time": [
+        "just · already · yet · ever · never",
+        "for · since · how long",
+        "recently · lately · so far · this week"
+      ],
+      "spelling": [
+        "regular verbs: V3 = V-ed (worked)",
+        "irregular verbs: third form (gone, seen)"
+      ]
+    },
+    {
+      "id": "present-perfect-continuous",
+      "title": "Present Perfect Continuous",
+      "group": "present",
+      "side": "right",
+      "form": {
+        "pos": "S + have / has + been + V-ing",
+        "neg": "S + haven't / hasn't + been + V-ing",
+        "que": "Have / Has + S + been + V-ing?"
+      },
+      "uses": [
+        "action that started in the past and still continues",
+        "action that has just stopped, the result is visible",
+        "emphasis on duration: how long",
+        "irritation or annoyance"
+      ],
+      "time": [
+        "for · since · how long",
+        "all day / morning / week",
+        "lately · recently"
+      ],
+      "spelling": []
+    },
+    {
+      "id": "past-simple",
+      "title": "Past Simple",
+      "group": "past",
+      "side": "left",
+      "form": {
+        "pos": "S + V2   (regular: V-ed)",
+        "neg": "S + didn't + V",
+        "que": "Did + S + V?"
+      },
+      "uses": [
+        "finished action at a stated past time",
+        "actions that happened one after another",
+        "past habits and states",
+        "action that cannot be repeated"
+      ],
+      "time": [
+        "yesterday · then · when",
+        "last week / month / year",
+        "two days ago · in 2010"
+      ],
+      "spelling": [
+        "most verbs: + -ed (played)",
+        "-e: + -d (liked)",
+        "consonant + y: -ied (studied)",
+        "short vowel + consonant: double it (stopped)"
+      ]
+    },
+    {
+      "id": "past-continuous",
+      "title": "Past Continuous",
+      "group": "past",
+      "side": "left",
+      "form": {
+        "pos": "S + was / were + V-ing",
+        "neg": "S + wasn't / weren't + V-ing",
+        "que": "Was / Were + S + V-ing?"
+      },
+      "uses": [
+        "action in progress at a stated past time",
+        "long action interrupted by a short one",
+        "two actions happening at the same time",
+        "background of a story"
+      ],
+      "time": [
+        "while · when · as",
+        "at 5 o'clock yesterday",
+        "all day / evening yesterday"
+      ],
+      "spelling": []
+    },
+    {
+      "id": "past-perfect",
+      "title": "Past Perfect",
+      "group": "past",
+      "side": "left",
+      "form": {
+        "pos": "S + had + V3",
+        "neg": "S + hadn't + V3",
+        "que": "Had + S + V3?"
+      },
+      "uses": [
+        "action before another past action",
+        "action finished before a stated past time",
+        "past action with a visible result in the past",
+        "the past of the Present Perfect"
+      ],
+      "time": [
+        "before · after · by the time",
+        "already · just · never",
+        "by 5 o'clock · by then"
+      ],
+      "spelling": []
+    },
+    {
+      "id": "past-perfect-continuous",
+      "title": "Past Perfect Continuous",
+      "group": "past",
+      "side": "left",
+      "form": {
+        "pos": "S + had + been + V-ing",
+        "neg": "S + hadn't + been + V-ing",
+        "que": "Had + S + been + V-ing?"
+      },
+      "uses": [
+        "duration of an action before another past action",
+        "longer past action with a visible result in the past",
+        "the past of the Present Perfect Continuous"
+      ],
+      "time": [
+        "for · since · how long",
+        "before · until · by the time"
+      ],
+      "spelling": []
+    },
+    {
+      "id": "future-simple",
+      "title": "Future Simple",
+      "group": "future",
+      "side": "right",
+      "form": {
+        "pos": "S + will + V",
+        "neg": "S + won't + V",
+        "que": "Will + S + V?   (Shall I / we …?)"
+      },
+      "uses": [
+        "on-the-spot decisions",
+        "predictions based on what we think",
+        "promises, offers, warnings, hopes",
+        "facts about the future"
+      ],
+      "time": [
+        "tomorrow · tonight · soon",
+        "next week / month / year",
+        "in a week · in two days"
+      ],
+      "spelling": []
+    },
+    {
+      "id": "future-continuous",
+      "title": "Future Continuous",
+      "group": "future",
+      "side": "right",
+      "form": {
+        "pos": "S + will be + V-ing",
+        "neg": "S + won't be + V-ing",
+        "que": "Will + S + be + V-ing?"
+      },
+      "uses": [
+        "action in progress at a stated future time",
+        "action that will happen as part of a routine",
+        "polite questions about someone's plans"
+      ],
+      "time": [
+        "this time tomorrow",
+        "at 5 o'clock tomorrow",
+        "tomorrow · next week · soon"
+      ],
+      "spelling": []
+    },
+    {
+      "id": "future-perfect",
+      "title": "Future Perfect",
+      "group": "future",
+      "side": "right",
+      "form": {
+        "pos": "S + will have + V3",
+        "neg": "S + won't have + V3",
+        "que": "Will + S + have + V3?"
+      },
+      "uses": [
+        "action finished before a stated future time"
+      ],
+      "time": [
+        "by · by then · by the time · before",
+        "until / till (only in negative sentences)"
+      ],
+      "spelling": []
+    },
+    {
+      "id": "future-perfect-continuous",
+      "title": "Future Perfect Continuous",
+      "group": "future",
+      "side": "right",
+      "form": {
+        "pos": "S + will have been + V-ing",
+        "neg": "S + won't have been + V-ing",
+        "que": "Will + S + have been + V-ing?"
+      },
+      "uses": [
+        "duration of an action up to a certain future time"
+      ],
+      "time": [
+        "by … for   (by June … for two years)"
+      ],
+      "spelling": []
+    }
+  ]
+}

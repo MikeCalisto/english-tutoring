@@ -13,6 +13,7 @@ import { ThemeToggle } from "./ThemeToggle";
 const TABS = [
   { href: "/cards", label: "Картки", icon: "cards", key: "cards", student: false },
   { href: "/timelines", label: "Таймлайни", icon: "timeline", key: "timelines", student: true },
+  { href: "/mindmap", label: "Майндмеп", icon: "mindmap", key: "mindmap", student: false },
   { href: "/tasks", label: "Завдання", icon: "tasks", key: "tasks", student: false },
   { href: "/tests", label: "Тести", icon: "tests", key: "tests", student: true },
 ];

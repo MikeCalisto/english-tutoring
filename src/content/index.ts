@@ -65,6 +65,7 @@ export function getSearchIndex(): SearchItem[] {
     out.push({ kind: "topic", title: t.topic, sub: `${t.cards.length} карток`, href: `/cards/${t.id}` });
     t.cards.forEach((c, i) => out.push({ kind: "card", title: c.title, sub: t.topic, href: `/cards/${t.id}?card=${i + 1}` }));
   }
+  out.push({ kind: "topic", title: "Майндмеп часів", sub: "усі 12 часів на одній карті", href: "/mindmap" });
   for (const tl of getTimelines()) out.push({ kind: "timeline", title: tl.title, sub: "таймлайн", href: `/timelines/${tl.id}` });
   for (const task of getTasks()) out.push({ kind: "task", title: task.title, sub: `Wordwall · ${task.tenseLabel}`, href: "/tasks" });
   return out;
@@ -76,6 +77,22 @@ export function getTimelines(): Timeline[] {
 
 export function getTimeline(id: string): Timeline | null {
   return getTimelines().find((t) => t.id === id) ?? null;
+}
+
+export interface MindTense {
+  id: string;
+  title: string;
+  group: "present" | "past" | "future";
+  side: "left" | "right";
+  form: { pos: string; neg: string; que: string };
+  uses: string[];
+  time: string[];
+  spelling: string[];
+}
+
+/** Майндмеп часів: content/mindmap.json. */
+export function getMindmap(): { title: string; tenses: MindTense[] } {
+  return readJson(path.join(ROOT, "mindmap.json"));
 }
 
 export interface Task {
