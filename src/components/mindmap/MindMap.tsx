@@ -6,7 +6,7 @@ import type { MindTense } from "@/content";
 
 /**
  * Майндмеп часів: векторна карта (SVG), яку можна тягнути й масштабувати без втрати якості.
- * Present стоїть над центром і розходиться в обидва боки, Past іде ліворуч, Future праворуч.
+ * Радіальна карта: від центру три промені до Present, Past і Future, часи розходяться віялом навколо груп.
  */
 
 type Kind = "root" | "group" | "tense" | "cat" | "leaf";
@@ -31,11 +31,15 @@ interface Edge {
   d: string;
   group?: GroupId;
   key: string;
+  /** лінія від центру до групи */
+  main?: boolean;
+  /** лінія від групи до часу */
+  branch?: boolean;
 }
 
-const H: Record<Kind, number> = { root: 52, group: 38, tense: 32, cat: 26, leaf: 24 };
+const H: Record<Kind, number> = { root: 64, group: 40, tense: 32, cat: 26, leaf: 24 };
 const FONT: Record<Kind, string> = { root: "600 28px", group: "600 15px", tense: "600 14px", cat: "600 13px", leaf: "400 13px" };
-const PADX: Record<Kind, number> = { root: 8, group: 20, tense: 15, cat: 2, leaf: 2 };
+const PADX: Record<Kind, number> = { root: 28, group: 22, tense: 15, cat: 2, leaf: 2 };
 const VGAP: Record<Kind, number> = { root: 0, group: 44, tense: 22, cat: 8, leaf: 3 };
 const HGAP = 44;
 const SIGN_W = 24;
@@ -116,58 +120,119 @@ interface Layout {
   box: { x: number; y: number; w: number; h: number };
 }
 
-function layout(root: N, groups: Record<GroupId, N>, tenses: MindTense[], byId: Map<string, N>, collapsed: Set<string>): Layout {
-  const groupW = Math.max(groups.present.w, groups.past.w, groups.future.w);
-  for (const g of Object.values(groups)) g.w = groupW;
-  const groupNear = root.w / 2 + 76;
-  const tenseNear = groupNear + groupW + HGAP;
+interface Rect {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+}
 
-  const presentSide = (side: "left" | "right") => tenses.filter((t) => t.group === "present" && t.side === side).map((t) => byId.get(t.id)!);
+const rad = (deg: number) => (deg * Math.PI) / 180;
+const hit = (a: Rect, b: Rect, m: number) => a.x1 - m < b.x2 && a.x2 + m > b.x1 && a.y1 - m < b.y2 && a.y2 + m > b.y1;
 
-  // ліва колонка: Present (половина), нижче Past; права: Present (половина), нижче Future
-  const stack = (dir: 1 | -1, present: N[], group: N) => {
-    let y = 0;
-    for (const t of present) {
-      place(t, dir * tenseNear, y, dir, collapsed);
-      y += subH(t, collapsed) + VGAP.tense;
-    }
-    y += VGAP.group - VGAP.tense;
-    place(group, dir * groupNear, y, dir, collapsed);
-    return y + subH(group, collapsed);
-  };
-  const pl = presentSide("left");
-  const pr = presentSide("right");
-  stack(-1, pl, groups.past);
-  stack(1, pr, groups.future);
+/**
+ * Радіальна розкладка. Кут 0° дивиться праворуч, 90° униз.
+ * a — напрям групи від центру; fan — напрями її чотирьох часів (Simple, Continuous, Perfect, Perfect Continuous).
+ */
+const RADIAL: Record<GroupId, { a: number; fan: number[] }> = {
+  present: { a: -90, fan: [-128, 165, -52, 15] },
+  past: { a: 150, fan: [238, 178, 135, 96] },
+  future: { a: 30, fan: [-58, 2, 45, 84] },
+};
+const R_GROUP = 250;
+/** Чим вищі розгорнуті гілки, тим далі групи від центру: так вони не налазять одна на одну. */
+const R_GROUP_GROW = 0.9;
+const R_TENSE = 170;
 
-  // Present стоїть над центром, на рівні своїх чотирьох часів
-  const pres = groups.present;
-  const presKids = [...pl, ...pr];
-  pres.x = -pres.w / 2;
-  pres.cy = presKids.reduce((a, t) => a + t.cy, 0) / Math.max(1, presKids.length);
-  pres.dir = 1;
-  root.x = -root.w / 2;
-  root.cy = Math.max((groups.past.cy + groups.future.cy) / 2, pres.cy + 110);
-
-  const nodes: N[] = [];
-  const edges: Edge[] = [];
+function subtreeRect(t: N, collapsed: Set<string>): Rect {
+  const r: Rect = { x1: Infinity, y1: Infinity, x2: -Infinity, y2: -Infinity };
   const walk = (n: N) => {
-    nodes.push(n);
-    for (const c of visibleChildren(n, collapsed)) {
-      edges.push({ key: `${n.id}>${c.id}`, group: c.group, d: curve(farX(n), ay(n), nearX(c), ay(c)) });
-      walk(c);
-    }
+    r.x1 = Math.min(r.x1, n.x);
+    r.x2 = Math.max(r.x2, n.x + n.w);
+    r.y1 = Math.min(r.y1, n.cy - n.h / 2);
+    r.y2 = Math.max(r.y2, n.cy + n.h / 2);
+    visibleChildren(n, collapsed).forEach(walk);
   };
-  nodes.push(root, pres);
-  // центр → Present (вгору), центр → Past (ліворуч), центр → Future (праворуч)
-  edges.push({ key: "root>present", group: "present", d: `M0 ${root.cy - root.h / 2}C0 ${root.cy - 60} 0 ${pres.cy + 60} 0 ${pres.cy + pres.h / 2}` });
-  edges.push({ key: "root>past", group: "past", d: curve(root.x, root.cy, nearX(groups.past), groups.past.cy) });
-  edges.push({ key: "root>future", group: "future", d: curve(root.x + root.w, root.cy, nearX(groups.future), groups.future.cy) });
-  for (const t of pl) edges.push({ key: `present>${t.id}`, group: "present", d: curve(pres.x, pres.cy, nearX(t), t.cy) });
-  for (const t of pr) edges.push({ key: `present>${t.id}`, group: "present", d: curve(pres.x + pres.w, pres.cy, nearX(t), t.cy) });
-  for (const t of presKids) walk(t);
-  walk(groups.past);
-  walk(groups.future);
+  walk(t);
+  return r;
+}
+
+function layout(root: N, groups: Record<GroupId, N>, tenses: MindTense[], byId: Map<string, N>, collapsed: Set<string>): Layout {
+  const nodes: N[] = [root];
+  const edges: Edge[] = [];
+  const taken: Rect[] = [];
+
+  root.x = -root.w / 2;
+  root.cy = 0;
+  taken.push({ x1: root.x, y1: -root.h / 2, x2: root.x + root.w, y2: root.h / 2 });
+
+  // групи стоять на трьох променях від центру
+  const order: GroupId[] = ["present", "past", "future"];
+  const tallest = Math.max(...tenses.map((t) => subH(byId.get(t.id)!, collapsed)));
+  const rGroup = R_GROUP + Math.max(0, tallest - 120) * R_GROUP_GROW;
+  for (const id of order) {
+    const g = groups[id];
+    const a = rad(RADIAL[id].a);
+    const cx = Math.cos(a) * rGroup;
+    g.cy = Math.sin(a) * rGroup;
+    g.x = cx - g.w / 2;
+    g.dir = cx >= 0 ? 1 : -1;
+    nodes.push(g);
+    taken.push({ x1: g.x, y1: g.cy - g.h / 2, x2: g.x + g.w, y2: g.cy + g.h / 2 });
+    edges.push({ key: `root>${id}`, group: id, main: true, d: `M0 0L${cx.toFixed(1)} ${g.cy.toFixed(1)}` });
+  }
+
+  // часи розходяться віялом навколо своєї групи; гілку відсуваємо по променю, доки вона не перестане зачіпати сусідів
+  for (const id of order) {
+    const g = groups[id];
+    const gx = g.x + g.w / 2;
+    const list = tenses.filter((t) => t.group === id).map((t) => byId.get(t.id)!);
+    list.forEach((t, i) => {
+      // шукаємо найближче вільне місце: спершу свій промінь, потім трохи повертаємо його, потім відсуваємо далі
+      const base = RADIAL[id].fan[i % RADIAL[id].fan.length];
+      const total = subH(t, collapsed);
+      const tries: { r: number; da: number; cost: number }[] = [];
+      for (let step = 0; step < 60; step++) {
+        for (const da of [0, -10, 10, -20, 20, -30, 30]) tries.push({ r: R_TENSE + step * 22, da, cost: step * 22 + Math.abs(da) * 5 });
+      }
+      tries.sort((x, y) => x.cost - y.cost);
+      let cos = 1, sin = 0;
+      let dir: 1 | -1 = 1;
+      let rect: Rect = { x1: 0, y1: 0, x2: 0, y2: 0 };
+      for (const c of tries) {
+        const a = rad(base + c.da);
+        cos = Math.cos(a);
+        sin = Math.sin(a);
+        dir = cos >= 0 ? 1 : -1;
+        const cx = gx + cos * c.r;
+        const cy = g.cy + sin * c.r;
+        place(t, dir > 0 ? cx - t.w / 2 : cx + t.w / 2, cy - total / 2, dir, collapsed);
+        rect = subtreeRect(t, collapsed);
+        if (!taken.some((o) => hit(rect, o, 16))) break;
+      }
+      taken.push(rect);
+
+      // лінія від групи до часу: виходить уздовж променя, заходить у «пігулку» збоку або знизу чи згори
+      const vertical = Math.abs(sin) > 0.78;
+      const tx = vertical ? t.x + t.w / 2 : nearX(t);
+      const ty = vertical ? t.cy + (sin < 0 ? t.h / 2 : -t.h / 2) : t.cy;
+      const len = Math.hypot(tx - gx, ty - g.cy);
+      const c1x = gx + cos * len * 0.45;
+      const c1y = g.cy + sin * len * 0.45;
+      const c2x = vertical ? tx : tx - dir * len * 0.4;
+      const c2y = vertical ? ty + (sin < 0 ? 1 : -1) * len * 0.4 : ty;
+      edges.push({ key: `${id}>${t.id}`, group: id, branch: true, d: `M${gx.toFixed(1)} ${g.cy.toFixed(1)}C${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${tx.toFixed(1)} ${ty.toFixed(1)}` });
+
+      const walk = (n: N) => {
+        nodes.push(n);
+        for (const c of visibleChildren(n, collapsed)) {
+          edges.push({ key: `${n.id}>${c.id}`, group: c.group, d: curve(farX(n), ay(n), nearX(c), ay(c)) });
+          walk(c);
+        }
+      };
+      walk(t);
+    });
+  }
 
   let x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
   for (const n of nodes) {
@@ -210,8 +275,8 @@ export function MindMap({ title, tenses }: { title: string; tenses: MindTense[] 
     tn.forEach(reg);
     const groups = {
       present: node("g/present", "group", GROUP_LABEL.present, "present"),
-      past: node("g/past", "group", GROUP_LABEL.past, "past", tn.filter((t) => t.group === "past")),
-      future: node("g/future", "group", GROUP_LABEL.future, "future", tn.filter((t) => t.group === "future")),
+      past: node("g/past", "group", GROUP_LABEL.past, "past"),
+      future: node("g/future", "group", GROUP_LABEL.future, "future"),
     };
     const root = node("root", "root", title);
     const all = [root, ...Object.values(groups), ...byId.values()];
@@ -251,9 +316,10 @@ export function MindMap({ title, tenses }: { title: string; tenses: MindTense[] 
     const el = wrap.current;
     if (!el || !lay) return;
     const { width, height } = el.getBoundingClientRect();
-    const pad = 56;
-    const k = Math.min(MAX_K, Math.max(MIN_K, Math.min((width - pad * 2) / lay.box.w, (height - pad * 2) / lay.box.h, 1.25)));
-    setView({ k, x: width / 2 - (lay.box.x + lay.box.w / 2) * k, y: height / 2 - (lay.box.y + lay.box.h / 2) * k });
+    // знизу лишаємо місце під панель масштабу
+    const padX = 48, padTop = 36, padBottom = 92;
+    const k = Math.min(MAX_K, Math.max(MIN_K, Math.min((width - padX * 2) / lay.box.w, (height - padTop - padBottom) / lay.box.h, 1.25)));
+    setView({ k, x: width / 2 - (lay.box.x + lay.box.w / 2) * k, y: padTop + (height - padTop - padBottom) / 2 - (lay.box.y + lay.box.h / 2) * k });
   }, [lay]);
 
   // перше вписування в екран
@@ -381,7 +447,7 @@ export function MindMap({ title, tenses }: { title: string; tenses: MindTense[] 
           <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
             <g className="mm-edges">
               {lay.edges.map((e) => (
-                <path key={e.key} d={e.d} className={`mm-e g-${e.group ?? "present"}`} />
+                <path key={e.key} d={e.d} className={`mm-e g-${e.group ?? "present"}${e.main ? " main" : ""}${e.branch ? " branch" : ""}`} />
               ))}
             </g>
             {lay.nodes.map((n) => {
@@ -392,7 +458,7 @@ export function MindMap({ title, tenses }: { title: string; tenses: MindTense[] 
               const textX = n.sign ? n.x + PADX[n.kind] + SIGN_W : n.x + PADX[n.kind];
               return (
                 <g key={n.id} className={`mm-n k-${n.kind}${n.group ? ` g-${n.group}` : ""}${can ? " can" : ""}`} onClick={() => toggle(n)}>
-                  {(n.kind === "group" || n.kind === "tense") && <rect x={n.x} y={top} width={n.w} height={n.h} rx={n.h / 2} className="mm-pill" />}
+                  {(n.kind === "group" || n.kind === "tense" || n.kind === "root") && <rect x={n.x} y={top} width={n.w} height={n.h} rx={n.h / 2} className="mm-pill" />}
                   {isText(n) && <path d={`M${n.x} ${ay(n)}H${n.x + n.w}`} className="mm-under" />}
                   {isText(n) && <rect x={n.x} y={top} width={n.w} height={n.h} className="mm-hit" />}
                   {n.sign && (

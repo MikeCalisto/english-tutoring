@@ -496,6 +496,9 @@ input:focus { outline: none; border-color: var(--muted); }
 .mm.drag { cursor: grabbing; }
 .mm-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .mm-e { fill: none; stroke: var(--frame); stroke-width: 1.6; stroke-linecap: round; opacity: .7; }
+.mm-e.main { stroke-width: 4; opacity: .85; }
+.mm-e.branch { stroke-width: 2.4; opacity: .8; }
+.mm-n.k-root .mm-pill { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
 .mm-n.can { cursor: pointer; }
 .mm-t { font-family: var(--body); fill: var(--ink); }
 .mm-n.k-root .mm-t { font-family: var(--display); font-weight: 600; font-size: 28px; letter-spacing: -.02em; }
