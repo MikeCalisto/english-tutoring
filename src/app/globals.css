@@ -226,7 +226,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .g-other .chip:nth-child(5n+3) { background: color-mix(in srgb, var(--neg) 15%, transparent); }
 .g-other .chip:nth-child(5n+4) { background: color-mix(in srgb, var(--ans) 18%, transparent); }
 .g-other .chip:nth-child(5n+5) { background: color-mix(in srgb, var(--pos) 16%, transparent); }
-.blk h4 { font-family: var(--display); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--frame); margin: 0 0 12px; }
+.blk .blk-h { font-family: var(--display); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--frame); margin: 0 0 12px; }
 .note { margin: 0 0 10px; font-size: 14px; color: var(--muted); line-height: 1.5; }
 .sp div { display: flex; gap: 14px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); }
 .sp div:last-child { border-bottom: none; }
@@ -496,7 +496,7 @@ input:focus { outline: none; border-color: var(--muted); }
 .rail-h i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 .crumb2 { display: inline-flex; align-items: center; gap: 6px; }
 .pn-lb { display: inline-flex; align-items: center; gap: 6px; }
-.blk h4, .exs-h { display: flex; align-items: center; gap: 7px; }
+.blk .blk-h, .exs-h { display: flex; align-items: center; gap: 7px; }
 .card-hd .hd-l { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .card-hd .hd-r { display: flex; align-items: center; gap: 14px; flex: none; }
 .sig { width: 150px; height: 34px; color: var(--frame); flex: none; }

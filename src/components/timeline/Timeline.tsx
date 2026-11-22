@@ -130,7 +130,8 @@ function Sentence({ s }: { s: TLSentence }) {
   );
 }
 
-export function TimelineCard({ t, footer }: { t: Timeline; footer?: string }) {
+/** all: друкований варіант. Перемикача немає, додаткові приклади стоять списком під шкалою. */
+export function TimelineCard({ t, footer, all }: { t: Timeline; footer?: string; all?: boolean }) {
   const group: Group = t.group;
   const two = t.tenses.length > 1;
   // приклади гортаються для всієї картки одразу, щоб пари речень лишались парами
@@ -154,7 +155,7 @@ export function TimelineCard({ t, footer }: { t: Timeline; footer?: string }) {
         </div>
       </div>
       <div className="card-bd">
-        {total > 1 && (
+        {total > 1 && !all && (
           <div className="tl-ex">
             <span className="tl-ex-lb">Example</span>
             {Array.from({ length: total }, (_, n) => (
@@ -173,6 +174,25 @@ export function TimelineCard({ t, footer }: { t: Timeline; footer?: string }) {
             </div>
           </div>
         ))}
+        {all && total > 1 && (
+          <div className="tl-more">
+            <div className="tl-more-h">More examples</div>
+            {Array.from({ length: total - 1 }, (_, n) => (
+              <div className="tl-more-r" key={n}>
+                <span className="tl-more-n">{n + 2}</span>
+                <div className="tl-more-s" style={{ gridTemplateColumns: `repeat(${t.lanes.length}, minmax(0, 1fr))` }}>
+                  {t.lanes.map((l, i) => (
+                    <div key={i} className="lane-txt">
+                      {laneExample(l, n + 1).sentences.map((s, j) => (
+                        <Sentence key={j} s={s} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
         <div className="tl-lg">
           <div><span className="lg-sq t1" /> {t.tenses[0]}</div>
           {two && <div><span className="lg-sq t2" /> {t.tenses[1]}</div>}

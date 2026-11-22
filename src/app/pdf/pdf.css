@@ -1,0 +1,86 @@
+/* PDF-збірник: кожна .pdf-page — один аркуш A4 в альбомній орієнтації (297 × 210 мм). */
+@page { size: A4 landscape; margin: 0; }
+
+.shell:has(.pdf-book) { display: block; min-height: 0; }
+.pdf-book { color: var(--ink); }
+.pdf-page {
+  width: 297mm; height: 210mm; box-sizing: border-box; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; padding: 8mm 9mm 4mm; background: #fff;
+  break-after: page; break-inside: avoid;
+}
+.pdf-book > .pdf-page:last-child { break-after: auto; }
+
+.pdf-stage { flex: 1; min-height: 0; display: flex; justify-content: center; align-items: flex-start; overflow: hidden; }
+.pdf-fit { flex: none; width: 1320px; }
+.pdf-book .card { backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; background: #fff; }
+.pdf-book .card-ft { display: none; }
+.pdf-book .blk, .pdf-book .pn, .pdf-book .exs, .pdf-book .cmp-col, .pdf-book .scn-i { box-shadow: none; }
+
+/* нижній рядок сторінки */
+.pdf-foot { flex: none; height: 8mm; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.pdf-foot-b { display: inline-flex; align-items: center; gap: 6px; font-family: var(--display); font-weight: 600; letter-spacing: 0; text-transform: none; font-size: 11px; color: var(--ink); }
+.pdf-foot-b img { width: 14px; height: 14px; border-radius: 4px; }
+.pdf-foot-c { flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-transform: none; letter-spacing: .02em; font-size: 10.5px; }
+.pdf-foot-c h3 { display: inline; margin: 0; font: inherit; letter-spacing: inherit; color: var(--ink); }
+.pdf-foot-r { display: inline-flex; align-items: center; gap: 12px; }
+.pdf-foot-r a { color: var(--accent); font-weight: 700; }
+.pdf-foot-r b { color: var(--ink); font-family: var(--mono); font-size: 11px; min-width: 18px; text-align: right; }
+
+/* обкладинка */
+.pdf-cover { padding: 16mm 18mm 12mm; justify-content: space-between; background:
+  radial-gradient(60% 70% at 88% 8%, rgba(59, 130, 246, .16), transparent 70%),
+  radial-gradient(50% 60% at 6% 96%, rgba(240, 130, 60, .14), transparent 70%),
+  radial-gradient(40% 50% at 60% 100%, rgba(34, 181, 115, .12), transparent 70%), #f4f7fc; }
+.pdf-cover-top { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 20px; }
+.pdf-cover-top img { width: 34px; height: 34px; border-radius: 9px; }
+.pdf-cover-k { font-family: var(--display); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
+.pdf-cover-h { font-family: var(--display); font-weight: 500; font-size: 64px; line-height: 1.04; letter-spacing: -.03em; margin: 0 0 22px; }
+.pdf-cover-h span { display: block; }
+.pdf-cover-p { font-size: 19px; line-height: 1.5; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+.pdf-cover-groups { display: flex; gap: 8px; }
+.pdf-cover-groups span { font-family: var(--display); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; padding: 6px 14px; border-radius: 999px; color: #fff; background: var(--frame); }
+.pdf-cover-bot { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* зміст */
+.pdf-h { font-family: var(--display); font-weight: 500; font-size: 34px; letter-spacing: -.02em; margin: 2mm 0 6mm; }
+.pdf-toc-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 18px; align-content: start; }
+.pdf-toc-sh { font-family: var(--display); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--frame); padding-bottom: 7px; margin-bottom: 8px; border-bottom: 2px solid var(--frame); }
+.pdf-toc-sh a { color: inherit; }
+.pdf-toc-u { padding: 6px 0 8px; border-bottom: 1px solid var(--line); }
+.pdf-toc-l { display: flex; align-items: baseline; gap: 6px; font-size: 13.5px; font-weight: 600; }
+.pdf-toc-l a, .pdf-toc-l span { color: var(--ink); }
+.pdf-toc-l i { flex: 1; border-bottom: 1px dotted var(--line-strong); transform: translateY(-3px); }
+.pdf-toc-l b { font-family: var(--mono); font-size: 12px; color: var(--frame); }
+.pdf-toc-p { display: flex; flex-wrap: wrap; gap: 2px 8px; margin-top: 3px; font-size: 10.5px; color: var(--muted); line-height: 1.35; }
+.pdf-toc-p a { color: var(--muted); }
+.pdf-toc-u.off { opacity: .42; }
+.pdf-toc-note { flex: none; font-size: 11.5px; color: var(--muted); padding-top: 8px; }
+
+/* сторінка розділу */
+.pdf-div { padding: 14mm 18mm 4mm; background: linear-gradient(120deg, color-mix(in srgb, var(--frame) 9%, #fff), #fff 62%); }
+.pdf-div-k { font-family: var(--display); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--frame); }
+.pdf-div-h { font-family: var(--display); font-weight: 500; font-size: 60px; letter-spacing: -.03em; line-height: 1.05; color: var(--frame); margin: 6px 0 6px; }
+.pdf-div-p { font-size: 17px; color: var(--muted); margin: 0 0 9mm; }
+.pdf-div-list { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 22px; align-content: start; }
+.pdf-div-u { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.pdf-div-t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pdf-div-t a, .pdf-div-t span { font-family: var(--display); font-size: 19px; font-weight: 500; color: var(--ink); }
+.pdf-div-t small { font-size: 11.5px; color: var(--muted); }
+.pdf-div-u b { font-family: var(--mono); font-size: 14px; color: var(--frame); min-width: 22px; text-align: right; }
+.pdf-div-u.off { opacity: .42; }
+.pdf-div-u .sig { width: 120px; }
+
+/* таймлайн у друці: додаткові приклади списком */
+.tl-more { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+.tl-more-h { font-family: var(--display); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+.tl-more-r { display: flex; gap: 14px; align-items: flex-start; }
+.tl-more-n { flex: none; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--frame); background: color-mix(in srgb, var(--frame) 14%, transparent); margin-top: 3px; }
+.tl-more-s { flex: 1; display: grid; gap: 8px 28px; }
+.tl-more-s .sentence { font-size: 19px; }
+.tl-more-s .lane-txt { gap: 6px; }
+
+/* перегляд у браузері: аркуші один під одним */
+@media screen {
+  body:has(.pdf-book) { background: #d9dee8; }
+  .pdf-page { margin: 18px auto; box-shadow: 0 10px 40px rgba(20, 30, 60, .18); }
+}

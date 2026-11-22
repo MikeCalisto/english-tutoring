@@ -301,7 +301,7 @@ function BlockView({ b, forceWide }: { b: Block; forceWide?: boolean }) {
   const wide = forceWide || (b.kind ? WIDE_KINDS.has(b.kind) : false);
   return (
     <div className={`blk${wide ? " wide" : ""}${b.warn ? " warn" : ""}${b.kind ? ` k-${b.kind}` : ""}`}>
-      {b.heading && <h4>{b.kind && <Icon name={BLOCK_ICON[b.kind] ?? "cards"} size={14} />}{b.heading}</h4>}
+      {b.heading && <div className="blk-h">{b.kind && <Icon name={BLOCK_ICON[b.kind] ?? "cards"} size={14} />}{b.heading}</div>}
       {b.note && <Html as="p" className="note" html={b.note} />}
       {inner}
     </div>

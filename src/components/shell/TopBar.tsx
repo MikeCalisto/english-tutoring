@@ -40,7 +40,7 @@ export function TopBar({ user, search, theme }: { user: TopBarUser | null; searc
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  if (path === "/" || path.startsWith("/login")) return null;
+  if (path === "/" || path.startsWith("/login") || path.startsWith("/pdf")) return null;
   const tabs = TABS.filter((t) => !user || user.role !== "student" || t.student);
   const items = user?.role === "student" ? search.filter((s) => s.kind === "timeline") : search;
   return (
