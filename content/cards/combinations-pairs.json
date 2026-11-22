@@ -251,14 +251,6 @@
                 "Nick <b>had hurt</b> his hand, so he couldn't type for a week."
               ],
               "hint": "The action finished in the past and its result was visible in the past, too."
-            },
-            {
-              "case": "the past equivalent of the present perfect",
-              "examples": [
-                "Nick <b>had lost</b> the file, so he <b>couldn't</b> print it.",
-                "Nick <b>has lost</b> the file, so he <b>can't</b> print it."
-              ],
-              "hint": "In the first sentence the result was visible in the past; in the second it is still visible in the present."
             }
           ],
           "time": [
@@ -290,14 +282,6 @@
                 "Nick <b>had been typing</b> all day, so his hands <b>were</b> tired."
               ],
               "hint": "He spent all day typing and the result of the action was visible in the past, too."
-            },
-            {
-              "case": "the past equivalent of the present perfect continuous",
-              "examples": [
-                "Nick <b>had been looking</b> for the file for an hour, so he <b>was</b> angry.",
-                "Nick <b>has been looking</b> for the file for an hour, so he <b>is</b> angry."
-              ],
-              "hint": "In the first sentence the result was visible in the past; in the second it is still visible in the present."
             }
           ],
           "time": [
