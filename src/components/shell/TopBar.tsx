@@ -15,7 +15,8 @@ const TABS = [
   { href: "/timelines", label: "Таймлайни", icon: "timeline", key: "timelines", student: true },
   { href: "/mindmap", label: "Майндмеп", icon: "mindmap", key: "mindmap", student: false },
   { href: "/tasks", label: "Завдання", icon: "tasks", key: "tasks", student: false },
-  { href: "/tests", label: "Тести", icon: "tests", key: "tests", student: true },
+  // Вкладку «Тести» приховано, доки тести не перенесено. Сторінка /tests лишається; щоб повернути вкладку, розкоментуйте рядок.
+  // { href: "/tests", label: "Тести", icon: "tests", key: "tests", student: true },
 ];
 
 export interface TopBarUser {
