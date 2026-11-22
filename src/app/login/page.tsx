@@ -36,7 +36,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
         {sp.pending && (
           <div className="notice">
-            Ви увійшли через Telegram, але доступ ще не активовано. Доступ видається після оплати; якщо ви вже оплатили, напишіть нам.
+            Ви увійшли через Telegram, але доступ ще не активовано. Доступ відкривається автоматично після оплати пака. Якщо ви щойно оплатили, зачекайте хвилину й натисніть «Увійти через Telegram» ще раз тим самим акаунтом, з якого купували.
           </div>
         )}
         {sp.error && <div className="notice error">{MESSAGES[sp.error] ?? "Помилка входу."}</div>}

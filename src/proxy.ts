@@ -3,7 +3,7 @@ import { COOKIE, verifySession } from "@/lib/session-token";
 
 /** Что видит каждая роль. Ученик: только таймлайны и тесты. */
 const STUDENT_ALLOWED = ["/timelines", "/tests", "/cabinet", "/api/auth"];
-const PUBLIC = ["/login", "/api/auth", "/api/telegram", "/_next", "/favicon.ico", "/pack", "/oferta", "/politika"];
+const PUBLIC = ["/login", "/api/auth", "/api/telegram", "/api/zenedu", "/_next", "/favicon.ico", "/pack", "/oferta", "/politika"];
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
