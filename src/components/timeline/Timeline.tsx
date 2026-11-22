@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { Group, TLLane, TLSentence, Timeline } from "@/content/types";
 import { BRAND } from "@/config/brand";
 import { Icon, Tile, topicIcon } from "@/components/Icon";
@@ -23,10 +26,21 @@ function Cross({ x, t, small }: { x: number; t: 1 | 2; small?: boolean }) {
   );
 }
 
-function LaneSvg({ l, gid }: { l: TLLane; gid: string }) {
+/** Приклад k на шкалі: 0 — основний, далі додаткові. Геометрія та сама, міняються тексти. */
+function laneExample(l: TLLane, k: number) {
+  const e = k > 0 ? l.examples?.[k - 1] : undefined;
+  return {
+    sentences: e?.sentences ?? l.sentences,
+    ticks: (l.ticks ?? []).map((tk, i) => ({ at: tk.at, text: e?.ticks?.[i] ?? tk.text })),
+    timeMark: l.timeMark ? { ...l.timeMark, text: e?.timeMark ?? l.timeMark.text } : undefined,
+  };
+}
+
+function LaneSvg({ l, gid, k }: { l: TLLane; gid: string; k: number }) {
   const hasOpen = l.spans?.some((s) => s.openStart);
   const nx = px(l.nowAt);
-  const tm = l.timeMark;
+  const ex = laneExample(l, k);
+  const tm = ex.timeMark;
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="tlsvg" role="img">
       {hasOpen && (
@@ -72,7 +86,10 @@ function LaneSvg({ l, gid }: { l: TLLane; gid: string }) {
       {l.points?.map((p, n) => (
         <Cross key={n} x={px(p.at)} t={p.t ?? 1} small={p.small} />
       ))}
-      {l.ticks?.map((tk, n) => (
+      {l.vlines?.map((v, n) => (
+        <line key={n} x1={px(v)} y1={BAND[0] - 10} x2={px(v)} y2={BAND[1] + 10} className="tl-vline" />
+      ))}
+      {ex.ticks.map((tk, n) => (
         <text key={n} x={px(tk.at)} y="126" textAnchor="middle" className="tl-tick">{tk.text}</text>
       ))}
       {tm && (() => {
@@ -116,6 +133,10 @@ function Sentence({ s }: { s: TLSentence }) {
 export function TimelineCard({ t, footer }: { t: Timeline; footer?: string }) {
   const group: Group = t.group;
   const two = t.tenses.length > 1;
+  // приклади гортаються для всієї картки одразу, щоб пари речень лишались парами
+  const total = 1 + Math.max(0, ...t.lanes.map((l) => l.examples?.length ?? 0));
+  const [k, setK] = useState(0);
+  useEffect(() => setK(0), [t.id]);
   return (
     <div className={`card g-${group} tl`} data-tour="card">
       <div className="card-hd">
@@ -133,12 +154,21 @@ export function TimelineCard({ t, footer }: { t: Timeline; footer?: string }) {
         </div>
       </div>
       <div className="card-bd">
+        {total > 1 && (
+          <div className="tl-ex">
+            <span className="tl-ex-lb">Example</span>
+            {Array.from({ length: total }, (_, n) => (
+              <button key={n} type="button" className={`tl-ex-b${n === k ? " on" : ""}`} onClick={() => setK(n)} aria-label={`Приклад ${n + 1}`}>{n + 1}</button>
+            ))}
+            <button type="button" className="tl-ex-next" onClick={() => setK((k + 1) % total)}>Next example<Icon name="right" size={14} /></button>
+          </div>
+        )}
         {t.lanes.map((l, i) => (
           <div className="lane" key={i}>
-            <LaneSvg l={l} gid={`${t.id}-${i}`} />
+            <LaneSvg l={l} gid={`${t.id}-${i}`} k={k} />
             <div className="lane-txt">
-              {l.sentences.map((s, k) => (
-                <Sentence key={k} s={s} />
+              {laneExample(l, k).sentences.map((s, n) => (
+                <Sentence key={`${k}-${n}`} s={s} />
               ))}
             </div>
           </div>

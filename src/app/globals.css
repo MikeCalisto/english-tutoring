@@ -524,3 +524,13 @@ input:focus { outline: none; border-color: var(--muted); }
 .mm-sep { width: 1px; height: 20px; background: var(--line-strong); margin: 0 4px; }
 .mm-hint { position: absolute; left: 20px; bottom: 22px; font-size: 12.5px; color: var(--muted); pointer-events: none; background: var(--paper); border: 1px solid var(--line); border-radius: var(--pill); padding: 7px 14px; box-shadow: var(--shadow-sm); }
 @media (max-width: 900px) { .mm-hint { display: none; } .mm-bar { right: 10px; bottom: 10px; } }
+
+/* ---------- timeline: названий момент і перемикач прикладів ---------- */
+.tl-vline { stroke: var(--timeword); stroke-width: 2.2; stroke-linecap: round; }
+.tl-ex { display: flex; align-items: center; gap: 6px; }
+.tl-ex-lb { font-family: var(--display); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--muted); margin-right: 4px; }
+.tl-ex-b { width: 30px; height: 30px; border-radius: var(--pill); border: 1px solid var(--line-strong); background: var(--surface); font-size: 13px; font-weight: 600; color: var(--muted); }
+.tl-ex-b:hover { color: var(--ink); }
+.tl-ex-b.on { background: var(--frame); border-color: var(--frame); color: var(--on-frame); }
+.tl-ex-next { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; height: 30px; padding: 0 12px; border-radius: var(--pill); border: 1px solid var(--line-strong); background: var(--surface); font-size: 13px; font-weight: 600; color: var(--ink); }
+.tl-ex-next:hover { background: var(--paper); }

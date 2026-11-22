@@ -65,6 +65,62 @@
             ],
             "note": "repeated action"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "takes",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the bus to school "
+                  },
+                  {
+                    "text": "every day",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "repeated action"
+              }
+            ],
+            "timeMark": "every day"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We "
+                  },
+                  {
+                    "text": "have",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " dinner at seven "
+                  },
+                  {
+                    "text": "every evening",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "repeated action"
+              }
+            ],
+            "timeMark": "every evening"
+          }
         ]
       },
       {
@@ -141,6 +197,76 @@
             ],
             "note": "habitual action"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "He "
+                  },
+                  {
+                    "text": "plays",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " football "
+                  },
+                  {
+                    "text": "on Tuesdays and Fridays",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "habitual action"
+              }
+            ],
+            "ticks": [
+              "Tue",
+              "Fri",
+              "Tue",
+              "Fri",
+              "Tue"
+            ],
+            "timeMark": "on Tuesdays and Fridays"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "They "
+                  },
+                  {
+                    "text": "visit",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " their grandma "
+                  },
+                  {
+                    "text": "on Saturdays",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "habitual action"
+              }
+            ],
+            "ticks": [
+              "Sat",
+              "Sat",
+              "Sat",
+              "Sat",
+              "Sat"
+            ],
+            "timeMark": "on Saturdays"
+          }
         ]
       }
     ]
@@ -191,6 +317,62 @@
             ],
             "note": "action happening at this moment"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "Look! It "
+                  },
+                  {
+                    "text": "is raining",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "now",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "action happening at this moment"
+              }
+            ],
+            "timeMark": "now"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "Mum "
+                  },
+                  {
+                    "text": "is talking",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " on the phone "
+                  },
+                  {
+                    "text": "at the moment",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "action happening at this moment"
+              }
+            ],
+            "timeMark": "at the moment"
+          }
         ]
       },
       {
@@ -240,6 +422,70 @@
             ],
             "note": "action around now, not necessarily at this very moment"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "am reading",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " a great book "
+                  },
+                  {
+                    "text": "these days",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "action around now, not necessarily at this very moment"
+              }
+            ],
+            "ticks": [
+              "",
+              ""
+            ],
+            "timeMark": "these days"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "is staying",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " with her aunt "
+                  },
+                  {
+                    "text": "this month",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "action around now, not necessarily at this very moment"
+              }
+            ],
+            "ticks": [
+              "1st",
+              "30th"
+            ],
+            "timeMark": "this month"
+          }
         ]
       }
     ]
@@ -286,6 +532,53 @@
               }
             ],
             "note": "general experience: it happened in her life, when is not important"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "have seen",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " this film "
+                  },
+                  {
+                    "text": "twice",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "general experience: when it happened is not important"
+              }
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "He "
+                  },
+                  {
+                    "text": "has never tried",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " sushi."
+                  }
+                ],
+                "note": "general experience: it has not happened in his life so far"
+              }
+            ]
           }
         ]
       },
@@ -336,6 +629,70 @@
             ],
             "note": "action that started in the past and continues up to now"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We "
+                  },
+                  {
+                    "text": "have lived",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " in this flat "
+                  },
+                  {
+                    "text": "since 2020",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "action that started in the past and continues up to now"
+              }
+            ],
+            "ticks": [
+              "2020",
+              "2026"
+            ],
+            "timeMark": "since 2020"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "has known",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " Tom "
+                  },
+                  {
+                    "text": "for ten years",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "action that started in the past and continues up to now"
+              }
+            ],
+            "ticks": [
+              "2016",
+              "2026"
+            ],
+            "timeMark": "for ten years"
+          }
         ]
       },
       {
@@ -367,6 +724,46 @@
               }
             ],
             "note": "action that happened in the past at an unstated time; the result matters now"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "have lost",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " my keys."
+                  }
+                ],
+                "note": "action that happened in the past at an unstated time; the result matters now"
+              }
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "Someone "
+                  },
+                  {
+                    "text": "has broken",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the window."
+                  }
+                ],
+                "note": "action that happened in the past at an unstated time; the result matters now"
+              }
+            ]
           }
         ]
       }
@@ -442,6 +839,84 @@
             ],
             "note": "the action continued up to now and has a visible result"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "It "
+                  },
+                  {
+                    "text": "has been raining",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "all morning",
+                    "mark": "time"
+                  },
+                  {
+                    "text": ", and the streets "
+                  },
+                  {
+                    "text": "are",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " wet."
+                  }
+                ],
+                "note": "the action continued up to now and has a visible result"
+              }
+            ],
+            "ticks": [
+              "7:00",
+              "12:00"
+            ],
+            "timeMark": "all morning"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "has been running",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "for an hour",
+                    "mark": "time"
+                  },
+                  {
+                    "text": ", and she "
+                  },
+                  {
+                    "text": "is",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " out of breath."
+                  }
+                ],
+                "note": "the action continued up to now and has a visible result"
+              }
+            ],
+            "ticks": [
+              "17:00",
+              "18:00"
+            ],
+            "timeMark": "for an hour"
+          }
         ]
       }
     ]
@@ -515,6 +990,84 @@
             ],
             "note": "I started at 6 and finished at 7. When he came home, I was in the middle of it."
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We "
+                  },
+                  {
+                    "text": "were watching",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " a film "
+                  },
+                  {
+                    "text": "when",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " the lights "
+                  },
+                  {
+                    "text": "went",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " out."
+                  }
+                ],
+                "note": "The film started at 8 and ended at 10. The lights went out in the middle of it."
+              }
+            ],
+            "ticks": [
+              "20:00",
+              "20:45",
+              "22:00"
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "was walking",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " home "
+                  },
+                  {
+                    "text": "when",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " it "
+                  },
+                  {
+                    "text": "started",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " to rain."
+                  }
+                ],
+                "note": "The walk lasted from 5:00 to 5:40. The rain started in the middle of it."
+              }
+            ],
+            "ticks": [
+              "17:00",
+              "17:20",
+              "17:40"
+            ]
+          }
         ]
       }
     ]
@@ -581,6 +1134,76 @@
               }
             ],
             "note": "First they went home (1), then I came to the party (2)."
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "When",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " we "
+                  },
+                  {
+                    "text": "got",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " to the station, the train "
+                  },
+                  {
+                    "text": "had already left",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "First the train left (1), then we got to the station (2)."
+              }
+            ],
+            "ticks": [
+              "9:00",
+              "9:10"
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "By the time",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " mum "
+                  },
+                  {
+                    "text": "came",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " home, the kids "
+                  },
+                  {
+                    "text": "had cleaned",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the kitchen."
+                  }
+                ],
+                "note": "First the kids cleaned the kitchen (1), then mum came home (2)."
+              }
+            ],
+            "ticks": [
+              "16:00",
+              "18:00"
+            ]
           }
         ]
       }
@@ -711,6 +1334,169 @@
             ],
             "note": "present habits"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "When",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " Olha "
+                  },
+                  {
+                    "text": "was",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " a student, she "
+                  },
+                  {
+                    "text": "stayed",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " up late, "
+                  },
+                  {
+                    "text": "ate",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " fast food and "
+                  },
+                  {
+                    "text": "missed",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " morning classes."
+                  }
+                ],
+                "note": "habitual actions in the past: she did it, but she doesn't do it anymore"
+              },
+              {
+                "tokens": [
+                  {
+                    "text": "Now Olha "
+                  },
+                  {
+                    "text": "works",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " as a doctor, she "
+                  },
+                  {
+                    "text": "gets up",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " at six, "
+                  },
+                  {
+                    "text": "eats",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " well and "
+                  },
+                  {
+                    "text": "is",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " never late."
+                  }
+                ],
+                "note": "present habits"
+              }
+            ],
+            "ticks": [
+              "student years",
+              "now"
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "When",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " we "
+                  },
+                  {
+                    "text": "lived",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " in a village, we "
+                  },
+                  {
+                    "text": "kept",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " chickens, "
+                  },
+                  {
+                    "text": "grew",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " vegetables and "
+                  },
+                  {
+                    "text": "walked",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " to school."
+                  }
+                ],
+                "note": "habitual actions in the past: we did it, but we don't do it anymore"
+              },
+              {
+                "tokens": [
+                  {
+                    "text": "Now we "
+                  },
+                  {
+                    "text": "live",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " in a city, we "
+                  },
+                  {
+                    "text": "buy",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " food in a shop and "
+                  },
+                  {
+                    "text": "take",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " the metro."
+                  }
+                ],
+                "note": "present habits"
+              }
+            ],
+            "ticks": [
+              "in the village",
+              "in the city"
+            ]
+          }
         ]
       }
     ]
@@ -769,6 +1555,70 @@
               }
             ],
             "note": "a finished action at a stated time in the past"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We "
+                  },
+                  {
+                    "text": "bought",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " this house "
+                  },
+                  {
+                    "text": "in 2015",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a finished action at a stated time in the past"
+              }
+            ],
+            "ticks": [
+              "2015",
+              "today"
+            ],
+            "timeMark": "in 2015"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "met",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " my best friend "
+                  },
+                  {
+                    "text": "ten years ago",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a finished action at a stated time in the past"
+              }
+            ],
+            "ticks": [
+              "2016",
+              "today"
+            ],
+            "timeMark": "ten years ago"
           }
         ]
       },
@@ -836,6 +1686,86 @@
             ],
             "note": "several past actions one after the other"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "He "
+                  },
+                  {
+                    "text": "got up",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": ", "
+                  },
+                  {
+                    "text": "had",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " a shower and "
+                  },
+                  {
+                    "text": "made",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " breakfast."
+                  }
+                ],
+                "note": "several past actions one after the other"
+              }
+            ],
+            "ticks": [
+              "7:00",
+              "7:10",
+              "7:30",
+              "today"
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "opened",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the letter, "
+                  },
+                  {
+                    "text": "read",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " it and "
+                  },
+                  {
+                    "text": "called",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " my sister."
+                  }
+                ],
+                "note": "several past actions one after the other"
+              }
+            ],
+            "ticks": [
+              "15:00",
+              "15:05",
+              "15:10",
+              "today"
+            ]
+          }
         ]
       }
     ]
@@ -893,6 +1823,67 @@
             ],
             "note": "the action was in progress at that moment; we do not know when it started or ended"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "At 7 o'clock this morning",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " I "
+                  },
+                  {
+                    "text": "was having",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " breakfast."
+                  }
+                ],
+                "note": "the action was in progress at that moment; we do not know when it started or ended"
+              }
+            ],
+            "ticks": [
+              "7:00",
+              "today"
+            ],
+            "timeMark": "at 7 o'clock this morning"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "At noon yesterday",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " they "
+                  },
+                  {
+                    "text": "were playing",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " tennis."
+                  }
+                ],
+                "note": "the action was in progress at that moment; we do not know when it started or ended"
+              }
+            ],
+            "ticks": [
+              "12:00",
+              "today"
+            ],
+            "timeMark": "at noon yesterday"
+          }
+        ],
+        "vlines": [
+          0.43
         ]
       },
       {
@@ -940,6 +1931,76 @@
               }
             ],
             "note": "two actions in progress at the same time"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "While",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " I "
+                  },
+                  {
+                    "text": "was reading",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": ", my brother "
+                  },
+                  {
+                    "text": "was playing",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the guitar."
+                  }
+                ],
+                "note": "two actions in progress at the same time"
+              }
+            ],
+            "ticks": [
+              "16:00",
+              "17:00"
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "While",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " the teacher "
+                  },
+                  {
+                    "text": "was explaining",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the rule, the students "
+                  },
+                  {
+                    "text": "were taking",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " notes."
+                  }
+                ],
+                "note": "two actions in progress at the same time"
+              }
+            ],
+            "ticks": [
+              "9:00",
+              "9:20"
+            ]
           }
         ]
       }
@@ -1003,6 +2064,64 @@
               }
             ],
             "note": "the cooking was finished before the guests arrived: earlier of two past events"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "By the time",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " I woke up, dad "
+                  },
+                  {
+                    "text": "had left",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " for work."
+                  }
+                ],
+                "note": "dad left before I woke up: the earlier of two past events"
+              }
+            ],
+            "ticks": [
+              "dad left",
+              "I woke up",
+              "today"
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "When",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " we arrived at the cinema, the film "
+                  },
+                  {
+                    "text": "had started",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "the film started before we arrived: the earlier of two past events"
+              }
+            ],
+            "ticks": [
+              "film started",
+              "we arrived",
+              "today"
+            ]
           }
         ]
       }
@@ -1071,6 +2190,70 @@
             ],
             "note": "how long the action had lasted before another past moment"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "had been studying",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "for three hours",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " when her friend called."
+                  }
+                ],
+                "note": "how long the action had lasted before another past moment"
+              }
+            ],
+            "ticks": [
+              "15:00",
+              "18:00 · friend called"
+            ],
+            "timeMark": "for three hours"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "They "
+                  },
+                  {
+                    "text": "had been driving",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "for five hours",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " when the car broke down."
+                  }
+                ],
+                "note": "how long the action had lasted before another past moment"
+              }
+            ],
+            "ticks": [
+              "8:00",
+              "13:00 · car broke down"
+            ],
+            "timeMark": "for five hours"
+          }
         ]
       }
     ]
@@ -1130,6 +2313,70 @@
             ],
             "note": "a future action; the decision may be made right now"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "will be",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " ten "
+                  },
+                  {
+                    "text": "next year",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a future action; the decision may be made right now"
+              }
+            ],
+            "ticks": [
+              "today",
+              "next year"
+            ],
+            "timeMark": "next year"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I think it "
+                  },
+                  {
+                    "text": "will rain",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "tonight",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a future action; the decision may be made right now"
+              }
+            ],
+            "ticks": [
+              "now",
+              "tonight"
+            ],
+            "timeMark": "tonight"
+          }
         ]
       }
     ]
@@ -1187,6 +2434,67 @@
             ],
             "note": "at that future moment the action will be in progress"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "At 8 o'clock tonight",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " I "
+                  },
+                  {
+                    "text": "will be watching",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the match."
+                  }
+                ],
+                "note": "at that future moment the action will be in progress"
+              }
+            ],
+            "ticks": [
+              "now",
+              "20:00"
+            ],
+            "timeMark": "at 8 o'clock tonight"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "This time next week",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " she "
+                  },
+                  {
+                    "text": "will be lying",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " on the beach."
+                  }
+                ],
+                "note": "at that future moment the action will be in progress"
+              }
+            ],
+            "ticks": [
+              "today",
+              "next week"
+            ],
+            "timeMark": "this time next week"
+          }
+        ],
+        "vlines": [
+          0.63
         ]
       }
     ]
@@ -1250,6 +2558,64 @@
               }
             ],
             "note": "the action will be complete before that future point"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "By 6 o'clock",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " I "
+                  },
+                  {
+                    "text": "will have done",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " my homework."
+                  }
+                ],
+                "note": "the action will be complete before that future point"
+              }
+            ],
+            "ticks": [
+              "15:00",
+              "18:00"
+            ],
+            "timeMark": "by 6 o'clock"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "By the end of June",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " they "
+                  },
+                  {
+                    "text": "will have built",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the bridge."
+                  }
+                ],
+                "note": "the action will be complete before that future point"
+              }
+            ],
+            "ticks": [
+              "today",
+              "30 June"
+            ],
+            "timeMark": "by the end of June"
           }
         ]
       }
@@ -1323,6 +2689,78 @@
             ],
             "note": "how long the action will have lasted by that future point"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "By 5 o'clock",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " he "
+                  },
+                  {
+                    "text": "will have been working",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "for eight hours",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "how long the action will have lasted by that future point"
+              }
+            ],
+            "ticks": [
+              "now",
+              "17:00"
+            ],
+            "timeMark": "for eight hours"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "By next month",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " I "
+                  },
+                  {
+                    "text": "will have been learning",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " English "
+                  },
+                  {
+                    "text": "for two years",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "how long the action will have lasted by that future point"
+              }
+            ],
+            "ticks": [
+              "today",
+              "next month"
+            ],
+            "timeMark": "for two years"
+          }
         ]
       }
     ]
@@ -1390,6 +2828,72 @@
               }
             ],
             "note": "the plan already exists now; the action is in the future"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I"
+                  },
+                  {
+                    "text": "'m going to",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " visit my grandparents "
+                  },
+                  {
+                    "text": "on Sunday",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "the plan already exists now; the action is in the future"
+              }
+            ],
+            "ticks": [
+              "decided",
+              "today",
+              "Sunday"
+            ],
+            "timeMark": "on Sunday"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She"
+                  },
+                  {
+                    "text": "'s going to",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " study medicine "
+                  },
+                  {
+                    "text": "next year",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "the plan already exists now; the action is in the future"
+              }
+            ],
+            "ticks": [
+              "decided",
+              "today",
+              "next year"
+            ],
+            "timeMark": "next year"
           }
         ]
       }
@@ -1462,6 +2966,70 @@
             ],
             "note": "repeated in the past, not anymore: nothing after the past crosses"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "used to play",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " with dolls "
+                  },
+                  {
+                    "text": "when I was little",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "repeated in the past, not anymore: nothing after the past crosses"
+              }
+            ],
+            "ticks": [
+              "2005 – 2010",
+              "today"
+            ],
+            "timeMark": "when I was little"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "They "
+                  },
+                  {
+                    "text": "used to go",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " camping "
+                  },
+                  {
+                    "text": "every summer",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "repeated in the past, not anymore: nothing after the past crosses"
+              }
+            ],
+            "ticks": [
+              "1990s",
+              "today"
+            ],
+            "timeMark": "every summer"
+          }
         ]
       }
     ]
@@ -1533,6 +3101,62 @@
             ],
             "note": "a habit: repeated again and again, not necessarily right now"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "Anna "
+                  },
+                  {
+                    "text": "walks",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " to school "
+                  },
+                  {
+                    "text": "every day",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a habit: repeated again and again, not necessarily right now"
+              }
+            ],
+            "timeMark": "every day"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "Dad "
+                  },
+                  {
+                    "text": "cooks",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " dinner "
+                  },
+                  {
+                    "text": "on Sundays",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a habit: repeated again and again, not necessarily right now"
+              }
+            ],
+            "timeMark": "on Sundays"
+          }
         ]
       },
       {
@@ -1572,6 +3196,62 @@
               }
             ],
             "note": "one action in progress at this moment"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "Anna "
+                  },
+                  {
+                    "text": "is walking",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " to school "
+                  },
+                  {
+                    "text": "right now",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "one action in progress at this moment"
+              }
+            ],
+            "timeMark": "right now"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "Dad "
+                  },
+                  {
+                    "text": "is cooking",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " dinner "
+                  },
+                  {
+                    "text": "at the moment",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "one action in progress at this moment"
+              }
+            ],
+            "timeMark": "at the moment"
           }
         ]
       }
@@ -1621,6 +3301,46 @@
             ],
             "note": "when is not important; the experience matters now"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "has read",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " this book."
+                  }
+                ],
+                "note": "when is not important; the experience matters now"
+              }
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We "
+                  },
+                  {
+                    "text": "have met",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " before."
+                  }
+                ],
+                "note": "when is not important; the experience matters now"
+              }
+            ]
+          }
         ]
       },
       {
@@ -1668,6 +3388,70 @@
               }
             ],
             "note": "a finished action at a stated past time, cut off from now"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "read",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " this book "
+                  },
+                  {
+                    "text": "last summer",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a finished action at a stated past time, cut off from now"
+              }
+            ],
+            "ticks": [
+              "last summer",
+              "today"
+            ],
+            "timeMark": "last summer"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We "
+                  },
+                  {
+                    "text": "met",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "two years ago",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "a finished action at a stated past time, cut off from now"
+              }
+            ],
+            "ticks": [
+              "2024",
+              "today"
+            ],
+            "timeMark": "two years ago"
           }
         ]
       }
@@ -1724,6 +3508,46 @@
             ],
             "note": "the result: three letters are ready"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "have read",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " three chapters."
+                  }
+                ],
+                "note": "the result: three chapters are read"
+              }
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "He "
+                  },
+                  {
+                    "text": "has painted",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " three walls."
+                  }
+                ],
+                "note": "the result: three walls are painted"
+              }
+            ]
+          }
         ]
       },
       {
@@ -1772,6 +3596,70 @@
               }
             ],
             "note": "the duration: the activity has filled the whole morning"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I "
+                  },
+                  {
+                    "text": "have been reading",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "all evening",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "the duration: the activity has filled the whole evening"
+              }
+            ],
+            "ticks": [
+              "18:00",
+              "21:00"
+            ],
+            "timeMark": "all evening"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "He "
+                  },
+                  {
+                    "text": "has been painting",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "since morning",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "the duration: the activity has been going on since morning"
+              }
+            ],
+            "ticks": [
+              "9:00",
+              "15:00"
+            ],
+            "timeMark": "since morning"
           }
         ]
       }
@@ -1836,6 +3724,68 @@
             ],
             "note": "the job was complete before the race"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "had cooked",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " dinner "
+                  },
+                  {
+                    "text": "before",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " the guests arrived."
+                  }
+                ],
+                "note": "the dinner was ready before the guests arrived"
+              }
+            ],
+            "ticks": [
+              "cooked",
+              "guests"
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "They "
+                  },
+                  {
+                    "text": "had cleaned",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " the house "
+                  },
+                  {
+                    "text": "before",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " mum came back."
+                  }
+                ],
+                "note": "the house was clean before mum came back"
+              }
+            ],
+            "ticks": [
+              "cleaned",
+              "mum came"
+            ]
+          }
         ]
       },
       {
@@ -1892,6 +3842,70 @@
             ],
             "note": "how long the work had gone on up to that moment"
           }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "She "
+                  },
+                  {
+                    "text": "had been cooking",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "for two hours",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " when the guests arrived."
+                  }
+                ],
+                "note": "how long the work had gone on up to that moment"
+              }
+            ],
+            "ticks": [
+              "17:00",
+              "19:00 · guests"
+            ],
+            "timeMark": "for two hours"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "They "
+                  },
+                  {
+                    "text": "had been cleaning",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " "
+                  },
+                  {
+                    "text": "for an hour",
+                    "mark": "time"
+                  },
+                  {
+                    "text": " when mum came back."
+                  }
+                ],
+                "note": "how long the work had gone on up to that moment"
+              }
+            ],
+            "ticks": [
+              "14:00",
+              "15:00 · mum came"
+            ],
+            "timeMark": "for an hour"
+          }
         ]
       }
     ]
@@ -1944,6 +3958,46 @@
               }
             ],
             "note": "decided at the moment of speaking, so the decision sits on NOW"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "The phone is ringing. I"
+                  },
+                  {
+                    "text": "'ll answer",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " it."
+                  }
+                ],
+                "note": "decided at the moment of speaking, so the decision sits on NOW"
+              }
+            ]
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We have no milk. — Really? I"
+                  },
+                  {
+                    "text": "'ll buy",
+                    "mark": "v1"
+                  },
+                  {
+                    "text": " some."
+                  }
+                ],
+                "note": "decided at the moment of speaking, so the decision sits on NOW"
+              }
+            ]
           }
         ]
       },
@@ -2001,6 +4055,72 @@
               }
             ],
             "note": "decided before now; the plan already exists"
+          }
+        ],
+        "examples": [
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "I"
+                  },
+                  {
+                    "text": "'m going to",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " call my aunt "
+                  },
+                  {
+                    "text": "tonight",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "decided before now; the plan already exists"
+              }
+            ],
+            "ticks": [
+              "decided",
+              "now",
+              "tonight"
+            ],
+            "timeMark": "tonight"
+          },
+          {
+            "sentences": [
+              {
+                "tokens": [
+                  {
+                    "text": "We have no milk. — I know. I"
+                  },
+                  {
+                    "text": "'m going to",
+                    "mark": "v2"
+                  },
+                  {
+                    "text": " buy some "
+                  },
+                  {
+                    "text": "after work",
+                    "mark": "time"
+                  },
+                  {
+                    "text": "."
+                  }
+                ],
+                "note": "decided before now; the plan already exists"
+              }
+            ],
+            "ticks": [
+              "decided",
+              "now",
+              "after work"
+            ],
+            "timeMark": "after work"
           }
         ]
       }

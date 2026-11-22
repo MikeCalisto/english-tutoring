@@ -11,6 +11,16 @@ function shortName(title: string, topic: string) {
   return s || title;
 }
 
+/** Назва картки в перемикачі: типові картки українською, решта як у заголовку. */
+function pillLabel(c: { type?: string; title: string }, topic: string) {
+  const t = c.title.toLowerCase();
+  if (c.type === "form") return t.includes("to be") ? "To be" : "Форма";
+  if (t.endsWith("spelling")) return "Правопис";
+  if (t.endsWith("is used")) return "Використання";
+  if (t.includes("time expressions")) return "Вирази часу";
+  return shortName(c.title, topic);
+}
+
 /** Колода: одна карточка на экране, переключение пилюлями и стрелками клавиатуры. */
 export function Deck({ topic, initial = 0 }: { topic: Topic; initial?: number }) {
   const [i, setI] = useState(Math.min(initial, topic.cards.length - 1));
@@ -46,7 +56,7 @@ export function Deck({ topic, initial = 0 }: { topic: Topic; initial?: number })
         {cards.map((c, k) => (
           <button key={k} className={`crumb2 g-${topic.group}${k === i ? " on" : ""}`} onClick={() => setI(k)}>
             <Icon name={cardIcon(c)} size={14} />
-            {shortName(c.title, topic.topic)}
+            {pillLabel(c, topic.topic)}
           </button>
         ))}
         <div className="grow" />

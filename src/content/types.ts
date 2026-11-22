@@ -130,7 +130,18 @@ export interface TLLane {
   points?: TLPoint[];
   ticks?: { at: number; text: string }[];
   timeMark?: { from: number; to: number; text: string };
+  /** Вертикальні позначки названого моменту (частка шкали 0..1), наприклад посередині блоку. */
+  vlines?: number[];
   sentences: TLSentence[];
+  /** Додаткові приклади на тій самій шкалі: інші речення, підписи часу й вираз часу. */
+  examples?: TLExample[];
+}
+
+export interface TLExample {
+  sentences: TLSentence[];
+  /** Тексти підписів у тому ж порядку, що й ticks. */
+  ticks?: string[];
+  timeMark?: string;
 }
 
 export interface Timeline {
