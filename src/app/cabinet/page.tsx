@@ -19,7 +19,7 @@ export default async function CabinetPage() {
       <div className="layout" style={{ gridTemplateColumns: "1fr" }}>
         <main className="main">
           <h1 className="h1">Кабінет</h1>
-          <p className="muted">Ви увійшли як учень{me.firstName ? `: ${me.firstName}` : ""}. Вам доступні таймлайни і тести.</p>
+          <p className="muted">Ви увійшли як учень{me.firstName ? `: ${me.firstName}` : ""}. Вам доступні таймлайни.</p>
           <form method="post" action="/api/auth/logout"><button className="btn">Вийти</button></form>
         </main>
       </div>
@@ -75,7 +75,7 @@ export default async function CabinetPage() {
                   <form action={deleteInvite}><input type="hidden" name="code" value={i.code} /><button className="btn">Видалити</button></form>
                 </div>
               ))}
-              <p className="muted small">Код одноразовий. Учень вводить його на сторінці входу і одразу бачить таймлайни і тести.</p>
+              <p className="muted small">Код одноразовий. Учень вводить його на сторінці входу і одразу бачить таймлайни.</p>
             </div>
           )}
           {students.length === 0 ? (
