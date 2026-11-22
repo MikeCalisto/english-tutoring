@@ -15,8 +15,8 @@ export const dynamic = "force-dynamic";
 
 /** Одна сторінка збірника. Кожна сторінка — рівно один аркуш A4 в альбомній орієнтації. */
 type Leaf =
-  | { kind: "card"; topic: Topic; card: Card; n: number; of: number; label: string }
-  | { kind: "timeline"; t: Timeline };
+  | { kind: "card"; topic: Topic; card: Card; n: number; of: number; label: string; part: number; sub?: string }
+  | { kind: "timeline"; t: Timeline; part: number };
 
 interface Unit {
   id: string;
@@ -38,6 +38,28 @@ interface Section {
 
 const TL_FOR_TOPIC: Record<string, string> = { "to-be-going-to": "be-going-to" };
 
+/**
+ * Довгі картки діляться на кілька аркушів, щоб текст не ставав дрібним:
+ * таблиця дієслів навпіл, а в огляді з чотирьох колонок примітки й таблиця йдуть окремою сторінкою.
+ */
+function splitCard(card: Card): Card[] {
+  if (card.type === "compare" && card.columns.length >= 4 && (card.blocks?.length ?? 0) >= 1) {
+    const blocks = card.blocks ?? [];
+    const sub = blocks.map((b) => b.heading?.toLowerCase()).filter(Boolean).join(" · ");
+    return [{ ...card, blocks: undefined }, { title: card.title, subtitle: sub, group: card.group, blocks }];
+  }
+  if (!card.type && card.blocks.length === 1 && card.blocks[0].kind === "verbs") {
+    const items = card.blocks[0].items as { inf: string }[];
+    const per = Math.ceil(items.length / 2);
+    return [items.slice(0, per), items.slice(per)].map((chunk) => ({
+      ...card,
+      subtitle: `${chunk[0].inf} – ${chunk[chunk.length - 1].inf}`,
+      blocks: [{ ...card.blocks[0], items: chunk }],
+    }));
+  }
+  return [card];
+}
+
 /** Увесь збірник у порядку читання: часи за групами, потім інші теми, потім порівняння часів. */
 function buildBook(): Section[] {
   const topics = new Map(getTopics().map((t) => [t.id, t]));
@@ -48,11 +70,14 @@ function buildBook(): Section[] {
   const unit = (id: string): Unit | null => {
     const topic = topics.get(id);
     if (!topic) return null;
-    const leaves: Leaf[] = topic.cards.map((card, i) => ({ kind: "card", topic, card, n: i + 1, of: topic.cards.length, label: pillLabel(card, topic.topic) }));
-    const parts = leaves.map((l) => (l.kind === "card" ? l.label : ""));
+    const parts = topic.cards.map((card) => pillLabel(card, topic.topic));
+    const leaves: Leaf[] = topic.cards.flatMap((card, i) => {
+      const pieces = splitCard(card);
+      return pieces.map((c, k): Leaf => ({ kind: "card", topic, card: c, n: i + 1, of: topic.cards.length, label: parts[i], part: i, sub: pieces.length > 1 ? `стор. ${k + 1} з ${pieces.length}` : undefined }));
+    });
     const tl = single.get(TL_FOR_TOPIC[id] ?? id);
     if (tl) {
-      leaves.push({ kind: "timeline", t: tl });
+      leaves.push({ kind: "timeline", t: tl, part: parts.length });
       parts.push("Таймлайн");
     }
     return { id, label: TOPIC_LABELS[id] ?? topic.topic, group: topic.group, icon: topicIcon(id), parts, leaves };
@@ -77,7 +102,7 @@ function buildBook(): Section[] {
     group: "other",
     icon: "versus",
     parts: conflicts.map((t) => t.title),
-    leaves: conflicts.map((t) => ({ kind: "timeline", t })),
+    leaves: conflicts.map((t, i) => ({ kind: "timeline", t, part: i })),
   });
   sections.push({ id: "compare", group: "other", label: "Порівняння часів", note: "Два часи поруч: пари, сценарії, огляди й шкали", units: cmp });
   return sections;
@@ -111,7 +136,7 @@ export default async function PdfPage({ searchParams }: { searchParams: Promise<
   let page = 2;
   const plan = book.map((s) => {
     const units = s.units.map((u) => {
-      const leaves = u.leaves.map((l, i) => ({ l, i })).filter(({ l }) => !sample || sampleFilter(u, l));
+      const leaves = u.leaves.map((l) => ({ l, i: l.part })).filter(({ l }) => !sample || sampleFilter(u, l));
       return { u, leaves: leaves.map((x) => ({ ...x, page: 0 })), first: 0 };
     });
     const any = units.some((x) => x.leaves.length > 0);
@@ -127,10 +152,10 @@ export default async function PdfPage({ searchParams }: { searchParams: Promise<
 
       {/* ---------- обкладинка ---------- */}
       <section className="pdf-page pdf-cover">
-        <div className="pdf-cover-top"><img src="/brand/logo.svg" alt="" /><span>{BRAND.name}</span></div>
+        <h1 className="pdf-cover-top"><img src="/brand/logo.svg" alt="" /><span>{BRAND.name}: часи англійської</span></h1>
         <div className="pdf-cover-mid">
           <div className="pdf-cover-k">Збірник для вчителя англійської</div>
-          <h1 className="pdf-cover-h"><span>Часи англійської </span><span>в картках і таймлайнах</span></h1>
+          <div className="pdf-cover-h">{"Часи англійської в\u00a0картках і\u00a0таймлайнах"}</div>
           <p className="pdf-cover-p">Форма, правопис і використання кожного часу. Шкали часу з прикладами. Порівняння часів, які учні плутають.</p>
           <div className="pdf-cover-groups">
             <span className="g-present">Present</span><span className="g-past">Past</span><span className="g-future">Future</span><span className="g-other">Порівняння</span>
@@ -211,7 +236,7 @@ export default async function PdfPage({ searchParams }: { searchParams: Promise<
                   </div>
                   <Foot
                     section={s.label}
-                    crumb={l.kind === "card" ? `${u.label} · ${l.label} · ${l.n} / ${l.of}` : u.id === "conflicts" ? `${l.t.title} · Таймлайн` : `${u.label} · Таймлайн`}
+                    crumb={l.kind === "card" ? `${u.label} · ${l.label} · ${l.n} / ${l.of}${l.sub ? ` · ${l.sub}` : ""}` : u.id === "conflicts" ? `${l.t.title} · Таймлайн` : `${u.label} · Таймлайн`}
                     page={p}
                   />
                 </section>

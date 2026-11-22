@@ -31,11 +31,11 @@
   radial-gradient(60% 70% at 88% 8%, rgba(59, 130, 246, .16), transparent 70%),
   radial-gradient(50% 60% at 6% 96%, rgba(240, 130, 60, .14), transparent 70%),
   radial-gradient(40% 50% at 60% 100%, rgba(34, 181, 115, .12), transparent 70%), #f4f7fc; }
-.pdf-cover-top { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 20px; }
+.pdf-cover-top { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 20px; margin: 0; }
 .pdf-cover-top img { width: 34px; height: 34px; border-radius: 9px; }
 .pdf-cover-k { font-family: var(--display); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin-bottom: 18px; }
 .pdf-cover-h { font-family: var(--display); font-weight: 500; font-size: 64px; line-height: 1.04; letter-spacing: -.03em; margin: 0 0 22px; }
-.pdf-cover-h span { display: block; }
+.pdf-cover-h { max-width: 750px; }
 .pdf-cover-p { font-size: 19px; line-height: 1.5; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
 .pdf-cover-groups { display: flex; gap: 8px; }
 .pdf-cover-groups span { font-family: var(--display); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; padding: 6px 14px; border-radius: 999px; color: #fff; background: var(--frame); }
@@ -69,6 +69,10 @@
 .pdf-div-u b { font-family: var(--mono); font-size: 14px; color: var(--frame); min-width: 22px; text-align: right; }
 .pdf-div-u.off { opacity: .42; }
 .pdf-div-u .sig { width: 120px; }
+
+/* таблиця дієслів: шапка в один рядок, щоб три колонки стояли на одній лінії */
+.pdf-book table.vt th { white-space: nowrap; }
+.pdf-book table.vt { font-size: 15.5px; }
 
 /* таймлайн у друці: додаткові приклади списком */
 .tl-more { border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-direction: column; gap: 10px; }

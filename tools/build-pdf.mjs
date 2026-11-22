@@ -62,6 +62,33 @@ try {
   if (!ready) throw new Error("page did not report ready (not logged in as admin?)");
   const info = await send("Runtime.evaluate", { expression: "JSON.stringify({pages: document.querySelectorAll('.pdf-page').length, fit: document.documentElement.dataset.pdfFit, path: location.pathname})" });
   console.log(info.result.value);
+  // перевірка: картка не виходить за свою сторінку, і всередині картки нічого не стирчить за її край
+  const audit = await send("Runtime.evaluate", { expression: `(() => {
+    const out = [];
+    document.querySelectorAll(".pdf-page").forEach((pg) => {
+      const pr = pg.getBoundingClientRect();
+      const stage = pg.querySelector(".pdf-stage");
+      if (!stage) { for (const el of pg.querySelectorAll("*")) { const r = el.getBoundingClientRect(); if (r.width && (r.bottom > pr.bottom + 1 || r.right > pr.right + 1)) { out.push(pg.id + ": " + el.className + " out of page"); break; } } return; }
+      const sr = stage.getBoundingClientRect();
+      const card = stage.querySelector(".card");
+      const cr = card.getBoundingClientRect();
+      if (cr.bottom > sr.bottom + 1 || cr.right > sr.right + 1 || cr.left < sr.left - 1) out.push(pg.id + ": card does not fit the page");
+      if (+stage.dataset.scale < 0.78) out.push(pg.id + ": small scale " + stage.dataset.scale);
+      const bad = new Set();
+      for (const el of card.querySelectorAll("*")) {
+        if (el.closest("svg") && el.tagName !== "svg") continue;
+        const r = el.getBoundingClientRect();
+        if (r.width < 1 || r.height < 1) continue;
+        if (r.right > cr.right + 1 || r.left < cr.left - 1) bad.add(el.tagName.toLowerCase() + "." + el.className);
+        const p = el.parentElement.getBoundingClientRect();
+        const pos = getComputedStyle(el).position;
+        if (pos !== "absolute" && getComputedStyle(el.parentElement).display !== "inline" && r.right > p.right + 2) bad.add(el.tagName.toLowerCase() + "." + el.className + " wider than parent");
+      }
+      if (bad.size) out.push(pg.id + ": " + [...bad].slice(0, 4).join(" | "));
+    });
+    return out.length ? out.join("\\n") : "audit: all pages fit";
+  })()` });
+  console.log(audit.result.value);
 
   const pdf = await send("Page.printToPDF", {
     // розмір паперу задаємо явно: за ним Chrome рахує ширину для media-запитів (інакше бере Letter)
