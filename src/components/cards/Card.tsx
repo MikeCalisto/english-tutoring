@@ -221,7 +221,7 @@ function BlockView({ b, forceWide }: { b: Block; forceWide?: boolean }) {
             <div className={`u${u.wide ? " wide" : ""}`} key={n}>
               <Tile name={emojiIcon(u.emoji)} small />
               <div>
-                <div className="ttl">{u.case}</div>
+                <Html as="div" className="ttl" html={u.case} />
                 {u.examples.map((e, i) => (
                   <Html key={i} as="p" className="ex2" html={e} />
                 ))}
@@ -300,7 +300,7 @@ function BlockView({ b, forceWide }: { b: Block; forceWide?: boolean }) {
   }
   const wide = forceWide || (b.kind ? WIDE_KINDS.has(b.kind) : false);
   return (
-    <div className={`blk${wide ? " wide" : ""}${b.warn ? " warn" : ""}`}>
+    <div className={`blk${wide ? " wide" : ""}${b.warn ? " warn" : ""}${b.kind ? ` k-${b.kind}` : ""}`}>
       {b.heading && <h4>{b.kind && <Icon name={BLOCK_ICON[b.kind] ?? "cards"} size={14} />}{b.heading}</h4>}
       {b.note && <Html as="p" className="note" html={b.note} />}
       {inner}
@@ -333,8 +333,8 @@ function CompareCardView({ c, footer, topicId }: { c: CompareCard; footer?: stri
             <div className="cmp-hd">{col.tense}</div>
             <div className="cmp-bd">
               {col.items.map((i, k) => (
-                <div className="cmp-i" key={k}>
-                  <div className="ttl">{i.case}</div>
+                <div className={`cmp-i${i.examples.length === 0 ? " solo" : ""}`} key={k}>
+                  <Html as="div" className="ttl" html={i.case} />
                   {i.examples.map((e, j) => (
                     <Html key={j} as="p" className="ex2" html={e} />
                   ))}
