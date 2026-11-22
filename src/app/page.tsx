@@ -1,14 +1,11 @@
-import { Landing } from "@/components/landing/Landing";
+import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
-import { getTimeline, getTopic } from "@/content";
 
 export const dynamic = "force-dynamic";
 
-/** Публічний лендинг на корені домену. Платформа живе на /cards, /timelines, /tasks, /tests і закрита логіном. */
+/** Корінь домену — вхід у платформу: хто вже увійшов, потрапляє до матеріалів, решта на сторінку входу. Лендинги живуть на підсторінках (/pack, /uchni). */
 export default async function Home() {
   const user = await getCurrentUser().catch(() => null);
-  const topic = getTopic("present-simple");
-  const demoCard = topic ? { ...topic.cards[0], group: topic.group } : null;
-  const demoTimeline = getTimeline("past-continuous-past-simple");
-  return <Landing loggedIn={Boolean(user)} demoCard={demoCard} demoTimeline={demoTimeline} />;
+  if (!user) redirect("/login");
+  redirect(user.role === "student" ? "/timelines" : "/cards");
 }

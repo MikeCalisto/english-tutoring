@@ -13,11 +13,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
-  /** Продаючий лендинг — статичний HTML у public/lp, віддається на корені домену. Платформа лишається на /cards, /timelines, /tasks, /tests. */
+  /** Корінь домену веде в платформу (src/app/page.tsx). Продаючий лендинг пака — статичний HTML у public/lp, віддається на /pack. */
   async rewrites() {
     return {
       beforeFiles: [
-        { source: "/", destination: "/lp/index.html" },
+        { source: "/pack", destination: "/lp/index.html" },
         { source: "/oferta", destination: "/lp/oferta.html" },
         { source: "/politika", destination: "/lp/politika.html" },
       ],
