@@ -100,7 +100,7 @@ function ShortAnswerPanel({ p }: { p: Panel }) {
             <div className="sagrp">
               {u.lines.map((l, i) => (
                 <div className="sa-line" key={i}>
-                  <div className="prons">
+                  <div className={`prons${l.pronouns.length > 4 ? " many" : ""}`}>
                     <Pills items={l.pronouns} />
                   </div>
                   <div className="brace" />

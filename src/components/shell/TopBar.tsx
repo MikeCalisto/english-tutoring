@@ -45,7 +45,7 @@ export function TopBar({ user, search, theme }: { user: TopBarUser | null; searc
   const items = user?.role === "student" ? search.filter((s) => s.kind === "timeline") : search;
   return (
     <header className="topbar">
-      <Link href="/cards" className="brand"><img src="/brand/logo.svg" alt="" />{BRAND.name}</Link>
+      <Link href="/cards" className="brand"><img src="/brand/logo.svg" alt="" /><span className="brand-t">{BRAND.name}</span></Link>
       <nav className="tabs" data-tour="tabs">
         {tabs.map((t) => (
           <Link key={t.href} href={t.href} data-tour={`tab-${t.key}`} className={`tab${path.startsWith(t.href) ? " on" : ""}`}>
@@ -69,12 +69,12 @@ export function TopBar({ user, search, theme }: { user: TopBarUser | null; searc
             <Icon name="help" />
           </button>
         )}
-        <button className="btn" onClick={toggle} title="На весь екран для проєктора" type="button">
+        <button className="btn tb-btn" onClick={toggle} title="На весь екран для проєктора" aria-label="Проєктор" type="button">
           <Icon name="expand" size={14} />
-          Проєктор
+          <span className="lbl">Проєктор</span>
         </button>
         {user ? (
-          <Link href="/cabinet" className={`btn${path.startsWith("/cabinet") ? " primary" : ""}`}><Icon name="user" size={14} />{user.name}</Link>
+          <Link href="/cabinet" className={`btn tb-btn${path.startsWith("/cabinet") ? " primary" : ""}`} title="Кабінет" aria-label={`Кабінет: ${user.name}`}><Icon name="user" size={14} /><span className="lbl">{user.name}</span></Link>
         ) : (
           <Link href="/login" className="btn">Увійти</Link>
         )}
