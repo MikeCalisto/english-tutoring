@@ -22,6 +22,8 @@ const TABS = [
 export interface TopBarUser {
   name: string;
   role: "admin" | "teacher" | "student";
+  /** Учень, якому відкрито всі розділи. */
+  full?: boolean;
 }
 
 export function TopBar({ user, search, theme }: { user: TopBarUser | null; search: SearchItem[]; theme: "light" | "dark" }) {
@@ -41,8 +43,9 @@ export function TopBar({ user, search, theme }: { user: TopBarUser | null; searc
   }, []);
 
   if (path === "/" || path.startsWith("/login") || path.startsWith("/pdf")) return null;
-  const tabs = TABS.filter((t) => !user || user.role !== "student" || t.student);
-  const items = user?.role === "student" ? search.filter((s) => s.kind === "timeline") : search;
+  const limited = user?.role === "student" && !user.full;
+  const tabs = TABS.filter((t) => !limited || t.student);
+  const items = limited ? search.filter((s) => s.kind === "timeline") : search;
   return (
     <header className="topbar">
       <Link href="/cards" className="brand"><img src="/brand/logo.svg" alt="" /><span className="brand-t">{BRAND.name}</span></Link>

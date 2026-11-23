@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { desc, eq, isNull, and } from "drizzle-orm";
 import { db, schema } from "@/db";
 import { getCurrentUser } from "@/lib/auth";
-import { createInvite, deleteInvite, removeStudent, setStudentLimit, setTeacherActive } from "./actions";
+import { createInvite, deleteInvite, removeStudent, setStudentFullAccess, setStudentLimit, setTeacherActive } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -19,7 +19,7 @@ export default async function CabinetPage() {
       <div className="layout" style={{ gridTemplateColumns: "1fr" }}>
         <main className="main">
           <h1 className="h1">Кабінет</h1>
-          <p className="muted">Ви увійшли як учень{me.firstName ? `: ${me.firstName}` : ""}. Вам доступні таймлайни.</p>
+          <p className="muted">Ви увійшли як учень{me.firstName ? `: ${me.firstName}` : ""}. {me.fullAccess ? "Вам доступні всі матеріали: картки, таймлайни, майндмеп і завдання." : "Вам доступні таймлайни."}</p>
           <form method="post" action="/api/auth/logout"><button className="btn">Вийти</button></form>
         </main>
       </div>
@@ -27,7 +27,7 @@ export default async function CabinetPage() {
   }
 
   const students = await db
-    .select({ id: schema.users.id, name: schema.users.firstName, label: schema.teacherStudent.label, since: schema.teacherStudent.createdAt })
+    .select({ id: schema.users.id, name: schema.users.firstName, label: schema.teacherStudent.label, since: schema.teacherStudent.createdAt, full: schema.users.fullAccess })
     .from(schema.teacherStudent)
     .innerJoin(schema.users, eq(schema.users.id, schema.teacherStudent.studentId))
     .where(eq(schema.teacherStudent.teacherId, me.id))
@@ -85,7 +85,14 @@ export default async function CabinetPage() {
               {students.map((s) => (
                 <div className="row" key={s.id}>
                   <span className="t">{s.label ?? s.name ?? "Учень"}</span>
-                  <span className="muted small">з {fmt(s.since)}</span>
+                  <span className="muted small">з {fmt(s.since)} · {s.full ? "усі матеріали" : "лише таймлайни"}</span>
+                  {me.role === "admin" && (
+                    <form action={setStudentFullAccess}>
+                      <input type="hidden" name="studentId" value={s.id} />
+                      <input type="hidden" name="full" value={s.full ? "0" : "1"} />
+                      <button className={`btn${s.full ? "" : " primary"}`} type="submit">{s.full ? "Лишити таймлайни" : "Відкрити все"}</button>
+                    </form>
+                  )}
                   <form action={removeStudent}><input type="hidden" name="studentId" value={s.id} /><button className="btn">Відв&apos;язати</button></form>
                 </div>
               ))}

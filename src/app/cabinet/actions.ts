@@ -36,6 +36,16 @@ export async function removeStudent(formData: FormData) {
   revalidatePath("/cabinet");
 }
 
+/** Адміністратор відкриває учню всі розділи або повертає лише таймлайни. */
+export async function setStudentFullAccess(formData: FormData) {
+  const me = await requireUser(["admin"]);
+  if (!me) return;
+  const studentId = String(formData.get("studentId") ?? "");
+  const full = formData.get("full") === "1";
+  await db.update(schema.users).set({ fullAccess: full }).where(and(eq(schema.users.id, studentId), eq(schema.users.role, "student")));
+  revalidatePath("/cabinet");
+}
+
 /** Админ включает или выключает доступ учителю. */
 export async function setTeacherActive(formData: FormData) {
   const me = await requireUser(["admin"]);

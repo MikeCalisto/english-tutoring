@@ -15,6 +15,8 @@ export const users = pgTable(
     lastName: text("last_name"),
     /** Учителю доступ включает админ (потом бот Zenedu). Ученик активен всегда. */
     active: boolean("active").notNull().default(false),
+    /** Учень із повним доступом бачить усі розділи, не лише таймлайни. Вмикає адміністратор. */
+    fullAccess: boolean("full_access").notNull().default(false),
     /** Сколько учеников может пригласить учитель. */
     studentLimit: integer("student_limit").notNull().default(10),
     /** Коли користувач пройшов навчання по платформі. null: ще не бачив, покажемо при вході. */

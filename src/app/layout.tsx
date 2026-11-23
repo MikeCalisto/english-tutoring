@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const c = await cookies();
   const theme = c.get("theme")?.value === "dark" ? "dark" : "light";
   const u = await getCurrentUser().catch(() => null);
-  const user = u ? { name: [u.firstName, u.lastName].filter(Boolean).join(" ") || "Кабінет", role: u.role } : null;
+  const user = u ? { name: [u.firstName, u.lastName].filter(Boolean).join(" ") || "Кабінет", role: u.role, full: u.fullAccess } : null;
   return (
     <html lang="uk" data-theme={theme} className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>

@@ -7,5 +7,5 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   const user = await getCurrentUser().catch(() => null);
   if (!user) redirect("/login");
-  redirect(user.role === "student" ? "/timelines" : "/cards");
+  redirect(user.role === "student" && !user.fullAccess ? "/timelines" : "/cards");
 }
