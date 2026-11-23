@@ -118,6 +118,20 @@ h2{font-size:clamp(1.9rem,8.2vw,2.4rem);margin-bottom:12px}
 .pview img.on{opacity:1;transform:none}
 .pview img.cover{object-fit:cover}
 
+/* компактне віяло скринів: шкали часу попереду, далі ігри, картки, майндмеп */
+.gfan{position:relative;height:clamp(290px,82vw,390px);margin:4px -4px 0}
+.gfan figure{position:absolute;left:14%;top:27%;width:72%;margin:0;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 22px 40px -18px rgba(0,0,0,.85);transform-origin:50% 150%;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.gfan figure img{width:100%;aspect-ratio:16/10.5;object-fit:cover;object-position:50% 0}
+.gfan .gbar{display:flex;gap:5px;padding:7px 10px;background:#1A1E2A}
+.gfan .gbar i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+.gfan .gbar i:first-child{background:var(--acc)}
+.gfan .g1{z-index:4;transform:translateY(8%) scale(1.06)}
+.gfan .g2{z-index:3;transform:rotate(-8deg) translate(-15%,2%)}
+.gfan .g3{z-index:2;transform:rotate(8deg) translate(15%,2%)}
+.gfan .g4{z-index:1;transform:translateY(-40%) scale(.92)}
+.gfan:not(.open) figure{transform:translateY(-2%)}
+
 /* офер: ціна, кнопка, таймер */
 .offer{position:relative;margin-top:28px;padding:20px 14px 16px;border-radius:28px;background:rgba(255,255,255,.06);
   border:1px solid var(--gline);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
@@ -467,17 +481,11 @@ clarity("set","page","pack");
   </ul>
 
   <div class="win">
-    <div class="pwin" id="pwin">
-      <div class="pwin__top"><div class="pwin__dots"><i></i><i></i><i></i></div>
-        <div class="ptabs" role="tablist" aria-label="Вкладки платформи">
-          <button role="tab" class="on" aria-selected="true">Картки</button><button role="tab" aria-selected="false">Вживання</button><button role="tab" aria-selected="false">Схеми</button><button role="tab" aria-selected="false">Ігри</button>
-        </div></div>
-      <div class="pview">
-        <img class="on" src="/lp/media/card-pp.webp" alt="Картка Present Perfect: форми з кожною особою" width="1500" height="1069">
-        <img src="/lp/media/card-pp-used.webp" alt="Випадки вживання Present Perfect з прикладами" width="1500" height="1070">
-        <img src="/lp/media/tl-pair.webp" alt="Схема пари Present Perfect і Past Simple на шкалі" width="1500" height="707">
-        <img class="cover" src="/lp/media/game-match.webp" alt="Гра Wordwall на зіставлення часів" width="800" height="600">
-      </div>
+    <div class="gfan" role="img" aria-label="Скрини платформи: схеми часів на шкалі, ігри Wordwall, картки часів і майндмеп">
+      <figure class="g4"><div class="gbar"><i></i><i></i><i></i></div><img src="/lp/media/mindmap.webp" alt="" width="1250" height="850"></figure>
+      <figure class="g3"><div class="gbar"><i></i><i></i><i></i></div><img src="/lp/media/card-pp.webp" alt="" width="1500" height="1069"></figure>
+      <figure class="g2"><div class="gbar"><i></i><i></i><i></i></div><img src="/lp/media/game-match.webp" alt="" width="800" height="600"></figure>
+      <figure class="g1"><div class="gbar"><i></i><i></i><i></i></div><img src="/lp/media/tl-pair.webp" alt="" width="1500" height="707"></figure>
     </div>
   </div>
 
@@ -742,7 +750,7 @@ clarity("set","page","pack");
  function t(){var l=Math.max(0,dl-Date.now());var s=p(Math.floor(l/36e5))+':'+p(Math.floor(l%36e5/6e4))+':'+p(Math.floor(l%6e4/1e3));
   for(var i=0;i<els.length;i++)els[i].textContent=s;if(l<=0)clearInterval(iv)}
  var iv=setInterval(t,1000);t()})();
-(function(){var d=location.search.indexOf('static')>-1?0:350;document.querySelectorAll('.bfan').forEach(function(f){setTimeout(function(){f.classList.add('open')},d)})})();
+(function(){var d=location.search.indexOf('static')>-1?0:350;document.querySelectorAll('.bfan,.gfan').forEach(function(f){setTimeout(function(){f.classList.add('open')},d)})})();
 (function(){var w=document.getElementById('pwin');if(!w)return;var t=w.querySelectorAll('.ptabs button'),im=w.querySelectorAll('.pview img'),i=0,tm;
  var still=location.search.indexOf('static')>-1||matchMedia('(prefers-reduced-motion: reduce)').matches;
  function go(n){t[i].classList.remove('on');t[i].setAttribute('aria-selected','false');im[i].classList.remove('on');i=n;
